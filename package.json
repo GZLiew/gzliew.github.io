@@ -1,0 +1,46 @@
+{
+  "name": "tapendium-pwa",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier \"src/**/*.{ts,tsx}\" --write"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.0.0-next.12",
+    "@emotion/react": "^11.0.0-next.12",
+    "@emotion/styled": "^11.0.0-next.12",
+    "emotion": "^10.0.27",
+    "next": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "storyblok-js-client": "2.5.0"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@emotion/babel-plugin": "^11.0.0-next.12",
+    "@emotion/server": "^11.0.0-next.12",
+    "@tailwindcssinjs/macro": "^0.7.2",
+    "@types/node": "14.0.5",
+    "@types/react": "16.9.35",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "postcss-flexbugs-fixes": "4.2.1",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "2.0.5",
+    "tailwindcss": "1.4.6",
+    "typescript": "3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "npm run format"
+  }
+}
