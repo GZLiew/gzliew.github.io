@@ -36,7 +36,7 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = true }) => {
+export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const hotelConfig = (await getHotelConfiguration(preview)) || []
   const homeData = (await getHomeData(preview)) || []
 
