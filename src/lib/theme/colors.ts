@@ -23,6 +23,10 @@ export default {
     primary: "#f09b0a",
     secondary: "#ffad1f"
   },
+  brown: {
+    primary: "#bb6565",
+    secondary: "#ea8989"
+  },
   black: {
     primary: "#1c1e22",
     secondary: "#393e43"
