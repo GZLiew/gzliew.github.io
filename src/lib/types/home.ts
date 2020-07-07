@@ -6,4 +6,5 @@ export interface HomeProps {
 interface HomeContent {
   primary_welcome_text: string
   secondary_welcome_text: string
+  quick_buttons: []
 }

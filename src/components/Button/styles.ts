@@ -19,8 +19,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${tw`
    relative 
    w-full
-   transition duration-500 ease-in-out
-   `}
+   transition duration-500 ease-in-out`}
   max-width: ${({ maxWith }) => maxWith};
   height: ${({ height }) => height};
   padding: 2px;

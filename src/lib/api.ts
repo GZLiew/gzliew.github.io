@@ -32,6 +32,7 @@ export async function getHomeData(preview) {
       content {
         primary_welcome_text
         secondary_welcome_text
+        quick_buttons
       }
     }
   }
