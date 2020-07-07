@@ -48,3 +48,7 @@ declare module "@emotion/react" {
     }
   }
 }
+
+export interface ThemeProps {
+  theme: Theme
+}
