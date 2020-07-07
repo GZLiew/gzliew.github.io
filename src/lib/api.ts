@@ -40,3 +40,20 @@ export async function getHomeData(preview) {
   )
   return data?.HomeItem
 }
+
+export async function getHotelInformation(preview) {
+  const data = await fetchAPI(
+    `
+   {
+    HotelinformationItem(id: "hotel-information") {
+      content {
+        hotel_name
+        welcome_text
+      }
+    }
+   }
+  `,
+    { preview }
+  )
+  return data?.HotelinformationItem
+}
