@@ -4,6 +4,5 @@ export interface HotelInfoProps {
 }
 
 interface HotelInfoContent {
-  hotel_name: string
   welcome_text: string
 }

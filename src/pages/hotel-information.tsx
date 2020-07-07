@@ -42,7 +42,7 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
           <img src={hotelConfig?.content.hotel_logo?.filename} title={hotelConfig?.content.hotel_logo.name} />
         </LogoWrapper>
         <SubHeading>{hotelInfo?.content?.welcome_text}</SubHeading>
-        <StyledTitle>{hotelInfo?.content?.hotel_name}</StyledTitle>
+        <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>
       </Container>
     </Layout>
   )

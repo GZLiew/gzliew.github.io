@@ -47,7 +47,6 @@ export async function getHotelInformation(preview) {
    {
     HotelinformationItem(id: "hotel-information") {
       content {
-        hotel_name
         welcome_text
       }
     }
