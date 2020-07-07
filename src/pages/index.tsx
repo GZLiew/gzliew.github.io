@@ -11,12 +11,12 @@ import { HomeProps } from "@/lib/types/home"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 
 const StyledTitle = styled.h2`
-${tw`text-4xl pb-4`}
+${tw`text-4xl pb-4 font-semibold`}
 color: ${({ theme }) => theme.colors.text.primary};
 `
 const SubHeading = styled.h1`
-  ${tw`text-sm pt-4`}
-  color: ${({ theme }) => theme.colors.text.secondary};
+  ${tw`text-sm pt-4 font-regular`}
+  color: ${({ theme }) => theme.colors.text.alternate};
 `
 
 interface Props {
