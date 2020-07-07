@@ -7,7 +7,7 @@ const StyledBar = styled.div(tw`
 `)
 
 const ExitLink = styled.a(tw`
-underline hover:text-pink duration-200 transition-colors
+underline hover:text-pink-100 duration-200 transition-colors
 `)
 
 type Prop = {

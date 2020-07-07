@@ -9,6 +9,7 @@ export async function getHotelConfiguration(preview) {
       content {
         hotel_logo {
           name
+          filename
         }
         hotel_name
         primary_color
@@ -38,4 +39,20 @@ export async function getHomeData(preview) {
     { preview }
   )
   return data?.HomeItem
+}
+
+export async function getHotelInformation(preview) {
+  const data = await fetchAPI(
+    `
+   {
+    HotelinformationItem(id: "hotel-information") {
+      content {
+        welcome_text
+      }
+    }
+   }
+  `,
+    { preview }
+  )
+  return data?.HotelinformationItem
 }

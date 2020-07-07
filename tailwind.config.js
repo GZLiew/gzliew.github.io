@@ -6,11 +6,18 @@ module.exports = {
         sans:
           '"Poppins",-apple-system, "Helvetica Neue", "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"'
       },
-      colors: {
-        pink: "#f95688"
+      fontWeight: {
+        light: "300",
+        regular: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700"
       },
       fontSize: {
-        button: "1rem"
+        sm: "0.8125rem",
+        md: "0.875rem",
+        "1xl": "1.375rem",
+        "2.5xl": "1.625rem"
       }
     }
   },
