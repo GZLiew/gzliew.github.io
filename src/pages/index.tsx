@@ -5,13 +5,19 @@ import Head from "next/head"
 
 import Container from "@/components/Container"
 import Layout from "@/components/Layout"
-import ButtonStyled from "@/components/ButtonStyled"
+import Button from "@/components/Button"
 
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
 
-const StyledTitle = styled.h1(tw`text-4xl pb-4`)
-const SubHeading = styled.h1(tw`text-sm pt-4 text-gray-900`)
+const StyledTitle = styled.h2`
+${tw`text-4xl pb-4`}
+color: ${({ theme }) => theme.colors.text.primary};
+`
+const SubHeading = styled.h1`
+  ${tw`text-sm pt-4`}
+  color: ${({ theme }) => theme.colors.text.secondary};
+`
 
 interface Props {
   hotelConfig?: any
@@ -30,7 +36,7 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
           {homeData?.content?.primary_welcome_text} {hotelConfig?.content?.hotel_name}
         </SubHeading>
         <StyledTitle>{homeData?.content?.secondary_welcome_text}</StyledTitle>
-        <ButtonStyled onClick={() => alert("Welcome")}>Let’s Get Started</ButtonStyled>
+        <Button onClick={() => alert("Welcome")}>Let’s Get Started</Button>
       </Container>
     </Layout>
   )
