@@ -35,6 +35,10 @@ declare module "@emotion/react" {
         primary: string
         secondary: string
       }
+      white: {
+        primary: string
+        secondary: string
+      }
       bodyBackground: string
       text: {
         primary: string
