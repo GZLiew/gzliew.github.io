@@ -9,6 +9,7 @@ export async function getHotelConfiguration(preview) {
       content {
         hotel_logo {
           name
+          filename
         }
         hotel_name
         primary_color

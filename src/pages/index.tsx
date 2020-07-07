@@ -5,10 +5,10 @@ import Head from "next/head"
 
 import Container from "@/components/Container"
 import Layout from "@/components/Layout"
-import Button from "@/components/Button"
 
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
+import { HotelConfigProps } from "@/lib/types/hotelConfig"
 
 const StyledTitle = styled.h2`
 ${tw`text-4xl pb-4`}
@@ -20,14 +20,14 @@ const SubHeading = styled.h1`
 `
 
 interface Props {
-  hotelConfig?: any
+  hotelConfig?: HotelConfigProps
   homeData?: HomeProps
   preview?: boolean
 }
 
 export default function Index({ hotelConfig, homeData, preview }: Props) {
   return (
-    <Layout preview={preview}>
+    <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
         <title>Welcome to {hotelConfig?.content?.hotel_name}</title>
       </Head>
@@ -36,7 +36,6 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
           {homeData?.content?.primary_welcome_text} {hotelConfig?.content?.hotel_name}
         </SubHeading>
         <StyledTitle>{homeData?.content?.secondary_welcome_text}</StyledTitle>
-        <Button onClick={() => alert("Welcome")}>Let’s Get Started</Button>
       </Container>
     </Layout>
   )
