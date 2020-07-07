@@ -19,10 +19,8 @@ const Button = ({
   height = "70px",
   ...props
 }: Props) => (
-  <ButtonWrapper maxWith={maxWith} height={height}>
-    <ButtonStyled variant={variant} className={["group", className].join(" ")}>
-      {children}
-    </ButtonStyled>
+  <ButtonWrapper variant={variant} maxWith={maxWith} height={height}>
+    <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>
   </ButtonWrapper>
 )
 
