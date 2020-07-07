@@ -35,6 +35,16 @@ declare module "@emotion/react" {
         primary: string
         secondary: string
       }
+      bodyBackground: string
+      text: {
+        primary: string
+        secondary: string
+        alternate: string
+      }
+    }
+    button: {
+      boxShadow: string
+      borderBg: string
     }
   }
 }

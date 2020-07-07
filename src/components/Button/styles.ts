@@ -13,8 +13,8 @@ export const ButtonWrapper = styled.button`
   border-radius: 32px;
   width: 311px;
   min-height: 59px;
-  background: linear-gradient(108deg, #e4e8ed 22%, #e5e9ee 76%);
-  box-shadow: -7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;
+  background: ${({ theme }) => theme.button.borderBg};
+  box-shadow: ${({ theme }) => theme.button.boxShadow};
   transition: all 0.3s ease-in;
 `
 

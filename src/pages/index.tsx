@@ -10,8 +10,14 @@ import Button from "@/components/Button"
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
 
-const StyledTitle = styled.h1(tw`text-4xl pb-4`)
-const SubHeading = styled.h1(tw`text-sm pt-4 text-gray-900`)
+const StyledTitle = styled.h2`
+${tw`text-4xl pb-4`}
+color: ${({ theme }) => theme.colors.text.primary};
+`
+const SubHeading = styled.h1`
+  ${tw`text-sm pt-4`}
+  color: ${({ theme }) => theme.colors.text.secondary};
+`
 
 interface Props {
   hotelConfig?: any

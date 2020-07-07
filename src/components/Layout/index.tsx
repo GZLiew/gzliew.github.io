@@ -1,10 +1,11 @@
 import React, { ReactNode } from "react"
 import { ThemeProvider } from "@emotion/react"
 
+import GlobalStyles from "./GlobalStyles"
 import Alert from "../Alert"
 import Meta from "../Meta"
 
-import theme from "@/lib/theme"
+import { light, dark } from "@/lib/theme"
 
 interface Props {
   children?: ReactNode
@@ -13,7 +14,8 @@ interface Props {
 
 const Layout = ({ preview, children }: Props) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={light}>
+      <GlobalStyles />
       <Meta />
       <div className="min-h-screen">
         <Alert preview={preview} />

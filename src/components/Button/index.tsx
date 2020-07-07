@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react"
 import { ButtonStyled, ButtonWrapper } from "./styles"
-import colors from "@/lib/theme/colors"
 
 interface Props {
   children?: ReactNode
