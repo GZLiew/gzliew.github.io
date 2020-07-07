@@ -12,6 +12,9 @@ module.exports = {
         medium: "500",
         semibold: "600",
         bold: "700"
+      },
+      fontSize: {
+        "2.5xl": "1.625rem"
       }
     }
   },

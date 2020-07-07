@@ -23,7 +23,7 @@ const LogoWrapper = styled.div`
   }
 `
 const StyledTitle = styled.h1`
-${tw`text-4xl pb-4 font-bold`}
+${tw`text-2.5xl pb-4 font-bold`}
 color: ${({ theme }) => theme.colors.text.primary};
 `
 const SubHeading = styled.h2`
