@@ -11,7 +11,14 @@ interface Props {
   height?: string
 }
 
-const Button = ({ className, children, variant = "pink", maxWith = "100%", height = "70px", ...props }: Props) => (
+const Button = ({
+  className,
+  children,
+  variant = "pink",
+  maxWith = "100%",
+  height = "70px",
+  ...props
+}: Props) => (
   <ButtonWrapper maxWith={maxWith} height={height}>
     <ButtonStyled variant={variant} className={["group", className].join(" ")}>
       {children}
