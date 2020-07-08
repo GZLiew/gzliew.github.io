@@ -2,12 +2,12 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
 export const ModalBg = styled.div`
-  position: absolute;
+  ${tw`
+    absolute
+    inset-0
+  `}
   background: ${({ theme }) => theme.colors?.bodyBackground};
   width: 100%;
-  left: 0;
-  top: 0;
-  bottom: 0;
   padding: 25px;
   padding-top: 38px;
 `
