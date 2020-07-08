@@ -1,12 +1,16 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
+interface QuickButtonItemProp {
+  bg: string
+}
+
 export const QuickButtonWrapper = styled.div`
   ${tw`text-center
   flex items-center flex-col
   `}
 `
-export const QuickButtonItem = styled.div`
+export const QuickButtonItem = styled.div<QuickButtonItemProp>`
   ${tw`
     relative
     flex justify-center items-center
@@ -14,7 +18,7 @@ export const QuickButtonItem = styled.div`
   `}
   width: 52px;
   height: 52px;
-  background: ${({ theme }) => theme?.colors?.blue?.primary};
+  background: ${({ bg, theme }) => (bg ? bg : theme?.colors?.gray)};
 
   & img {
     max-width: 32px;
