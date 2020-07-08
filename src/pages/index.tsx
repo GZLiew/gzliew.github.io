@@ -5,6 +5,7 @@ import Head from "next/head"
 
 import Container from "@/components/Container"
 import Layout from "@/components/Layout"
+import QuickButtons from "@/components/QuickButtons"
 
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
@@ -13,6 +14,7 @@ import { HotelConfigProps } from "@/lib/types/hotelConfig"
 const StyledTitle = styled.h2`
 ${tw`text-1xl pb-4 font-semibold`}
 color: ${({ theme }) => theme.colors.text.primary};
+margin-bottom: 38px;
 `
 const SubHeading = styled.h1`
   ${tw`text-sm pt-4 font-regular`}
@@ -36,6 +38,7 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
           {homeData?.content?.primary_welcome_text} {hotelConfig?.content?.hotel_name}
         </SubHeading>
         <StyledTitle>{homeData?.content?.secondary_welcome_text}</StyledTitle>
+        <QuickButtons buttons={homeData?.content?.quick_buttons} />
       </Container>
     </Layout>
   )

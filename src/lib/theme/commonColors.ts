@@ -34,5 +34,6 @@ export default {
   white: {
     primary: "#cfd4dc",
     secondary: "#ffffff"
-  }
+  },
+  gray: "#797979"
 }

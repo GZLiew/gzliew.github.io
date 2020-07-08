@@ -1,9 +1,7 @@
-import React from "react"
-
 import Container from "../Container"
 import Button from "../Button"
 
-import { LogoWrapper } from "./styles"
+import { LogoWrapper } from "./header.styles"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
@@ -18,7 +16,7 @@ const Header = ({ hotelLogo }: Props) => {
         <Button variant="white" maxWith="40px" height="40px">
           <img alt="Open sidenav" src="icons/wt-ic-hamburger-menu.svg" />
         </Button>
-        <img src={hotelLogo.filename} title={hotelLogo.name} />
+        <img src={hotelLogo?.filename} title={hotelLogo?.name} />
         <Button variant="white" maxWith="40px" height="40px">
           <img alt="View Notifications" src="icons/wt-ic-notification.svg" />
         </Button>
