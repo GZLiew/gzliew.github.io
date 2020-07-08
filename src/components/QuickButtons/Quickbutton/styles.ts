@@ -15,10 +15,16 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
     relative
     flex justify-center items-center
     rounded-full
+    transition duration-500 ease-in-out 
   `}
   width: 52px;
   height: 52px;
   background: ${({ bg, theme }) => (bg ? bg : theme?.colors?.gray)};
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
 
   & img {
     max-width: 32px;
