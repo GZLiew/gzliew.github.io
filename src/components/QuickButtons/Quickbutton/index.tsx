@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickbutton.styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickButtonItem.styles"
 
 interface Props {
   item: QuickButtonsProps

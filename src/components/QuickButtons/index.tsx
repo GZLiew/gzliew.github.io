@@ -1,6 +1,6 @@
 import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickbutton.styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickButtonItem.styles"
 
 import { QuickButtonsLayout } from "./quickButtons.styles"
 
