@@ -39,7 +39,10 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
       </Head>
       <Container>
         <LogoWrapper>
-          <img src={hotelConfig?.content.hotel_logo?.filename} title={hotelConfig?.content.hotel_logo.name} />
+          <img
+            src={hotelConfig?.content?.hotel_logo?.filename}
+            title={hotelConfig?.content?.hotel_logo.name}
+          />
         </LogoWrapper>
         <SubHeading>{hotelInfo?.content?.welcome_text}</SubHeading>
         <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>

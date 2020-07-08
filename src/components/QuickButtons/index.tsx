@@ -11,14 +11,14 @@ interface Props {
 }
 
 const QuickButtons = ({ buttons }: Props) => {
-  if (buttons.length === 0) return null
+  if (buttons?.length === 0) return null
 
   const [isActive, toggle] = useToggle(false)
 
   return (
     <>
       <QuickButtonsLayout>
-        {buttons.map((item: QuickButtonsProps) => (
+        {buttons?.slice(0, 7)?.map((item: QuickButtonsProps) => (
           <QuickButton item={item} key={item?._uid} />
         ))}
         <QuickButtonWrapper>
@@ -31,7 +31,7 @@ const QuickButtons = ({ buttons }: Props) => {
       {isActive && (
         <QuickButtonModal closeModal={toggle}>
           <QuickButtonsLayout>
-            {buttons.map((item: QuickButtonsProps) => (
+            {buttons?.map((item: QuickButtonsProps) => (
               <QuickButton item={item} key={item?._uid} />
             ))}
           </QuickButtonsLayout>

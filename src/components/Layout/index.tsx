@@ -23,7 +23,7 @@ const Layout = ({ preview, children, hotelConfig }: Props) => {
       <Meta />
       <div className="min-h-screen">
         <Alert preview={preview} />
-        <Header hotelLogo={hotelConfig?.content.hotel_logo} />
+        <Header hotelLogo={hotelConfig?.content?.hotel_logo} />
         <main>{children}</main>
       </div>
     </ThemeProvider>
