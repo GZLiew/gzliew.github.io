@@ -27,6 +27,7 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
 
 export const Title = styled.h4`
   font-size: 11px;
+  line-height: 1.27;
   margin-top: 8px;
   color: ${({ theme }) => theme?.colors?.text?.secondary};
 `
