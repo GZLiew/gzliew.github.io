@@ -2,7 +2,7 @@ import React from "react"
 
 import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
-import { QuickButtonWrapper, QuickButtonItem } from "./Quickbutton/styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/styles"
 
 import { QuickButtonsLayout } from "./styles"
 
@@ -27,6 +27,7 @@ const QuickButtons = ({ buttons }: Props) => {
           <QuickButtonItem onClick={toggle}>
             <img src="icons/ic-my-orders.svg" alt="more" />
           </QuickButtonItem>
+          <Title>More</Title>
         </QuickButtonWrapper>
       </QuickButtonsLayout>
       {value && <QuickButtonModal closeModal={toggle} isActive={value} />}
