@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
 interface QuickButtonItemProp {
-  bg: string
+  bg?: string
 }
 
 export const QuickButtonWrapper = styled.div`
