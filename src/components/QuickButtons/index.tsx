@@ -1,8 +1,8 @@
 import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickbutton.styles"
 
-import { QuickButtonsLayout } from "./styles"
+import { QuickButtonsLayout } from "./quickButtons.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
 

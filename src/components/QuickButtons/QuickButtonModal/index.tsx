@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
 import Button from "@/components/Button"
 
-import { ModalBg, ModalHeader, HelpText } from "./styles"
+import { ModalBg, ModalHeader, HelpText } from "./quickButtonModal.styles"
 
 interface Props {
   closeModal: () => void

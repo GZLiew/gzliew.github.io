@@ -1,7 +1,7 @@
 import Container from "../Container"
 import Button from "../Button"
 
-import { LogoWrapper } from "./styles"
+import { LogoWrapper } from "./header.styles"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
 

@@ -1,4 +1,4 @@
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickbutton.styles"
 
 interface Props {
   item: QuickButtonsProps
