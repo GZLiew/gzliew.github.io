@@ -29,7 +29,7 @@ const QuickButtons = ({ buttons }: Props) => {
         </QuickButtonWrapper>
       </QuickButtonsLayout>
       {isActive && (
-        <QuickButtonModal closeModal={toggle} isActive={isActive}>
+        <QuickButtonModal closeModal={toggle}>
           <QuickButtonsLayout>
             {buttons.map((item: QuickButtonsProps) => (
               <QuickButton item={item} key={item?._uid} />
