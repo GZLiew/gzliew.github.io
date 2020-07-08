@@ -1,5 +1,3 @@
-import React from "react"
-
 import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/styles"

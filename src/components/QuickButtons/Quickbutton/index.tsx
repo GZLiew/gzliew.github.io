@@ -1,4 +1,3 @@
-import React from "react"
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./styles"
 
 interface Props {

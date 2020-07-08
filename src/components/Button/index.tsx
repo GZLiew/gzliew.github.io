@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react"
+import { ReactNode } from "react"
 import { ButtonStyled, ButtonWrapper } from "./styles"
 
 interface Props {
