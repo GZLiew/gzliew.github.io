@@ -1,5 +1,5 @@
 import React from "react"
-import { QuickButtonWrapper } from "./styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from "./styles"
 
 interface Props {
   item: QuickButtonsProps
@@ -18,7 +18,10 @@ interface iconProps {
 const QuickButton = ({ item }: Props) => {
   return (
     <QuickButtonWrapper>
-      <img src={item?.icon?.filename} alt={item?.text} />
+      <QuickButtonItem>
+        <img src={item?.icon?.filename} alt={item?.text} />
+      </QuickButtonItem>
+      <Title>{item?.text}</Title>
     </QuickButtonWrapper>
   )
 }
