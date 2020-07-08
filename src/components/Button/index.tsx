@@ -14,12 +14,13 @@ interface Props {
 const Button = ({
   className,
   children,
+  onClick,
   variant = "pink",
   maxWith = "100%",
   height = "70px",
   ...props
 }: Props) => (
-  <ButtonWrapper variant={variant} maxWith={maxWith} height={height}>
+  <ButtonWrapper onClick={onClick} variant={variant} maxWith={maxWith} height={height}>
     <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>
   </ButtonWrapper>
 )
