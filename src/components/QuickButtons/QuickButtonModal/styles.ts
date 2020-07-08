@@ -8,14 +8,15 @@ export const ModalBg = styled.div`
   left: 0;
   top: 0;
   bottom: 0;
+  padding: 25px;
   padding-top: 38px;
-  padding-left: 25px;
 `
 
 export const ModalHeader = styled.div`
   ${tw`
     flex items-center
   `}
+  margin-bottom: 46px;
 `
 
 export const HelpText = styled.h3`

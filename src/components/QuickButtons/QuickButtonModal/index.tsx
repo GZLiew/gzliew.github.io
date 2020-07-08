@@ -1,8 +1,13 @@
+import { FunctionComponent } from "react"
 import Button from "@/components/Button"
 
 import { ModalBg, ModalHeader, HelpText } from "./styles"
 
-const QuickButtonModal = ({ isActive, closeModal }: { isActive: boolean; closeModal: () => void }) => {
+interface Props {
+  closeModal: () => void
+}
+
+const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children }) => {
   return (
     <ModalBg>
       <ModalHeader>
@@ -11,6 +16,7 @@ const QuickButtonModal = ({ isActive, closeModal }: { isActive: boolean; closeMo
         </Button>
         <HelpText>How can we help?</HelpText>
       </ModalHeader>
+      {children}
     </ModalBg>
   )
 }

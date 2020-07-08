@@ -13,7 +13,7 @@ interface Props {
 const QuickButtons = ({ buttons }: Props) => {
   if (buttons.length === 0) return null
 
-  const [value, toggle] = useToggle(false)
+  const [isActive, toggle] = useToggle(false)
 
   return (
     <>
@@ -28,7 +28,15 @@ const QuickButtons = ({ buttons }: Props) => {
           <Title>More</Title>
         </QuickButtonWrapper>
       </QuickButtonsLayout>
-      {value && <QuickButtonModal closeModal={toggle} isActive={value} />}
+      {isActive && (
+        <QuickButtonModal closeModal={toggle} isActive={isActive}>
+          <QuickButtonsLayout>
+            {buttons.map((item: QuickButtonsProps) => (
+              <QuickButton item={item} key={item?._uid} />
+            ))}
+          </QuickButtonsLayout>
+        </QuickButtonModal>
+      )}
     </>
   )
 }
