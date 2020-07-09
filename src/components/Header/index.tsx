@@ -13,11 +13,11 @@ const Header = ({ hotelLogo }: Props) => {
   return (
     <Container>
       <LogoWrapper>
-        <Button variant="white" maxWith="40px" height="40px">
+        <Button bgColor="white" maxWith="40px" height="40px">
           <img alt="Open sidenav" src="icons/wt-ic-hamburger-menu.svg" />
         </Button>
         <img src={hotelLogo?.filename} title={hotelLogo?.name} />
-        <Button variant="white" maxWith="40px" height="40px">
+        <Button bgColor="white" maxWith="40px" height="40px">
           <img alt="View Notifications" src="icons/wt-ic-notification.svg" />
         </Button>
       </LogoWrapper>
