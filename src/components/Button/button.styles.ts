@@ -1,10 +1,15 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
+import { css } from "@emotion/react"
+import { transparentize } from "polished"
+
 type ButtonWrapperProps = {
   maxWith?: string
   height?: string
+  bgColor?: string
   variant?: string
+  withIcon?: boolean
 }
 
 export const ButtonStyled = styled.span`
@@ -28,8 +33,24 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   box-shadow: ${({ theme }) => theme.button.boxShadow};
 
   ${ButtonStyled} {
-    background: ${({ theme, variant }) =>
-      `linear-gradient(101deg, ${theme.colors[variant]?.secondary} 17%, ${theme.colors[variant]?.primary} 77%)`};
+    background: ${({ theme, bgColor }) =>
+      `linear-gradient(101deg, ${theme.colors[bgColor]?.secondary} 17%, ${theme.colors[bgColor]?.primary} 77%)`};
+  
+  ${({ variant, theme, bgColor }) =>
+    variant === "flat" &&
+    css`
+      background: ${transparentize(0.8, theme.colors[bgColor]?.primary)};
+      color: ${theme.colors[bgColor]?.primary};
+      font-size: 12px;
+    `}
+
+    ${({ withIcon }) =>
+      withIcon &&
+      css`
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+      `}
   }
 
   &:hover,
@@ -37,8 +58,24 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     outline: 0;
 
     ${ButtonStyled} {
-      background: ${({ theme, variant }) =>
-        `linear-gradient(101deg, ${theme.colors[variant]?.primary} 17%, ${theme.colors[variant]?.secondary} 77%)`};
+      background: ${({ theme, bgColor }) =>
+        `linear-gradient(101deg, ${theme.colors[bgColor]?.primary} 17%, ${theme.colors[bgColor]?.secondary} 77%)`}; 
     }
   }
+
+  ${({ variant, theme, bgColor }) =>
+    variant === "flat" &&
+    css`
+      box-shadow: none;
+      background: transparent;
+      padding: 0;
+      font-weight: 500;
+
+      &:hover,
+      &:focus {
+        ${ButtonStyled} {
+          background: ${transparentize(0.7, theme.colors[bgColor]?.primary)};
+        }
+      }
+    `}
 `

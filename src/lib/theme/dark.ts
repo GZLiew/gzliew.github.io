@@ -8,7 +8,11 @@ export default {
       primary: "#BCBDBF",
       secondary: "#919396",
       alternate: "#686A6E"
-    }
+    },
+    widget: {
+      background: "linear-gradient(to bottom, #2f3339, #2b2e35);"
+    },
+    separator: "#979797"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 rgba(81, 85, 93, 0.26), 7px 5px 9px 0 rgba(0, 0, 0, 0.24);",

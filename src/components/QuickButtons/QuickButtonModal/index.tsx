@@ -11,7 +11,7 @@ const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children }) =>
   return (
     <ModalBg>
       <ModalHeader>
-        <Button onClick={closeModal} variant="white" maxWith="40px" height="40px">
+        <Button onClick={closeModal} bgColor="white" maxWith="40px" height="40px">
           <img alt="Close Modal" src="icons/wt-ic-close.svg" />
         </Button>
         <HelpText>How can we help?</HelpText>

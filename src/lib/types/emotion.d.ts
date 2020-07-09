@@ -46,6 +46,11 @@ declare module "@emotion/react" {
         secondary: string
         alternate: string
       }
+      widget: {
+        background: string
+      }
+      separator: string
+      checkLabel: string
     }
     button: {
       boxShadow: string

@@ -5,6 +5,7 @@ export const ModalBg = styled.div`
   ${tw`
     absolute
     inset-0
+    z-50
   `}
   background: ${({ theme }) => theme.colors?.bodyBackground};
   width: 100%;
