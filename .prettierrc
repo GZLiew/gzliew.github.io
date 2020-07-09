@@ -5,5 +5,5 @@
   "bracketSpacing": true,
   "jsxBracketSameLine": true,
   "proseWrap": "never",
-  "printWidth": 120
+  "printWidth": 110
 }

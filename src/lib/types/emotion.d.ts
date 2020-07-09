@@ -35,6 +35,7 @@ declare module "@emotion/react" {
         primary: string
         secondary: string
       }
+      gray: string
       white: {
         primary: string
         secondary: string
@@ -45,6 +46,10 @@ declare module "@emotion/react" {
         secondary: string
         alternate: string
       }
+      widget: {
+        background: string
+      }
+      separator: string
     }
     button: {
       boxShadow: string
