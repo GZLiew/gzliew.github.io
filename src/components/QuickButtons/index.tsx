@@ -2,6 +2,8 @@ import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickButtonItem.styles"
 
+import ShowMoreIcon from "../../assets/icons/ic-my-orders.svg"
+
 import { QuickButtonsLayout } from "./quickButtons.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
@@ -23,7 +25,7 @@ const QuickButtons = ({ buttons }: Props) => {
         ))}
         <QuickButtonWrapper>
           <QuickButtonItem onClick={toggle}>
-            <img src="icons/ic-my-orders.svg" alt="more" />
+            <ShowMoreIcon />
           </QuickButtonItem>
           <Title>More</Title>
         </QuickButtonWrapper>
