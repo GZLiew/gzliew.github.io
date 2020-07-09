@@ -6,4 +6,5 @@ export const QuickButtonsLayout = styled.div`
     grid grid-cols-4
   `}
   grid-gap: 37px;
+  margin-bottom: 32px;
 `

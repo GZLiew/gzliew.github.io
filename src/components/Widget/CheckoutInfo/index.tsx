@@ -1,4 +1,6 @@
-import { WidgetContainer, RoomInfoWrapper, InfoWrapper, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
+import { RoomInfoWrapper, InfoWrapper, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
+import { WidgetContainer } from "../widget.styles"
+
 import Button from "@/components/Button"
 
 import NextIcon from "../../../assets/icons/ic-next.svg"
