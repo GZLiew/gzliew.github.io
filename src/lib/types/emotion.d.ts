@@ -50,7 +50,6 @@ declare module "@emotion/react" {
         background: string
       }
       separator: string
-      checkLabel: string
     }
     button: {
       boxShadow: string
