@@ -1,3 +1,5 @@
+import { useRouter } from "next/router"
+
 import Container from "../Container"
 import Button from "../Button"
 
@@ -10,13 +12,27 @@ interface Props {
 }
 
 const Header = ({ hotelLogo }: Props) => {
+  const router = useRouter()
+  const isHome = router.pathname === "/"
+
+  const backToHome = () => {
+    router.push("/")
+  }
+
+  const openNav = () => {
+    console.log("nav open")
+  }
+
   return (
     <Container>
       <LogoWrapper>
-        <Button bgColor="white" maxWith="40px" height="40px">
-          <img alt="Open sidenav" src="icons/wt-ic-hamburger-menu.svg" />
+        <Button onClick={isHome ? openNav : backToHome} bgColor="white" maxWith="40px" height="40px">
+          <img
+            alt={isHome ? "Open sidenav" : "Back to Home"}
+            src={`icons/${isHome ? "wt-ic-hamburger-menu" : "wt-ic-back"}.svg`}
+          />
         </Button>
-        <img src={hotelLogo?.filename} title={hotelLogo?.name} />
+        {isHome && <img src={hotelLogo?.filename} title={hotelLogo?.name} />}
         <Button bgColor="white" maxWith="40px" height="40px">
           <img alt="View Notifications" src="icons/wt-ic-notification.svg" />
         </Button>
