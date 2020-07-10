@@ -17,7 +17,8 @@
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/lib/*": ["src/lib/*"],
-      "@/styles/*": ["src/styles/*"]
+      "@/styles/*": ["src/styles/*"],
+      "@/assets/*": ["src/assets/*"]
     }
   },
   "exclude": ["node_modules"],

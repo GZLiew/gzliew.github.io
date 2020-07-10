@@ -14,6 +14,7 @@ export async function getHotelConfiguration(preview) {
         hotel_name
         primary_color
         secondary_color
+        theme
       }
     }
   }

@@ -29,6 +29,7 @@ interface Props {
 }
 
 export default function Index({ hotelConfig, homeData, preview }: Props) {
+  console.log(hotelConfig)
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
@@ -41,7 +42,7 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
         <StyledTitle>{homeData?.content?.secondary_welcome_text}</StyledTitle>
         <QuickButtons buttons={homeData?.content?.quick_buttons} />
         <CheckoutInfo />
-        <Weather title="Weather Today" />
+        <Weather variant={hotelConfig?.content?.theme} title="Weather Today" />
       </Container>
     </Layout>
   )

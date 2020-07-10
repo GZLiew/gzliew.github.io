@@ -1,14 +1,27 @@
 import React from "react"
-import { WidgetContainer } from "../widget.styles"
+import { WidgetContainer, Title, CityLabel, InfoContainer, WeatherInfo } from "../widget.styles"
+
+import WeatherIcon from "@/assets/icons/WeatherIcon"
 
 interface Props {
   title?: string
+  variant?: string
 }
 
-const Weather = ({ title }) => {
+const Weather = ({ title, variant }: Props) => {
   return (
     <WidgetContainer>
-      <p>{title}</p>
+      <Title>{title}</Title>
+      <InfoContainer>
+        <WeatherIcon theme={variant} />
+        <WeatherInfo>
+          <p>
+            <span>24°C </span>
+            Partly Cloudly
+          </p>
+          <CityLabel>Melbourne, Victoria</CityLabel>
+        </WeatherInfo>
+      </InfoContainer>
     </WidgetContainer>
   )
 }
