@@ -18,7 +18,7 @@ interface Props {
 
 const Layout = ({ preview, children, hotelConfig }: Props) => {
   return (
-    <ThemeProvider theme={light}>
+    <ThemeProvider theme={hotelConfig?.content?.theme === "light" ? light : dark}>
       <GlobalStyles />
       <Meta />
       <div className="min-h-screen">
