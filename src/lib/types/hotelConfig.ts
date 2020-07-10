@@ -8,6 +8,7 @@ interface HotelContent {
   hotel_name: string
   primary_color: string
   secondary_color: string
+  theme: string
 }
 
 export interface HotelLogo {
