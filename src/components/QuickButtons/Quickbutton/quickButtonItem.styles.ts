@@ -29,7 +29,7 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
       bg
         ? theme.mode === "dark"
           ? transparentize(0.5, bg)
-          : transparentize(0.7, bg)
+          : transparentize(0.2, bg)
         : transparentize(0.7, theme?.colors?.gray)};
   }
 
