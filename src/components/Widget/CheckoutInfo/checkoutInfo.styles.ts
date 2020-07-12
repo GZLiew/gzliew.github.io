@@ -22,12 +22,12 @@ export const InfoWrapper = styled.div`
     flex flex-col
   `}
   padding-right: 37px;
-
-  p {
-    ${tw`
+`
+export const DateLabel = styled.p`
+  color: ${({ theme }) => theme.colors.text.primary};
+  ${tw`
     font-medium
   `}
-  }
 `
 export const NightWrapper = styled.div`
   ${tw`
@@ -47,6 +47,7 @@ export const NightWrapper = styled.div`
   }
 
   & span {
+    color: ${({ theme }) => theme.colors.text.primary};
     font-size: 15px;
   }
 `

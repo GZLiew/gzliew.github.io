@@ -10,6 +10,7 @@ export const WidgetContainer = styled.div`
 `
 
 export const Title = styled.h4`
+  color: ${({ theme }) => theme.colors.text.primary};
   ${tw`font-medium`}
   margin-bottom: 17px;
 `
