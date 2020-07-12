@@ -1,6 +1,7 @@
 import commonColors from "./commonColors"
 
 export default {
+  mode: "dark",
   colors: {
     ...commonColors,
     white: {

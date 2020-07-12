@@ -21,5 +21,6 @@ export const ModalHeader = styled.div`
 `
 
 export const HelpText = styled.h3`
+  color: ${({ theme }) => theme?.colors?.text?.primary};
   margin-left: 23px;
 `
