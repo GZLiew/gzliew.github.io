@@ -31,9 +31,5 @@ export default {
     primary: "#1c1e22",
     secondary: "#393e43"
   },
-  white: {
-    primary: "#cfd4dc",
-    secondary: "#ffffff"
-  },
   gray: "#797979"
 }

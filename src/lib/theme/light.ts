@@ -3,6 +3,10 @@ import commonColors from "./commonColors"
 export default {
   colors: {
     ...commonColors,
+    white: {
+      primary: "#cfd4dc",
+      secondary: "#ffffff"
+    },
     bodyBackground: "#eaecee",
     text: {
       primary: "#101112",
