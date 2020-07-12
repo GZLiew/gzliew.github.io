@@ -6,7 +6,8 @@ import Head from "next/head"
 import Container from "@/components/Container"
 import Layout from "@/components/Layout"
 import QuickButtons from "@/components/QuickButtons"
-import CheckoutInfo from "@/components/Widget/CheckoutInfo"
+import { CheckoutInfo, Weather } from "@/components/Widget"
+import { OrderInProgress } from "@/components/Notifications"
 
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
@@ -29,6 +30,7 @@ interface Props {
 }
 
 export default function Index({ hotelConfig, homeData, preview }: Props) {
+  console.log(hotelConfig)
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
@@ -41,7 +43,9 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
         <StyledTitle>{homeData?.content?.secondary_welcome_text}</StyledTitle>
         <QuickButtons buttons={homeData?.content?.quick_buttons} />
         <CheckoutInfo />
+        <Weather variant={hotelConfig?.content?.theme} title="Weather Today" />
       </Container>
+      <OrderInProgress />
     </Layout>
   )
 }

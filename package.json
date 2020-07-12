@@ -28,6 +28,7 @@
     "@tailwindcssinjs/macro": "^0.7.2",
     "@types/node": "14.0.5",
     "@types/react": "16.9.35",
+    "babel-plugin-inline-react-svg": "^1.1.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "postcss-flexbugs-fixes": "4.2.1",

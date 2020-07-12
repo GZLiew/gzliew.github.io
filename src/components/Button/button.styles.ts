@@ -24,13 +24,16 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${tw`
    relative 
    w-full
-   transition duration-500 ease-in-out`}
+   transition duration-500 ease-in-out
+   font-semibold
+   `}
   max-width: ${({ maxWith }) => maxWith};
   height: ${({ height }) => height};
   padding: 2px;
   border-radius: 32px;
   background: ${({ theme }) => theme.button.borderBg};
   box-shadow: ${({ theme }) => theme.button.boxShadow};
+  color: #fff;
 
   ${ButtonStyled} {
     background: ${({ theme, bgColor }) =>

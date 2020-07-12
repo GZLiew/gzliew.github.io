@@ -1,12 +1,14 @@
 import { ReactNode } from "react"
 import { ButtonStyled, ButtonWrapper } from "./button.styles"
 
+type BgColor = "pink" | "red" | "blue" | "green" | "purple" | "yellow" | "brown" | "black" | "white"
+
 interface Props {
   children?: ReactNode
   className?: string
   onClick?: () => void
   props?: any
-  bgColor?: string
+  bgColor?: BgColor
   maxWith?: string
   height?: string
   variant?: "flat" | "withShadow"

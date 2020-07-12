@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
+import { transparentize } from "polished"
 
 interface QuickButtonItemProp {
   bg?: string
@@ -19,11 +20,17 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
   `}
   width: 52px;
   height: 52px;
-  background: ${({ bg, theme }) => (bg ? bg : theme?.colors?.gray)};
+  background: ${({ bg, theme }) =>
+    bg ? (theme.mode === "dark" ? transparentize(0.7, bg) : bg) : theme?.colors?.gray};
 
   &:hover,
   &:focus {
-    opacity: 0.8;
+    background: ${({ bg, theme }) =>
+      bg
+        ? theme.mode === "dark"
+          ? transparentize(0.5, bg)
+          : transparentize(0.2, bg)
+        : transparentize(0.7, theme?.colors?.gray)};
   }
 
   & img {

@@ -2,6 +2,7 @@ import "@emotion/react"
 
 declare module "@emotion/react" {
   export interface Theme {
+    mode: string
     colors: {
       pink: {
         primary: string
@@ -50,6 +51,7 @@ declare module "@emotion/react" {
         background: string
       }
       separator: string
+      notificationBg: string
     }
     button: {
       boxShadow: string
