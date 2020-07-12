@@ -1,4 +1,4 @@
-import { RoomInfoWrapper, InfoWrapper, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
+import { RoomInfoWrapper, InfoWrapper, DateLabel, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
 import { WidgetContainer } from "../widget.styles"
 
 import Button from "@/components/Button"
@@ -15,11 +15,11 @@ const CheckOutInfo = () => {
         </NightWrapper>
         <InfoWrapper>
           <InfoLabel>CHECK IN</InfoLabel>
-          <p>13.02.2020</p>
+          <DateLabel>13.02.2020</DateLabel>
         </InfoWrapper>
         <InfoWrapper>
           <InfoLabel>CHECK OUT</InfoLabel>
-          <p>16.02.2020</p>
+          <DateLabel>16.02.2020</DateLabel>
         </InfoWrapper>
       </RoomInfoWrapper>
       <Button height="40px" variant="flat" withIcon={true}>
