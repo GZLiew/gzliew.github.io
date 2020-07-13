@@ -1,0 +1,58 @@
+import styled from "@emotion/styled"
+import tw from "@tailwindcssinjs/macro"
+import { rgba } from "polished"
+
+interface Props {
+  isOpen: boolean
+}
+
+export const NavbarWrapper = styled.div<Props>`
+  ${tw`
+    z-50
+    absolute
+    top-0
+    left-0
+    w-full
+    h-screen
+    overflow-hidden
+    transition-opacity
+    duration-300
+    ease-in
+  `}
+
+  opacity: ${({ isOpen }) => (isOpen ? `1` : `0`)};
+  pointer-events: ${({ isOpen }) => !isOpen && `none`};
+  background-color: ${rgba("#000", 0.6)};
+`
+
+export const StyledNavbar = styled.div<Props>`
+  ${tw`
+    z-50
+    absolute
+    top-0
+    left-0
+    min-h-screen
+    transition-transform
+    duration-200
+    ease-in
+  `}
+
+  background-color: ${({ theme }) => theme.colors.bodyBackground};
+  width: calc(84vw);
+  max-width: 304px;
+  transform: translateX(${(props) => (props.isOpen ? 0 : `-100%`)});
+`
+
+export const Nav = styled.nav`
+  ${tw`
+    flex
+    flex-wrap
+  `}
+
+  a {
+    ${tw`
+      flex-auto
+      w-full
+    `}
+  }
+`
