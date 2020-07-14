@@ -2,8 +2,6 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
-import Link from "next/link"
-
 export const StyledLink = styled.a`
   ${tw`
       flex-auto
