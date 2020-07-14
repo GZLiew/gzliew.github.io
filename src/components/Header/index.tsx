@@ -1,5 +1,7 @@
+import { Fragment } from "react"
 import { useRouter } from "next/router"
 
+import Navbar from "../Navbar"
 import Container from "../Container"
 import Button from "../Button"
 
@@ -10,8 +12,7 @@ import BackIcon from "../../assets/icons/wt-ic-back.svg"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
-import { Fragment, useState } from "react"
-import Navbar from "../Navbar"
+import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
@@ -20,22 +21,18 @@ interface Props {
 const Header = ({ hotelLogo }: Props) => {
   const router = useRouter()
   const isHome = router.pathname === "/"
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false)
+  const [isNavbarOpen, toggleNavbar] = useToggle(false)
 
   const backToHome = () => {
     router.push("/")
   }
 
-  const toggleNav = () => {
-    setIsNavbarOpen(!isNavbarOpen)
-  }
-
   return (
     <Fragment>
-      <Navbar isOpen={isNavbarOpen} handleNavbarClick={toggleNav} />
+      <Navbar isOpen={isNavbarOpen} handleNavbarClick={toggleNavbar} />
       <Container>
         <LogoWrapper>
-          <Button onClick={isHome ? toggleNav : backToHome} bgColor="white" maxWith="40px" height="40px">
+          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
           {isHome && <img src={hotelLogo?.filename} title={hotelLogo?.name} />}
