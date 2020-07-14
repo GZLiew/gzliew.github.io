@@ -18,7 +18,8 @@ export default {
       background: "#fff"
     },
     separator: "#67758d",
-    notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)"
+    notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)",
+    shoppingBagBg: "#fff"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;",
