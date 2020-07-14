@@ -4,7 +4,7 @@ import BagIcon from "../../../assets/icons/ic-shopping-bag.svg"
 import { ShoppingBagWrapper, ItemCount } from "./bag.styles"
 
 interface Props {
-  itemCount: number
+  itemCount?: number
 }
 
 const ShoppingBag = ({ itemCount = 4 }: Props) => {
