@@ -3,7 +3,11 @@ import BagIcon from "../../../assets/icons/ic-shopping-bag.svg"
 
 import { ShoppingBagWrapper, ItemCount } from "./bag.styles"
 
-const ShoppingBag = ({ itemCount = 4 }) => {
+interface Props {
+  itemCount: number
+}
+
+const ShoppingBag = ({ itemCount = 4 }: Props) => {
   return (
     <ShoppingBagWrapper>
       {itemCount > 0 && <ItemCount>{itemCount}</ItemCount>}
