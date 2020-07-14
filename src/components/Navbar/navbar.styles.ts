@@ -9,7 +9,7 @@ interface Props {
 export const NavbarWrapper = styled.div<Props>`
   ${tw`
     z-50
-    absolute
+    fixed
     top-0
     left-0
     w-full
@@ -28,7 +28,7 @@ export const NavbarWrapper = styled.div<Props>`
 export const StyledNavbar = styled.div<Props>`
   ${tw`
     z-50
-    absolute
+    relative
     top-0
     left-0
     min-h-screen
@@ -47,12 +47,6 @@ export const Nav = styled.nav`
   ${tw`
     flex
     flex-wrap
+    px-4
   `}
-
-  a {
-    ${tw`
-      flex-auto
-      w-full
-    `}
-  }
 `
