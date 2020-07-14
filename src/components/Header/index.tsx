@@ -1,4 +1,3 @@
-import { Fragment } from "react"
 import { useRouter } from "next/router"
 
 import Navbar from "../Navbar"
@@ -28,7 +27,7 @@ const Header = ({ hotelLogo }: Props) => {
   }
 
   return (
-    <Fragment>
+    <>
       <Navbar isOpen={isNavbarOpen} handleNavbarClick={toggleNavbar} />
       <Container>
         <LogoWrapper>
@@ -41,7 +40,7 @@ const Header = ({ hotelLogo }: Props) => {
           </Button>
         </LogoWrapper>
       </Container>
-    </Fragment>
+    </>
   )
 }
 
