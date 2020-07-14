@@ -2,7 +2,9 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
-export const StyledNavLink = styled.a`
+import Link from "next/link"
+
+export const StyledNavLink = styled(Link)`
   ${tw`
     flex-auto
     w-full
