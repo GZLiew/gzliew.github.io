@@ -1,5 +1,6 @@
 import React from "react"
-import { StyledNavLink } from "./navLink.styles"
+import { StyledLink } from "./navLink.styles"
+import Link from "next/link"
 
 interface Props {
   url: string
@@ -9,10 +10,12 @@ interface Props {
 
 const NavLink = ({ url, icon: Icon, text }: Props) => {
   return (
-    <StyledNavLink href={url}>
-      {Icon && <Icon className="navlink-icon" />}
-      <span>{text}</span>
-    </StyledNavLink>
+    <Link href={url}>
+      <StyledLink>
+        {Icon && <Icon className="navlink-icon" />}
+        <span>{text}</span>
+      </StyledLink>
+    </Link>
   )
 }
 
