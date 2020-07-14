@@ -37,7 +37,8 @@ export const StyledNavbar = styled.div<Props>`
     ease-in
   `}
 
-  background-color: ${({ theme }) => theme.colors.bodyBackground};
+  background: ${({ theme }) => theme.colors.navbarBackground};
+  color: ${({ theme }) => theme.colors.text.primary};
   width: calc(84vw);
   max-width: 304px;
   transform: translateX(${(props) => (props.isOpen ? 0 : `-100%`)});
