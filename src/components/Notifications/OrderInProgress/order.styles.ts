@@ -8,8 +8,6 @@ export const NotificationBg = styled.div`
   background: ${({ theme }) => theme.colors.notificationBg};
   width: 100%;
   padding: 15px;
-  position: fixed;
-  bottom: 0;
 
   &.in {
     opacity: 1;
