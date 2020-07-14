@@ -9,11 +9,17 @@ export const ShoppingBagWrapper = styled.div`
   width: 50px;
   height: 50px;
   box-shadow: 0 10px 12px -6px rgba(0, 0, 0, 0.31);
-  border: solid 1px rgba(151, 151, 151, 0.22);
-  background-color: #fff;
+  border: solid 1px rgba(151, 151, 151, 0.32);
+  background: ${({ theme }) => theme.colors.shoppingBagBg};
+  color: ${({ theme }) => theme.colors.text.primary};
   margin-right: 15px;
   margin-left: auto;
   margin-bottom: 15px;
+
+  &:hover,
+  &:focus {
+    background: linear-gradient(to bottom, #e3e3e3, #ffffff);
+  }
 
   & svg {
     width: 16px;

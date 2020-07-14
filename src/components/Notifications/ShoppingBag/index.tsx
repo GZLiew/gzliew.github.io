@@ -7,8 +7,7 @@ const ShoppingBag = ({ itemCount = 4 }) => {
   return (
     <ShoppingBagWrapper>
       {itemCount > 0 && <ItemCount>{itemCount}</ItemCount>}
-
-      <BagIcon />
+      <BagIcon fill="currentColor" />
     </ShoppingBagWrapper>
   )
 }
