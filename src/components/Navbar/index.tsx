@@ -38,7 +38,7 @@ const Navbar = ({ isOpen, handleNavbarClick }: Props) => {
     <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick}>
       <StyledNavbar isOpen={isOpen}>
         <Nav>
-          {navLinks.map((navLink, index) => (
+          {navLinks?.map((navLink, index) => (
             <NavLink {...navLink} key={`${navLink.text}-${index}`} />
           ))}
         </Nav>
