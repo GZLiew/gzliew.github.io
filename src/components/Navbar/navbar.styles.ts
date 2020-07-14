@@ -31,7 +31,8 @@ export const StyledNavbar = styled.div<Props>`
     relative
     top-0
     left-0
-    min-h-screen
+    h-screen
+    overflow-auto
     transition-transform
     duration-200
     ease-in
