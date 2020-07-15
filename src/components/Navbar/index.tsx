@@ -1,5 +1,6 @@
 import { NavbarWrapper, StyledNavbar, Nav } from "./navbar.styles"
 import NavLink from "../NavLink"
+import GuestDetails from "../GuestDetails"
 
 import HomeIcon from "../../assets/icons/navbar/ic-menu-home.svg"
 import FoodIcon from "../../assets/icons/navbar/ic-menu-food.svg"
@@ -13,8 +14,11 @@ import ReportAProbIcon from "../../assets/icons/navbar/ic-menu-reportaprob.svg"
 import WeatherIcon from "../../assets/icons/navbar/ic-menu-weather.svg"
 import LogoutIcon from "../../assets/icons/navbar/ic-menu-logout.svg"
 
+import { HotelLogo } from "@/lib/types/hotelConfig"
+
 interface Props {
   isOpen: boolean
+  guestPhoto: HotelLogo
   handleNavbarClick: () => void
 }
 
@@ -33,10 +37,11 @@ const navLinks = [
   { icon: LogoutIcon, url: "#!", text: "Logout" }
 ]
 
-const Navbar = ({ isOpen, handleNavbarClick }: Props) => {
+const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
   return (
     <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick}>
       <StyledNavbar isOpen={isOpen}>
+        <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
           {navLinks?.map((navLink, index) => (
             <NavLink {...navLink} key={`${navLink.text}-${index}`} />

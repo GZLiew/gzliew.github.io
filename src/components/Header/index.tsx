@@ -28,7 +28,7 @@ const Header = ({ hotelLogo }: Props) => {
 
   return (
     <>
-      <Navbar isOpen={isNavbarOpen} handleNavbarClick={toggleNavbar} />
+      <Navbar isOpen={isNavbarOpen} guestPhoto={hotelLogo} handleNavbarClick={toggleNavbar} />
       <Container>
         <LogoWrapper>
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
