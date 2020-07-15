@@ -46,8 +46,8 @@ const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
   })
 
   return (
-    <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick}>
-      <StyledNavbar isOpen={isOpen} {...handlers}>
+    <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick} {...handlers}>
+      <StyledNavbar isOpen={isOpen}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
           {navLinks?.map((navLink, index) => (
