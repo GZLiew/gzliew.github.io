@@ -20,7 +20,8 @@ export default {
     separator: "#979797",
     notificationBg: "linear-gradient(to bottom, rgba(30, 33, 37, 0), #1d2024 42%, #1c1e23)",
     shoppingBagBg: "linear-gradient(145deg, #5f656a 25%, #383e43 84%);",
-    navbarBackground: "#2d3139"
+    navbarBackground: "#2d3139",
+    guestDetailsBorder: "#20252a"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 rgba(81, 85, 93, 0.3), 7px 5px 9px 0 rgba(0, 0, 0, 0.24);",
