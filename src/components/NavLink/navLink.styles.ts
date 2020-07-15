@@ -15,7 +15,8 @@ export const StyledLink = styled.a`
       `}
 
   &:hover, &:focus, &:active {
-    background-color: ${({ theme }) => rgba(theme.colors.pink.primary, 0.12)};
+    background-color: ${({ theme }) =>
+      theme.mode === "light" ? rgba(theme.colors.pink.primary, 0.12) : rgba("black", 0.12)};
   }
 
   .navlink-icon {
