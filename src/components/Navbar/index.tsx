@@ -1,3 +1,5 @@
+import { useSwipeable } from "react-swipeable"
+
 import { NavbarWrapper, StyledNavbar, Nav } from "./navbar.styles"
 import NavLink from "../NavLink"
 import GuestDetails from "../GuestDetails"
@@ -38,9 +40,14 @@ const navLinks = [
 ]
 
 const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
+  const handlers = useSwipeable({
+    trackMouse: false,
+    onSwipedLeft: handleNavbarClick
+  })
+
   return (
     <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick}>
-      <StyledNavbar isOpen={isOpen}>
+      <StyledNavbar isOpen={isOpen} {...handlers}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
           {navLinks?.map((navLink, index) => (
