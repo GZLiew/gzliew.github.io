@@ -13,7 +13,7 @@ interface Props {
   children?: ReactNode
   preview?: boolean
   hotelConfig?: HotelConfigProps
-  navLinks: any
+  navLinks?: any
 }
 
 const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
