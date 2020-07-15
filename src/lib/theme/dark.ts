@@ -18,6 +18,10 @@ export default {
       background: "linear-gradient(to bottom, #2f3339, #2b2e35);"
     },
     separator: "#979797",
+    header: {
+      background: "linear-gradient(to bottom, #3d4249, #30353a)",
+      boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.16)"
+    },
     notificationBg: "linear-gradient(to bottom, rgba(30, 33, 37, 0), #1d2024 42%, #1c1e23)",
     shoppingBagBg: "linear-gradient(145deg, #5f656a 25%, #383e43 84%);",
     navbarBackground: "#2d3139",
