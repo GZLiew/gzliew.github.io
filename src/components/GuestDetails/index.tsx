@@ -1,5 +1,4 @@
-import React from "react"
-import { DetailsWrapper } from "./guestDetails.styles"
+import { DetailsWrapper, GuestInfo } from "./guestDetails.styles"
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
 interface Props {
@@ -13,11 +12,11 @@ const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, gues
   return (
     <DetailsWrapper>
       <img src={guestPhoto?.filename} title={guestPhoto?.name} />
-      <div className="details">
+      <GuestInfo>
         <h4>{name}</h4>
         <p>Room number: {roomNumber}</p>
         <p>Number of guests: {guestNumber}</p>
-      </div>
+      </GuestInfo>
     </DetailsWrapper>
   )
 }

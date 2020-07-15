@@ -16,23 +16,23 @@ export const DetailsWrapper = styled.div`
     `}
     max-width: 41px;
   }
+`
 
-  .details {
+export const GuestInfo = styled.div`
+  color: ${({ theme }) => theme.colors.text.primary};
+
+  h4 {
+    ${tw`
+      font-bold
+      mb-1
+    `}
     color: ${({ theme }) => theme.colors.text.primary};
+  }
 
-    h4 {
-      ${tw`
-        font-bold
-        mb-1
-      `}
-      color: ${({ theme }) => theme.colors.text.primary};
-    }
-
-    p {
-      ${tw`
-        text-xs
-        mb-1
-      `}
-    }
+  p {
+    ${tw`
+      text-xs
+      mb-1
+    `}
   }
 `
