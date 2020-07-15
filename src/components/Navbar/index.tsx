@@ -46,7 +46,7 @@ const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
   })
 
   return (
-    <NavbarWrapper isOpen={isOpen} onClick={handleNavbarClick} {...handlers}>
+    <NavbarWrapper isOpen={isOpen} {...handlers} onClick={handleNavbarClick}>
       <StyledNavbar isOpen={isOpen}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
