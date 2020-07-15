@@ -33,6 +33,7 @@
     "babel-plugin-inline-react-svg": "^1.1.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "lodash": "^4.17.19",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-preset-env": "^6.7.0",
     "prettier": "2.0.5",
