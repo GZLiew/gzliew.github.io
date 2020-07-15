@@ -1,4 +1,5 @@
 import { useSwipeable } from "react-swipeable"
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 
 import { NavbarWrapper, StyledNavbar, Nav } from "./navbar.styles"
 import NavLink from "../NavLink"
@@ -17,6 +18,7 @@ import WeatherIcon from "../../assets/icons/navbar/ic-menu-weather.svg"
 import LogoutIcon from "../../assets/icons/navbar/ic-menu-logout.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
+import { useRef, useEffect } from "react"
 
 interface Props {
   isOpen: boolean
@@ -40,6 +42,16 @@ const navLinks = [
 ]
 
 const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
+  const ref = useRef(null)
+  useEffect(() => {
+    // execute the body scroll lock side effect based on the isOpen props
+    isOpen ? disableBodyScroll(ref.current) : enableBodyScroll
+    return () => {
+      // clear all body scroll locks on unmounting
+      clearAllBodyScrollLocks(ref.current)
+    }
+  }, [isOpen])
+
   const handlers = useSwipeable({
     trackMouse: false,
     onSwipedLeft: handleNavbarClick
@@ -47,7 +59,7 @@ const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
 
   return (
     <NavbarWrapper isOpen={isOpen} {...handlers} onClick={handleNavbarClick}>
-      <StyledNavbar isOpen={isOpen}>
+      <StyledNavbar isOpen={isOpen} ref={ref}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
           {navLinks?.map((navLink, index) => (
