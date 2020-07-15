@@ -52,6 +52,9 @@ declare module "@emotion/react" {
       }
       separator: string
       notificationBg: string
+      shoppingBagBg: string
+      navbarBackground: string
+      guestDetailsBorder: string
     }
     button: {
       boxShadow: string

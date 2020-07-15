@@ -1,12 +1,22 @@
+import { useRef, useEffect } from "react"
 import { NotificationBg, NotificationWrapper, MessageWrapper, StyledButton } from "./order.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
 
 const OrderInProgress = () => {
+  const ref = useRef(null)
   const [isActive, toggle] = useToggle(true)
 
+  useEffect(() => {
+    if (!isActive) {
+      setTimeout(() => {
+        ref.current.style.display = "none"
+      }, 200)
+    }
+  }, [isActive])
+
   return (
-    <NotificationBg className={!isActive ? "out" : "in"}>
+    <NotificationBg ref={ref} className={!isActive ? "out" : "in"}>
       <NotificationWrapper>
         <MessageWrapper>
           <span>Delivery at your doorstep</span>

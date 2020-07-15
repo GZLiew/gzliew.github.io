@@ -7,7 +7,8 @@ import Container from "@/components/Container"
 import Layout from "@/components/Layout"
 import QuickButtons from "@/components/QuickButtons"
 import { CheckoutInfo, Weather } from "@/components/Widget"
-import { OrderInProgress } from "@/components/Notifications"
+import { OrderInProgress, ShoppingBag } from "@/components/Notifications"
+import { NotificationArea } from "@/components/Notifications/notifications.styles"
 
 import { getHotelConfiguration, getHomeData } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
@@ -45,7 +46,10 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
         <CheckoutInfo />
         <Weather variant={hotelConfig?.content?.theme} title="Weather Today" />
       </Container>
-      <OrderInProgress />
+      <NotificationArea>
+        <ShoppingBag />
+        <OrderInProgress />
+      </NotificationArea>
     </Layout>
   )
 }
