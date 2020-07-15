@@ -58,3 +58,19 @@ export async function getHotelInformation(preview) {
   )
   return data?.HotelinformationItem
 }
+
+export async function getHotelGlobalNavigation(preview) {
+  const data = await fetchAPI(
+    `
+    {  
+      CommonlayoutItem(id: "layout") {
+        content {
+          navigation
+        }
+      }
+    }
+  `,
+    { preview }
+  )
+  return data?.CommonlayoutItem?.content
+}

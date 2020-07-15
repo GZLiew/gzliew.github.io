@@ -15,9 +15,10 @@ import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
+  navLinks?: []
 }
 
-const Header = ({ hotelLogo }: Props) => {
+const Header = ({ hotelLogo, navLinks }: Props) => {
   const router = useRouter()
   const isHome = router.pathname === "/"
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
@@ -28,7 +29,12 @@ const Header = ({ hotelLogo }: Props) => {
 
   return (
     <>
-      <Navbar isOpen={isNavbarOpen} guestPhoto={hotelLogo} handleNavbarClick={toggleNavbar} />
+      <Navbar
+        navLinks={navLinks}
+        isOpen={isNavbarOpen}
+        guestPhoto={hotelLogo}
+        handleNavbarClick={toggleNavbar}
+      />
       <Container>
         <LogoWrapper>
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
