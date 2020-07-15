@@ -45,7 +45,7 @@ const Navbar = ({ isOpen, guestPhoto, handleNavbarClick }: Props) => {
   const ref = useRef(null)
   useEffect(() => {
     // execute the body scroll lock side effect based on the isOpen props
-    isOpen ? disableBodyScroll(ref.current) : enableBodyScroll
+    isOpen ? disableBodyScroll(ref.current) : enableBodyScroll(ref.current)
     return () => {
       // clear all body scroll locks on unmounting
       clearAllBodyScrollLocks(ref.current)
