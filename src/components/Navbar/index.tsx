@@ -10,12 +10,13 @@ import WeatherIcon from "../../assets/icons/navbar/ic-menu-weather.svg"
 import LogoutIcon from "../../assets/icons/navbar/ic-menu-logout.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
+import { LinkItem } from "@/lib/types/linkItem"
 import { useRef, useEffect } from "react"
 
 interface Props {
   isOpen: boolean
   guestPhoto: HotelLogo
-  navLinks?: any
+  navLinks?: Array<LinkItem>
   handleNavbarClick: () => void
 }
 

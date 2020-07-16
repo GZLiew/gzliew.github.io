@@ -1,7 +1,7 @@
 import { StyledLink } from "./navLink.styles"
 import Link from "next/link"
 
-import { LinkUrl } from "@/lib/types/linkUrl"
+import { LinkUrl } from "@/lib/types/linkItem"
 
 interface Props {
   url: LinkUrl

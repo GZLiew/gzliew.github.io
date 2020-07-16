@@ -8,12 +8,13 @@ import Header from "../Header"
 import { light, dark } from "@/lib/theme"
 
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
+import { NavigationLinks } from "@/lib/types/linkItem"
 
 interface Props {
   children?: ReactNode
   preview?: boolean
   hotelConfig?: HotelConfigProps
-  navLinks?: any
+  navLinks?: Array<NavigationLinks>
 }
 
 const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {

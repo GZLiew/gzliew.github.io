@@ -11,11 +11,13 @@ import BackIcon from "../../assets/icons/wt-ic-back.svg"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
+import { LinkItem } from "@/lib/types/linkItem"
+
 import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
-  navLinks?: []
+  navLinks?: Array<LinkItem>
 }
 
 const Header = ({ hotelLogo, navLinks }: Props) => {
