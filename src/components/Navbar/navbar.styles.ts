@@ -8,7 +8,7 @@ interface Props {
 
 export const NavbarWrapper = styled.div<Props>`
   ${tw`
-    z-50
+    z-100
     fixed
     top-0
     left-0
