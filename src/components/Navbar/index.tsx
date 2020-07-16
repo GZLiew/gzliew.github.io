@@ -46,9 +46,9 @@ const Navbar = ({ isOpen, guestPhoto, navLinks, handleNavbarClick }: Props) => {
       <StyledNavbar isOpen={isOpen} ref={ref}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
-          {links?.map((navLink, index) => {
-            return <NavLink {...navLink} key={`${navLink?.title}-${index}`} />
-          })}
+          {links?.map((navLink, index) => (
+            <NavLink {...navLink} key={`${navLink?.title}-${index}`} />
+          ))}
         </Nav>
       </StyledNavbar>
     </NavbarWrapper>
