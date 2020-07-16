@@ -50,6 +50,8 @@ export async function getHotelInformation(preview) {
     HotelinformationItem(id: "hotel-information") {
       content {
         welcome_text
+        location
+        hotel_rating
       }
     }
    }
