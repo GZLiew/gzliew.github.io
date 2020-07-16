@@ -13,6 +13,7 @@ export const HeaderContainer = styled(Container)`
     grid-rows-1
     px-0
     w-full
+    sm:max-w-full
   `}
 `
 
