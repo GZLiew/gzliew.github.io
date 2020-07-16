@@ -13,9 +13,9 @@ export interface LinkUrl {
 }
 
 export interface IconType {
-  filename: string
-  name: string
-  title: string
+  filename?: string
+  name?: string
+  title?: string
 }
 
 export interface NavigationLinks {
