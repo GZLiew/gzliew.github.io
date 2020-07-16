@@ -33,7 +33,7 @@ const Header = ({ hotelLogo, navLinks }: Props) => {
   // Listen to scroll event and toggle show flag when page has scrolled a certain amount
   useEffect(() => {
     const handleScroll = () => {
-      const show = global.window.scrollY > 40
+      const show = global.window.scrollY > 20
       if (headerRef.current !== show) {
         setHasScrolled(show)
       }

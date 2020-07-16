@@ -4,6 +4,7 @@ import Container from "../Container"
 
 export const HeaderContainer = styled(Container)`
   ${tw`
+    z-50
     sticky
     top-0
     inset-x-0
