@@ -5,4 +5,13 @@ export interface HotelInfoProps {
 
 interface HotelInfoContent {
   welcome_text: string
+  location: IHotelLocation[]
+}
+
+export interface IHotelLocation {
+  city: string
+  component: string
+  lat: string
+  lng: string
+  _uid: string
 }
