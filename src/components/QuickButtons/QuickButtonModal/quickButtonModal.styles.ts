@@ -3,7 +3,7 @@ import tw from "@tailwindcssinjs/macro"
 
 export const ModalBg = styled.div`
   ${tw`
-    absolute
+    fixed
     inset-0
     z-50
   `}
