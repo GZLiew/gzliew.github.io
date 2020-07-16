@@ -13,13 +13,16 @@ import BackIcon from "../../assets/icons/wt-ic-back.svg"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
+import { LinkItem } from "@/lib/types/linkItem"
+
 import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
+  navLinks?: Array<LinkItem>
 }
 
-const Header = ({ hotelLogo }: Props) => {
+const Header = ({ hotelLogo, navLinks }: Props) => {
   const router = useRouter()
   const isHome = router.pathname === "/"
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -49,7 +52,7 @@ const Header = ({ hotelLogo }: Props) => {
 
   return (
     <>
-      <Navbar isOpen={isNavbarOpen} guestPhoto={hotelLogo} handleNavbarClick={toggleNavbar} />
+      <Navbar navLinks={navLinks} isOpen={isNavbarOpen} guestPhoto={hotelLogo} handleNavbarClick={toggleNavbar} />
       <HeaderContainer>
         <HeaderBackground hasScrolled={hasScrolled} />
         <LogoWrapper>
