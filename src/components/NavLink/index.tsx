@@ -1,5 +1,6 @@
-import { StyledLink } from "./navLink.styles"
 import Link from "next/link"
+
+import { StyledLink, IconWrapper } from "./navLink.styles"
 
 import { LinkUrl, IconType } from "@/lib/types/linkItem"
 
@@ -13,7 +14,11 @@ const NavLink = ({ url, icon, title }: Props) => {
   return (
     <Link href={url?.cached_url}>
       <StyledLink>
-        {icon?.filename && <img className="navlink-icon" src={icon.filename} alt={icon?.name} />}
+        {icon?.filename && (
+          <IconWrapper>
+            <img src={icon.filename} alt={icon?.name} />
+          </IconWrapper>
+        )}
         <span>{title}</span>
       </StyledLink>
     </Link>
