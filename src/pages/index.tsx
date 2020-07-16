@@ -10,9 +10,10 @@ import { CheckoutInfo, Weather } from "@/components/Widget"
 import { OrderInProgress, ShoppingBag } from "@/components/Notifications"
 import { NotificationArea } from "@/components/Notifications/notifications.styles"
 
-import { getHotelConfiguration, getHomeData } from "@/lib/api"
+import { getHotelConfiguration, getHomeData, getHotelGlobalNavigation } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
+import { NavigationType } from "@/lib/types/linkItem"
 
 const StyledTitle = styled.h2`
 ${tw`text-1xl pb-4 font-semibold`}
@@ -27,13 +28,13 @@ const SubHeading = styled.h1`
 interface Props {
   hotelConfig?: HotelConfigProps
   homeData?: HomeProps
+  layoutNavigation?: NavigationType
   preview?: boolean
 }
 
-export default function Index({ hotelConfig, homeData, preview }: Props) {
-  console.log(hotelConfig)
+export default function Index({ hotelConfig, homeData, layoutNavigation, preview }: Props) {
   return (
-    <Layout hotelConfig={hotelConfig} preview={preview}>
+    <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
       <Head>
         <title>Welcome to {hotelConfig?.content?.hotel_name}</title>
       </Head>
@@ -57,8 +58,9 @@ export default function Index({ hotelConfig, homeData, preview }: Props) {
 export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const hotelConfig = (await getHotelConfiguration(preview)) || []
   const homeData = (await getHomeData(preview)) || []
+  const layoutNavigation = (await getHotelGlobalNavigation(preview)) || []
 
   return {
-    props: { hotelConfig, homeData, preview }
+    props: { hotelConfig, homeData, layoutNavigation, preview }
   }
 }
