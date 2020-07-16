@@ -5,10 +5,6 @@ import { NavbarWrapper, StyledNavbar, Nav } from "./navbar.styles"
 import NavLink from "../NavLink"
 import GuestDetails from "../GuestDetails"
 
-import ReportAProbIcon from "../../assets/icons/navbar/ic-menu-reportaprob.svg"
-import WeatherIcon from "../../assets/icons/navbar/ic-menu-weather.svg"
-import LogoutIcon from "../../assets/icons/navbar/ic-menu-logout.svg"
-
 import { HotelLogo } from "@/lib/types/hotelConfig"
 import { LinkItem } from "@/lib/types/linkItem"
 import { useRef, useEffect } from "react"
@@ -21,9 +17,13 @@ interface Props {
 }
 
 const actionLinks = [
-  { icon: ReportAProbIcon, url: { cached_url: "/hotel-information" }, title: "Report a problem" },
-  { icon: WeatherIcon, url: { cached_url: "#!" }, title: "Feedback" },
-  { icon: LogoutIcon, url: { cached_url: "#!" }, title: "Logout" }
+  {
+    icon: { filename: "/icons/ic-menu-reportaprob.svg" },
+    url: { cached_url: "/hotel-information" },
+    title: "Report a problem"
+  },
+  { icon: { filename: "/icons/ic-menu-weather.svg" }, url: { cached_url: "#!" }, title: "Feedback" },
+  { icon: { filename: "/icons/ic-menu-logout.svg" }, url: { cached_url: "#!" }, title: "Logout" }
 ]
 
 const Navbar = ({ isOpen, guestPhoto, navLinks, handleNavbarClick }: Props) => {

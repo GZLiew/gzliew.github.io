@@ -23,5 +23,6 @@ export const StyledLink = styled.a`
     ${tw`
     mr-8
     `}
+    max-width: 24px;
   }
 `

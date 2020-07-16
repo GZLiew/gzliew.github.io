@@ -5,7 +5,7 @@ export interface LinkItem {
 }
 
 export interface LinkUrl {
-  cached_url: string
+  cached_url?: string
   fieldtype?: string
   id?: string
   linktype?: string

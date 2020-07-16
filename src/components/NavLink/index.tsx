@@ -1,23 +1,19 @@
 import { StyledLink } from "./navLink.styles"
 import Link from "next/link"
 
-import { LinkUrl } from "@/lib/types/linkItem"
+import { LinkUrl, IconType } from "@/lib/types/linkItem"
 
 interface Props {
   url: LinkUrl
-  icon: any
+  icon: IconType
   title: string
 }
 
-const NavLink = ({ url, icon: Icon, title }: Props) => {
+const NavLink = ({ url, icon, title }: Props) => {
   return (
     <Link href={url?.cached_url}>
       <StyledLink>
-        {Icon?.filename ? (
-          <img className="navlink-icon" src={Icon.filename} alt={Icon?.name} />
-        ) : (
-          <Icon className="navlink-icon" />
-        )}
+        {icon?.filename && <img className="navlink-icon" src={icon.filename} alt={icon?.name} />}
         <span>{title}</span>
       </StyledLink>
     </Link>
