@@ -5,6 +5,7 @@ import tw from "@tailwindcssinjs/macro"
 
 import Layout from "@/components/Layout"
 import Container from "@/components/Container"
+import HotelLocation from "@/components/HotelInformation/HotelLocation"
 
 import { getHotelConfiguration, getHotelInformation } from "@/lib/api"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
@@ -23,8 +24,8 @@ const LogoWrapper = styled.div`
   }
 `
 const StyledTitle = styled.h1`
-${tw`text-2.5xl pb-4 font-bold`}
-color: ${({ theme }) => theme.colors.text.primary};
+  ${tw`text-2.5xl pb-2 font-bold`}
+  color: ${({ theme }) => theme.colors.text.primary};
 `
 const SubHeading = styled.h2`
   ${tw`text-sm pt-4 font-regular`}
@@ -46,6 +47,7 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
         </LogoWrapper>
         <SubHeading>{hotelInfo?.content?.welcome_text}</SubHeading>
         <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>
+        <HotelLocation location={hotelInfo?.content?.location[0]} />
       </Container>
     </Layout>
   )
