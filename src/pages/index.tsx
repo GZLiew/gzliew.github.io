@@ -13,6 +13,7 @@ import { NotificationArea } from "@/components/Notifications/notifications.style
 import { getHotelConfiguration, getHomeData, getHotelGlobalNavigation } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
+import { NavigationType } from "@/lib/types/linkItem"
 
 const StyledTitle = styled.h2`
 ${tw`text-1xl pb-4 font-semibold`}
@@ -27,7 +28,7 @@ const SubHeading = styled.h1`
 interface Props {
   hotelConfig?: HotelConfigProps
   homeData?: HomeProps
-  layoutNavigation?: any
+  layoutNavigation?: NavigationType
   preview?: boolean
 }
 

@@ -21,3 +21,7 @@ export interface IconType {
 export interface NavigationLinks {
   links: Array<LinkItem>
 }
+
+export interface NavigationType {
+  navigation: Array<NavigationLinks>
+}
