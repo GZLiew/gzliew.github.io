@@ -26,6 +26,5 @@ export const LocationCity = styled.span`
 `
 
 export const LocationLink = styled.a`
-  color: ${({ theme }) =>
-    theme.mode === "light" ? rgba(theme.colors.text.primary, 0.52) : rgba("#ffffff", 0.32)};
+  color: ${({ theme }) => theme?.colors?.text?.alternate}
 `
