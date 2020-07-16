@@ -16,7 +16,8 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
     relative
     flex justify-center items-center
     rounded-full
-    transition duration-500 ease-in-out 
+    transition duration-500 ease-in-out
+    overflow-hidden
   `}
   width: 52px;
   height: 52px;
@@ -35,6 +36,7 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
 
   & img {
     max-width: 32px;
+    max-height: 32px;
   }
 `
 
