@@ -52,7 +52,12 @@ const Header = ({ hotelLogo, navLinks }: Props) => {
 
   return (
     <>
-      <Navbar navLinks={navLinks} isOpen={isNavbarOpen} guestPhoto={hotelLogo} handleNavbarClick={toggleNavbar} />
+      <Navbar
+        navLinks={navLinks}
+        isOpen={isNavbarOpen}
+        guestPhoto={hotelLogo}
+        handleNavbarClick={toggleNavbar}
+      />
       <HeaderContainer>
         <HeaderBackground hasScrolled={hasScrolled} />
         <LogoWrapper>
