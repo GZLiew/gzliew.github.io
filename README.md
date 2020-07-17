@@ -1,6 +1,6 @@
 # Tapendium PWA
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app). We use Storyblok as a HeadlessCMS
 
 ## Getting Started
 
@@ -36,3 +36,12 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Environments
+
+- **Production** [branch: `master`] - https://tapendium.netlify.app/
+- **Dev** [branch: `dev`] - https://dev--tapendium.netlify.app/
+
+## Storyblok API
+
+If you can play with the Storyblok Graphql playground. You should access here https://gapi-browser.storyblok.com/?token=<STORYBLOK_API_KEY>.
