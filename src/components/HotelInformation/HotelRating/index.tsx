@@ -9,7 +9,7 @@ interface Props {
 }
 
 const HotelRating = ({ rating }: Props) => {
-  const totalStars = parseFloat(rating.of)
+  const totalStars = parseInt(rating.of)
   const ratedStars = parseFloat(rating.star_number)
 
   return (
@@ -20,11 +20,9 @@ const HotelRating = ({ rating }: Props) => {
         widgetSpacings="1.5px"
         widgetEmptyColors="#434a50"
         widgetRatedColors="#f7b500">
-        <Ratings.Widget />
-        <Ratings.Widget />
-        <Ratings.Widget />
-        <Ratings.Widget />
-        <Ratings.Widget />
+        {Array.from(Array(totalStars).keys()).map((n) => (
+          <Ratings.Widget key={`rating-widget-${n}`} />
+        ))}
       </Ratings>
       <RatingText>
         {ratedStars}/<span>{totalStars}</span>
