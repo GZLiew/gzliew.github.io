@@ -1,3 +1,5 @@
+import { useTheme } from "@emotion/react"
+
 import Ratings from "react-ratings-declarative"
 
 import { RatingWrapper, RatingText } from "./hotelRating.styles"
@@ -9,6 +11,7 @@ interface Props {
 }
 
 const HotelRating = ({ rating }: Props) => {
+  const theme = useTheme()
   const totalStars = parseInt(rating.of)
   const ratedStars = parseFloat(rating.star_number)
 
@@ -18,8 +21,8 @@ const HotelRating = ({ rating }: Props) => {
         rating={ratedStars}
         widgetDimensions="12px"
         widgetSpacings="1.5px"
-        widgetEmptyColors="#434a50"
-        widgetRatedColors="#f7b500">
+        widgetEmptyColors={theme.colors.ratings.empty}
+        widgetRatedColors={theme.colors.ratings.full}>
         {Array.from(Array(totalStars).keys()).map((n) => (
           <Ratings.Widget key={`rating-widget-${n}`} />
         ))}

@@ -25,7 +25,11 @@ export default {
     notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)",
     shoppingBagBg: "#fff",
     navbarBackground: "linear-gradient(to bottom, #eaeaea, #eaecee)",
-    guestDetailsBorder: "#dde0e4"
+    guestDetailsBorder: "#dde0e4",
+    ratings: {
+      full: "#f7b500",
+      empty: "#dadada"
+    }
   },
   button: {
     boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;",
