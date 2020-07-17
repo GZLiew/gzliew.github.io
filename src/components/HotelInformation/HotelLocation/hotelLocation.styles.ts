@@ -9,6 +9,7 @@ export const LocationWrapper = styled.div`
     flex
     items-center
     text-xs
+    mb-8
   `}
 `
 
