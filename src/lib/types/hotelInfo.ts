@@ -9,16 +9,18 @@ interface HotelInfoContent {
   hotel_rating: IHotelRating[]
 }
 
-export interface IHotelLocation {
-  city: string
+interface IHotelInfoField {
   component: string
-  lat: string
-  lng: string
   _uid: string
 }
 
-export interface IHotelRating {
-  component: string
+export interface IHotelLocation extends IHotelInfoField {
+  city: string
+  lat: string
+  lng: string
+}
+
+export interface IHotelRating extends IHotelInfoField {
   of: string
   star_number: string
   _uid: string
