@@ -5,6 +5,7 @@ import tw from "@tailwindcssinjs/macro"
 
 import Layout from "@/components/Layout"
 import Container from "@/components/Container"
+import HotelRating from "@/components/HotelInformation/HotelRating"
 import HotelLocation from "@/components/HotelInformation/HotelLocation"
 
 import { getHotelConfiguration, getHotelInformation } from "@/lib/api"
@@ -17,11 +18,12 @@ interface Props {
   preview?: boolean
 }
 
-const LogoWrapper = styled.div`
-  & img {
-    max-width: 69px;
-    margin-top: 38px;
-  }
+const Wrapper = styled.div`
+  ${tw`flex items-center justify-between`}
+`
+
+const Logo = styled.img`
+  max-width: 69px;
 `
 const StyledTitle = styled.h1`
   ${tw`text-2.5xl pb-2 font-bold`}
@@ -39,12 +41,15 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
         <title>Hotel Information</title>
       </Head>
       <Container>
-        <LogoWrapper>
-          <img
+        <Wrapper>
+          <Logo
             src={hotelConfig?.content?.hotel_logo?.filename}
             title={hotelConfig?.content?.hotel_logo.name}
           />
-        </LogoWrapper>
+
+          <HotelRating rating={hotelInfo?.content?.hotel_rating[0]} />
+        </Wrapper>
+
         <SubHeading>{hotelInfo?.content?.welcome_text}</SubHeading>
         <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>
         <HotelLocation location={hotelInfo?.content?.location[0]} />

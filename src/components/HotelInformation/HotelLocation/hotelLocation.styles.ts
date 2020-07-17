@@ -26,5 +26,5 @@ export const LocationCity = styled.span`
 `
 
 export const LocationLink = styled.a`
-  color: ${({ theme }) => theme?.colors?.text?.alternate}
+  color: ${({ theme }) => theme?.colors?.text?.alternate};
 `
