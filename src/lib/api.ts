@@ -31,16 +31,20 @@ export async function getHomeData(preview) {
       HomeItem(id: "home") {
       id
       content {
+        _editable
+        _uid
+        component
+        modules
         primary_welcome_text
-        secondary_welcome_text
         quick_buttons
+        secondary_welcome_text
       }
     }
   }
   `,
     { preview }
   )
-  return data?.HomeItem
+  return data?.HomeItem?.content
 }
 
 export async function getHotelInformation(preview) {
@@ -68,6 +72,9 @@ export async function getHotelGlobalNavigation(preview) {
       CommonlayoutItem(id: "layout") {
         content {
           navigation
+          component
+          _uid
+          _editable
         }
       }
     }

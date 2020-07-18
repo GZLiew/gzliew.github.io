@@ -2,14 +2,14 @@ import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickButtonItem.styles"
 
-import ShowMoreIcon from "../../assets/icons/ic-my-orders.svg"
+import ShowMoreIcon from "../../../assets/icons/ic-my-orders.svg"
 
 import { QuickButtonsLayout } from "./quickButtons.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
-  buttons?: []
+  buttons?: any
 }
 
 const QuickButtons = ({ buttons }: Props) => {
@@ -20,9 +20,11 @@ const QuickButtons = ({ buttons }: Props) => {
   return (
     <>
       <QuickButtonsLayout>
-        {buttons?.slice(0, 7)?.map((item: QuickButtonsProps) => (
-          <QuickButton item={item} key={item?._uid} />
-        ))}
+        {!isActive &&
+          buttons
+            ?.slice(0, 7)
+            ?.map((item: QuickButtonsProps) => <QuickButton item={item} key={item?._uid} />)}
+
         <QuickButtonWrapper>
           <QuickButtonItem onClick={toggle}>
             <ShowMoreIcon />

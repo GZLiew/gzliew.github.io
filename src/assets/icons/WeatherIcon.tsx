@@ -1,13 +1,13 @@
 import React from "react"
 
 interface Props {
-  theme?: string
+  mode?: string
 }
 
-const WheaterIcon = ({ theme }: Props) => {
+const WheaterIcon = ({ mode }: Props) => {
   return (
     <div>
-      {theme === "light" ? (
+      {mode === "light" ? (
         <svg xmlns="http://www.w3.org/2000/svg" width="43" height="38" viewBox="0 0 43 38">
           <defs>
             <linearGradient id="prefix__a" x1="50%" x2="50%" y1="0%" y2="99.731%">

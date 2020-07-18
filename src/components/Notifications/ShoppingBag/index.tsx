@@ -1,4 +1,3 @@
-import React from "react"
 import BagIcon from "../../../assets/icons/ic-shopping-bag.svg"
 
 import { ShoppingBagWrapper, ItemCount } from "./bag.styles"

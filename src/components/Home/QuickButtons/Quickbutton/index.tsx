@@ -1,4 +1,5 @@
 import Link from "next/link"
+import SbEditable from "storyblok-react"
 
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickButtonItem.styles"
 
@@ -8,6 +9,7 @@ interface Props {
 
 export interface QuickButtonsProps {
   _uid: string
+  component: string
   text: string
   icon: iconProps
   link: LinkProps
@@ -28,12 +30,14 @@ interface iconProps {
 const QuickButton = ({ item }: Props) => {
   return (
     <Link href={`/${item?.link?.cached_url}`}>
-      <QuickButtonWrapper>
-        <QuickButtonItem bg={item?.background_color}>
-          <img src={item?.icon?.filename} alt={item?.text} />
-        </QuickButtonItem>
-        <Title>{item?.text}</Title>
-      </QuickButtonWrapper>
+      <SbEditable content={item}>
+        <QuickButtonWrapper>
+          <QuickButtonItem bg={item?.background_color}>
+            <img src={item?.icon?.filename} alt={item?.text} />
+          </QuickButtonItem>
+          <Title>{item?.text}</Title>
+        </QuickButtonWrapper>
+      </SbEditable>
     </Link>
   )
 }

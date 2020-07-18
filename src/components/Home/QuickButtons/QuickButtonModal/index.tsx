@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
 import Button from "@/components/Button"
 
-import CloseIcon from "../../../assets/icons/wt-ic-close.svg"
+import CloseIcon from "../../../../assets/icons/wt-ic-close.svg"
 
 import { ModalBg, ModalHeader, HelpText } from "./quickButtonModal.styles"
 
