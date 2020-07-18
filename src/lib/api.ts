@@ -56,6 +56,9 @@ export async function getHotelInformation(preview) {
         welcome_text
         location
         hotel_rating
+        component
+        _uid
+        _editable
       }
     }
    }

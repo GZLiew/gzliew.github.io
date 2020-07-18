@@ -1,4 +1,5 @@
 import React from "react"
+import HotelInformation from "@/components/HotelInformation"
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
 
@@ -132,6 +133,8 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return <Home blok={story?.content} blokConfig={configStory?.content} />
         case "common_layout":
           return ""
+        case "hotel-information":
+          return <HotelInformation blok={story?.content} blokConfig={configStory?.content} />
         default:
           return `Component ${story?.content.component} not created yet`
       }

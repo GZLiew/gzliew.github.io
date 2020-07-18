@@ -16,7 +16,7 @@ interface Props {
   preview?: boolean
 }
 
-export default function Index({ hotelConfig, homeData, layoutNavigation, preview }: Props) {
+export default function HomePage({ hotelConfig, homeData, layoutNavigation, preview }: Props) {
   return (
     <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
       <Head>
