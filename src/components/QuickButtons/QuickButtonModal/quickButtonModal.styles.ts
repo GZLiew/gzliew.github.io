@@ -11,6 +11,9 @@ export const ModalBg = styled.div`
   width: 100%;
   padding: 25px;
   padding-top: 38px;
+  margin: 0;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch; 
 `
 
 export const ModalHeader = styled.div`

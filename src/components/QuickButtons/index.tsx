@@ -7,6 +7,7 @@ import ShowMoreIcon from "../../assets/icons/ic-my-orders.svg"
 import { QuickButtonsLayout } from "./quickButtons.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
+import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 interface Props {
   buttons?: []
@@ -16,6 +17,7 @@ const QuickButtons = ({ buttons }: Props) => {
   if (buttons?.length === 0) return null
 
   const [isActive, toggle] = useToggle(false)
+  useLockBodyScroll(isActive)
 
   return (
     <>
