@@ -1,12 +1,14 @@
 import { useLayoutEffect } from "react"
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
 
-const useLockBodyScroll = (isActive) => {
+const useLockBodyScroll = (isActive, ref) => {
   useLayoutEffect(() => {
-    const body = document.querySelector("body")
-    isActive ? body.classList.add("lock") : body.classList.remove("lock")
+    isActive ? disableBodyScroll(ref.current) : enableBodyScroll(ref.current)
     // Re-enable scrolling when component unmounts
-    return () => body.classList.remove("lock")
-  }, [isActive]) // Array with boolean to run effect when the status change effect
+    return () =>
+      // clear all body scroll locks on unmounting
+      clearAllBodyScrollLocks(ref.current)
+  }, [isActive])
 }
 
 export default useLockBodyScroll
