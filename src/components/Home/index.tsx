@@ -25,12 +25,12 @@ const Home = ({ blok, blokConfig }) => {
         <QuickButtons buttons={blok?.quick_buttons} />
         <CheckoutInfo />
         {blok?.modules?.map((module) => (
-          <>
+          <React.Fragment key={module._uid}>
             {React.createElement(modules[module.component], {
               blok: { ...module },
               key: module._uid
             })}
-          </>
+          </React.Fragment>
         ))}
       </Container>
       <NotificationArea>
