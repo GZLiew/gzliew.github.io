@@ -8,3 +8,11 @@ export interface IStoryblok_IconAsset {
   name?: string
   title?: string
 }
+
+export interface IStoryblok_Link {
+  id?: string
+  url?: string
+  linktype?: string
+  fieldtype?: string
+  cached_url?: string
+}

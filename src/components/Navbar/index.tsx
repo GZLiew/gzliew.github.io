@@ -6,14 +6,14 @@ import NavLink from "../NavLink"
 import GuestDetails from "../GuestDetails"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
-import { LinkItem } from "@/lib/types/linkItem"
+import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 interface Props {
   isOpen: boolean
   guestPhoto: HotelLogo
-  navLinks?: Array<LinkItem>
+  navLinks?: ILayoutNavigationLink[]
   handleNavbarClick: () => void
 }
 

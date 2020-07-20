@@ -3,10 +3,10 @@ import SbEditable from "storyblok-react"
 
 import { StyledLink, IconWrapper } from "./navLink.styles"
 
-import { LinkItem } from "@/lib/types/linkItem"
+import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 interface Props {
-  blok: LinkItem
+  blok: ILayoutNavigationLink
 }
 
 const NavLink = ({ blok }: Props) => {
