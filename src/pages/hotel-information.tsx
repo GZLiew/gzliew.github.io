@@ -7,6 +7,7 @@ import Layout from "@/components/Layout"
 import Container from "@/components/Container"
 import HotelRating from "@/components/HotelInformation/HotelRating"
 import HotelLocation from "@/components/HotelInformation/HotelLocation"
+import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
 import { getHotelConfiguration, getHotelInformation } from "@/lib/api"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
@@ -35,6 +36,11 @@ const SubHeading = styled.h2`
 `
 
 export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Props) {
+  const subSectionsCount = hotelInfo?.content?.categories.reduce(
+    (acc, category) => acc + category?.sub_sections.length,
+    0
+  )
+
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
@@ -53,6 +59,8 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
         <SubHeading>{hotelInfo?.content?.welcome_text}</SubHeading>
         <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>
         <HotelLocation location={hotelInfo?.content?.location[0]} />
+
+        <HotelFacility amenities={hotelInfo?.content?.scrolling_icons} categoriesCount={subSectionsCount} />
       </Container>
     </Layout>
   )

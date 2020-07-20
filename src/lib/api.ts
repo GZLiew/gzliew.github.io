@@ -52,6 +52,8 @@ export async function getHotelInformation(preview) {
         welcome_text
         location
         hotel_rating
+        scrolling_icons
+        categories
       }
     }
    }
@@ -64,7 +66,7 @@ export async function getHotelInformation(preview) {
 export async function getHotelGlobalNavigation(preview) {
   const data = await fetchAPI(
     `
-    {  
+    {
       CommonlayoutItem(id: "layout") {
         content {
           navigation
