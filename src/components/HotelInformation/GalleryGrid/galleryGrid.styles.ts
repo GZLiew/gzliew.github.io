@@ -7,6 +7,7 @@ import { Item } from "./GridItem/gridItem.styles"
 export const Grid = styled.div`
   ${tw`
     grid
+    my-10
   `}
 
   grid-gap: 10px;
