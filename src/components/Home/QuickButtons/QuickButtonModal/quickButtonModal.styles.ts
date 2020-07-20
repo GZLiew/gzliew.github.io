@@ -3,7 +3,7 @@ import tw from "@tailwindcssinjs/macro"
 
 export const ModalBg = styled.div`
   ${tw`
-    absolute
+    fixed
     inset-0
     z-50
   `}
@@ -11,6 +11,9 @@ export const ModalBg = styled.div`
   width: 100%;
   padding: 25px;
   padding-top: 38px;
+  margin: 0;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch; 
 `
 
 export const ModalHeader = styled.div`

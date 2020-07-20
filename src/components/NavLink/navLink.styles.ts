@@ -12,16 +12,23 @@ export const StyledLink = styled.a`
       text-md
       font-medium
       rounded-full
+      items-center
       `}
 
   &:hover, &:focus, &:active {
     background-color: ${({ theme }) =>
       theme.mode === "light" ? rgba(theme.colors.pink.primary, 0.12) : rgba("black", 0.12)};
   }
+`
 
-  .navlink-icon {
-    ${tw`
+export const IconWrapper = styled.div`
+  ${tw`
     mr-8
-    `}
+  `}
+  width: 24px;
+  heigth: 24px;
+
+  img {
+    width: 100%;
   }
 `

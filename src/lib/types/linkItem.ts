@@ -1,11 +1,14 @@
 export interface LinkItem {
-  title: string
-  url: LinkUrl
-  icon: IconType
+  title?: string
+  url?: LinkUrl
+  icon?: IconType
+  _editable: string
+  _uid: string
+  component: string
 }
 
 export interface LinkUrl {
-  cached_url: string
+  cached_url?: string
   fieldtype?: string
   id?: string
   linktype?: string
@@ -13,9 +16,9 @@ export interface LinkUrl {
 }
 
 export interface IconType {
-  filename: string
-  name: string
-  title: string
+  filename?: string
+  name?: string
+  title?: string
 }
 
 export interface NavigationLinks {
@@ -24,4 +27,5 @@ export interface NavigationLinks {
 
 export interface NavigationType {
   navigation: Array<NavigationLinks>
+  _uid: string
 }

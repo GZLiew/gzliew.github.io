@@ -5,6 +5,10 @@ import { ThemeProps } from "@/lib/types/emotion"
 const makeGlobalStyles = (theme) => css`
   body {
     background: ${theme.colors.bodyBackground};
+
+    &.lock {
+      overflow: hidden;
+    }
   }
 `
 const GlobalStyles = withTheme(({ theme }: ThemeProps) => <Global styles={makeGlobalStyles(theme)} />)

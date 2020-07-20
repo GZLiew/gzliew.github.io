@@ -11,6 +11,7 @@ import { LogoWrapper, HeaderContainer, HeaderBackground } from "./header.styles"
 import HamburgerMenuIcon from "../../assets/icons/wt-ic-hamburger-menu.svg"
 import BackIcon from "../../assets/icons/wt-ic-back.svg"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
+import ShareIcon from "../../assets/icons/share.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
 import { LinkItem } from "@/lib/types/linkItem"
@@ -24,7 +25,7 @@ interface Props {
 
 const Header = ({ hotelLogo, navLinks }: Props) => {
   const router = useRouter()
-  const isHome = router.pathname === "/"
+  const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
   const headerRef = useRef<boolean>()
@@ -66,7 +67,7 @@ const Header = ({ hotelLogo, navLinks }: Props) => {
           </Button>
           {isHome && <img src={hotelLogo?.filename} title={hotelLogo?.name} />}
           <Button bgColor="white" maxWith="40px" height="40px">
-            <NotificationIcon />
+            {isHome ? <NotificationIcon /> : <ShareIcon />}
           </Button>
         </LogoWrapper>
       </HeaderContainer>

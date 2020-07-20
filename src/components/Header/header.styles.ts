@@ -8,11 +8,13 @@ export const HeaderContainer = styled(Container)`
     sticky
     top-0
     inset-x-0
+    mt-6
     grid
     grid-cols-1
     grid-rows-1
     px-0
     w-full
+    sm:max-w-full
   `}
 `
 

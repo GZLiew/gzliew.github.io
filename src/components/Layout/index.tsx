@@ -6,7 +6,6 @@ import Alert from "../Alert"
 import Header from "../Header"
 
 import { light, dark } from "@/lib/theme"
-
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { NavigationLinks } from "@/lib/types/linkItem"
 

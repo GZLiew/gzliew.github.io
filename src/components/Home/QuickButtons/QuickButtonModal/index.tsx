@@ -1,17 +1,18 @@
 import { FunctionComponent } from "react"
 import Button from "@/components/Button"
 
-import CloseIcon from "../../../assets/icons/wt-ic-close.svg"
+import CloseIcon from "../../../../assets/icons/wt-ic-close.svg"
 
 import { ModalBg, ModalHeader, HelpText } from "./quickButtonModal.styles"
 
 interface Props {
   closeModal: () => void
+  divRef?: React.Ref<HTMLDivElement>
 }
 
-const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children }) => {
+const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children, divRef }) => {
   return (
-    <ModalBg>
+    <ModalBg ref={divRef}>
       <ModalHeader>
         <Button onClick={closeModal} bgColor="white" maxWith="40px" height="40px">
           <CloseIcon />
