@@ -1,3 +1,5 @@
+import { SbEditableContent } from "storyblok-react"
+
 export interface HotelInfoProps {
   id: number
   content: HotelInfoContent
@@ -11,23 +13,18 @@ interface HotelInfoContent {
   categories: ICategory[]
 }
 
-interface IHotelInfoField {
-  component: string
-  _uid: string
-}
-
-export interface IHotelLocation extends IHotelInfoField {
+export interface IHotelLocation extends SbEditableContent {
   city: string
   lat: string
   lng: string
 }
 
-export interface IHotelRating extends IHotelInfoField {
+export interface IHotelRating extends SbEditableContent {
   of: string
   star_number: string
 }
 
-export interface IScrollingIcon extends IHotelInfoField {
+export interface IScrollingIcon extends SbEditableContent {
   icon: IIconAsset
   name: string
 }
@@ -43,14 +40,13 @@ export interface IIconAsset {
   title?: string
 }
 
-export interface ICategory extends IHotelInfoField {
+export interface ICategory extends SbEditableContent {
   title?: string
   description?: string
   sub_sections?: ICategorySubsection[]
-  _editable?: string
 }
 
-export interface ICategorySubsection extends IHotelInfoField {
+export interface ICategorySubsection extends SbEditableContent {
   title?: string
   description?: string
   icon: IIconAsset
