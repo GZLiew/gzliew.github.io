@@ -2,10 +2,10 @@ import { SbEditableContent } from "storyblok-react"
 
 export interface HotelConfigProps {
   id: number
-  content: HotelContent
+  content: HotelConfigContent
 }
 
-interface HotelContent extends SbEditableContent {
+export interface HotelConfigContent extends SbEditableContent {
   hotel_logo: HotelLogo
   hotel_name: string
   primary_color: string

@@ -6,12 +6,13 @@ export interface HotelInfoProps {
   content: HotelInfoContent
 }
 
-interface HotelInfoContent {
+export interface HotelInfoContent extends SbEditableContent {
   welcome_text: string
   location: IHotelLocation[]
   hotel_rating: IHotelRating[]
   scrolling_icons: IScrollingIcon[]
   categories: ICategory[]
+  hotel_photos: IHotelPhoto[]
 }
 
 export interface IHotelLocation extends SbEditableContent {
@@ -39,5 +40,13 @@ export interface ICategory extends SbEditableContent {
 export interface ICategorySubsection extends SbEditableContent {
   title?: string
   description?: string
-  icon: IStoryblok_IconAsset
+  icon?: IStoryblok_IconAsset
+}
+
+export interface IHotelPhoto extends SbEditableContent {
+  photos?: IPhotoFile[]
+}
+
+export interface IPhotoFile extends SbEditableContent {
+  image?: string
 }
