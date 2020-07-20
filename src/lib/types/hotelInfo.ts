@@ -1,4 +1,5 @@
 import { SbEditableContent } from "storyblok-react"
+import { IStoryblok_IconAsset } from "./storyblok"
 
 export interface HotelInfoProps {
   id: number
@@ -25,19 +26,8 @@ export interface IHotelRating extends SbEditableContent {
 }
 
 export interface IScrollingIcon extends SbEditableContent {
-  icon: IIconAsset
+  icon: IStoryblok_IconAsset
   name: string
-}
-
-export interface IIconAsset {
-  alt?: string
-  copyright?: any
-  fieldtype?: "asset"
-  filename?: string
-  focus?: any
-  id?: string
-  name: string
-  title?: string
 }
 
 export interface ICategory extends SbEditableContent {
@@ -49,5 +39,5 @@ export interface ICategory extends SbEditableContent {
 export interface ICategorySubsection extends SbEditableContent {
   title?: string
   description?: string
-  icon: IIconAsset
+  icon: IStoryblok_IconAsset
 }
