@@ -26,7 +26,7 @@ export interface IHotelRating extends SbEditableContent {
 }
 
 export interface IScrollingIcon extends SbEditableContent {
-  icon: IStoryblok_IconAsset
+  icon_name: string
   name: string
 }
 
