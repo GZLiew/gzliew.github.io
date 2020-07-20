@@ -29,16 +29,16 @@ interface iconProps {
 
 const QuickButton = ({ item }: Props) => {
   return (
-    <Link href={`/${item?.link?.cached_url}`}>
-      <SbEditable content={item}>
+    <SbEditable content={item}>
+      <Link href={`/${item?.link?.cached_url}`}>
         <QuickButtonWrapper>
           <QuickButtonItem bg={item?.background_color}>
             <img src={item?.icon?.filename} alt={item?.text} />
           </QuickButtonItem>
           <Title>{item?.text}</Title>
         </QuickButtonWrapper>
-      </SbEditable>
-    </Link>
+      </Link>
+    </SbEditable>
   )
 }
 
