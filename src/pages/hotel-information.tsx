@@ -36,6 +36,11 @@ const SubHeading = styled.h2`
 `
 
 export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Props) {
+  const subSectionsCount = hotelInfo?.content?.categories.reduce(
+    (acc, category) => acc + category?.sub_sections.length,
+    0
+  )
+
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
@@ -55,10 +60,7 @@ export default function HotelInformation({ hotelConfig, hotelInfo, preview }: Pr
         <StyledTitle>{hotelConfig?.content?.hotel_name}</StyledTitle>
         <HotelLocation location={hotelInfo?.content?.location[0]} />
 
-        <HotelFacility
-          amenities={hotelInfo?.content?.scrolling_icons}
-          categoriesCount={hotelInfo?.content?.categories.length}
-        />
+        <HotelFacility amenities={hotelInfo?.content?.scrolling_icons} categoriesCount={subSectionsCount} />
       </Container>
     </Layout>
   )
