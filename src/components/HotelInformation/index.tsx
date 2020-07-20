@@ -23,7 +23,7 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>
-        <GalleryGrid photos={blok?.hotel_photos[0]?.photos} />
+        <GalleryGrid gallery={blok?.hotel_photos[0]} />
 
         <Wrapper>
           <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />

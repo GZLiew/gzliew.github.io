@@ -1,25 +1,28 @@
+import SbEditable, { SbEditableContent } from "storyblok-react"
 import { Grid, MorePhotos } from "./galleryGrid.styles"
 
 import { IPhotoFile } from "@/lib/types/hotelInfo"
 import GridItem from "./GridItem"
 
-interface Props {
+interface Props extends SbEditableContent {
   photos: IPhotoFile[]
 }
 
-const GalleryGrid = ({ photos }: Props) => {
-  const shownPhotos = photos.slice(0, 4)
+const GalleryGrid = ({ gallery }: Props) => {
+  const shownPhotos = gallery?.photos.slice(0, 4)
 
   return (
-    <Grid>
-      {shownPhotos.map((photo, i) => (
-        <GridItem key={photo._uid} image={photo.image} className={`item-${i + 1}`} />
-      ))}
-      <MorePhotos className="item-last">
-        <h5>{photos.length - shownPhotos.length}+</h5>
-        <h6>Photos</h6>
-      </MorePhotos>
-    </Grid>
+    <SbEditable content={gallery}>
+      <Grid>
+        {shownPhotos.map((photo, i) => (
+          <GridItem key={photo._uid} blok={photo} className={`item-${i + 1}`} />
+        ))}
+        <MorePhotos className="item-last">
+          <h5>{gallery?.photos.length - shownPhotos.length}+</h5>
+          <h6>Photos</h6>
+        </MorePhotos>
+      </Grid>
+    </SbEditable>
   )
 }
 
