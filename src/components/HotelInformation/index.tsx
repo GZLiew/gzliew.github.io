@@ -9,7 +9,15 @@ import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
 import { Wrapper, Logo, StyledTitle, SubHeading } from "./information.styles"
 
-const HotelInformation = ({ blok, blokConfig }) => {
+import { HotelInfoContent } from "@/lib/types/hotelInfo"
+import { HotelConfigContent } from "@/lib/types/hotelConfig"
+
+interface Props {
+  blok: HotelInfoContent
+  blokConfig: HotelConfigContent
+}
+
+const HotelInformation = ({ blok, blokConfig }: Props) => {
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.sub_sections.length, 0)
   return (
     <SbEditable content={blok}>
