@@ -7,12 +7,12 @@ import Layout from "@/components/Layout"
 import { getHotelConfiguration, getHomeData, getHotelGlobalNavigation } from "@/lib/api"
 import { HomeProps } from "@/lib/types/home"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { NavigationType } from "@/lib/types/linkItem"
+import { ICommonLayout } from "@/lib/types/commonLayout"
 
 interface Props {
   hotelConfig?: HotelConfigProps
   homeData?: HomeProps
-  layoutNavigation?: NavigationType
+  layoutNavigation?: ICommonLayout
   preview?: boolean
 }
 
