@@ -46,7 +46,7 @@ export interface IIconAsset {
 export interface ICategory extends IHotelInfoField {
   title?: string
   description?: string
-  subsections?: ICategorySubsection[]
+  sub_sections?: ICategorySubsection[]
   _editable?: string
 }
 
