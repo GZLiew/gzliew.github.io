@@ -11,8 +11,8 @@ interface Props {
 
 const NavLink = ({ blok }: Props) => {
   return (
-    <Link href={blok?.url?.cached_url || `#`}>
-      <SbEditable content={blok}>
+    <SbEditable content={blok}>
+      <Link href={`/${blok?.url?.cached_url || "#"}`} passHref>
         <StyledLink>
           {blok?.icon?.filename && (
             <IconWrapper>
@@ -21,8 +21,8 @@ const NavLink = ({ blok }: Props) => {
           )}
           <span>{blok?.title}</span>
         </StyledLink>
-      </SbEditable>
-    </Link>
+      </Link>
+    </SbEditable>
   )
 }
 
