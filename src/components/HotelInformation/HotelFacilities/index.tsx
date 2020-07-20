@@ -8,11 +8,12 @@ interface Props {
 }
 
 const HotelFacility = ({ amenities, categoriesCount }: Props) => {
+  console.log(amenities)
   return (
     <AmenitiesWrapper>
       <InnerWrapper>
         {amenities?.map((amenity) => (
-          <HotelFacilityCard key={amenity?._uid} icon={amenity?.icon} cardName={amenity?.name} />
+          <HotelFacilityCard key={amenity?._uid} icon={amenity?.icon_name} cardName={amenity?.name} />
         ))}
         <MoreFacilities remainingNumber={categoriesCount} cardName="Facilities" />
       </InnerWrapper>
