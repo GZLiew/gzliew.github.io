@@ -1,8 +1,9 @@
-import { IIconAsset } from "@/lib/types/hotelInfo"
 import { Card, Icon } from "./hotelFacilityCard.styles"
 
+import { IStoryblok_IconAsset } from "@/lib/types/storyblok"
+
 interface Props {
-  icon?: IIconAsset
+  icon?: IStoryblok_IconAsset
   cardName: string
   remainingNumber?: string | number
 }
