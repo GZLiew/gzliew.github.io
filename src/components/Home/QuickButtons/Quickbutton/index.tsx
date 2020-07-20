@@ -34,10 +34,7 @@ const QuickButton = ({ item }: Props) => {
     <SbEditable content={item}>
       <Link href={`/${item?.link?.cached_url}`}>
         <QuickButtonWrapper>
-          <QuickButtonItem bg={item?.background_color}>
-            {QuickIcons[item?.icon_name]}
-            {/* <img src={item?.icon?.filename} alt={item?.text} /> */}
-          </QuickButtonItem>
+          <QuickButtonItem bg={item?.background_color}>{QuickIcons[item?.icon_name]}</QuickButtonItem>
           <Title>{item?.text}</Title>
         </QuickButtonWrapper>
       </Link>
