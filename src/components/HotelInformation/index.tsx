@@ -8,6 +8,7 @@ import HotelLocation from "@/components/HotelInformation/HotelLocation"
 import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
 import { Wrapper, Logo, StyledTitle, SubHeading } from "./information.styles"
+import GalleryGrid from "./GalleryGrid"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
@@ -22,6 +23,8 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>
+        <GalleryGrid photos={blok?.hotel_photos[0]?.photos} />
+
         <Wrapper>
           <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
           <HotelRating rating={blok?.hotel_rating[0]} />
