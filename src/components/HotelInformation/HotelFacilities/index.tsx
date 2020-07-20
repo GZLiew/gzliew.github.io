@@ -8,7 +8,6 @@ interface Props {
 }
 
 const HotelFacility = ({ amenities, categoriesCount }: Props) => {
-  console.log(amenities)
   return (
     <AmenitiesWrapper>
       <InnerWrapper>
