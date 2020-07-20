@@ -1,15 +1,16 @@
 import SbEditable, { SbEditableContent } from "storyblok-react"
 import { Item } from "./gridItem.styles"
 import { FC, HTMLAttributes } from "react"
+import { IPhotoFile } from "@/lib/types/hotelInfo"
 
-interface Props extends SbEditableContent {
-  image?: string
+interface Props {
+  photo: IPhotoFile
 }
 
-const GridItem: FC<Props & HTMLAttributes<HTMLDivElement>> = ({ children, blok, ...props }) => {
+const GridItem: FC<Props & HTMLAttributes<HTMLDivElement>> = ({ children, photo, ...props }) => {
   return (
-    <SbEditable content={blok}>
-      <Item {...props}>{children || (blok?.image && <img src={blok?.image} alt="" />)}</Item>
+    <SbEditable content={photo}>
+      <Item {...props}>{children || (photo?.image && <img src={photo?.image} alt="" />)}</Item>
     </SbEditable>
   )
 }
