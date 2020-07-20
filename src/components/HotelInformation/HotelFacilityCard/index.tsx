@@ -8,7 +8,7 @@ interface Props {
 }
 
 const HotelFacilityCard: React.FC<Props> = ({ icon, remainingNumber, cardName, ...props }) => {
-  const formattedName = cardName.split(/^([\S]+)/g).map((w) => <span key={w}>{w}</span>)
+  const formattedName = cardName.split(/^([\S]+)/g).map((w,i) => <span key={`${w}-${i}`}>{w}</span>)
 
   return (
     <Card {...props}>
