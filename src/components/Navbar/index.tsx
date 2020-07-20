@@ -17,16 +17,6 @@ interface Props {
   handleNavbarClick: () => void
 }
 
-const actionLinks = [
-  {
-    icon: { filename: "/icons/ic-menu-reportaprob.svg" },
-    url: { cached_url: "/hotel-information" },
-    title: "Report a problem"
-  },
-  { icon: { filename: "/icons/ic-menu-weather.svg" }, url: { cached_url: "#!" }, title: "Feedback" },
-  { icon: { filename: "/icons/ic-menu-logout.svg" }, url: { cached_url: "#!" }, title: "Logout" }
-]
-
 const Navbar = ({ isOpen, guestPhoto, navLinks, handleNavbarClick }: Props) => {
   const ref = useRef(null)
   useLockBodyScroll(isOpen, ref)
@@ -35,14 +25,14 @@ const Navbar = ({ isOpen, guestPhoto, navLinks, handleNavbarClick }: Props) => {
     trackMouse: false,
     onSwipedLeft: handleNavbarClick
   })
-  const links = [...navLinks, ...actionLinks]
+
   return (
     <NavbarWrapper isOpen={isOpen} {...handlers} onClick={handleNavbarClick}>
       <StyledNavbar isOpen={isOpen} ref={ref}>
         <GuestDetails guestPhoto={guestPhoto} />
         <Nav>
-          {links?.map((navLink, index) => (
-            <NavLink {...navLink} key={`${navLink?.title}-${index}`} />
+          {navLinks?.map((navLink, index) => (
+            <NavLink blok={navLink} key={`${navLink?.title}-${index}`} />
           ))}
         </Nav>
       </StyledNavbar>

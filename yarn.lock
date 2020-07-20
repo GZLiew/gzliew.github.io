@@ -7674,6 +7674,11 @@ storyblok-js-client@2.5.0:
     axios "^0.19.0"
     qs "^6.5.2"
 
+storyblok-react@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/storyblok-react/-/storyblok-react-0.1.0.tgz#1bc1b55b11b1e34f109f1ca27abb5186f8b0c8e6"
+  integrity sha512-nhvfYganB+eRx3XErn0gNkE53jIXS2zu+2iBqonaY8O+mBYuCaM6nRpSbz1aQQQlSDUs1GtQJWuTgL7mexCAug==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"

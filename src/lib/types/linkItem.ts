@@ -1,7 +1,10 @@
 export interface LinkItem {
-  title: string
-  url: LinkUrl
-  icon: IconType
+  title?: string
+  url?: LinkUrl
+  icon?: IconType
+  _editable: string
+  _uid: string
+  component: string
 }
 
 export interface LinkUrl {
@@ -24,4 +27,5 @@ export interface NavigationLinks {
 
 export interface NavigationType {
   navigation: Array<NavigationLinks>
+  _uid: string
 }

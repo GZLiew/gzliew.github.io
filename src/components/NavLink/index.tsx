@@ -1,26 +1,27 @@
 import Link from "next/link"
+import SbEditable from "storyblok-react"
 
 import { StyledLink, IconWrapper } from "./navLink.styles"
 
-import { LinkUrl, IconType } from "@/lib/types/linkItem"
+import { LinkItem } from "@/lib/types/linkItem"
 
 interface Props {
-  url: LinkUrl
-  icon: IconType
-  title: string
+  blok: LinkItem
 }
 
-const NavLink = ({ url, icon, title }: Props) => {
+const NavLink = ({ blok }: Props) => {
   return (
-    <Link href={url?.cached_url}>
-      <StyledLink>
-        {icon?.filename && (
-          <IconWrapper>
-            <img src={icon.filename} alt={icon?.name} />
-          </IconWrapper>
-        )}
-        <span>{title}</span>
-      </StyledLink>
+    <Link href={blok?.url?.cached_url || `#`}>
+      <SbEditable content={blok}>
+        <StyledLink>
+          {blok?.icon?.filename && (
+            <IconWrapper>
+              <img src={blok?.icon.filename} alt={blok?.icon?.name} />
+            </IconWrapper>
+          )}
+          <span>{blok?.title}</span>
+        </StyledLink>
+      </SbEditable>
     </Link>
   )
 }

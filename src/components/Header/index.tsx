@@ -25,7 +25,7 @@ interface Props {
 
 const Header = ({ hotelLogo, navLinks }: Props) => {
   const router = useRouter()
-  const isHome = router.pathname === "/"
+  const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
   const headerRef = useRef<boolean>()
