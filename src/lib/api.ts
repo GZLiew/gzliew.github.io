@@ -59,6 +59,8 @@ export async function getHotelInformation(preview) {
         component
         _uid
         _editable
+        scrolling_icons
+        categories
       }
     }
    }
@@ -71,7 +73,7 @@ export async function getHotelInformation(preview) {
 export async function getHotelGlobalNavigation(preview) {
   const data = await fetchAPI(
     `
-    {  
+    {
       CommonlayoutItem(id: "layout") {
         content {
           navigation

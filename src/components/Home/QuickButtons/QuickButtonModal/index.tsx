@@ -7,11 +7,12 @@ import { ModalBg, ModalHeader, HelpText } from "./quickButtonModal.styles"
 
 interface Props {
   closeModal: () => void
+  divRef?: React.Ref<HTMLDivElement>
 }
 
-const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children }) => {
+const QuickButtonModal: FunctionComponent<Props> = ({ closeModal, children, divRef }) => {
   return (
-    <ModalBg>
+    <ModalBg ref={divRef}>
       <ModalHeader>
         <Button onClick={closeModal} bgColor="white" maxWith="40px" height="40px">
           <CloseIcon />

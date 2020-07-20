@@ -1,3 +1,4 @@
+import { useRef } from "react"
 import QuickButton, { QuickButtonsProps } from "./Quickbutton"
 import QuickButtonModal from "./QuickButtonModal"
 import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickButtonItem.styles"
@@ -7,6 +8,7 @@ import ShowMoreIcon from "../../../assets/icons/ic-my-orders.svg"
 import { QuickButtonsLayout } from "./quickButtons.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
+import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 interface Props {
   buttons?: any
@@ -16,6 +18,9 @@ const QuickButtons = ({ buttons }: Props) => {
   if (buttons?.length === 0) return null
 
   const [isActive, toggle] = useToggle(false)
+  const modalRef = useRef(null)
+
+  useLockBodyScroll(isActive, modalRef)
 
   return (
     <>
@@ -33,7 +38,7 @@ const QuickButtons = ({ buttons }: Props) => {
         </QuickButtonWrapper>
       </QuickButtonsLayout>
       {isActive && (
-        <QuickButtonModal closeModal={toggle}>
+        <QuickButtonModal divRef={modalRef} closeModal={toggle}>
           <QuickButtonsLayout>
             {buttons?.map((item: QuickButtonsProps) => (
               <QuickButton item={item} key={item?._uid} />

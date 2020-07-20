@@ -63,6 +63,7 @@ declare module "@emotion/react" {
         empty: string
         full: string
       }
+      amenityBackground: string
     }
     button: {
       boxShadow: string

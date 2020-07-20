@@ -29,7 +29,8 @@ export default {
     ratings: {
       full: "#f7b500",
       empty: "#dadada"
-    }
+    },
+    amenityBackground: "#fff"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;",
