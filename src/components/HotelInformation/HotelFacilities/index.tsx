@@ -3,7 +3,7 @@ import { IScrollingIcon } from "@/lib/types/hotelInfo"
 import HotelFacilityCard from "../HotelFacilityCard"
 
 interface Props {
-  amenities: IScrollingIcon[]
+  amenities: Array<IScrollingIcon>
   categoriesCount: number
 }
 
@@ -12,9 +12,9 @@ const HotelFacility = ({ amenities, categoriesCount }: Props) => {
     <AmenitiesWrapper>
       <InnerWrapper>
         {amenities?.map((amenity) => (
-          <HotelFacilityCard key={amenity?._uid} icon={amenity?.icon_name} cardName={amenity?.name} />
+          <HotelFacilityCard key={amenity?._uid} blok={amenity} />
         ))}
-        <MoreFacilities remainingNumber={categoriesCount} cardName="Facilities" />
+        <MoreFacilities remainingNumber={categoriesCount} customName="Facilities" />
       </InnerWrapper>
     </AmenitiesWrapper>
   )
