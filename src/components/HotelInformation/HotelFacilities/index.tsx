@@ -2,6 +2,8 @@ import { AmenitiesWrapper, InnerWrapper, MoreFacilities } from "./hotelFacilitie
 import { IScrollingIcon } from "@/lib/types/hotelInfo"
 import HotelFacilityCard from "../HotelFacilityCard"
 
+import { Card } from "../HotelFacilityCard/hotelFacilityCard.styles"
+
 interface Props {
   amenities: Array<IScrollingIcon>
   categoriesCount: number
@@ -14,7 +16,12 @@ const HotelFacility = ({ amenities, categoriesCount }: Props) => {
         {amenities?.map((amenity) => (
           <HotelFacilityCard key={amenity?._uid} blok={amenity} />
         ))}
-        <MoreFacilities remainingNumber={categoriesCount} customName="Facilities" />
+        <MoreFacilities>
+          <Card>
+            {categoriesCount && <h5>{categoriesCount}+</h5>}
+            <h6>Facilities</h6>
+          </Card>
+        </MoreFacilities>
       </InnerWrapper>
     </AmenitiesWrapper>
   )
