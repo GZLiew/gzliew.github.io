@@ -61,6 +61,7 @@ export async function getHotelInformation(preview) {
         _editable
         scrolling_icons
         categories
+        hotel_photos
       }
     }
    }

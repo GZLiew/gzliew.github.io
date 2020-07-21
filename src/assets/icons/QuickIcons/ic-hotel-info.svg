@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <defs>
+        <linearGradient id="0s3tz5wf3a" x1="50%" x2="50%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#605"/>
+            <stop offset="100%" stop-opacity=".5"/>
+        </linearGradient>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(8 6)">
+        <circle cx="6" cy="5" r="5" fill="#FFF" opacity=".2"/>
+        <g stroke="#FFF" stroke-width=".85">
+            <path stroke-linecap="round" d="M11.77 3.3L12.87 3.3M11.77 6.05L12.87 6.05" transform="translate(0 4)"/>
+            <path fill="url(#0s3tz5wf3a)" stroke-linecap="round" d="M8.47 6.05L9.57 6.05M8.47 12.1L9.57 12.1M8.47 3.3L9.57 3.3M3.52 11L3.52 12.1" transform="translate(0 4)"/>
+            <path d="M14.52.425h-7.7c-.186 0-.355.076-.477.198-.122.122-.198.29-.198.477v13.875h9.05V1.1c0-.186-.076-.355-.198-.477-.122-.122-.29-.198-.477-.198z" transform="translate(0 4)"/>
+            <path d="M6.175 8.125H1.1c-.186 0-.355.076-.477.198-.122.122-.198.29-.198.477v5.5c0 .186.076.355.198.477.122.122.29.198.477.198h5.075v-6.85zM12.32 9.225h-3.3c-.186 0-.355.076-.477.198-.122.122-.198.29-.198.477v5.075h4.65V9.9c0-.186-.076-.355-.198-.477-.122-.122-.29-.198-.477-.198z" transform="translate(0 4)"/>
+        </g>
+    </g>
+</svg>

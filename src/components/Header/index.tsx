@@ -14,13 +14,13 @@ import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 import ShareIcon from "../../assets/icons/share.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
-import { LinkItem } from "@/lib/types/linkItem"
+import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
-  navLinks?: Array<LinkItem>
+  navLinks?: ILayoutNavigationLink[]
 }
 
 const Header = ({ hotelLogo, navLinks }: Props) => {

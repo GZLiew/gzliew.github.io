@@ -8,12 +8,23 @@ import HotelLocation from "@/components/HotelInformation/HotelLocation"
 import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
 import { Wrapper, Logo, StyledTitle, SubHeading } from "./information.styles"
+import GalleryGrid from "./GalleryGrid"
 
-const HotelInformation = ({ blok, blokConfig }) => {
+import { HotelInfoContent } from "@/lib/types/hotelInfo"
+import { HotelConfigContent } from "@/lib/types/hotelConfig"
+
+interface Props {
+  blok: HotelInfoContent
+  blokConfig: HotelConfigContent
+}
+
+const HotelInformation = ({ blok, blokConfig }: Props) => {
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.sub_sections.length, 0)
   return (
     <SbEditable content={blok}>
       <Container>
+        <GalleryGrid gallery={blok?.hotel_photos[0]} />
+
         <Wrapper>
           <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
           <HotelRating rating={blok?.hotel_rating[0]} />
