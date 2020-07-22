@@ -1,4 +1,4 @@
-import React from "react"
+import { useState } from "react"
 
 import SbEditable from "storyblok-react"
 
@@ -8,6 +8,7 @@ import HotelLocation from "@/components/HotelInformation/HotelLocation"
 import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
 import { Wrapper, Logo, StyledTitle, SubHeading } from "./information.styles"
+import GallerySlider from "./GallerySlider"
 import GalleryGrid from "./GalleryGrid"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
@@ -19,11 +20,18 @@ interface Props {
 }
 
 const HotelInformation = ({ blok, blokConfig }: Props) => {
+  const [isSliderOpen, setIsSliderOpen] = useState(false)
+  const toggleSlider = () => setIsSliderOpen(!isSliderOpen)
+
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.sub_sections.length, 0)
+
   return (
     <SbEditable content={blok}>
+      <GallerySlider gallery={blok?.hotel_photos[0]} isOpen={isSliderOpen} handleCloseClick={toggleSlider} />
       <Container>
-        <GalleryGrid gallery={blok?.hotel_photos[0]} />
+        <div onClick={toggleSlider}>
+          <GalleryGrid gallery={blok?.hotel_photos[0]} />
+        </div>
 
         <Wrapper>
           <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
