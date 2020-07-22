@@ -21,16 +21,27 @@ import { IHotelPhoto } from "@/lib/types/hotelInfo"
 
 interface Props {
   gallery: IHotelPhoto
+  activeSlide: number
   isOpen: boolean
   handleCloseClick: () => void
 }
 
-const GallerySlider: React.FC<Props> = ({ gallery, isOpen, handleCloseClick }) => {
-  const [activePosition, setActivePosition] = useState(0)
+const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCloseClick }) => {
+  const [activePosition, setActivePosition] = useState(activeSlide)
 
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
   useLockBodyScroll(isOpen, ref)
+
+  // update active slide when activeSlide prop changes
+  // This bind GalleryGrid item click with opening GallerySlider on
+  // the slide matching its position value with the activeSlide value
+  useEffect(() => {
+    let mounted = true
+    if (mounted) setActivePosition(activeSlide)
+
+    return () => (mounted = false)
+  }, [activeSlide])
 
   // scroll thumbnails based on active slide
   const dotsRef = useRef(null)
