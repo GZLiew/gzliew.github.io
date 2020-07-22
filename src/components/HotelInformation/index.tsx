@@ -21,17 +21,26 @@ interface Props {
 
 const HotelInformation = ({ blok, blokConfig }: Props) => {
   const [isSliderOpen, setIsSliderOpen] = useState(false)
+  const [activeSliderPos, setActiveSliderPos] = useState(0)
   const toggleSlider = () => setIsSliderOpen(!isSliderOpen)
+
+  const handleChangeSliderPos = (value: number) => {
+    setActiveSliderPos(value)
+    setIsSliderOpen(!isSliderOpen)
+  }
 
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.sub_sections.length, 0)
 
   return (
     <SbEditable content={blok}>
-      <GallerySlider gallery={blok?.hotel_photos[0]} isOpen={isSliderOpen} handleCloseClick={toggleSlider} />
+      <GallerySlider
+        gallery={blok?.hotel_photos[0]}
+        activeSlide={activeSliderPos}
+        isOpen={isSliderOpen}
+        handleCloseClick={toggleSlider}
+      />
       <Container>
-        <div onClick={toggleSlider}>
-          <GalleryGrid gallery={blok?.hotel_photos[0]} />
-        </div>
+        <GalleryGrid gallery={blok?.hotel_photos[0]} handlePhotoClick={handleChangeSliderPos} />
 
         <Wrapper>
           <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
