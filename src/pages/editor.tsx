@@ -2,9 +2,11 @@ import React from "react"
 import HotelInformation from "@/components/HotelInformation"
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
+import Storyblok from "storyblok-js-client"
 
 declare global {
   interface Window {
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok: any
   }
 }
@@ -50,6 +52,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadStory(payload: { storyId: string }) {
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
         slug: payload.storyId,
@@ -62,6 +65,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadConfigStory(payload: { storyId: string }) {
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
         slug: payload.storyId,
@@ -74,6 +78,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadNavStory(payload: { storyId: string }) {
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
         slug: payload.storyId,
@@ -95,6 +100,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     this.loadConfigStory({ storyId: "hotel-configuration" })
     this.loadNavStory({ storyId: "layout" })
 
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok.on(["change", "published"], (payload: { storyId: string; slug: string }) => {
       if (payload?.slug === "layout") {
         this.loadNavStory(payload)
@@ -103,6 +109,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
       }
     })
 
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok.on("input", (payload: { story: StoryblokStory }) => {
       if (this.state.navStory && payload.story?.slug === this.state.navStory.slug) {
         this.setState({ navStory: payload.story })
@@ -114,6 +121,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     })
 
     storyblok.pingEditor(() => {
+      // @ts-ignore: conflict with storyblok-client window type
       if (storyblok.inEditor) {
         storyblok.enterEditmode()
       }
