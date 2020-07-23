@@ -10,6 +10,7 @@ import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.styles"
 import GallerySlider from "./GallerySlider"
 import GalleryGrid from "./GalleryGrid"
+import { AboutSection } from "./Sections"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
@@ -53,6 +54,8 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
           <HotelFacility amenities={blok?.scrolling_icons} categoriesCount={subSectionsCount} />
         </Container>
       </Section>
+
+      <AboutSection content={blok?.about_section} />
     </SbEditable>
   )
 }

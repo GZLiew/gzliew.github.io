@@ -1,5 +1,6 @@
 import { SbEditableContent } from "storyblok-react"
 import { IStoryblok_IconAsset } from "./storyblok"
+import { Richtext } from "storyblok-js-client"
 
 export interface HotelInfoProps {
   id: number
@@ -13,6 +14,7 @@ export interface HotelInfoContent extends SbEditableContent {
   scrolling_icons: IScrollingIcon[]
   categories: ICategory[]
   hotel_photos: IHotelPhoto[]
+  about_section: Richtext
 }
 
 export interface IHotelLocation extends SbEditableContent {
