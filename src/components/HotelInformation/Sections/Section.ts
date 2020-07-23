@@ -8,7 +8,9 @@ export const Section = styled.section`
     ${tw`
       py-8
     `}
-    border-bottom: 3px solid ${({ theme }) =>
-      theme?.mode === "light" ? theme?.colors?.white?.primary : theme?.colors?.white?.secondary};
   }
+
+  border-bottom: 3px solid
+    ${({ theme }) =>
+      theme?.mode === "light" ? theme?.colors?.white?.primary : theme?.colors?.white?.secondary};
 `
