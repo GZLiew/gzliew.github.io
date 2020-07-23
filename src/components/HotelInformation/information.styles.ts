@@ -1,9 +1,19 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
+import { Section as BaseSection } from "./Sections"
+import StyledContainer from "../Container"
+
 export const Wrapper = styled.div`
   ${tw`flex items-center justify-between`}
 `
+
+export const Section = styled(BaseSection)`
+  ${StyledContainer} {
+    ${tw`pt-0`}
+  }
+`
+
 export const Logo = styled.img`
   max-width: 69px;
 `
