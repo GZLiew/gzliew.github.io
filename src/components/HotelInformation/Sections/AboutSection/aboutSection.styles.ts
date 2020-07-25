@@ -14,3 +14,13 @@ export const SectionContent = styled(RichTextField)`
   ${tw`text-xs`}
   color: ${({ theme }) => theme?.colors?.text?.primary};
 `
+
+export const ToggleButton = styled.button`
+  ${tw`mt-2 text-xs`}
+  color: ${({ theme }) => theme.colors.pink.primary};
+
+  &:focus {
+    outline: none;
+    text-decoration: underline;
+  }
+`
