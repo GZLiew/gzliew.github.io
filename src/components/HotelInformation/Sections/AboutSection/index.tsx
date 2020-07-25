@@ -1,8 +1,8 @@
-import Container from "@/components/Container"
-import { SectionTitle, SectionContent } from "./aboutSection.styles"
-
 import { Richtext } from "storyblok-js-client"
-import { Section } from "../Section"
+
+import Container from "@/components/Container"
+
+import { Section, SectionTitle, SectionContent } from "./aboutSection.styles"
 
 interface Props {
   content: Richtext
