@@ -11,6 +11,7 @@ import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.s
 import GallerySlider from "./GallerySlider"
 import GalleryGrid from "./GalleryGrid"
 import { AboutSection } from "./Sections"
+import Categories from "./Categories"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
@@ -56,6 +57,8 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
       </Section>
 
       <AboutSection content={blok?.about_section} />
+
+      <Categories categories={blok?.categories} />
     </SbEditable>
   )
 }
