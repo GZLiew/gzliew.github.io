@@ -11,7 +11,7 @@ const Categories = ({ categories }: Props) => {
   return (
     <React.Fragment>
       {categories.map((category) => (
-        <Category key={category._uid} category={category} />
+        <Category key={category?._uid} category={category} />
       ))}
     </React.Fragment>
   )
