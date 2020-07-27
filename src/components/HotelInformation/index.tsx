@@ -7,9 +7,10 @@ import HotelRating from "@/components/HotelInformation/HotelRating"
 import HotelLocation from "@/components/HotelInformation/HotelLocation"
 import HotelFacility from "@/components/HotelInformation/HotelFacilities"
 
-import { Wrapper, Logo, StyledTitle, SubHeading } from "./information.styles"
+import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.styles"
 import GallerySlider from "./GallerySlider"
 import GalleryGrid from "./GalleryGrid"
+import { AboutSection } from "./Sections"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
@@ -39,19 +40,22 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
         isOpen={isSliderOpen}
         handleCloseClick={toggleSlider}
       />
-      <Container>
-        <GalleryGrid gallery={blok?.hotel_photos[0]} handlePhotoClick={handleChangeSliderPos} />
 
-        <Wrapper>
-          <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
-          <HotelRating rating={blok?.hotel_rating[0]} />
-        </Wrapper>
+      <Section>
+        <Container>
+          <GalleryGrid gallery={blok?.hotel_photos[0]} handlePhotoClick={handleChangeSliderPos} />
+          <Wrapper>
+            <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
+            <HotelRating rating={blok?.hotel_rating[0]} />
+          </Wrapper>
+          <SubHeading>{blok?.welcome_text}</SubHeading>
+          <StyledTitle>{blokConfig?.hotel_name}</StyledTitle>
+          <HotelLocation location={blok?.location[0]} />
+          <HotelFacility amenities={blok?.scrolling_icons} categoriesCount={subSectionsCount} />
+        </Container>
+      </Section>
 
-        <SubHeading>{blok?.welcome_text}</SubHeading>
-        <StyledTitle>{blokConfig?.hotel_name}</StyledTitle>
-        <HotelLocation location={blok?.location[0]} />
-        <HotelFacility amenities={blok?.scrolling_icons} categoriesCount={subSectionsCount} />
-      </Container>
+      <AboutSection content={blok?.about_section} />
     </SbEditable>
   )
 }

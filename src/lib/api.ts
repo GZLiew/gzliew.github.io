@@ -62,6 +62,7 @@ export async function getHotelInformation(preview) {
         scrolling_icons
         categories
         hotel_photos
+        about_section
       }
     }
    }
