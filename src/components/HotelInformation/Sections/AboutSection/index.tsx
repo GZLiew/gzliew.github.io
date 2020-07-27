@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import useMeasure from "react-use-measure"
 import { useSpring, animated } from "react-spring"
 import { Richtext } from "storyblok-js-client"
 
@@ -6,15 +7,13 @@ import Container from "@/components/Container"
 
 import { Section, SectionTitle, SectionContent, ToggleButton } from "./aboutSection.styles"
 
-import useMeasure from "@/lib/hooks/useMeasure"
-
 interface Props {
   content: Richtext
 }
 
 export const AboutSection = ({ content }: Props) => {
   const [isReadMoreOpen, set] = useState(false)
-  const [bind, { height }] = useMeasure<HTMLDivElement>()
+  const [ref, { height }] = useMeasure()
   // Refs to store mutable values, see https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables
   const initialHeight = useRef<number>()
   const maxHeight = useRef<number>(126)
@@ -45,7 +44,7 @@ export const AboutSection = ({ content }: Props) => {
             overflow: `hidden`,
             ...animatedStyles
           }}>
-          <div {...bind}>
+          <div ref={ref}>
             <SectionContent data={content} />
           </div>
         </animated.div>
