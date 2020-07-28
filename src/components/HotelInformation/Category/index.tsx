@@ -1,3 +1,4 @@
+import { useContext } from "react"
 import SbEditable from "storyblok-react"
 
 import { Section } from "../Sections"
@@ -5,15 +6,20 @@ import { CategoryTitle } from "./category.styles"
 import { Subsection, SubsectionDropdown } from "../CategorySubsection"
 import Container from "@/components/Container"
 
+import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
+
 import { ICategory } from "@/lib/types/hotelInfo"
 
 interface Props {
   category: ICategory
 }
 const Category = ({ category }: Props) => {
+  const headerHeight = useContext(HeaderHeightContext)
+
   return (
     <SbEditable content={category}>
-      <Section>
+      {/* value 53 - magic number that's gonna be replaced with Tabs height */}
+      <Section id={category.slug} style={{ scrollMarginTop: headerHeight + 53 - 10 }}>
         <Container>
           <CategoryTitle>{category?.title}</CategoryTitle>
         </Container>
