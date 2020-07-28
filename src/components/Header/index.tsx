@@ -21,15 +21,23 @@ import useToggle from "@/lib/hooks/useToggle"
 interface Props {
   hotelLogo?: HotelLogo
   navLinks?: ILayoutNavigationLink[]
+  setHeaderHeight: (number) => void
 }
 
-const Header = ({ hotelLogo, navLinks }: Props) => {
+const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
   const router = useRouter()
   const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
+  const ref = useRef<HTMLDivElement>()
   const headerRef = useRef<boolean>()
   headerRef.current = hasScrolled
+
+  useEffect(() => {
+    if (ref.current) {
+      setHeaderHeight(ref.current.offsetHeight)
+    }
+  }, [])
 
   // Listen to scroll event and toggle show flag when page has scrolled a certain amount
   useEffect(() => {
@@ -59,7 +67,7 @@ const Header = ({ hotelLogo, navLinks }: Props) => {
         guestPhoto={hotelLogo}
         handleNavbarClick={toggleNavbar}
       />
-      <HeaderContainer>
+      <HeaderContainer ref={ref}>
         <HeaderBackground hasScrolled={hasScrolled} />
         <LogoWrapper>
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">

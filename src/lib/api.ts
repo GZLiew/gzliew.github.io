@@ -1,4 +1,7 @@
 import { fetchAPI } from "@/lib/utils/fetchAPI"
+import slugify from "@sindresorhus/slugify"
+
+import { HotelInfoProps } from "./types/hotelInfo"
 
 export async function getHotelConfiguration(preview) {
   const data = await fetchAPI(
@@ -47,8 +50,8 @@ export async function getHomeData(preview) {
   return data?.HomeItem?.content
 }
 
-export async function getHotelInformation(preview) {
-  const data = await fetchAPI(
+export async function getHotelInformation(preview): Promise<HotelInfoProps> {
+  const data: { HotelinformationItem: HotelInfoProps } = await fetchAPI(
     `
    {
     HotelinformationItem(id: "hotel-information") {
@@ -69,7 +72,15 @@ export async function getHotelInformation(preview) {
   `,
     { preview }
   )
-  return data?.HotelinformationItem
+
+  const { categories, ...content } = data?.HotelinformationItem?.content
+
+  const categoriesWithSlugs = categories.map((category) => ({
+    slug: slugify(category.title),
+    ...category
+  }))
+
+  return { content: { categories: categoriesWithSlugs, ...content } }
 }
 
 export async function getHotelGlobalNavigation(preview) {
