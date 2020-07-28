@@ -1,13 +1,17 @@
 import { useState } from "react"
-import SbEditable from "storyblok-react"
-import { ICategorySubsection } from "@/lib/types/hotelInfo"
-import { SubsectionWrapper, SubsectionTitle } from "../categorySubsection.styles"
+import useMeasure from "react-use-measure"
 import { animated, useSpring } from "react-spring"
+
+import SbEditable from "storyblok-react"
+
+import { SubsectionWrapper, SubsectionTitle } from "../categorySubsection.styles"
+import StyledContainer from "@/components/Container"
 import RichTextField from "@/components/RichTextField"
-import useMeasure from "@/lib/hooks/useMeasure"
+
 
 import ChevronDownSvg from "../../../../assets/icons/chevron-down.svg"
-import StyledContainer from "@/components/Container"
+
+import { ICategorySubsection } from "@/lib/types/hotelInfo"
 
 const ChevronDown = animated(ChevronDownSvg)
 
@@ -17,7 +21,7 @@ interface Props {
 
 export const SubsectionDropdown = ({ subsection }: Props) => {
   const [isToggled, setIsToggled] = useState(false)
-  const [bind, { height }] = useMeasure<HTMLDivElement>()
+  const [ref, { height }] = useMeasure()
   const props = useSpring({ height: isToggled ? height : 0 })
   const chevronStyles = useSpring({ transform: `rotate(${isToggled ? 180 : 0})` })
 
@@ -33,7 +37,7 @@ export const SubsectionDropdown = ({ subsection }: Props) => {
           </SubsectionTitle>
 
           <animated.div style={{ overflow: "hidden", ...props }}>
-            <div {...bind}>
+            <div ref={ref}>
               <RichTextField data={subsection?.description} />
             </div>
           </animated.div>
