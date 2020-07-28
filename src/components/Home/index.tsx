@@ -10,19 +10,27 @@ import { CheckoutInfo, Weather } from "@/components/Home/Widgets"
 
 import { StyledTitle, SubHeading } from "./home.styles"
 
+import { HomeContent } from "@/lib/types/homeContent"
+import { HotelConfigContent } from "@/lib/types/hotelConfig"
+
 const modules = {
   weather: Weather
 }
 
-const Home = ({ blok, blokConfig }) => {
+interface Props {
+  blok: HomeContent
+  blokConfig: HotelConfigContent
+}
+
+const Home = ({ blok, blokConfig }: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>
         <SubHeading>
-          {blok?.primary_welcome_text} {blokConfig?.hotel_name}
+          {blok?.primaryWelcomeText} {blokConfig?.hotelName}
         </SubHeading>
-        <StyledTitle>{blok?.secondary_welcome_text}</StyledTitle>
-        <QuickButtons buttons={blok?.quick_buttons} />
+        <StyledTitle>{blok?.secondaryWelcomeText}</StyledTitle>
+        <QuickButtons buttons={blok?.quickButtons} />
         <CheckoutInfo />
         {blok?.modules?.map((module) => (
           <React.Fragment key={module._uid}>

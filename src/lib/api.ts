@@ -39,9 +39,9 @@ export async function getHomeData(preview) {
         _uid
         component
         modules
-        primary_welcome_text
-        quick_buttons
-        secondary_welcome_text
+        primaryWelcomeText
+        quickButtons
+        secondaryWelcomeText
       }
     }
   }

@@ -2,14 +2,14 @@ import { IStoryblok_IconAsset, IStoryblok_Link } from "./storyblok"
 import { SbEditableContent } from "storyblok-react"
 
 export interface HomeContent extends SbEditableContent {
-  primary_welcome_text?: string
-  secondary_welcome_text?: string
-  quick_buttons?: QuickButton[]
+  primaryWelcomeText?: string
+  secondaryWelcomeText?: string
+  quickButtons?: IQuickButton[]
 }
 
-export interface QuickButton extends SbEditableContent {
+export interface IQuickButton extends SbEditableContent {
   text?: string
-  icon?: IStoryblok_IconAsset
+  iconName?: string
   link?: IStoryblok_Link
-  background_color?: string
+  backgroundColor?: string
 }
