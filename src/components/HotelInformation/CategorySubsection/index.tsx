@@ -11,7 +11,7 @@ const Subsection = ({ subsection }: Props) => {
   return (
     <SbEditable content={subsection}>
       <SubsectionWrapper>
-        {subsection?.icon?.filename !== "" && (
+        {subsection?.icon?.filename && (
           <SubsectionIcon
             src={subsection?.icon?.filename}
             alt={subsection?.icon?.alt}
