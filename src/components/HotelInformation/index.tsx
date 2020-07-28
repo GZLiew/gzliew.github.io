@@ -5,7 +5,7 @@ import SbEditable from "storyblok-react"
 import Container from "@/components/Container"
 import HotelRating from "@/components/HotelInformation/HotelRating"
 import HotelLocation from "@/components/HotelInformation/HotelLocation"
-import HotelFacility from "@/components/HotelInformation/HotelFacilities"
+import HotelFacilities from "@/components/HotelInformation/HotelFacilities"
 
 import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.styles"
 import GallerySlider from "./GallerySlider"
@@ -31,12 +31,12 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
     setIsSliderOpen(!isSliderOpen)
   }
 
-  const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.sub_sections.length, 0)
+  const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.subsections.length, 0)
 
   return (
     <SbEditable content={blok}>
       <GallerySlider
-        gallery={blok?.hotel_photos[0]}
+        gallery={blok?.hotelPhotos[0]}
         activeSlide={activeSliderPos}
         isOpen={isSliderOpen}
         handleCloseClick={toggleSlider}
@@ -44,19 +44,19 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
 
       <Section>
         <Container>
-          <GalleryGrid gallery={blok?.hotel_photos[0]} handlePhotoClick={handleChangeSliderPos} />
+          <GalleryGrid gallery={blok?.hotelPhotos[0]} handlePhotoClick={handleChangeSliderPos} />
           <Wrapper>
             <Logo src={blokConfig?.hotel_logo?.filename} title={blokConfig?.hotel_logo.name} />
-            <HotelRating rating={blok?.hotel_rating[0]} />
+            <HotelRating rating={blok?.hotelRating[0]} />
           </Wrapper>
-          <SubHeading>{blok?.welcome_text}</SubHeading>
+          <SubHeading>{blok?.welcomeText}</SubHeading>
           <StyledTitle>{blokConfig?.hotel_name}</StyledTitle>
           <HotelLocation location={blok?.location[0]} />
-          <HotelFacility amenities={blok?.scrolling_icons} categoriesCount={subSectionsCount} />
+          <HotelFacilities amenities={blok?.scrollingIcons} categoriesCount={subSectionsCount} />
         </Container>
       </Section>
 
-      <AboutSection content={blok?.about_section} />
+      <AboutSection content={blok?.aboutSection} />
 
       <Categories categories={blok?.categories} />
     </SbEditable>

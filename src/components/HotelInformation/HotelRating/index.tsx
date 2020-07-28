@@ -13,7 +13,7 @@ interface Props {
 const HotelRating = ({ rating }: Props) => {
   const theme = useTheme()
   const totalStars = parseInt(rating.of)
-  const ratedStars = parseFloat(rating.star_number)
+  const ratedStars = parseFloat(rating.starNumber)
 
   return (
     <SbEditable content={rating}>
