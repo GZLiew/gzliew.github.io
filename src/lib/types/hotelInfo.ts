@@ -3,7 +3,7 @@ import { IStoryblok_IconAsset } from "./storyblok"
 import { Richtext } from "storyblok-js-client"
 
 export interface HotelInfoProps {
-  id: number
+  id?: number
   content: HotelInfoContent
 }
 
