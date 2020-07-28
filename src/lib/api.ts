@@ -56,16 +56,16 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
    {
     HotelinformationItem(id: "hotel-information") {
       content {
-        welcome_text
+        welcomeText
         location
-        hotel_rating
+        hotelRating
         component
         _uid
         _editable
-        scrolling_icons
+        scrollingIcons
         categories
-        hotel_photos
-        about_section
+        hotelPhotos
+        aboutSection
       }
     }
    }

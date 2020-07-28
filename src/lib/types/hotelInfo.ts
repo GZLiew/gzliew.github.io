@@ -8,13 +8,13 @@ export interface HotelInfoProps {
 }
 
 export interface HotelInfoContent extends SbEditableContent {
-  welcome_text: string
+  welcomeText: string
   location: IHotelLocation[]
-  hotel_rating: IHotelRating[]
-  scrolling_icons: IScrollingIcon[]
+  hotelRating: IHotelRating[]
+  scrollingIcons: IScrollingIcon[]
   categories: ICategory[]
-  hotel_photos: IHotelPhoto[]
-  about_section: Richtext
+  hotelPhotos: IHotelPhoto[]
+  aboutSection: Richtext
 }
 
 export interface IHotelLocation extends SbEditableContent {
@@ -25,18 +25,18 @@ export interface IHotelLocation extends SbEditableContent {
 
 export interface IHotelRating extends SbEditableContent {
   of: string
-  star_number: string
+  starNumber: string
 }
 
 export interface IScrollingIcon extends SbEditableContent {
-  icon_name: string
+  iconName: string
   name: string
 }
 
 export interface ICategory extends SbEditableContent {
   title?: string
   description?: string
-  sub_sections?: ICategorySubsection[]
+  subsections?: ICategorySubsection[]
 }
 
 export interface ICategorySubsection extends SbEditableContent {

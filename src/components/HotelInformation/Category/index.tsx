@@ -24,7 +24,7 @@ const Category = ({ category }: Props) => {
         <Container>
           <CategoryTitle>{category?.title}</CategoryTitle>
         </Container>
-        {category?.sub_sections.map((subsection) =>
+        {category?.subsections.map((subsection) =>
           subsection?.is_dropdown ? (
             <SubsectionDropdown key={subsection._uid} subsection={subsection} />
           ) : (
