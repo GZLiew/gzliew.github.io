@@ -2,21 +2,22 @@ import { fetchAPI } from "@/lib/utils/fetchAPI"
 import slugify from "@sindresorhus/slugify"
 
 import { HotelInfoProps } from "./types/hotelInfo"
+import { HotelConfigProps } from "./types/hotelConfig"
 
-export async function getHotelConfiguration(preview) {
+export async function getHotelConfiguration(preview): Promise<HotelConfigProps> {
   const data = await fetchAPI(
     `
     {
       HotelconfigurationItem(id: "hotel-configuration") {
       id
       content {
-        hotel_logo {
+        hotelLogo {
           name
           filename
         }
-        hotel_name
-        primary_color
-        secondary_color
+        hotelName
+        primaryColor
+        secondaryColor
         theme
       }
     }
@@ -38,9 +39,9 @@ export async function getHomeData(preview) {
         _uid
         component
         modules
-        primary_welcome_text
-        quick_buttons
-        secondary_welcome_text
+        primaryWelcomeText
+        quickButtons
+        secondaryWelcomeText
       }
     }
   }

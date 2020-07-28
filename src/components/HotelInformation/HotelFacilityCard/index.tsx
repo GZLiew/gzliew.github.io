@@ -11,7 +11,6 @@ interface Props {
   customName?: string
 }
 
-
 const HotelFacilityCard: React.FC<Props> = ({ blok, remainingNumber, customName, ...props }) => {
   const name = customName || blok?.name
   const formattedName = name.split(/^([\S]+)/g).map((w, i) => <span key={`${w}-${i}`}>{w}</span>)

@@ -20,7 +20,7 @@ export default function HomePage({ hotelConfig, homeContent, layoutNavigation, p
   return (
     <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
       <Head>
-        <title>Welcome to {hotelConfig?.content?.hotel_name}</title>
+        <title>Welcome to {hotelConfig?.content?.hotelName}</title>
       </Head>
       <Home blok={homeContent} blokConfig={hotelConfig?.content} />
     </Layout>

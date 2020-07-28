@@ -30,7 +30,7 @@ const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
           <Alert preview={preview} />
           <Header
             navLinks={links}
-            hotelLogo={hotelConfig?.content?.hotel_logo}
+            hotelLogo={hotelConfig?.content?.hotelLogo}
             setHeaderHeight={setHeaderHeight}
           />
           <main>{children}</main>

@@ -5,28 +5,10 @@ import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickButtonItem.st
 
 import QuickIcons from "@/assets/icons/QuickIcons"
 
+import { IQuickButton } from "@/lib/types/homeContent"
+
 interface Props {
-  item: QuickButtonsProps
-}
-
-export interface QuickButtonsProps {
-  _uid: string
-  component: string
-  text: string
-  icon_name: string
-  link: LinkProps
-  background_color: string
-}
-
-interface LinkProps {
-  id: string
-  url: string
-  fieldtype: string
-  cached_url: string
-}
-
-interface iconProps {
-  filename: string
+  item: IQuickButton
 }
 
 const QuickButton = ({ item }: Props) => {
@@ -34,7 +16,7 @@ const QuickButton = ({ item }: Props) => {
     <SbEditable content={item}>
       <Link href={`/${item?.link?.cached_url}`}>
         <QuickButtonWrapper>
-          <QuickButtonItem bg={item?.background_color}>{QuickIcons[item?.icon_name]}</QuickButtonItem>
+          <QuickButtonItem bg={item?.backgroundColor}>{QuickIcons[item?.iconName]}</QuickButtonItem>
           <Title>{item?.text}</Title>
         </QuickButtonWrapper>
       </Link>
