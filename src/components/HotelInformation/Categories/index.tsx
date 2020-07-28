@@ -1,5 +1,9 @@
-import React from "react"
+import { useState } from "react"
+
+import TabsHeightContext from "@/lib/context/TabsHeightContext"
+
 import Category from "../Category"
+import CategoryTabs from "../CategoryTabs"
 
 import { ICategory } from "@/lib/types/hotelInfo"
 
@@ -8,12 +12,15 @@ interface Props {
 }
 
 const Categories = ({ categories }: Props) => {
+  const [tabsHeight, setTabsHeight] = useState(0)
+
   return (
-    <React.Fragment>
+    <TabsHeightContext.Provider value={tabsHeight}>
+      <CategoryTabs categories={categories} setTabsHeight={setTabsHeight} />
       {categories.map((category) => (
         <Category key={category?._uid} category={category} />
       ))}
-    </React.Fragment>
+    </TabsHeightContext.Provider>
   )
 }
 

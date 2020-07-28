@@ -1,13 +1,12 @@
 import { useState } from "react"
 import useMeasure from "react-use-measure"
-import { animated, useSpring } from "react-spring"
+import { useSpring, animated } from "react-spring"
 
 import SbEditable from "storyblok-react"
 
 import { SubsectionWrapper, SubsectionTitle } from "../categorySubsection.styles"
 import StyledContainer from "@/components/Container"
 import RichTextField from "@/components/RichTextField"
-
 
 import ChevronDownSvg from "../../../../assets/icons/chevron-down.svg"
 

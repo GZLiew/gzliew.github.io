@@ -7,6 +7,7 @@ import { Subsection, SubsectionDropdown } from "../CategorySubsection"
 import Container from "@/components/Container"
 
 import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
+import TabsHeightContext from "@/lib/context/TabsHeightContext"
 
 import { ICategory } from "@/lib/types/hotelInfo"
 
@@ -15,11 +16,11 @@ interface Props {
 }
 const Category = ({ category }: Props) => {
   const headerHeight = useContext(HeaderHeightContext)
+  const tabsHeight = useContext(TabsHeightContext)
 
   return (
     <SbEditable content={category}>
-      {/* value 53 - magic number that's gonna be replaced with Tabs height */}
-      <Section id={category.slug} style={{ scrollMarginTop: headerHeight + 53 - 10 }}>
+      <Section id={category.slug} style={{ scrollMarginTop: headerHeight + tabsHeight - 10 }}>
         <Container>
           <CategoryTitle>{category?.title}</CategoryTitle>
         </Container>
