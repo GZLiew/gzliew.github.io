@@ -37,7 +37,6 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
     const getOffsetTop = () => {
       if (ref.current && headerHeightRef.current > 0) {
         const show = ref.current.offsetTop - global?.window?.scrollY <= headerHeightRef.current
-        console.log(show)
         if (isOnTopRef.current !== show) {
           set(show)
         }
