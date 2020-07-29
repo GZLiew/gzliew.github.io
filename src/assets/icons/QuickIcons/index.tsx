@@ -5,6 +5,7 @@ import GuestDirectory from "./ic-guest-direct.svg"
 import HotelInfo from "./ic-hotel-info.svg"
 import Laundry from "./ic-laundry.svg"
 import MyOrders from "./ic-my-orders.svg"
+import GuestServices from "./ic-room-service.svg"
 
 const QuickIcons = {
   beverages: <Beverages />,
@@ -13,7 +14,8 @@ const QuickIcons = {
   guestDir: <GuestDirectory />,
   hotelInfo: <HotelInfo />,
   laundry: <Laundry />,
-  myOrders: <MyOrders />
+  myOrders: <MyOrders />,
+  guestServices: <GuestServices />
 }
 
 export default QuickIcons
