@@ -16,11 +16,9 @@ export const GalleryWrapper = styled(animated.div)`
     z-50
     fixed
     inset-0
-    w-screen
-    h-screen
-    min-h-screen
   `}
-  min-height: -webkit-fill-available;
+  width: 100%;
+  height: 100%;
   background-color: #cccccc;
 
   .BrainhubCarousel__container {
