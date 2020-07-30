@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import useMeasure from "react-use-measure"
+import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { useSpring, animated } from "react-spring"
 import { Richtext } from "storyblok-js-client"
 
