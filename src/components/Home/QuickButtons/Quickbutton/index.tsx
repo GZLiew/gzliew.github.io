@@ -5,6 +5,8 @@ import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickButtonItem.st
 
 import QuickIcons from "@/assets/icons/QuickIcons"
 
+import getLink from "@/lib/utils/getLink"
+
 import { IQuickButton } from "@/lib/types/homeContent"
 
 interface Props {
@@ -14,7 +16,7 @@ interface Props {
 const QuickButton = ({ item }: Props) => {
   return (
     <SbEditable content={item}>
-      <Link href={`/${item?.link?.cached_url}${item?.link?.anchor ? `#${item.link.anchor}` : null}`}>
+      <Link href={getLink(item?.link)}>
         <QuickButtonWrapper>
           <QuickButtonItem bg={item?.backgroundColor}>{QuickIcons[item?.iconName]}</QuickButtonItem>
           <Title>{item?.text}</Title>
