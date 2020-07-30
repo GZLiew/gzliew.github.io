@@ -1,12 +1,13 @@
 import { throttle } from "lodash"
 import { useState, useEffect, useRef } from "react"
+import { useSpring } from "react-spring"
 
 import { useRouter } from "next/router"
 
 import Navbar from "../Navbar"
 import Button from "../Button"
 
-import { LogoWrapper, HeaderContainer, HeaderBackground } from "./header.styles"
+import { LogoWrapper, HeaderContainer, HeaderBackground, Logo } from "./header.styles"
 
 import HamburgerMenuIcon from "../../assets/icons/wt-ic-hamburger-menu.svg"
 import BackIcon from "../../assets/icons/wt-ic-back.svg"
@@ -33,6 +34,10 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
   const headerRef = useRef<boolean>()
   headerRef.current = hasScrolled
 
+  const [logoProps, setLogoProps] = useSpring(() => ({
+    opacity: isHome ? 1 : 0
+  }))
+
   useEffect(() => {
     if (ref.current) {
       setHeaderHeight(ref.current.offsetHeight)
@@ -45,6 +50,7 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
       const show = global.window.scrollY > 20
       if (headerRef.current !== show) {
         setHasScrolled(show)
+        setLogoProps({ opacity: 1 })
       }
     }
     // Throttle the event listener callback for better performance
@@ -73,7 +79,7 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
-          {isHome && <img src={hotelLogo?.filename} title={hotelLogo?.name} />}
+          <Logo src={hotelLogo?.filename} title={hotelLogo?.name} style={logoProps} />
           <Button bgColor="white" maxWith="40px" height="40px">
             {isHome ? <NotificationIcon /> : <ShareIcon />}
           </Button>

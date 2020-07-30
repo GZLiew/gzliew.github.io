@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
+import { animated } from "react-spring"
+
 import Container from "../Container"
 
 export const HeaderContainer = styled(Container)`
@@ -46,8 +48,8 @@ export const LogoWrapper = styled.header`
   `}
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
+`
 
-  & img {
-    max-width: 45px;
-  }
+export const Logo = styled(animated.img)`
+  max-width: 45px;
 `
