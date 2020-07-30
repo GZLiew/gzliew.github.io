@@ -14,7 +14,7 @@ interface Props {
 const NavLink = ({ blok }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Link href={`/${blok?.url?.cached_url || "#"}`} passHref>
+      <Link href={`/${blok?.url?.cached_url}${blok?.url?.anchor ? `#${blok?.url?.anchor}` : null}`} passHref>
         <StyledLink>
           {blok?.icon_name && <IconWrapper>{NavIcons[blok?.icon_name]}</IconWrapper>}
           <span>{blok?.title}</span>

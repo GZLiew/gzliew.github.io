@@ -14,7 +14,7 @@ interface Props {
 const QuickButton = ({ item }: Props) => {
   return (
     <SbEditable content={item}>
-      <Link href={`/${item?.link?.cached_url}`}>
+      <Link href={`/${item?.link?.cached_url}${item?.link?.anchor ? `#${item.link.anchor}` : null}`}>
         <QuickButtonWrapper>
           <QuickButtonItem bg={item?.backgroundColor}>{QuickIcons[item?.iconName]}</QuickButtonItem>
           <Title>{item?.text}</Title>
