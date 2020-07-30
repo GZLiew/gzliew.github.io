@@ -50,7 +50,9 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
       const show = global.window.scrollY > 20
       if (headerRef.current !== show) {
         setHasScrolled(show)
-        setLogoProps({ opacity: 1 })
+        if (!isHome) {
+          setLogoProps({ opacity: show ? 1 : 0 })
+        }
       }
     }
     // Throttle the event listener callback for better performance
