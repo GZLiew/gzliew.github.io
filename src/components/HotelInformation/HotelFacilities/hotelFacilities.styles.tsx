@@ -24,7 +24,7 @@ export const InnerWrapper = styled.div`
  `}
 `
 
-export const MoreFacilities = styled.div`
+export const MoreFacilities = styled.a`
   & div {
       ${tw`
       flex
