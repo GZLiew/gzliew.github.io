@@ -29,6 +29,8 @@ export const SubsectionIcon = styled.img`
   ${tw`block flex-none w-4 mt-1 ml-3 mr-6`}
 `
 
+export const EmptyIconSpacer = SubsectionIcon.withComponent("span")
+
 export const SubsectionTitle = styled.h5<DropdownProps>`
   ${tw`mb-2 text-md font-medium`}
   color: ${({ theme }) => theme?.colors?.text?.primary};
