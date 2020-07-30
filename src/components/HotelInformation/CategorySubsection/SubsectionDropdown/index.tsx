@@ -1,5 +1,5 @@
 import { useState } from "react"
-import useMeasure from "react-use-measure"
+import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { useSpring, animated } from "react-spring"
 
 import SbEditable from "storyblok-react"
