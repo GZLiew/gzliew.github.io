@@ -18,6 +18,9 @@ const Category = ({ category }: Props) => {
   const headerHeight = useContext(HeaderHeightContext)
   const tabsHeight = useContext(TabsHeightContext)
 
+  // The category has at least one subsection with an icon
+  const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon?.filename !== "")
+
   return (
     <SbEditable content={category}>
       <Section id={category.slug} style={{ scrollMarginTop: headerHeight + tabsHeight - 10 }}>
@@ -29,7 +32,7 @@ const Category = ({ category }: Props) => {
             <SubsectionDropdown key={subsection._uid} subsection={subsection} />
           ) : (
             <Container key={subsection._uid}>
-              <Subsection subsection={subsection} />
+              <Subsection subsection={subsection} hasAtLeastOneIcon={hasSubsectionWithIcon} />
             </Container>
           )
         )}
