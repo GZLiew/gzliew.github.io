@@ -28,9 +28,9 @@ export const SubsectionDropdown = ({ subsection }: Props) => {
 
   return (
     <SbEditable content={subsection}>
-      <SubsectionWrapper isDropdown={subsection?.is_dropdown}>
+      <SubsectionWrapper isDropdown={subsection?.isDropdown}>
         <StyledContainer>
-          <SubsectionTitle isDropdown={subsection?.is_dropdown} onClick={handleDropdownClick}>
+          <SubsectionTitle isDropdown={subsection?.isDropdown} onClick={handleDropdownClick}>
             <span>{subsection?.title}</span>
             <ChevronDown {...chevronStyles} />
           </SubsectionTitle>
