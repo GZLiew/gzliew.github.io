@@ -10,7 +10,7 @@ import HotelFacilities from "@/components/HotelInformation/HotelFacilities"
 import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.styles"
 import GallerySlider from "./GallerySlider"
 import GalleryGrid from "./GalleryGrid"
-import { AboutSection, ReviewSection } from "./Sections"
+import { AboutSection, ReviewSection, MissingInfoSection } from "./Sections"
 import Categories from "./Categories"
 
 import { HotelInfoContent } from "@/lib/types/hotelInfo"
@@ -61,6 +61,8 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
       <Categories categories={blok?.categories} />
 
       <ReviewSection content={blok?.review} />
+
+      <MissingInfoSection content={blok?.missingInformation} />
     </SbEditable>
   )
 }

@@ -1,7 +1,5 @@
 import { Richtext } from "storyblok-js-client"
 
-import Container from "@/components/Container"
-
 import RichTextSection from "../RichTextSection"
 
 interface Props {
