@@ -51,15 +51,22 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   const handleUpdate = (scrolledSectionEl: HTMLElement) => {
     if (scrolledSectionEl) {
       const id = scrolledSectionEl.id
+      // get location hash without #
+      const locationHash = global?.window?.location?.hash.slice(1)
 
       if (ref.current) {
-        const matchingTab = ref.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
+        if (id === locationHash) {
+          const matchingTab = ref.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
 
-        if (matchingTab) {
-          ref.current.scroll({
-            left: matchingTab.offsetLeft - matchingTab.offsetWidth,
-            behavior: "smooth"
-          })
+          if (matchingTab) {
+            // wait for page to scroll to section before scrolling the Tab
+            setTimeout(() => {
+              ref.current.scroll({
+                left: matchingTab.offsetLeft - matchingTab.offsetWidth,
+                behavior: "smooth"
+              })
+            }, 250)
+          }
         }
       }
     }
