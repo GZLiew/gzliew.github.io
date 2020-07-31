@@ -13,6 +13,8 @@ export const Grid = styled.div`
   grid-gap: 10px;
   grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
   grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  min-height: 190px;
+  padding: 0 5px;
 
   .item-1 {
     grid-column: 1 / span 1;
