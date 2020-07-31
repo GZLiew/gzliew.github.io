@@ -1,2 +1,2 @@
 export { Section } from "./section.styles"
-export { AboutSection } from "./AboutSection"
+export { default as AboutSection } from "./AboutSection"

@@ -3,15 +3,15 @@ import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { useSpring, animated } from "react-spring"
 import { Richtext } from "storyblok-js-client"
 
-import Container from "@/components/Container"
-
-import { Section, SectionTitle, SectionContent, ToggleButton } from "./aboutSection.styles"
+import RichTextSection from "../RichTextSection"
+import { SectionContent } from "../RichTextSection/richTextSection.styles"
+import { ToggleButton } from "./aboutSection.styles"
 
 interface Props {
   content: Richtext
 }
 
-export const AboutSection = ({ content }: Props) => {
+const AboutSection = ({ content }: Props) => {
   const [isReadMoreOpen, set] = useState(false)
   const [ref, { height }] = useMeasure()
   // Refs to store mutable values, see https://reactjs.org/docs/hooks-faq.html#is-there-something-like-instance-variables
@@ -36,22 +36,21 @@ export const AboutSection = ({ content }: Props) => {
   const animatedStyles = hasRequiredMinHeight.current ? props : {}
 
   return (
-    <Section>
-      <Container>
-        <SectionTitle>About</SectionTitle>
-        <animated.div
-          style={{
-            overflow: `hidden`,
-            ...animatedStyles
-          }}>
-          <div ref={ref}>
-            <SectionContent data={content} />
-          </div>
-        </animated.div>
-        {hasRequiredMinHeight.current && (
-          <ToggleButton onClick={toggleCollapse}>{isReadMoreOpen ? `Less` : `More`}</ToggleButton>
-        )}
-      </Container>
-    </Section>
+    <RichTextSection title="About">
+      <animated.div
+        style={{
+          overflow: `hidden`,
+          ...animatedStyles
+        }}>
+        <div ref={ref}>
+          <SectionContent data={content} />
+        </div>
+      </animated.div>
+      {hasRequiredMinHeight.current && (
+        <ToggleButton onClick={toggleCollapse}>{isReadMoreOpen ? `Less` : `More`}</ToggleButton>
+      )}
+    </RichTextSection>
   )
 }
+
+export default AboutSection
