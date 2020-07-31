@@ -45,6 +45,7 @@ export interface ICategorySubsection extends SbEditableContent {
   title?: string
   description?: Richtext
   icon?: IStoryblok_IconAsset
+  isDropdown?: boolean
 }
 
 export interface IHotelPhoto extends SbEditableContent {
