@@ -67,6 +67,7 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
         categories
         hotelPhotos
         aboutSection
+        review
       }
     }
    }
