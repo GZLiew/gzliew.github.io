@@ -3,6 +3,8 @@ import SbEditable from "storyblok-react"
 
 import { StyledLink, IconWrapper } from "./navLink.styles"
 
+import getLink from "@/lib/utils/getLink"
+
 import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import NavIcons from "@/assets/icons/NavbarIcons"
@@ -14,7 +16,7 @@ interface Props {
 const NavLink = ({ blok }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Link href={`/${blok?.url?.cached_url || "#"}`} passHref>
+      <Link href={getLink(blok?.url)} passHref>
         <StyledLink>
           {blok?.icon_name && <IconWrapper>{NavIcons[blok?.icon_name]}</IconWrapper>}
           <span>{blok?.title}</span>
