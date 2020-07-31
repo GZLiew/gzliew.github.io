@@ -16,6 +16,7 @@ export interface HotelInfoContent extends SbEditableContent {
   hotelPhotos: IHotelPhoto[]
   aboutSection: Richtext
   review: Richtext
+  missingInformation: Richtext
 }
 
 export interface IHotelLocation extends SbEditableContent {
