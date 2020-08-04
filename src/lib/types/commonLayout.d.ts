@@ -11,6 +11,6 @@ export interface ILayoutNavigation extends SbEditableContent {
 
 export interface ILayoutNavigationLink extends SbEditableContent {
   url?: IStoryblok_Link
-  icon?: IStoryblok_IconAsset
+  iconName?: string
   title?: string
 }
