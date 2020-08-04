@@ -31,7 +31,11 @@ export default {
       empty: "#434a50"
     },
     amenityBackground: "linear-gradient(to bottom, #474c53, #363941)",
-    icon: "#999999"
+    icon: "#999999",
+    categoryTabs: {
+      background: "#23272b",
+      border: "rgba(255,255,255,0.04)"
+    }
   },
   button: {
     boxShadow: "-7px -5px 9px 0 rgba(81, 85, 93, 0.3), 7px 5px 9px 0 rgba(0, 0, 0, 0.24);",
