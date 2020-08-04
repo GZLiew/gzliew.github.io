@@ -1,8 +1,8 @@
-import SbEditable, { SbEditableContent } from "storyblok-react"
+import SbEditable from "storyblok-react"
 
-import { Card, Icon } from "./hotelFacilityCard.styles"
+import { Card, IconWrapper } from "./hotelFacilityCard.styles"
 
-import ScrollingIcons from "@/assets/icons/ScrollingIcons"
+import HotelInfoIcons from "@/assets/icons/HotelInfoIcons"
 import { IScrollingIcon } from "@/lib/types/hotelInfo"
 
 interface Props {
@@ -18,8 +18,7 @@ const HotelFacilityCard: React.FC<Props> = ({ blok, remainingNumber, customName,
   return (
     <SbEditable content={blok}>
       <Card {...props}>
-        {/* TODO: Should be replace for svg component */}
-        {blok?.iconName && <Icon src={ScrollingIcons[blok?.iconName]} alt={blok?.name} />}
+        {blok?.iconName && <IconWrapper>{HotelInfoIcons[blok?.iconName]}</IconWrapper>}
         {remainingNumber && <h5>{remainingNumber}+</h5>}
         <h6>{formattedName}</h6>
       </Card>
