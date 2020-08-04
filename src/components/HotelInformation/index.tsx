@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react"
 import { useState } from "react"
 
 import SbEditable from "storyblok-react"
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const HotelInformation = ({ blok, blokConfig }: Props) => {
+  const theme = useTheme()
   const [isSliderOpen, setIsSliderOpen] = useState(false)
   const [activeSliderPos, setActiveSliderPos] = useState(0)
   const toggleSlider = () => setIsSliderOpen(!isSliderOpen)
@@ -32,6 +34,8 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
   }
 
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.subsections.length, 0)
+
+  const hotelLogo = theme.mode === "light" ? blokConfig?.hotelLogo : blokConfig?.hotelLogoDark
 
   return (
     <SbEditable content={blok}>
@@ -46,7 +50,7 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
         <Container>
           <GalleryGrid gallery={blok?.hotelPhotos[0]} handlePhotoClick={handleChangeSliderPos} />
           <Wrapper>
-            <Logo src={blokConfig?.hotelLogo?.filename} title={blokConfig?.hotelLogo.name} />
+            <Logo src={hotelLogo.filename} title={hotelLogo.name} />
             <HotelRating rating={blok?.hotelRating[0]} />
           </Wrapper>
           <SubHeading>{blok?.welcomeText}</SubHeading>

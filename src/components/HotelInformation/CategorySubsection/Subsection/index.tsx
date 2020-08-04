@@ -5,8 +5,11 @@ import {
   SubsectionTitle,
   SubsectionWrapper,
   SubsectionIcon,
-  EmptyIconSpacer
+  EmptyIconSpacer,
+  InnerContent
 } from "../categorySubsection.styles"
+
+import HotelInfoIcons from "@/assets/icons/HotelInfoIcons"
 
 interface Props {
   subsection: ICategorySubsection
@@ -17,20 +20,16 @@ export const Subsection = ({ subsection, hasAtLeastOneIcon }: Props) => {
   return (
     <SbEditable content={subsection}>
       <SubsectionWrapper>
-        {subsection?.icon?.filename ? (
-          <SubsectionIcon
-            src={subsection?.icon?.filename}
-            alt={subsection?.icon?.alt}
-            title={subsection?.icon?.title}
-          />
+        {subsection?.icon !== "" ? (
+          <SubsectionIcon>{HotelInfoIcons[subsection?.icon]}</SubsectionIcon>
         ) : hasAtLeastOneIcon ? (
           <EmptyIconSpacer />
         ) : null}
-        <div>
-          <SubsectionTitle>{subsection?.title}</SubsectionTitle>
 
+        <InnerContent>
+          <SubsectionTitle>{subsection?.title}</SubsectionTitle>
           <RichTextField data={subsection?.description} />
-        </div>
+        </InnerContent>
       </SubsectionWrapper>
     </SbEditable>
   )

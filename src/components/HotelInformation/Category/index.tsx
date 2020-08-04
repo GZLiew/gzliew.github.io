@@ -19,7 +19,7 @@ const Category = ({ category }: Props) => {
   const tabsHeight = useContext(TabsHeightContext)
 
   // The category has at least one subsection with an icon
-  const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon?.filename !== "")
+  const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon !== "")
 
   return (
     <SbEditable content={category}>

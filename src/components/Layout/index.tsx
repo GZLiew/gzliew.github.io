@@ -31,6 +31,7 @@ const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
           <Header
             navLinks={links}
             hotelLogo={hotelConfig?.content?.hotelLogo}
+            hotelLogoDark={hotelConfig?.content?.hotelLogoDark}
             setHeaderHeight={setHeaderHeight}
           />
           <main>{children}</main>

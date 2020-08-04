@@ -7,6 +7,7 @@ export interface HotelConfigProps {
 
 export interface HotelConfigContent extends SbEditableContent {
   hotelLogo: HotelLogo
+  hotelLogoDark: HotelLogo
   hotelName: string
   primaryColor: string
   secondaryColor: string

@@ -1,3 +1,4 @@
+import { useTheme } from "@emotion/react"
 import { throttle } from "lodash"
 import { useState, useEffect, useRef } from "react"
 import { useSpring } from "react-spring"
@@ -21,11 +22,13 @@ import useToggle from "@/lib/hooks/useToggle"
 
 interface Props {
   hotelLogo?: HotelLogo
+  hotelLogoDark?: HotelLogo
   navLinks?: ILayoutNavigationLink[]
   setHeaderHeight: (number) => void
 }
 
-const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
+const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) => {
+  const theme = useTheme()
   const router = useRouter()
   const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
   const [hasScrolled, setHasScrolled] = useState(false)
@@ -33,6 +36,8 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
   const ref = useRef<HTMLDivElement>()
   const headerRef = useRef<boolean>()
   headerRef.current = hasScrolled
+
+  const themeHotelLogo = theme.mode === "light" ? hotelLogo : hotelLogoDark
 
   const [logoProps, setLogoProps] = useSpring(() => ({
     opacity: isHome ? 1 : 0
@@ -81,7 +86,7 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
-          <Logo src={hotelLogo?.filename} title={hotelLogo?.name} style={logoProps} />
+          <Logo src={themeHotelLogo?.filename} title={themeHotelLogo?.name} style={logoProps} />
           <Button bgColor="white" maxWith="40px" height="40px">
             {isHome ? <NotificationIcon /> : <ShareIcon />}
           </Button>
