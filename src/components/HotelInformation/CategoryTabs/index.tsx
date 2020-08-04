@@ -65,7 +65,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
                 left: matchingTab.offsetLeft - matchingTab.offsetWidth,
                 behavior: "smooth"
               })
-            }, 250)
+            }, 600)
           }
         }
       }
