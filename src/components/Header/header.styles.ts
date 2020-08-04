@@ -33,7 +33,8 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
   box-shadow: ${({ theme }) => theme.colors.header.boxShadow};
   transform: translateY(${({ hasScrolled }) => (hasScrolled ? 0 : `-100%`)});
   opacity: ${({ hasScrolled }) => (hasScrolled ? 1 : 0)};
-  transition: transform 0.2s ease-in, opacity 0.1s ease-in;
+  transition: transform 0.2s, opacity 0.1s;
+  transition-timing-function: ${({ hasScrolled }) => (!hasScrolled ? "ease-out" : "ease-in")};
   will-change: transform;
 `
 export const LogoWrapper = styled.header`

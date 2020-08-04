@@ -51,7 +51,7 @@ const Header = ({ hotelLogo, navLinks, setHeaderHeight }: Props) => {
       if (headerRef.current !== show) {
         setHasScrolled(show)
         if (!isHome) {
-          setLogoProps({ opacity: show ? 1 : 0 })
+          setLogoProps({ opacity: show ? 1 : 0, delay: show ? 250 : 0, immediate: !show })
         }
       }
     }
