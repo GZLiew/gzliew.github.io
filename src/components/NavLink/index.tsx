@@ -18,7 +18,7 @@ const NavLink = ({ blok }: Props) => {
     <SbEditable content={blok}>
       <Link href={getLink(blok?.url)} passHref>
         <StyledLink>
-          {blok?.icon_name && <IconWrapper>{NavIcons[blok?.icon_name]}</IconWrapper>}
+          {blok?.iconName && <IconWrapper>{NavIcons[blok?.iconName]}</IconWrapper>}
           <span>{blok?.title}</span>
         </StyledLink>
       </Link>
