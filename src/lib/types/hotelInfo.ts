@@ -44,7 +44,7 @@ export interface ICategory extends SbEditableContent {
 export interface ICategorySubsection extends SbEditableContent {
   title?: string
   description?: Richtext
-  icon?: IStoryblok_IconAsset
+  icon?: string
   isDropdown?: boolean
 }
 

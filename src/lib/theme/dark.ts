@@ -30,7 +30,8 @@ export default {
       full: "#f7b500",
       empty: "#434a50"
     },
-    amenityBackground: "linear-gradient(to bottom, #474c53, #363941)"
+    amenityBackground: "linear-gradient(to bottom, #474c53, #363941)",
+    icon: "#999999"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 rgba(81, 85, 93, 0.3), 7px 5px 9px 0 rgba(0, 0, 0, 0.24);",

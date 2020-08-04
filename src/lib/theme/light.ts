@@ -30,7 +30,8 @@ export default {
       full: "#f7b500",
       empty: "#dadada"
     },
-    amenityBackground: "#fff"
+    amenityBackground: "#fff",
+    icon: "#101112"
   },
   button: {
     boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;",

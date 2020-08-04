@@ -16,16 +16,14 @@ export const SubsectionWrapper = styled.div<DropdownProps>`
     ${theme.mode === "light" ? theme?.colors?.white?.primary : theme?.colors?.white?.secondary}}`};
   margin-bottom: ${({ isDropdown }) => !isDropdown && `2rem`};
 
-  & > div {
-    ${tw`flex-1`}
-  }
-
   & > p {
     ${tw`mb-4`}
   }
 `
 
-export const SubsectionIcon = styled.img`
+export const InnerContent = styled.div(tw`flex-1`)
+
+export const SubsectionIcon = styled.div`
   ${tw`block flex-none w-4 mt-1 ml-3 mr-6`}
 `
 
