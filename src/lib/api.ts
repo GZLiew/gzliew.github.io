@@ -15,6 +15,10 @@ export async function getHotelConfiguration(preview): Promise<HotelConfigProps> 
           name
           filename
         }
+        hotelLogoDark {
+          name
+          filename
+        }
         hotelName
         primaryColor
         secondaryColor
