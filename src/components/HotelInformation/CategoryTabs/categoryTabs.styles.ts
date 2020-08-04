@@ -1,15 +1,10 @@
 import styled from "@emotion/styled"
+import { animated } from "react-spring"
 import tw from "@tailwindcssinjs/macro"
-import { rgba } from "polished"
 
-export const Tabs = styled.div<{ isOnTop: boolean }>`
+export const Tabs = styled(animated.div)`
   ${tw`z-40 sticky flex overflow-x-auto border-b border-solid`}
-
-  background-color: ${({ isOnTop, theme }) =>
-    isOnTop ? (theme.mode === "light" ? `#d6dadd` : `#23272b`) : `transparent`};
-  transition: background-color 0.1s ease;
-  border-bottom-color: ${({ theme }) =>
-    theme.mode === "light" ? `rgba(0,0,0,0.11)` : `rgba(255,255,255,0.04)`};
+  border-bottom-color: ${({ theme }) => theme.colors.categoryTabs.border};
 
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
