@@ -1,4 +1,5 @@
 import { SbEditableContent } from "storyblok-react"
+import { IStoryblok_IconAsset } from "./storyblok"
 
 export interface HotelConfigProps {
   id: number
@@ -13,7 +14,9 @@ export interface HotelConfigContent extends SbEditableContent {
   secondaryColor: string
   theme: string
   seoDescription: string
-  seoBannerImage: string
+  seoBannerImage: {
+    filename: string
+  }
 }
 
 export interface HotelLogo {

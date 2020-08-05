@@ -24,7 +24,9 @@ export async function getHotelConfiguration(preview): Promise<HotelConfigProps> 
         secondaryColor
         theme
         seoDescription
-        seoBannerImage
+        seoBannerImage {
+          filename
+        }
       }
     }
   }
