@@ -22,7 +22,7 @@ const SEO = ({ title, hotelConfig }: Props) => {
         <meta name="description" content={hotelConfig?.content?.seoDescription} />
       )}
       {hotelConfig?.content?.seoBannerImage && (
-        <meta property="og:image" content={hotelConfig?.content?.seoBannerImage} key="og_image" />
+        <meta property="og:image" content={hotelConfig?.content?.seoBannerImage.filename} key="og_image" />
       )}
       {hotelConfig?.content?.primaryColor && (
         <meta name="theme-color" content={hotelConfig?.content?.primaryColor} />
