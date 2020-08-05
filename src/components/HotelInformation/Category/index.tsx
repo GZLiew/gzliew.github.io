@@ -21,9 +21,11 @@ const Category = ({ category }: Props) => {
   // The category has at least one subsection with an icon
   const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon !== "")
 
+  const topSpacing = headerHeight + tabsHeight - 10
+
   return (
     <SbEditable content={category}>
-      <Section id={category.slug} style={{ scrollMarginTop: headerHeight + tabsHeight - 10 }}>
+      <Section id={category.slug} style={{ paddingTop: topSpacing + 32, marginTop: topSpacing * -1 }}>
         <Container>
           <CategoryTitle>{category?.title}</CategoryTitle>
         </Container>
