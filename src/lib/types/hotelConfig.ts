@@ -12,6 +12,8 @@ export interface HotelConfigContent extends SbEditableContent {
   primaryColor: string
   secondaryColor: string
   theme: string
+  seoDescription: string
+  seoBannerImage: string
 }
 
 export interface HotelLogo {

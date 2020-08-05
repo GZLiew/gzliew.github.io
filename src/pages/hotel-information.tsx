@@ -3,6 +3,7 @@ import Head from "next/head"
 
 import HotelInformation from "@/components/HotelInformation"
 import Layout from "@/components/Layout"
+import SEO from "@/components/SEO"
 
 import { getHotelConfiguration, getHotelInformation } from "@/lib/api"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
@@ -18,7 +19,7 @@ export default function HotelInformationPage({ hotelConfig, hotelInfo, preview }
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
       <Head>
-        <title>Hotel Information</title>
+        <SEO title="Hotel Information" hotelConfig={hotelConfig} />
       </Head>
       <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
     </Layout>

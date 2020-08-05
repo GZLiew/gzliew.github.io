@@ -23,6 +23,8 @@ export async function getHotelConfiguration(preview): Promise<HotelConfigProps> 
         primaryColor
         secondaryColor
         theme
+        seoDescription
+        seoBannerImage
       }
     }
   }
