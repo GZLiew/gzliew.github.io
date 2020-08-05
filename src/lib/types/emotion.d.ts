@@ -65,6 +65,10 @@ declare module "@emotion/react" {
       }
       amenityBackground: string
       icon: string
+      categoryTabs: {
+        background: string
+        border: string
+      }
     }
     button: {
       boxShadow: string

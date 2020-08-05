@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect, useMemo, useContext } from "react"
+import { useTheme } from "@emotion/react"
+import { useSpring } from "react-spring"
+import { rgba } from "polished"
 import { throttle } from "lodash"
 
 import Scrollspy from "react-scrollspy"
@@ -13,38 +16,37 @@ interface Props {
 }
 
 const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
+  const theme = useTheme()
   const headerHeight = useContext(HeaderHeightContext)
-  const headerHeightRef = useRef<number>(headerHeight)
-  const ref = useRef<HTMLDivElement>(null)
-  const top = useRef<number>(0)
-  const [isOnTop, set] = useState(false)
-  const isOnTopRef = useRef<boolean>()
-  isOnTopRef.current = isOnTop
+  const headerHeightRef = useRef(headerHeight)
+  const tabsRef = useRef<HTMLDivElement>(null)
+  const [isOnTop, setIsOnTop] = useState(false)
+
+  const styleProps = useSpring({
+    background: isOnTop
+      ? rgba(theme.colors.categoryTabs.background, 1)
+      : rgba(theme.colors.categoryTabs.background, 0)
+  })
 
   useMemo(() => (headerHeightRef.current = headerHeight), [headerHeight])
 
   useEffect(() => {
-    if (ref.current) {
-      setTabsHeight(ref.current.offsetHeight)
+    if (tabsRef.current) {
+      setTabsHeight(tabsRef.current.offsetHeight)
     }
   }, [])
 
   useEffect(() => {
-    top.current = ref.current.getBoundingClientRect().top + global?.window?.pageYOffset - headerHeight
-  }, [])
-
-  useEffect(() => {
-    const getOffsetTop = () => {
-      if (ref.current && headerHeightRef.current > 0) {
-        const show = ref.current.offsetTop - global?.window?.scrollY <= headerHeightRef.current
-        if (isOnTopRef.current !== show) {
-          set(show)
-        }
+    const scrollListener = () => {
+      if (tabsRef.current) {
+        const tabsTop = tabsRef.current?.getBoundingClientRect().top
+        setIsOnTop(tabsTop <= headerHeightRef.current)
       }
     }
-    global?.window?.addEventListener("scroll", throttle(getOffsetTop, 100))
+
+    global?.window?.addEventListener("scroll", throttle(scrollListener, 100))
     return () => {
-      global?.window?.addEventListener("scroll", throttle(getOffsetTop, 100))
+      global?.window?.removeEventListener("scroll", throttle(scrollListener, 100))
     }
   }, [])
 
@@ -53,27 +55,35 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
       const id = scrolledSectionEl.id
       // get location hash without #
       const locationHash = global?.window?.location?.hash.slice(1)
+      const matchingTab = tabsRef.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
 
-      if (ref.current) {
-        if (id === locationHash) {
-          const matchingTab = ref.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
-
-          if (matchingTab) {
-            // wait for page to scroll to section before scrolling the Tab
-            setTimeout(() => {
-              ref.current.scroll({
-                left: matchingTab.offsetLeft - matchingTab.offsetWidth,
-                behavior: "smooth"
-              })
-            }, 600)
+      if (tabsRef.current) {
+        // delay tabs scrolling when navigating from a hash
+        if (locationHash !== "") {
+          if (id === locationHash) {
+            if (matchingTab) {
+              // wait for page to scroll to section before scrolling the Tab
+              setTimeout(() => {
+                tabsRef.current.scroll({
+                  left: matchingTab.offsetLeft - matchingTab.offsetWidth,
+                  behavior: "smooth"
+                })
+              }, 600)
+            }
           }
+          // update tabs ref on page scroll only, not navigation
+        } else {
+          tabsRef.current.scroll({
+            left: matchingTab.offsetLeft - matchingTab.offsetWidth,
+            behavior: "smooth"
+          })
         }
       }
     }
   }
 
   return (
-    <Tabs ref={ref} style={{ top: headerHeight }} isOnTop={isOnTop}>
+    <Tabs style={{ top: headerHeightRef.current - 1, ...styleProps }} ref={tabsRef}>
       <Scrollspy
         items={categories.map((cat) => cat.slug)}
         currentClassName="active"
