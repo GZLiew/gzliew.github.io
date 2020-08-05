@@ -10,10 +10,8 @@ export const NavbarWrapper = styled.div<Props>`
   ${tw`
     z-100
     fixed
-    top-0
-    left-0
+    inset-0
     w-full
-    h-screen
     overflow-hidden
     transition-opacity
     duration-300
@@ -31,7 +29,7 @@ export const StyledNavbar = styled.div<Props>`
     relative
     top-0
     left-0
-    h-screen
+    h-full
     overflow-auto
     transition-transform
     duration-200
@@ -50,5 +48,6 @@ export const Nav = styled.nav`
     flex
     flex-wrap
     px-4
+    pb-10
   `}
 `
