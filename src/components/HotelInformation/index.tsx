@@ -50,7 +50,7 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
         <Container>
           <GalleryGrid gallery={blok?.hotelPhotos[0]} handlePhotoClick={handleChangeSliderPos} />
           <Wrapper>
-            <Logo src={hotelLogo.filename} title={hotelLogo.name} />
+            <Logo src={hotelLogo.filename} alt={hotelLogo?.name} title={hotelLogo.name} />
             <HotelRating rating={blok?.hotelRating[0]} />
           </Wrapper>
           <SubHeading>{blok?.welcomeText}</SubHeading>
