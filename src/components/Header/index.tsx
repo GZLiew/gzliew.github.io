@@ -86,7 +86,12 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
-          <Logo src={themeHotelLogo?.filename} title={themeHotelLogo?.name} style={logoProps} />
+          <Logo
+            src={themeHotelLogo?.filename}
+            alt={themeHotelLogo?.name}
+            title={themeHotelLogo?.name}
+            style={logoProps}
+          />
           <Button bgColor="white" maxWith="40px" height="40px">
             {isHome ? <NotificationIcon /> : <ShareIcon />}
           </Button>

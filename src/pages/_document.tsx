@@ -22,7 +22,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
           <meta name="description" content={APP_DESCRIPTION} />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-          <meta property="og:image" content={HOME_OG_IMAGE_URL} />
+          <meta property="og:image" content={HOME_OG_IMAGE_URL} key="og_image" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#FFFFFF" />

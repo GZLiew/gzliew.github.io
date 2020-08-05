@@ -3,6 +3,7 @@ import Head from "next/head"
 
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
+import SEO from "@/components/SEO"
 
 import { getHotelConfiguration, getHomeData, getHotelGlobalNavigation } from "@/lib/api"
 import { HomeContent } from "@/lib/types/homeContent"
@@ -20,7 +21,7 @@ export default function HomePage({ hotelConfig, homeContent, layoutNavigation, p
   return (
     <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
       <Head>
-        <title>Welcome to {hotelConfig?.content?.hotelName}</title>
+        <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
       </Head>
       <Home blok={homeContent} blokConfig={hotelConfig?.content} />
     </Layout>
