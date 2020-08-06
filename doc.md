@@ -93,6 +93,9 @@ Manage the content of the Hotel Information page.
 | Review              |                                               | text                              |
 | Missing Information |                                               | text                              |
 
+#### CROPPING PHOTOS \*VERY IMPORTANT*
+To crop a photo added inside Hotel Photos, click the image preview and a crop window will appear. There are several available presets: **Original** with free crop, **16x9** for landscape crop, **2x3** for portrait crop, and **1x1** for square crop.
+
 #### Category
 
 Title: text
