@@ -1,4 +1,8 @@
 import React from "react"
+import Head from "next/head"
+
+import { HOME_OG_IMAGE_URL } from "@/lib/constants"
+
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 
 interface Props {
@@ -8,7 +12,7 @@ interface Props {
 
 const SEO = ({ title, hotelConfig }: Props) => {
   return (
-    <React.Fragment>
+    <Head>
       <title>
         {title} | {hotelConfig?.content?.hotelName}
       </title>
@@ -21,13 +25,15 @@ const SEO = ({ title, hotelConfig }: Props) => {
       {hotelConfig?.content?.seoDescription && (
         <meta name="description" content={hotelConfig?.content?.seoDescription} />
       )}
-      {hotelConfig?.content?.seoBannerImage && (
+      {hotelConfig?.content?.seoBannerImage ? (
         <meta property="og:image" content={hotelConfig?.content?.seoBannerImage.filename} key="ogImage" />
+      ) : (
+        <meta property="og:image" content={HOME_OG_IMAGE_URL} key="ogImage" />
       )}
       {hotelConfig?.content?.primaryColor && (
         <meta name="theme-color" content={hotelConfig?.content?.primaryColor} />
       )}
-    </React.Fragment>
+    </Head>
   )
 }
 

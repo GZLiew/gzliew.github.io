@@ -18,9 +18,8 @@ interface Props {
 export default function HotelInformationPage({ hotelConfig, hotelInfo, preview }: Props) {
   return (
     <Layout hotelConfig={hotelConfig} preview={preview}>
-      <Head>
-        <SEO title="Hotel Information" hotelConfig={hotelConfig} />
-      </Head>
+      <SEO title="Hotel Information" hotelConfig={hotelConfig} />
+
       <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
     </Layout>
   )

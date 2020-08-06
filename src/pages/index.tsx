@@ -20,9 +20,8 @@ interface Props {
 export default function HomePage({ hotelConfig, homeContent, layoutNavigation, preview }: Props) {
   return (
     <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
-      <Head>
-        <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
-      </Head>
+      <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
+
       <Home blok={homeContent} blokConfig={hotelConfig?.content} />
     </Layout>
   )
