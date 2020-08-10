@@ -67,7 +67,7 @@ export const Slide = styled.img`
   ${tw`
     w-full
     h-full
-    object-cover
+    object-contain
   `}
 `
 
