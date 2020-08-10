@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect, useMemo, useContext } from "react"
+import React, { useState, useRef, useEffect, useMemo, useContext, MouseEvent } from "react"
 import { useTheme } from "@emotion/react"
 import { useSpring } from "react-spring"
+import { useDrag } from "react-use-gesture"
+import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { rgba } from "polished"
 import { throttle } from "lodash"
 
@@ -21,6 +23,10 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   const headerHeightRef = useRef(headerHeight)
   const tabsRef = useRef<HTMLDivElement>(null)
   const [isOnTop, setIsOnTop] = useState(false)
+  const [currentId, setCurrentId] = useState<string>(null)
+
+  // measure the Tabs width to enable drag gesture on mobile only. See useDrag below
+  const [measureRef, { width }] = useMeasure()
 
   const styleProps = useSpring({
     background: isOnTop
@@ -28,10 +34,26 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
       : rgba(theme.colors.categoryTabs.background, 0)
   })
 
+  // enable touch drag on Tabs
+  const [{ x }, setTranslate] = useSpring(() => ({ x: 0 }))
+  const bind = useDrag(
+    ({ down, offset: [mx] }) => setTranslate({ x: width < 576 ? mx : 0, immediate: down }),
+    {
+      bounds: {
+        left: -(tabsRef?.current?.clientWidth / 4) - 12,
+        right: 0
+      },
+      filterTaps: true,
+      axis: "x",
+      initial: () => [x.getValue(), 0]
+    }
+  )
+
   useMemo(() => (headerHeightRef.current = headerHeight), [headerHeight])
 
   useEffect(() => {
     if (tabsRef.current) {
+      measureRef(tabsRef.current)
       setTabsHeight(tabsRef.current.offsetHeight)
     }
   }, [])
@@ -50,53 +72,72 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
     }
   }, [])
 
+  // Scrollspy fires an update event when a spied Section is now in the viewport.
+  // Match a Tab with the updated Section and translate the Tabs Container to the left
   const handleUpdate = (scrolledSectionEl: HTMLElement) => {
     if (scrolledSectionEl) {
       const id = scrolledSectionEl.id
-      // get location hash without #
-      const locationHash = global?.window?.location?.hash.slice(1)
-      const matchingTab = tabsRef.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
+      // decouple the Scrollspy from the children Tab component and set the current Section ID from this event.
+      // This makes it way easier to use react-spring on Container
+      setCurrentId(id)
 
-      if (tabsRef.current) {
-        // delay tabs scrolling when navigating from a hash
-        if (locationHash !== "") {
-          if (id === locationHash) {
-            if (matchingTab) {
-              // wait for page to scroll to section before scrolling the Tab
-              setTimeout(() => {
-                tabsRef.current.scroll({
-                  left: matchingTab.offsetLeft - matchingTab.offsetWidth,
-                  behavior: "smooth"
-                })
-              }, 600)
-            }
-          }
-          // update tabs ref on page scroll only, not navigation
-        } else {
-          tabsRef.current.scroll({
-            left: matchingTab.offsetLeft - matchingTab.offsetWidth,
-            behavior: "smooth"
-          })
-        }
+      const matchingTab = tabsRef?.current?.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
+      if (tabsRef.current && matchingTab) {
+        // This could be improved for sure
+        const offset =
+          -(tabsRef.current.clientWidth - 84 - (tabsRef.current.clientWidth - matchingTab.offsetLeft)) / 2
+
+        setTranslate({
+          // only set negative values so Tabs won't move to the right from the initial position
+          x: offset < 0 ? offset : 0
+        })
+      }
+    }
+  }
+
+  // Safari, IE11 & Opera don't support smooth scrolling (see: https://caniuse.com/#feat=css-scroll-behavior).
+  // Hijack the tab click event to not trigger the native scroll behavior on these browsers and synthetically trigger
+  // smooth scroll with the help of `smoothscroll-polyfill`.
+  const handleTabClick = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (!("scrollBehavior" in global?.document?.documentElement?.style)) {
+      e.preventDefault()
+      const sectionId = e.currentTarget.dataset.slug
+      const matchingSection = global?.document?.getElementById(sectionId)
+
+      if (matchingSection) {
+        matchingSection.scrollIntoView({
+          behavior: "smooth"
+        })
       }
     }
   }
 
   return (
-    <Tabs style={{ top: headerHeightRef.current - 1, ...styleProps }} ref={tabsRef}>
+    <React.Fragment>
       <Scrollspy
         items={categories.map((cat) => cat.slug)}
-        currentClassName="active"
-        componentTag={Container}
         offset={-(headerHeight + 50 + 10)}
-        onUpdate={handleUpdate}>
-        {categories.map(({ _uid, title, slug }, i) => (
-          <Tab href={`#${slug}`} key={_uid}>
-            <span>{title}</span>
-          </Tab>
-        ))}
-      </Scrollspy>
-    </Tabs>
+        onUpdate={handleUpdate}
+      />
+      <Tabs style={{ top: headerHeightRef.current - 1, ...styleProps }} ref={tabsRef}>
+        <Container
+          {...bind()}
+          style={{
+            transform: x.interpolate((x) => `translateX(${x}px)`)
+          }}>
+          {categories.map(({ _uid, title, slug }, i) => (
+            <Tab
+              href={`#${slug}`}
+              data-slug={slug}
+              key={_uid}
+              className={slug === currentId ? "active" : null}
+              onClick={handleTabClick}>
+              <span>{title}</span>
+            </Tab>
+          ))}
+        </Container>
+      </Tabs>
+    </React.Fragment>
   )
 }
 
