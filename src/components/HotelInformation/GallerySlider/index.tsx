@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 
+import { useSpring } from "react-spring"
 import { Transition, config } from "react-spring/renderprops.cjs"
 
 import GalleryIcons from "@/assets/icons/GalleryIcons"
@@ -28,6 +29,11 @@ interface Props {
 
 const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCloseClick }) => {
   const [activePosition, setActivePosition] = useState(activeSlide)
+  const [areDotsVisible, setAreDotsVisible] = useState(true)
+  const dotsSpringProps = useSpring({
+    transform: areDotsVisible ? `translateY(0%)` : `translateY(100%)`,
+    opacity: areDotsVisible ? 1 : 0
+  })
 
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
@@ -56,6 +62,8 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
 
   const handleChange = (value) => setActivePosition(value)
 
+  const handlePhotoClick = () => setAreDotsVisible(!areDotsVisible)
+
   return (
     <Transition
       native={true}
@@ -75,11 +83,11 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
               minDraggableOffset={5}
               value={activePosition}
               slides={gallery?.photos.map((photo) => (
-                <Slide src={photo?.image} key={photo?._uid} onClick={handleCloseClick} />
+                <Slide src={photo?.image} key={photo?._uid} onClick={handlePhotoClick} />
               ))}
               onChange={handleChange}
             />
-            <DotsWrapper ref={dotsRef}>
+            <DotsWrapper ref={dotsRef} style={dotsSpringProps}>
               <Dots
                 value={activePosition}
                 number={gallery?.photos?.length}
