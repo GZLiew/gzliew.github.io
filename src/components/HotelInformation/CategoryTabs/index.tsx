@@ -55,7 +55,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
       const id = scrolledSectionEl.id
       // get location hash without #
       const locationHash = global?.window?.location?.hash.slice(1)
-      const matchingTab = tabsRef.current.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
+      const matchingTab = tabsRef?.current?.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
 
       if (tabsRef.current) {
         // delay tabs scrolling when navigating from a hash
