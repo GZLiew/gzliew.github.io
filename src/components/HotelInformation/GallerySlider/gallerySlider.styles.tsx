@@ -1,7 +1,9 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
-import { animated } from "react-spring/renderprops.cjs"
+import { animated as renderPropsAnimated } from "react-spring/renderprops.cjs"
+import { animated } from "react-spring"
+
 import Carousel, { Dots as BHDots } from "@brainhubeu/react-carousel"
 
 import { rgba } from "polished"
@@ -11,7 +13,7 @@ export const dotStyles = {
   border: 3
 }
 
-export const GalleryWrapper = styled(animated.div)`
+export const GalleryWrapper = styled(renderPropsAnimated.div)`
   ${tw`
     z-50
     fixed
@@ -71,7 +73,7 @@ export const Slide = styled.img`
   `}
 `
 
-export const DotsWrapper = styled.div`
+export const DotsWrapper = styled(animated.div)`
   ${tw`
     absolute
     bottom-0
