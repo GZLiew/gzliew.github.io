@@ -1,6 +1,9 @@
-import { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react"
 
-import { Transition, config } from "react-spring/renderprops.cjs"
+import { useTransition, config, useSpring } from "react-spring"
+
+import SbEditable from "storyblok-react"
+import Slider from "./Slider"
 
 import GalleryIcons from "@/assets/icons/GalleryIcons"
 
@@ -9,10 +12,11 @@ import {
   DotsWrapper,
   Dots,
   DotThumbnail,
-  Slide,
-  Gallery,
   CloseButton,
-  dotStyles
+  dotStyles,
+  SlideImage,
+  DotItem,
+  DotButton
 } from "./gallerySlider.styles"
 
 import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
@@ -28,6 +32,21 @@ interface Props {
 
 const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCloseClick }) => {
   const [activePosition, setActivePosition] = useState(activeSlide)
+
+  // hook slide-reveal animation to DotsWrapper
+  const [areDotsVisible, setAreDotsVisible] = useState(true)
+  const dotsSpringProps = useSpring({
+    transform: areDotsVisible ? `translateY(0%)` : `translateY(100%)`,
+    opacity: areDotsVisible ? 1 : 0
+  })
+
+  // fade effect when opening/closing the slider
+  const fadeTransitions = useTransition(isOpen, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: config.gentle
+  })
 
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
@@ -54,45 +73,53 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
     dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
   }, [activePosition])
 
-  const handleChange = (value) => setActivePosition(value)
+  useEffect(() => {
+    if (!isOpen && !areDotsVisible) {
+      setAreDotsVisible(true)
+    }
+  }, [isOpen])
+
+  const handleDotClick = (id: number) => setActivePosition(id)
+
+  const handlePhotoClick = () => setAreDotsVisible(!areDotsVisible)
 
   return (
-    <Transition
-      native={true}
-      items={isOpen}
-      config={config.gentle}
-      from={{ opacity: 0 }}
-      enter={{ opacity: 1 }}
-      leave={{ opacity: 0 }}>
-      {(show) =>
-        show &&
-        ((props) => (
-          <GalleryWrapper ref={ref} style={props}>
-            <CloseButton onClick={handleCloseClick}>{GalleryIcons.close}</CloseButton>
-            <Gallery
-              lazyLoad={true}
-              keepDirectionWhenDragging={true}
-              minDraggableOffset={5}
-              value={activePosition}
-              slides={gallery?.photos.map((photo) => (
-                <Slide src={photo?.image} key={photo?._uid} onClick={handleCloseClick} />
-              ))}
-              onChange={handleChange}
-            />
-            <DotsWrapper ref={dotsRef}>
-              <Dots
-                value={activePosition}
-                number={gallery?.photos?.length}
-                onChange={handleChange}
-                thumbnails={gallery?.photos.map((photo) => (
-                  <DotThumbnail src={photo?.image} key={photo?._uid} />
+    <React.Fragment>
+      {fadeTransitions.map(
+        ({ item, key, props }) =>
+          item && (
+            <GalleryWrapper key={key} style={props} ref={ref}>
+              <CloseButton onClick={handleCloseClick}>{GalleryIcons.close}</CloseButton>
+              <Slider
+                slides={gallery?.photos.map((photo, i) => (
+                  <SbEditable key={photo._uid} content={photo}>
+                    <SlideImage
+                      src={photo.image}
+                      alt={`Gallery Photo ${i + 1}`}
+                      draggable={false}
+                      onClick={handlePhotoClick}
+                    />
+                  </SbEditable>
                 ))}
+                initialSlide={activeSlide}
+                activePosition={activePosition}
+                handleSlideChange={setActivePosition}
               />
-            </DotsWrapper>
-          </GalleryWrapper>
-        ))
-      }
-    </Transition>
+              <DotsWrapper ref={dotsRef} style={dotsSpringProps}>
+                <Dots>
+                  {gallery?.photos.map((photo, idx) => (
+                    <DotItem key={photo?._uid} onClick={() => handleDotClick(idx)}>
+                      <DotButton className={idx === activePosition ? "selected" : null}>
+                        <DotThumbnail src={photo?.image} />
+                      </DotButton>
+                    </DotItem>
+                  ))}
+                </Dots>
+              </DotsWrapper>
+            </GalleryWrapper>
+          )
+      )}
+    </React.Fragment>
   )
 }
 

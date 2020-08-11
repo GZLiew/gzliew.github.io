@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
-import { animated } from "react-spring/renderprops.cjs"
-import Carousel, { Dots as BHDots } from "@brainhubeu/react-carousel"
+import { animated } from "react-spring"
 
 import { rgba } from "polished"
 
@@ -11,22 +10,17 @@ export const dotStyles = {
   border: 3
 }
 
-export const GalleryWrapper = styled(animated.div)`
+export const GalleryWrapper = animated(styled.div`
   ${tw`
-    z-50
-    fixed
-    inset-0
+  z-50
+  fixed
+  inset-0
+  overflow-hidden
   `}
   width: 100%;
   height: 100%;
   background-color: #cccccc;
-
-  .BrainhubCarousel__container {
-    ${tw`
-      h-full
-    `}
-  }
-`
+`)
 
 export const CloseButton = styled.button`
   ${tw`
@@ -47,31 +41,23 @@ export const CloseButton = styled.button`
   background: ${rgba("#122232", 0.45)};
 `
 
-export const Gallery = styled(Carousel)`
-  &,
-  .BrainhubCarousel__trackContainer,
-  .BrainhubCarousel__track,
-  .BrainhubCarouselItem {
-    ${tw`
-      h-full
-    `}
-  }
+export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
+  ${tw`relative grid grid-flow-col w-full select-none`}
+  touch-action: pan-y;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  z-index: ${({ isZooming }) => (isZooming ? 20 : 0)};
+`)
 
-  .BrainhubCarousel__track {
-    /* fixes janky transition during first slide */
-    transition-duration: 500ms, 500ms;
-  }
+export const Slide = styled.div`
+  ${tw`block w-screen h-screen`}
 `
 
-export const Slide = styled.img`
-  ${tw`
-    w-full
-    h-full
-    object-cover
-  `}
+export const SlideImage = styled.img`
+  ${tw`w-full h-full object-contain`}
 `
 
-export const DotsWrapper = styled.div`
+export const DotsWrapper = animated(styled.div`
   ${tw`
     absolute
     bottom-0
@@ -87,35 +73,44 @@ export const DotsWrapper = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+`)
+
+export const Dots = styled.ul`
+  ${tw`
+     flex
+     p-5
+  `}
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  font-size: 0;
+  line-height: 0;
 `
 
-export const Dots = styled(BHDots)`
-  ${tw`
-    flex
-    p-5
- `}
+export const DotItem = styled.li`
+  flex: 0 0 auto;
+  width: 84px;
+  height: 93px;
+  margin-right: ${dotStyles.innerMargin}px;
+`
 
-  li {
-    flex: 0 0 auto;
-    width: 84px;
-    height: 93px;
-    margin-right: ${dotStyles.innerMargin}px;
+export const DotButton = styled.button`
+  ${tw`
+    w-full
+    h-full
+    p-0
+    overflow-hidden
+    opacity-100
+  `}
+  border: ${dotStyles.border}px solid transparent;
+  border-radius: 10px;
+
+  &.selected {
+    border: ${dotStyles.border}px solid white;
   }
 
-  .BrainhubCarousel__thumbnail {
-    ${tw`
-      w-full
-      h-full
-      p-0
-      overflow-hidden
-      opacity-100
-    `}
-    border: ${dotStyles.border}px solid transparent;
-    border-radius: 10px;
-
-    &--selected {
-      border: ${dotStyles.border}px solid white;
-    }
+  &:focus, &:active {
+    outline: none
   }
 `
 
