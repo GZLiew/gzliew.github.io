@@ -3,7 +3,7 @@ import { animated } from "react-spring"
 import tw from "@tailwindcssinjs/macro"
 
 export const Tabs = styled(animated.div)`
-  ${tw`z-40 sticky flex overflow-x-auto border-b border-solid`}
+  ${tw`z-40 sticky flex overflow-x-hidden border-b border-solid`}
   border-bottom-color: ${({ theme }) => theme.colors.categoryTabs.border};
 
   -webkit-overflow-scrolling: touch;
@@ -14,8 +14,12 @@ export const Tabs = styled(animated.div)`
   }
 `
 
-export const Container = styled.div`
+export const Container = styled(animated.div)`
   ${tw`container flex px-3 mx-auto`}
+
+  @media screen and (max-width: 576px) {
+    cursor: grab;
+  }
 `
 
 export const Tab = styled.a`
