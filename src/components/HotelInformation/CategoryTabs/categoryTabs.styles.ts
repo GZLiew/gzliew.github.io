@@ -4,6 +4,7 @@ import tw from "@tailwindcssinjs/macro"
 
 export const Tabs = styled(animated.div)`
   ${tw`z-40 sticky flex overflow-x-hidden border-b border-solid`}
+  position: -webkit-sticky;
   border-bottom-color: ${({ theme }) => theme.colors.categoryTabs.border};
 
   -webkit-overflow-scrolling: touch;
