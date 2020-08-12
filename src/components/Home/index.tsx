@@ -25,7 +25,7 @@ interface Props {
 const Home = ({ blok, blokConfig }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Container>
+      <Container style={{ paddingBottom: "2rem" }}>
         <SubHeading>
           {blok?.primaryWelcomeText} {blokConfig?.hotelName}
         </SubHeading>

@@ -28,6 +28,7 @@
     "react-swipeable": "^5.5.1",
     "react-use-gesture": "^7.0.15",
     "react-use-measure": "^2.0.1",
+    "smoothscroll-polyfill": "^0.4.4",
     "storyblok-js-client": "2.5.0",
     "storyblok-react": "^0.1.0",
     "styled-components": "^5.1.1"
