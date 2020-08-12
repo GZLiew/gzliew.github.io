@@ -18,6 +18,7 @@ export const HeaderContainer = styled(Container)`
     w-full
     sm:max-w-full
   `}
+  position: -webkit-sticky;
 `
 
 // Slide down HeaderBackground when hasScrolled is true

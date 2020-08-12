@@ -62,9 +62,9 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
     }
     // Throttle the event listener callback for better performance
     // See: https://css-tricks.com/debouncing-throttling-explained-examples/#throttle
-    document.addEventListener("scroll", throttle(handleScroll, 100))
+    global?.window?.document.addEventListener("scroll", throttle(handleScroll, 100))
     return () => {
-      document.removeEventListener("scroll", throttle(handleScroll, 100))
+      global?.window?.document.removeEventListener("scroll", throttle(handleScroll, 100))
     }
   }, [])
 
