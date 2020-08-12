@@ -84,11 +84,12 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
   const handlePhotoClick = () => setAreDotsVisible(!areDotsVisible)
 
   return (
-    <React.Fragment>
+    // needs to be a mounted element for proper recognition by body-scroll-lock
+    <div ref={ref}>
       {fadeTransitions.map(
         ({ item, key, props }) =>
           item && (
-            <GalleryWrapper key={key} style={props} ref={ref}>
+            <GalleryWrapper key={key} style={props}>
               <CloseButton onClick={handleCloseClick}>{GalleryIcons.close}</CloseButton>
               <Slider
                 slides={gallery?.photos.map((photo, i) => (
@@ -119,7 +120,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
             </GalleryWrapper>
           )
       )}
-    </React.Fragment>
+    </div>
   )
 }
 
