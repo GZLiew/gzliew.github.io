@@ -77,7 +77,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
       <Navbar
         navLinks={navLinks}
         isOpen={isNavbarOpen}
-        guestPhoto={hotelLogo}
+        guestPhoto={themeHotelLogo}
         handleNavbarClick={toggleNavbar}
       />
       <HeaderContainer ref={ref}>
