@@ -37,7 +37,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   // enable touch drag on Tabs
   const [{ x }, setTranslate] = useSpring(() => ({ x: 0 }))
   const bind = useDrag(
-    ({ down, offset: [mx] }) => setTranslate({ x: width < 576 ? mx : 0, immediate: down }),
+    ({ down, offset: [mx], tap }) => setTranslate({ x: !tap && width < 576 ? mx : 0, immediate: down }),
     {
       bounds: {
         left: -(tabsRef?.current?.clientWidth / 4) - 12,
@@ -89,7 +89,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
 
         setTranslate({
           // only set negative values so Tabs won't move to the right from the initial position
-          x: offset < 0 ? offset : 0
+          x: offset < 0 && width < 576 ? offset : 0
         })
       }
     }
