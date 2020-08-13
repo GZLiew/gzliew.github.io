@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import { StyledDiv } from "./baseLink.styles"
+
 import isExternalURL from "@/lib/utils/isExternalURL"
 
 import { IStoryblok_Link } from "@/lib/types/storyblok"
@@ -13,9 +15,9 @@ const BaseLink: React.FC<Props> = ({ storyblokLink, passHref, children }) => {
   if (isExternalURL(storyblokLink?.url)) {
     // is there a more "official" way to handle external links navigation?
     return (
-      <div onClick={() => global?.window?.open(storyblokLink?.url, undefined, "noopener, noreferrer")}>
+      <StyledDiv onClick={() => global?.window?.open(storyblokLink?.url, undefined, "noopener, noreferrer")}>
         {children}
-      </div>
+      </StyledDiv>
     )
   }
 
