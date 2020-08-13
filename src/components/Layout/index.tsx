@@ -23,7 +23,12 @@ const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
   const links = navLinks?.length >= 0 ? navLinks[0]?.links : []
 
   return (
-    <ThemeProvider theme={hotelConfig?.content?.theme === "light" ? light : dark}>
+    <ThemeProvider
+      theme={{
+        ...(hotelConfig?.content?.theme === "light" ? light : dark),
+        primaryColor: hotelConfig?.content?.primaryColor.color,
+        secondaryColor: hotelConfig?.content?.secondaryColor.color
+      }}>
       <HeaderHeightContext.Provider value={headerHeight}>
         <GlobalStyles />
         <div className="min-h-screen">
