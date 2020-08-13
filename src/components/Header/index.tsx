@@ -8,9 +8,8 @@ import { useRouter } from "next/router"
 import Navbar from "../Navbar"
 import Button from "../Button"
 
-import { LogoWrapper, HeaderContainer, HeaderBackground, Logo } from "./header.styles"
+import { LogoWrapper, HeaderContainer, HeaderBackground, Logo, HamburgerMenuIcon } from "./header.styles"
 
-import HamburgerMenuIcon from "../../assets/icons/wt-ic-hamburger-menu.svg"
 import BackIcon from "../../assets/icons/wt-ic-back.svg"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 import ShareIcon from "../../assets/icons/share.svg"
