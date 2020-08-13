@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect, useMemo, useContext, MouseEvent } from "react"
 import { useTheme } from "@emotion/react"
 import { useSpring } from "react-spring"
-import { useDrag } from "react-use-gesture"
+import { useGesture } from "react-use-gesture"
 import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
+import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 import { rgba } from "polished"
-import { throttle } from "lodash"
+import { throttle, debounce } from "lodash"
 
 import Scrollspy from "react-scrollspy"
 
@@ -25,6 +26,10 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   const [isOnTop, setIsOnTop] = useState(false)
   const [currentId, setCurrentId] = useState<string>(null)
   const tabsScrollWidth = useRef<number>(null)
+  const [isXScrolling, setIsXScrolling] = useState(false)
+
+  // lock scroll when the Tabs are being dragged
+  useLockBodyScroll(isXScrolling, tabsRef)
 
   // get first render value only
   useEffect(() => {
@@ -42,16 +47,32 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
 
   // enable touch drag on Tabs
   const [{ x }, setTranslate] = useSpring(() => ({ x: 0 }))
-  const bind = useDrag(
-    ({ down, offset: [mx], tap }) => setTranslate({ x: !tap && width < 576 ? mx : 0, immediate: down }),
+  const bind = useGesture(
     {
-      bounds: {
-        left: 12 - tabsScrollWidth.current / 4,
-        right: 0
+      onDragStart: () => setIsXScrolling(true),
+      onDrag: ({ down, offset: [mx], tap }) => {
+        let newX = 0
+        if (!tap && width < 576) {
+          // if the gesture isn't a tap & it's a small screen
+          newX = mx
+        } else if (x.getValue() !== 0) {
+          // if x was changed by handleUpdate, set x to that value
+          newX = x.getValue()
+        }
+        setTranslate({ x: newX, immediate: down })
       },
-      filterTaps: true,
-      axis: "x",
-      initial: () => [x.getValue(), 0]
+      onDragEnd: () => setIsXScrolling(false)
+    },
+    {
+      drag: {
+        filterTaps: true,
+        bounds: {
+          left: 12 - tabsScrollWidth.current / 4,
+          right: 0
+        },
+        axis: "x",
+        initial: () => [x.getValue(), 0]
+      }
     }
   )
 
@@ -79,8 +100,10 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   }, [])
 
   // Scrollspy fires an update event when a spied Section is now in the viewport.
-  // Match a Tab with the updated Section and translate the Tabs Container to the left
-  const handleUpdate = (scrolledSectionEl: HTMLElement) => {
+  // Match a Tab with the updated Section and translate the Tabs Container to be fully in view
+  // Debounce the function so it only fires the last event, skipping the events fired of the
+  // intermediate sections between the previous selected tab & the truly last one.
+  const handleUpdate = debounce((scrolledSectionEl: HTMLElement) => {
     if (scrolledSectionEl) {
       const id = scrolledSectionEl.id
       // decouple the Scrollspy from the children Tab component and set the current Section ID from this event.
@@ -89,17 +112,21 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
 
       const matchingTab = tabsRef?.current?.querySelector<HTMLAnchorElement>(`[href='#${id}']`)
       if (tabsRef.current && matchingTab) {
-        // This could be improved for sure
-        const offset =
-          -(tabsRef.current.clientWidth - 84 - (tabsRef.current.clientWidth - matchingTab.offsetLeft)) / 2
+        // the distance from the start of the Container to the end point of the matchingTab
+        const tabXOffset = matchingTab.clientWidth + matchingTab.offsetLeft
 
-        setTranslate({
-          // only set negative values so Tabs won't move to the right from the initial position
-          x: offset < 0 && width < 576 ? offset : 0
-        })
+        // if the current tab is partially in view on either side
+        if (tabXOffset > tabsRef.current.clientWidth || matchingTab.getBoundingClientRect().left < 0) {
+          // calculate the distance needed for the matchingTab to be fully in view
+          const offset = tabsRef.current.clientWidth - tabXOffset
+          setTranslate({
+            // only set negative values so Tabs won't move to the right from the initial position
+            x: offset < 0 && width < 576 ? offset : 0
+          })
+        }
       }
     }
-  }
+  }, 300)
 
   // Safari, IE11 & Opera don't support smooth scrolling (see: https://caniuse.com/#feat=css-scroll-behavior).
   // Hijack the tab click event to not trigger the native scroll behavior on these browsers and synthetically trigger
