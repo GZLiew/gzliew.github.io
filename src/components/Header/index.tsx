@@ -29,7 +29,15 @@ interface Props {
 const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) => {
   const theme = useTheme()
   const router = useRouter()
-  const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
+  const validHomePaths = ["/", "/home", "/editor"]
+  const isHome = validHomePaths.some((path) => {
+    // check if route is "/"
+    if (router.route === path) return router.route === path
+    // check if route is "[language]/"
+    if (path === "/") return router.route === `${path}[language]`
+    // check if route is "[language]/any-other-path"
+    return router.route === `/[language]${path}`
+  })
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
   const ref = useRef<HTMLDivElement>()
