@@ -24,6 +24,12 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   const tabsRef = useRef<HTMLDivElement>(null)
   const [isOnTop, setIsOnTop] = useState(false)
   const [currentId, setCurrentId] = useState<string>(null)
+  const tabsScrollWidth = useRef<number>(null)
+
+  // get first render value only
+  useEffect(() => {
+    tabsScrollWidth.current = tabsRef?.current?.scrollWidth
+  }, [])
 
   // measure the Tabs width to enable drag gesture on mobile only. See useDrag below
   const [measureRef, { width }] = useMeasure()
@@ -40,7 +46,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
     ({ down, offset: [mx], tap }) => setTranslate({ x: !tap && width < 576 ? mx : 0, immediate: down }),
     {
       bounds: {
-        left: -(tabsRef?.current?.clientWidth / 4) - 12,
+        left: 12 - tabsScrollWidth.current / 4,
         right: 0
       },
       filterTaps: true,
