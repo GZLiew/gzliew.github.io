@@ -9,8 +9,13 @@ const baseGetLocalizedSlug = (language: string, url: string): string => {
   return url
 }
 
-const getLocalizedSlug = (url: string): string => {
+const getLocalizedSlug = (url: string, language?: string): string => {
   const router = useRouter()
+  // Page components have to pass the language by their own as
+  // their `router` still doesn't have the language query variable initialized
+  if (language) {
+    return baseGetLocalizedSlug(language, url)
+  }
   return baseGetLocalizedSlug(router?.query?.language as string, url)
 }
 
