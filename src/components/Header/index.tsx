@@ -18,6 +18,7 @@ import { HotelLogo } from "@/lib/types/hotelConfig"
 import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import useToggle from "@/lib/hooks/useToggle"
+import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
 
 interface Props {
   hotelLogo?: HotelLogo
@@ -45,6 +46,8 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   headerRef.current = hasScrolled
 
   const themeHotelLogo = theme.mode === "light" ? hotelLogo : hotelLogoDark
+
+  const localizedHomeRoute = getLocalizedSlug("/")
 
   const [logoProps, setLogoProps] = useSpring(() => ({
     opacity: isHome ? 1 : 0
@@ -76,7 +79,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   }, [])
 
   const backToHome = () => {
-    router.push("/")
+    router.push(localizedHomeRoute)
   }
 
   return (
