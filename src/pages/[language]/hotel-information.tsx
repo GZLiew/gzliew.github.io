@@ -28,7 +28,7 @@ const HotelInformationPage = ({ hotelInfo, hotelConfig, preview }: Props) => {
 
 export default HotelInformationPage
 
-export const getStaticPaths: GetStaticPaths = () => getLocalizedPaths("hotel-information")
+export const getStaticPaths: GetStaticPaths = () => getLocalizedPaths()
 
 export const getStaticProps: GetStaticProps = async ({ preview = null, params }) => {
   const hotelInfo = (await getHotelInformation(preview, params?.language as string)) || []

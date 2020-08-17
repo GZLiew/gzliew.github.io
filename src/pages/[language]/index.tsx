@@ -30,7 +30,7 @@ const HomePage = ({ layoutNavigation, homeContent, hotelConfig }: Props) => {
 
 export default HomePage
 
-export const getStaticPaths: GetStaticPaths = () => getLocalizedPaths("")
+export const getStaticPaths: GetStaticPaths = () => getLocalizedPaths()
 
 export const getStaticProps: GetStaticProps = async ({ preview = null, params }) => {
   const hotelConfig = (await getHotelConfiguration(preview, params?.language as string)) || []

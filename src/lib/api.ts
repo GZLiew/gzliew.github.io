@@ -114,3 +114,11 @@ export async function getHotelGlobalNavigation(preview: boolean, language?: stri
   )
   return data?.CommonlayoutItem?.content
 }
+
+export async function getLanguageCodes() {
+  const data = await fetchAPI(`{ Space { languageCodes } }`, {
+    preview: false
+  })
+
+  return data?.Space?.languageCodes
+}

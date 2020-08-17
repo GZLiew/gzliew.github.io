@@ -1,14 +1,12 @@
-import { fetchAPI } from "./fetchAPI"
+import { getLanguageCodes } from "../api"
 
 // fetch Storyblok content languages and map them alongside `url` to a path
 // Every path represents a localized version of the Storyblok content
 // See https://nextjs.org/docs/basic-features/data-fetching#fallback-false for fallback option
-const getLocalizedPaths = async (url: string) => {
-  const data: { Space?: { languageCodes?: string[] } } = await fetchAPI(`{ Space { languageCodes } }`, {
-    preview: false
-  })
+const getLocalizedPaths = async () => {
+  const languageCodes = await getLanguageCodes()
 
-  const paths = data?.Space?.languageCodes?.map((lang) => `/${lang}/${url}`)
+  const paths = languageCodes?.map((lang) => ({ params: { language: lang } }))
   return { paths, fallback: false }
 }
 
