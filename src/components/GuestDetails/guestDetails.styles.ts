@@ -36,3 +36,7 @@ export const GuestInfo = styled.div`
     `}
   }
 `
+
+export const LanguageSwitcher = styled.button`
+  ${tw`self-center ml-auto`}
+`
