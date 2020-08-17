@@ -5,13 +5,20 @@ import { DetailsWrapper, GuestInfo } from "./guestDetails.styles"
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
 interface Props {
+  isNavbarOpen: boolean
   guestPhoto: HotelLogo
   name?: string
   roomNumber?: number
   guestNumber?: number
 }
 
-const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, guestNumber = 4 }: Props) => {
+const GuestDetails = ({
+  isNavbarOpen,
+  guestPhoto,
+  name = "Alex Keenan",
+  roomNumber = 206,
+  guestNumber = 4
+}: Props) => {
   return (
     <DetailsWrapper>
       <img src={guestPhoto?.filename} title={guestPhoto?.name} />
@@ -21,7 +28,7 @@ const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, gues
         <p>Number of guests: {guestNumber}</p>
       </GuestInfo>
 
-      <LanguageSwitcher />
+      <LanguageSwitcher isNavbarOpen={isNavbarOpen} />
     </DetailsWrapper>
   )
 }
