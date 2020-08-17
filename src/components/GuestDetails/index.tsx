@@ -1,8 +1,6 @@
-import { useTheme } from "@emotion/react"
+import LanguageSwitcher from "../LanguageSwitcher"
 
-import { DetailsWrapper, GuestInfo, LanguageSwitcher } from "./guestDetails.styles"
-
-import LanguageSwitcherIcon from "@/assets/icons/language-switcher"
+import { DetailsWrapper, GuestInfo } from "./guestDetails.styles"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
@@ -14,12 +12,6 @@ interface Props {
 }
 
 const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, guestNumber = 4 }: Props) => {
-  const theme = useTheme()
-
-  const handleLangSwitcherClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation()
-  }
-
   return (
     <DetailsWrapper>
       <img src={guestPhoto?.filename} title={guestPhoto?.name} />
@@ -29,12 +21,7 @@ const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, gues
         <p>Number of guests: {guestNumber}</p>
       </GuestInfo>
 
-      <LanguageSwitcher onClick={handleLangSwitcherClick}>
-        <LanguageSwitcherIcon
-          primaryColor={theme.colors.pink.primary}
-          altColor={theme.colors.pink.secondary}
-        />
-      </LanguageSwitcher>
+      <LanguageSwitcher />
     </DetailsWrapper>
   )
 }
