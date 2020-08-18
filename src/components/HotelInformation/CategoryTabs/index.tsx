@@ -127,7 +127,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
         }
       }
     }
-  }, 300)
+  }, 150)
 
   // Safari, IE11 & Opera don't support smooth scrolling (see: https://caniuse.com/#feat=css-scroll-behavior).
   // Hijack the tab click event to not trigger the native scroll behavior on these browsers and synthetically trigger
