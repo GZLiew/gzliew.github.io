@@ -25,7 +25,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
   const tabsRef = useRef<HTMLDivElement>(null)
   const [isOnTop, setIsOnTop] = useState(false)
   const [currentId, setCurrentId] = useState<string>(null)
-  const tabsScrollWidth = useRef<number>(null)
+  const dragLeftBound = useRef<number>(null)
   const [isXScrolling, setIsXScrolling] = useState(false)
 
   // lock scroll when the Tabs are being dragged
@@ -33,7 +33,8 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
 
   // get first render value only
   useEffect(() => {
-    tabsScrollWidth.current = tabsRef?.current?.scrollWidth
+    // only allow dragging the remaining distance between the viewport width and the scroll width
+    dragLeftBound.current = -(tabsRef?.current?.scrollWidth - tabsRef?.current?.clientWidth)
   }, [])
 
   // measure the Tabs width to enable drag gesture on mobile only. See useDrag below
@@ -67,7 +68,7 @@ const CategoryTabs = ({ categories, setTabsHeight }: Props) => {
       drag: {
         filterTaps: true,
         bounds: {
-          left: 12 - tabsScrollWidth.current / 4,
+          left: dragLeftBound.current,
           right: 0
         },
         axis: "x",
