@@ -10,7 +10,7 @@ import Button from "../Button"
 
 import { LogoWrapper, HeaderContainer, HeaderBackground, Logo, HamburgerMenuIcon } from "./header.styles"
 
-import BackIcon from "../../assets/icons/wt-ic-back.svg"
+import BackIcon from "@/assets/icons/wt-ic-back"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 import ShareIcon from "../../assets/icons/share.svg"
 
