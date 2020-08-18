@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react"
 
 import { useTransition, config, useSpring } from "react-spring"
 
@@ -20,6 +20,7 @@ import {
 } from "./gallerySlider.styles"
 
 import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import isiOSDevice from "@/lib/utils/isiOSDevice"
 
 import { IHotelPhoto } from "@/lib/types/hotelInfo"
 
@@ -50,7 +51,13 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
 
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
-  useLockBodyScroll(isOpen, ref)
+  // don't use lock-body-scroll on iOS devices...
+  useLockBodyScroll(!isiOSDevice() && isOpen, ref)
+
+  // ...instead, manually lock body scroll
+  useLayoutEffect(() => {
+    global?.document?.body.classList.toggle("lock", isOpen)
+  }, [isOpen])
 
   // update active slide when activeSlide prop changes
   // This bind GalleryGrid item click with opening GallerySlider on
