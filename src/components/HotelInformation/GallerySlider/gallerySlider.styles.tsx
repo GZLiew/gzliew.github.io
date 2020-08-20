@@ -5,6 +5,8 @@ import { animated } from "react-spring"
 
 import { rgba } from "polished"
 
+import getAspectRatio from "@/lib/utils/getAspectRatio"
+
 export const dotStyles = {
   innerMargin: 6,
   border: 3
@@ -48,13 +50,6 @@ export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   z-index: ${({ isZooming }) => (isZooming ? 20 : 0)};
 `)
-
-const getAspectRatio = (width?: number, height?: number) => {
-  if (!width || !height) return `${100 / (1 / 1)}vw` // square ratio
-  if (width > height) return `${100 / (3 / 2)}vw` // landscape ratio
-  if (width < height) return `100vh` // portrait ratio
-  return `${100 / (1 / 1)}vw` // square ratio
-}
 
 export const Slide = styled.div<{ dimensionWidth?: number; dimensionHeight?: number }>`
   ${tw`relative block w-screen h-screen`}
