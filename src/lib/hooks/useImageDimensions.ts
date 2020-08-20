@@ -12,25 +12,23 @@ interface LoadEvent {
   }
 }
 
-const useImageDimensions = (parentRef: React.MutableRefObject<Element>): [number, number] => {
+const useImageDimensions = (
+  parentRef: React.MutableRefObject<Element>,
+  isCurrentOrNext: boolean
+): [number, number] => {
   const imageDimensions = useRef<Dimensions>({ width: undefined, height: undefined })
 
   useEffect(() => {
+    if (!isCurrentOrNext) return
     const slideImgElement = parentRef?.current?.querySelector("img")
+    console.log(slideImgElement.src)
 
     // get the image natural width & height
-    const handleImgLoad = (e: Event & LoadEvent) => {
-      imageDimensions.current = {
-        width: e.currentTarget?.naturalWidth,
-        height: e.currentTarget?.naturalHeight
-      }
+    imageDimensions.current = {
+      width: slideImgElement?.naturalWidth,
+      height: slideImgElement?.naturalHeight
     }
-
-    slideImgElement.addEventListener("load", handleImgLoad)
-    return () => {
-      slideImgElement.removeEventListener("load", handleImgLoad)
-    }
-  }, [])
+  }, [isCurrentOrNext])
 
   return [imageDimensions.current.width, imageDimensions.current.height]
 }
