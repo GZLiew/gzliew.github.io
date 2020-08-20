@@ -49,12 +49,35 @@ export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
   z-index: ${({ isZooming }) => (isZooming ? 20 : 0)};
 `)
 
-export const Slide = styled.div`
-  ${tw`block w-screen h-screen`}
+const getAspectRatio = (width?: number, height?: number) => {
+  if (!width || !height) return `${100 / (1 / 1)}vw` // square ratio
+  if (width > height) return `${100 / (3 / 2)}vw` // landscape ratio
+  if (width < height) return `100vh` // portrait ratio
+  return `${100 / (1 / 1)}vw` // square ratio
+}
+
+export const Slide = styled.div<{ dimensionWidth?: number; dimensionHeight?: number }>`
+  ${tw`relative block w-screen h-screen`}
+  @media screen and (max-width: 575.98px) {
+    & > img {
+      height: ${({ dimensionWidth, dimensionHeight }) => getAspectRatio(dimensionWidth, dimensionHeight)};
+    }
+  }
 `
 
 export const SlideImage = styled.img`
-  ${tw`w-full h-full object-contain`}
+  ${tw`block w-full h-full`}
+  @media screen and (max-width: 575.98px) {
+    ${tw`absolute top-0 left-0 object-cover`}
+    height: 100vw;
+    object-fit: cover;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 576px) {
+    ${tw`object-contain`}
+  }
 `
 
 export const DotsWrapper = animated(styled.div`
