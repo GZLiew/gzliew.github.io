@@ -40,7 +40,7 @@ const LanguageSwitcher: React.FC<Props> = ({ isNavbarOpen }) => {
         return lang === router?.query?.language
       })
     )
-  }, [])
+  }, [router?.query?.language])
 
   // close ItemsWrapper if the Navbar gets closed
   useEffect(() => {
