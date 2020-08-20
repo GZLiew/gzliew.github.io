@@ -2,6 +2,9 @@ import { useZoom } from "react-instagram-zoom-slider"
 import { animated, interpolate, OpaqueInterpolation, useSpring } from "react-spring"
 
 import { Slide as StyledSlide } from "./gallerySlider.styles"
+
+import useImageDimensions from "@/lib/hooks/useImageDimensions"
+
 import { MutableRefObject } from "react"
 
 interface Props {
@@ -27,6 +30,10 @@ const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 
     maxScale,
     onScale
   })
+  const [imageWidth, imageHeight] = useImageDimensions(element)
+
+  // wait for the image to load to reveal it, preventing a flash of the image without the enforced aspect-ratio
+  const opacityProps = useSpring({ opacity: imageWidth ? 1 : 0 })
 
   return (
     <AnimatedSlide
@@ -36,8 +43,11 @@ const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 
           [scale, translateX, translateY],
           (sc, x, y) => `translate3d(${x}px, ${y}px, 0) scale3d(${sc}, ${sc}, 1)`
         ),
-        transformOrigin: middleTouchOnElement.interpolate((x, y) => `${x}px ${y}px 0`)
-      }}>
+        transformOrigin: middleTouchOnElement.interpolate((x, y) => `${x}px ${y}px 0`),
+        ...opacityProps
+      }}
+      dimensionWidth={imageWidth}
+      dimensionHeight={imageHeight}>
       {children}
     </AnimatedSlide>
   )
