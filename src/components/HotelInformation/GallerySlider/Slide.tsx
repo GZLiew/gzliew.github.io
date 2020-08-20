@@ -2,7 +2,10 @@ import { useZoom } from "react-instagram-zoom-slider"
 import { animated, interpolate, OpaqueInterpolation, useSpring } from "react-spring"
 
 import { Slide as StyledSlide } from "./gallerySlider.styles"
-import { MutableRefObject, useLayoutEffect, useEffect, useRef } from "react"
+
+import useImageDimensions from "@/lib/hooks/useImageDimensions"
+
+import { MutableRefObject } from "react"
 
 interface Props {
   onScale: ({ scale: number }) => void
@@ -27,30 +30,10 @@ const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 
     maxScale,
     onScale
   })
-  const imageDimensions = useRef({ width: undefined, height: undefined })
+  const [imageWidth, imageHeight] = useImageDimensions(element)
+
   // wait for the image to load to reveal it, preventing a flash of the image without the enforced aspect-ratio
-  const opacityProps = useSpring({ opacity: imageDimensions?.current?.width ? 1 : 0 })
-
-  useEffect(() => {
-    if (element?.current) {
-      const slideImgElement = element?.current?.querySelector("img")
-
-      // get the image natural width & height
-      const handleImgLoad = (
-        e: Event & { currentTarget: { naturalWidth?: number; naturalHeight?: number } }
-      ) => {
-        imageDimensions.current = {
-          width: e.currentTarget?.naturalWidth,
-          height: e.currentTarget?.naturalHeight
-        }
-      }
-
-      slideImgElement.addEventListener("load", handleImgLoad)
-      return () => {
-        slideImgElement.removeEventListener("load", handleImgLoad)
-      }
-    }
-  }, [])
+  const opacityProps = useSpring({ opacity: imageWidth ? 1 : 0 })
 
   return (
     <AnimatedSlide
@@ -63,8 +46,8 @@ const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 
         transformOrigin: middleTouchOnElement.interpolate((x, y) => `${x}px ${y}px 0`),
         ...opacityProps
       }}
-      dimensionWidth={imageDimensions.current.width}
-      dimensionHeight={imageDimensions.current.height}>
+      dimensionWidth={imageWidth}
+      dimensionHeight={imageHeight}>
       {children}
     </AnimatedSlide>
   )
