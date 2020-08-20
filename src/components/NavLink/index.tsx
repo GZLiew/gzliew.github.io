@@ -1,4 +1,5 @@
 import SbEditable from "storyblok-react"
+import { usePress, useHover } from "@react-aria/interactions"
 
 import { StyledLink, IconWrapper } from "./navLink.styles"
 
@@ -13,10 +14,13 @@ interface Props {
 }
 
 const NavLink = ({ blok }: Props) => {
+  const { pressProps, isPressed } = usePress({})
+  const { hoverProps, isHovered } = useHover({})
+
   return (
     <SbEditable content={blok}>
       <BaseLink storyblokLink={blok?.url} passHref>
-        <StyledLink>
+        <StyledLink {...pressProps} {...hoverProps} showBg={isPressed || isHovered}>
           {blok?.iconName && <IconWrapper>{NavIcons[blok?.iconName]}</IconWrapper>}
           <span>{blok?.title}</span>
         </StyledLink>
