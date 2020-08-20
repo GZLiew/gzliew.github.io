@@ -1,27 +1,31 @@
 import { GetStaticProps } from "next"
-import Head from "next/head"
+
+import LanguagesContext from "@/lib/context/LanguagesContext"
 
 import HotelInformation from "@/components/HotelInformation"
 import Layout from "@/components/Layout"
 import SEO from "@/components/SEO"
 
-import { getHotelConfiguration, getHotelInformation } from "@/lib/api"
+import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from "@/lib/api"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { HotelInfoProps } from "@/lib/types/hotelInfo"
 
 interface Props {
+  allLangs: string[]
   hotelConfig?: HotelConfigProps
   hotelInfo?: HotelInfoProps
   preview?: boolean
 }
 
-export default function HotelInformationPage({ hotelConfig, hotelInfo, preview }: Props) {
+export default function HotelInformationPage({ allLangs, hotelConfig, hotelInfo, preview }: Props) {
   return (
-    <Layout hotelConfig={hotelConfig} preview={preview}>
-      <SEO title="Hotel Information" hotelConfig={hotelConfig} />
+    <LanguagesContext.Provider value={allLangs}>
+      <Layout hotelConfig={hotelConfig} preview={preview}>
+        <SEO title="Hotel Information" hotelConfig={hotelConfig} />
 
-      <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
-    </Layout>
+        <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
+      </Layout>
+    </LanguagesContext.Provider>
   )
 }
 
@@ -29,7 +33,8 @@ export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const hotelConfig = (await getHotelConfiguration(preview)) || []
   const hotelInfo = (await getHotelInformation(preview)) || []
 
-  return {
-    props: { hotelConfig, hotelInfo, preview }
-  }
+  const langCodes: string[] = await getLanguageCodes()
+  const allLangs = ["en", ...langCodes]
+
+  return { props: { allLangs, hotelInfo, hotelConfig, preview } }
 }
