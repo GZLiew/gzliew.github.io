@@ -1,8 +1,7 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
-import { rgba } from "polished"
 
-import LocationIcon from "../../../assets/icons/location.svg"
+import { LocationIcon } from "@/assets/icons/HotelLocation"
 
 export const LocationWrapper = styled.div`
   ${tw`

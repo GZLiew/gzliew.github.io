@@ -10,7 +10,7 @@
         </linearGradient>
     </defs>
     <g fill="none" fill-rule="evenodd" transform="translate(6 8)">
-        <rect width="12" height="2" fill="url(#prefix__a)" rx="1"/>
+        <rect width="12" height="2" fill="url(#prefix__a)" rx="1" class="first-line" />
         <rect width="7" height="2" y="6" fill="url(#prefix__b)" rx="1"/>
     </g>
 </svg>

@@ -10,6 +10,7 @@ import MyOrders from "./ic-menu-myorder.svg"
 import Report from "./ic-menu-reportaprob.svg"
 import RoomService from "./ic-menu-roomservice.svg"
 import Weather from "./ic-menu-weather.svg"
+import Feedback from "./ic-menu-feedback.svg"
 
 const NavIcons = {
   beverages: <Beverages />,
@@ -23,7 +24,8 @@ const NavIcons = {
   myOrders: <MyOrders />,
   report: <Report />,
   roomService: <RoomService />,
-  weather: <Weather />
+  weather: <Weather />,
+  feedback: <Feedback />
 }
 
 export default NavIcons

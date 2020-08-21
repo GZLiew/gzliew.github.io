@@ -29,7 +29,7 @@ export const Card = styled.div`
   }
 `
 
-export const Icon = styled.img`
+export const IconWrapper = styled.div`
   ${tw`
     block
     mx-auto
