@@ -9,7 +9,7 @@ interface Props {
   onClick?: () => void
   props?: any
   bgColor?: BgColor
-  maxWith?: string
+  maxWidth?: string
   height?: string
   variant?: "flat" | "withShadow"
   withIcon?: boolean
@@ -20,8 +20,8 @@ const Button = ({
   onClick,
   children,
   bgColor = "pink",
-  maxWith = "100%",
-  height = "70px",
+  maxWidth,
+  height,
   variant = "withShadow",
   withIcon = false,
   ...props
@@ -30,7 +30,7 @@ const Button = ({
     onClick={onClick}
     variant={variant}
     bgColor={bgColor}
-    maxWith={maxWith}
+    maxWidth={maxWidth}
     height={height}
     withIcon={withIcon}>
     <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>

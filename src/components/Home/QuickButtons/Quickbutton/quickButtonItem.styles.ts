@@ -2,6 +2,10 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 import { transparentize } from "polished"
 
+import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
+
+const { sizeVar } = getButtonResponsiveSizes()
+
 interface QuickButtonItemProp {
   bg?: string
 }
@@ -19,8 +23,8 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
     transition duration-500 ease-in-out
     overflow-hidden
   `}
-  width: 52px;
-  height: 52px;
+  width: ${sizeVar};
+  height: ${sizeVar};
   background: ${({ bg, theme }) =>
     bg ? (theme.mode === "dark" ? transparentize(0.7, bg) : bg) : theme?.colors?.gray};
 
@@ -37,6 +41,12 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
   & img {
     max-width: 32px;
     max-height: 32px;
+  }
+
+  & svg {
+    /* approx. 24px for 44px sizeVar & 32px for 60px sizeVar */
+    width: calc(${sizeVar} * 0.54);
+    height: calc(${sizeVar} * 0.54);
   }
 `
 
