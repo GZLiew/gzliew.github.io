@@ -93,7 +93,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
       <HeaderContainer ref={ref}>
         <HeaderBackground hasScrolled={hasScrolled} />
         <LogoWrapper>
-          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
+          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
           <Logo
@@ -102,9 +102,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
             title={themeHotelLogo?.name}
             style={logoProps}
           />
-          <Button bgColor="white" maxWith="40px" height="40px">
-            {isHome ? <NotificationIcon /> : <ShareIcon />}
-          </Button>
+          <Button bgColor="white">{isHome ? <NotificationIcon /> : <ShareIcon />}</Button>
         </LogoWrapper>
       </HeaderContainer>
     </>
