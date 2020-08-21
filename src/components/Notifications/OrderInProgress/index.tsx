@@ -22,7 +22,7 @@ const OrderInProgress = () => {
           <span>Delivery at your doorstep</span>
           <h4>Your order is In-Progress </h4>
         </MessageWrapper>
-        <StyledButton onClick={toggle} maxWith="71px" height="40px">
+        <StyledButton onClick={toggle} maxWidth="71px" height="40px">
           View
         </StyledButton>
       </NotificationWrapper>

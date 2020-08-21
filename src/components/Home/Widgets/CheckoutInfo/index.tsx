@@ -22,7 +22,7 @@ const CheckOutInfo = () => {
           <DateLabel>16.02.2020</DateLabel>
         </InfoWrapper>
       </RoomInfoWrapper>
-      <Button height="40px" variant="flat" withIcon={true}>
+      <Button height="40px" maxWidth={`100%`} variant="flat" withIcon={true}>
         Late Check Out is available
         <NextIcon fill="currentColor" />
       </Button>
