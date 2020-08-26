@@ -51,20 +51,15 @@ export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
   z-index: ${({ isZooming }) => (isZooming ? 20 : 0)};
 `)
 
-export const Slide = styled.div<{ dimensionWidth?: number; dimensionHeight?: number }>`
+export const Slide = styled.div`
   ${tw`relative block w-screen h-screen`}
-  @media screen and (max-width: 575.98px) {
-    & > img {
-      height: ${({ dimensionWidth, dimensionHeight }) => getAspectRatio(dimensionWidth, dimensionHeight)};
-    }
-  }
 `
 
-export const SlideImage = styled.img`
+export const SlideImage = styled.img<{ dimensions: { width?: number; height?: number } }>`
   ${tw`block w-full h-full`}
   @media screen and (max-width: 575.98px) {
     ${tw`absolute top-0 left-0 object-cover`}
-    height: 100vw;
+    height: ${({ dimensions }) => getAspectRatio(dimensions?.width, dimensions?.height)};
     object-fit: cover;
     top: 50%;
     transform: translateY(-50%);

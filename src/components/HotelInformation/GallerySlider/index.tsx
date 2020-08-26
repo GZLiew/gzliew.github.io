@@ -105,6 +105,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
                       src={photo.image}
                       alt={`Gallery Photo ${i + 1}`}
                       draggable={false}
+                      dimensions={photo.dimensions}
                       onClick={handlePhotoClick}
                     />
                   </SbEditable>
