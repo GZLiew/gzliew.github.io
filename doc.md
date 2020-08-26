@@ -15,8 +15,12 @@ Change common configuration shared across the app
 | Theme           | Choose the theme for the app | light \| dark   |
 | Hotel Logo      | Select a logo image          | text            |
 | Hotel Name      | Name of the Hotel            | text            |
-| Primary Color   | Stub                         | Hex color code  |
-| Secondary Color | Stub                         | Hex color code  |
+| Primary Color   | See below                    | Hex color code  |
+| Secondary Color | See below                    | Hex color code  |
+
+**Primary Color:** Sets color for Sidebar button icon and the app [theme color](https://developers.google.com/web/fundamentals/design-and-ux/browser-customization#meta_theme_color_for_chrome_and_opera).
+
+**Secondary Color:** Doesn't set any color on the app.
 
 ### Layout
 
@@ -108,5 +112,3 @@ Title: text
 | Description | Subsection description                                           | Rich Text       |
 | Icon        | _Optional_ Subsection Icon                                       | Asset           |
 | Is Dropdown | _Optional_ Make Subsection a dropdown with collapsed description | Checkmark       |
-
-
