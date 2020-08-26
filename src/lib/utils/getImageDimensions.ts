@@ -20,9 +20,7 @@ const createTempSubdir = () => {
   }
 }
 
-const removeTempSubdir = () => {
-  rmdirSync("/tmp/tap")
-}
+export const removeTempSubdir = () => rmdirSync("/tmp/tap", { recursive: true })
 
 // create a temporary image file with the fetched data
 const temporaryStoreImage = (slug: string, response: Response) => {
@@ -43,20 +41,6 @@ const temporaryStoreImage = (slug: string, response: Response) => {
   })
 }
 
-const removeTemporaryImage = async (slug: string) => {
-  return new Promise((resolve, reject) => {
-    if (existsSync(imageTempPath(slug))) {
-      unlink(imageTempPath(slug), (err) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve()
-        }
-      })
-    }
-  })
-}
-
 const getImageDimensions = async (imageURL: string) => {
   try {
     createTempSubdir()
@@ -68,7 +52,6 @@ const getImageDimensions = async (imageURL: string) => {
     await temporaryStoreImage(slug, res)
     // get temp image dimensions info
     const dimensions = await imageSizePromise(imageTempPath(slug))
-    // await removeTemporaryImage(slug)
 
     return {
       image: imageURL,

@@ -5,6 +5,7 @@ import processHotelPhotos from "./utils/processHotelPhotos"
 
 import { HotelInfoProps } from "./types/hotelInfo"
 import { HotelConfigProps } from "./types/hotelConfig"
+import { removeTempSubdir } from "./utils/getImageDimensions"
 
 export async function getHotelConfiguration(preview): Promise<HotelConfigProps> {
   const data = await fetchAPI(
@@ -94,6 +95,7 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
   }))
 
   const processedHotelPhotos = await processHotelPhotos(hotelPhotos)
+  removeTempSubdir()
 
   return {
     content: {
