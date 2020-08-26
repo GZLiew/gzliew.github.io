@@ -1,6 +1,8 @@
 import { fetchAPI } from "@/lib/utils/fetchAPI"
 import slugify from "@sindresorhus/slugify"
 
+import processHotelPhotos from "./utils/processHotelPhotos"
+
 import { HotelInfoProps } from "./types/hotelInfo"
 import { HotelConfigProps } from "./types/hotelConfig"
 
@@ -84,14 +86,22 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
     { preview }
   )
 
-  const { categories, ...content } = data?.HotelinformationItem?.content
+  const { categories, hotelPhotos, ...content } = data?.HotelinformationItem?.content
 
   const categoriesWithSlugs = categories.map((category) => ({
     slug: slugify(category.title),
     ...category
   }))
 
-  return { content: { categories: categoriesWithSlugs, ...content } }
+  const processedHotelPhotos = await processHotelPhotos(hotelPhotos)
+
+  return {
+    content: {
+      categories: categoriesWithSlugs,
+      hotelPhotos: processedHotelPhotos,
+      ...content
+    }
+  }
 }
 
 export async function getHotelGlobalNavigation(preview) {
