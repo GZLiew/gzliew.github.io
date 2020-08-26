@@ -16,7 +16,10 @@ export const StyledLink = styled.a<{ showBg: boolean }>`
       `}
 
     background-color: ${({ showBg, theme }) =>
-      showBg && (theme.mode === "light" ? rgba(theme.colors.pink.primary, 0.12) : rgba("black", 0.12))};
+      showBg &&
+      (theme.mode === "light"
+        ? rgba(theme?.colors?.[theme?.primaryColor]?.primary, 0.12)
+        : rgba("black", 0.12))};
 
     &:focus {
       outline: none;
@@ -30,7 +33,7 @@ export const IconWrapper = styled.div`
   width: 24px;
   height: 24px;
 
-  img {
-    width: 100%;
+  svg {
+    color: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary || "#E1245E"};
   }
 `

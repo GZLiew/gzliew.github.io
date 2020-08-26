@@ -37,7 +37,9 @@ absolute top-0
   width: 15px;
   height: 15px;
   background: ${({ theme }) =>
-    `linear-gradient(101deg, ${theme.colors.pink.secondary} 17%, ${theme.colors.pink.primary} 77%)`};
+    `linear-gradient(101deg, ${theme?.colors?.[theme?.primaryColor]?.secondary} 17%, ${
+      theme?.colors?.[theme?.primaryColor]?.primary
+    } 77%)`};
   color: #fff;
   font-size: 10px;
 `
