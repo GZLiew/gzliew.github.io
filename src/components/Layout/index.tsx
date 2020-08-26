@@ -26,8 +26,7 @@ const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
     <ThemeProvider
       theme={{
         ...(hotelConfig?.content?.theme === "light" ? light : dark),
-        primaryColor: hotelConfig?.content?.primaryColor.color,
-        secondaryColor: hotelConfig?.content?.secondaryColor.color
+        primaryColor: hotelConfig?.content?.primaryColor
       }}>
       <HeaderHeightContext.Provider value={headerHeight}>
         <GlobalStyles />
