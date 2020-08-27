@@ -23,7 +23,6 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
         }
         hotelName
         primaryColor
-        secondaryColor
         theme
         seoDescription
         seoBannerImage {
