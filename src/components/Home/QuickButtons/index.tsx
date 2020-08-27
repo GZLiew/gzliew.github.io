@@ -11,12 +11,17 @@ import useToggle from "@/lib/hooks/useToggle"
 import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 import { IQuickButton } from "@/lib/types/homeContent"
+import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
 
 interface Props {
   buttons?: IQuickButton[]
 }
 
 const QuickButtons = ({ buttons }: Props) => {
+  const localizedButtons = buttons.map(({ link, ...btn }) => ({
+    link: { ...link, cachedUrl: getLocalizedSlug(link.cached_url), url: getLocalizedSlug(link.url) },
+    ...btn
+  }))
   if (buttons?.length === 0) return null
 
   const [isActive, toggle] = useToggle(false)
@@ -27,7 +32,8 @@ const QuickButtons = ({ buttons }: Props) => {
   return (
     <>
       <QuickButtonsLayout>
-        {!isActive && buttons?.slice(0, 7)?.map((item) => <QuickButton item={item} key={item?._uid} />)}
+        {!isActive &&
+          localizedButtons?.slice(0, 7)?.map((item) => <QuickButton item={item} key={item?._uid} />)}
 
         <QuickButtonWrapper>
           <QuickButtonItem onClick={toggle}>
@@ -39,7 +45,7 @@ const QuickButtons = ({ buttons }: Props) => {
       {isActive && (
         <QuickButtonModal divRef={modalRef} closeModal={toggle}>
           <QuickButtonsLayout>
-            {buttons?.map((item) => (
+            {localizedButtons?.map((item) => (
               <QuickButton item={item} key={item?._uid} />
             ))}
           </QuickButtonsLayout>

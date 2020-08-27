@@ -9,7 +9,6 @@ interface Props {
   onScale: ({ scale: number }) => void
   minScale?: number
   maxScale?: number
-  isCurrentOrNext: boolean
 }
 
 type useZoomProps = [
@@ -23,7 +22,7 @@ type useZoomProps = [
 const AnimatedSlide = animated(StyledSlide)
 
 // blatant copy of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/components/Slide/Slide.js
-const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4, isCurrentOrNext }) => {
+const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 }) => {
   const [element, scale, translateX, translateY, middleTouchOnElement]: useZoomProps = useZoom({
     minScale,
     maxScale,

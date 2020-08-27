@@ -55,7 +55,9 @@ export const MorePhotos = styled(Item)`
     text-center
  `}
   background: ${({ theme }) =>
-    `linear-gradient(134deg, ${theme?.colors?.pink?.secondary} 17%, ${theme?.colors?.pink?.primary} 77%)`};
+    `linear-gradient(134deg, ${theme?.colors?.[theme?.primaryColor]?.secondary} 17%, ${
+      theme?.colors?.[theme?.primaryColor]?.primary
+    } 77%)`};
   color: ${rgba("#fff", 0.72)};
 
   h5 {

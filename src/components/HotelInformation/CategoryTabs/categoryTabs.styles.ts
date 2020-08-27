@@ -29,10 +29,10 @@ export const Tab = styled.a`
   color: ${({ theme }) => theme.colors.text.alternate};
 
   &.active {
-    color: ${({ theme }) => theme.colors.pink.primary};
+    color: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
 
     span {
-      border-color: ${({ theme }) => theme.colors.pink.primary};
+      border-color: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
     }
   }
 

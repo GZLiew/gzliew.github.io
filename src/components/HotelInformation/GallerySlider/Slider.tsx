@@ -114,10 +114,7 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
         transform: x.interpolate((slideX) => `translateX(${slideX}px)`)
       }}>
       {slides.map((slide, idx) => (
-        <Slide
-          onScale={onScale}
-          key={idx}
-          isCurrentOrNext={idx === activePosition || idx - activePosition === 1}>
+        <Slide onScale={onScale} key={idx}>
           {slide}
         </Slide>
       ))}

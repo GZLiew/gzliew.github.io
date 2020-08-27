@@ -1,17 +1,18 @@
 import { fetchAPI } from "@/lib/utils/fetchAPI"
 import slugify from "@sindresorhus/slugify"
 
+import { getLocalizedSlugNode } from "./utils/getLocalizedSlug"
 import processHotelPhotos from "./utils/processHotelPhotos"
+import { removeTempSubdir } from "./utils/getImageDimensions"
 
 import { HotelInfoProps } from "./types/hotelInfo"
 import { HotelConfigProps } from "./types/hotelConfig"
-import { removeTempSubdir } from "./utils/getImageDimensions"
 
-export async function getHotelConfiguration(preview): Promise<HotelConfigProps> {
+export async function getHotelConfiguration(preview: boolean, language?: string): Promise<HotelConfigProps> {
   const data = await fetchAPI(
     `
-    {
-      HotelconfigurationItem(id: "hotel-configuration") {
+    query ($slug: ID!) {
+      HotelconfigurationItem(id: $slug) {
       id
       content {
         hotelLogo {
@@ -24,7 +25,6 @@ export async function getHotelConfiguration(preview): Promise<HotelConfigProps> 
         }
         hotelName
         primaryColor
-        secondaryColor
         theme
         seoDescription
         seoBannerImage {
@@ -34,16 +34,16 @@ export async function getHotelConfiguration(preview): Promise<HotelConfigProps> 
     }
   }
   `,
-    { preview }
+    { preview, variables: { slug: getLocalizedSlugNode(language, "hotel-configuration") } }
   )
   return data?.HotelconfigurationItem
 }
 
-export async function getHomeData(preview) {
+export async function getHomeData(preview: boolean, language?: string) {
   const data = await fetchAPI(
     `
-    {
-      HomeItem(id: "home") {
+    query ($slug: ID!) {
+      HomeItem(id: $slug) {
       id
       content {
         _editable
@@ -57,16 +57,16 @@ export async function getHomeData(preview) {
     }
   }
   `,
-    { preview }
+    { preview, variables: { slug: getLocalizedSlugNode(language, "home") } }
   )
   return data?.HomeItem?.content
 }
 
-export async function getHotelInformation(preview): Promise<HotelInfoProps> {
+export async function getHotelInformation(preview: boolean, language?: string): Promise<HotelInfoProps> {
   const data: { HotelinformationItem: HotelInfoProps } = await fetchAPI(
     `
-   {
-    HotelinformationItem(id: "hotel-information") {
+   query ($slug: ID!){
+    HotelinformationItem(id: $slug) {
       content {
         welcomeText
         location
@@ -84,7 +84,7 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
     }
    }
   `,
-    { preview }
+    { preview, variables: { slug: getLocalizedSlugNode(language, "hotel-information") } }
   )
 
   const { categories, hotelPhotos, ...content } = data?.HotelinformationItem?.content
@@ -106,11 +106,11 @@ export async function getHotelInformation(preview): Promise<HotelInfoProps> {
   }
 }
 
-export async function getHotelGlobalNavigation(preview) {
+export async function getHotelGlobalNavigation(preview: boolean, language?: string) {
   const data = await fetchAPI(
     `
-    {
-      CommonlayoutItem(id: "layout") {
+    query ($slug: ID!){
+      CommonlayoutItem(id: $slug) {
         content {
           navigation
           component
@@ -120,7 +120,15 @@ export async function getHotelGlobalNavigation(preview) {
       }
     }
   `,
-    { preview }
+    { preview, variables: { slug: getLocalizedSlugNode(language, "layout") } }
   )
   return data?.CommonlayoutItem?.content
+}
+
+export async function getLanguageCodes() {
+  const data = await fetchAPI(`{ Space { languageCodes } }`, {
+    preview: false
+  })
+
+  return data?.Space?.languageCodes
 }

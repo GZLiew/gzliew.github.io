@@ -10,7 +10,7 @@ import Button from "../Button"
 
 import { LogoWrapper, HeaderContainer, HeaderBackground, Logo, HamburgerMenuIcon } from "./header.styles"
 
-import BackIcon from "../../assets/icons/wt-ic-back.svg"
+import BackIcon from "@/assets/icons/wt-ic-back"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
 import ShareIcon from "../../assets/icons/share.svg"
 
@@ -18,6 +18,7 @@ import { HotelLogo } from "@/lib/types/hotelConfig"
 import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import useToggle from "@/lib/hooks/useToggle"
+import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
 
 interface Props {
   hotelLogo?: HotelLogo
@@ -29,7 +30,15 @@ interface Props {
 const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) => {
   const theme = useTheme()
   const router = useRouter()
-  const isHome = router.pathname === "/" || router.pathname === "/home" || router.pathname === "/editor"
+  const validHomePaths = ["/", "/home", "/editor"]
+  const isHome = validHomePaths.some((path) => {
+    // check if route is "/"
+    if (router.route === path) return router.route === path
+    // check if route is "[language]/"
+    if (path === "/") return router.route === `${path}[language]`
+    // check if route is "[language]/any-other-path"
+    return router.route === `/[language]${path}`
+  })
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isNavbarOpen, toggleNavbar] = useToggle(false)
   const ref = useRef<HTMLDivElement>()
@@ -37,6 +46,8 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   headerRef.current = hasScrolled
 
   const themeHotelLogo = theme.mode === "light" ? hotelLogo : hotelLogoDark
+
+  const localizedHomeRoute = getLocalizedSlug("/")
 
   const [logoProps, setLogoProps] = useSpring(() => ({
     opacity: isHome ? 1 : 0
@@ -68,7 +79,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   }, [])
 
   const backToHome = () => {
-    router.push("/")
+    router.push(localizedHomeRoute)
   }
 
   return (
@@ -82,7 +93,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
       <HeaderContainer ref={ref}>
         <HeaderBackground hasScrolled={hasScrolled} />
         <LogoWrapper>
-          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white" maxWith="40px" height="40px">
+          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
           <Logo
@@ -91,9 +102,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
             title={themeHotelLogo?.name}
             style={logoProps}
           />
-          <Button bgColor="white" maxWith="40px" height="40px">
-            {isHome ? <NotificationIcon /> : <ShareIcon />}
-          </Button>
+          <Button bgColor="white">{isHome ? <NotificationIcon /> : <ShareIcon />}</Button>
         </LogoWrapper>
       </HeaderContainer>
     </>

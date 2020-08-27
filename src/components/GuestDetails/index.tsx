@@ -1,14 +1,24 @@
+import LanguageSwitcher from "../LanguageSwitcher"
+
 import { DetailsWrapper, GuestInfo } from "./guestDetails.styles"
+
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
 interface Props {
+  isNavbarOpen: boolean
   guestPhoto: HotelLogo
   name?: string
   roomNumber?: number
   guestNumber?: number
 }
 
-const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, guestNumber = 4 }: Props) => {
+const GuestDetails = ({
+  isNavbarOpen,
+  guestPhoto,
+  name = "Alex Keenan",
+  roomNumber = 206,
+  guestNumber = 4
+}: Props) => {
   return (
     <DetailsWrapper>
       <img src={guestPhoto?.filename} title={guestPhoto?.name} />
@@ -17,6 +27,8 @@ const GuestDetails = ({ guestPhoto, name = "Alex Keenan", roomNumber = 206, gues
         <p>Room number: {roomNumber}</p>
         <p>Number of guests: {guestNumber}</p>
       </GuestInfo>
+
+      <LanguageSwitcher isNavbarOpen={isNavbarOpen} />
     </DetailsWrapper>
   )
 }

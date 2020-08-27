@@ -10,8 +10,7 @@ export interface HotelConfigContent extends SbEditableContent {
   hotelLogo: HotelLogo
   hotelLogoDark: HotelLogo
   hotelName: string
-  primaryColor?: ColorObject
-  secondaryColor?: ColorObject
+  primaryColor?: PrimaryColor
   theme: string
   seoDescription: string
   seoBannerImage: {
@@ -19,13 +18,9 @@ export interface HotelConfigContent extends SbEditableContent {
   }
 }
 
-interface ColorObject {
-  _uid?: string
-  color?: string
-  plugin?: string
-}
-
 export interface HotelLogo {
   name: string
   filename: string
 }
+
+export type PrimaryColor = "red" | "black" | "green" | "blue" | "brown" | "pink" | "yellow" | "purple"

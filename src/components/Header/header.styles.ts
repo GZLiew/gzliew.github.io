@@ -60,6 +60,6 @@ export const Logo = styled(animated.img)`
 
 export const HamburgerMenuIcon = styled(HamburgerSVG)`
   .first-line {
-    fill: ${({ theme }) => theme?.primaryColor};
+    fill: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
   }
 `

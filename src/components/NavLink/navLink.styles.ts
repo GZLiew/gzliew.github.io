@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
-export const StyledLink = styled.a`
+export const StyledLink = styled.a<{ showBg: boolean }>`
   ${tw`
       flex-auto
       w-full
@@ -15,10 +15,15 @@ export const StyledLink = styled.a`
       items-center
       `}
 
-  &:hover, &:focus, &:active {
-    background-color: ${({ theme }) =>
-      theme.mode === "light" ? rgba(theme.colors.pink.primary, 0.12) : rgba("black", 0.12)};
-  }
+    background-color: ${({ showBg, theme }) =>
+      showBg &&
+      (theme.mode === "light"
+        ? rgba(theme?.colors?.[theme?.primaryColor]?.primary, 0.12)
+        : rgba("black", 0.12))};
+
+    &:focus {
+      outline: none;
+    }
 `
 
 export const IconWrapper = styled.div`
@@ -26,9 +31,9 @@ export const IconWrapper = styled.div`
     mr-8
   `}
   width: 24px;
-  heigth: 24px;
+  height: 24px;
 
-  img {
-    width: 100%;
+  svg {
+    color: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary || "#E1245E"};
   }
 `

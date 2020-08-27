@@ -18,4 +18,4 @@ color: ${({ theme }) => theme.colors.text.primary};
 `
 export const SubHeading = styled.h2`
 ${tw`text-sm pt-4 font-regular`}
-color: ${({ theme }) => theme.colors.pink.primary};`
+color: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};`
