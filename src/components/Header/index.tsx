@@ -12,7 +12,6 @@ import { LogoWrapper, HeaderContainer, HeaderBackground, Logo, HamburgerMenuIcon
 
 import BackIcon from "@/assets/icons/wt-ic-back"
 import NotificationIcon from "../../assets/icons/wt-ic-notification.svg"
-import ShareIcon from "../../assets/icons/share.svg"
 
 import { HotelLogo } from "@/lib/types/hotelConfig"
 import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
@@ -102,7 +101,11 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
             title={themeHotelLogo?.name}
             style={logoProps}
           />
-          <Button bgColor="white">{isHome ? <NotificationIcon /> : <ShareIcon />}</Button>
+          {isHome ? (
+            <Button bgColor="white">
+              <NotificationIcon />
+            </Button>
+          ) : null}
         </LogoWrapper>
       </HeaderContainer>
     </>
