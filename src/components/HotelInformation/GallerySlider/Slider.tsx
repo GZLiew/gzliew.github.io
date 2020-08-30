@@ -105,6 +105,19 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
     handleSlideChange(currentSlide)
   }, [currentSlide])
 
+  // recalculate slider position value (x) when orientation changes
+  useEffect(() => {
+    const mql = global?.window?.matchMedia("(orientation: portrait)")
+    const handleOriention = () => {
+      set({ x: -index.current * window.innerWidth, immediate: true })
+    }
+
+    mql.addListener(handleOriention)
+    return () => {
+      mql.removeListener(handleOriention)
+    }
+  }, [])
+
   // <StyledSlider> is a direct copy from https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/components/Slider/Slider.js <AnimatedSlider>
   return (
     <StyledSlider
