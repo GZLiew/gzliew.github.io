@@ -24,8 +24,10 @@ const GalleryGrid = ({ gallery, handlePhotoClick }: Props) => {
           />
         ))}
         <MorePhotos className="item-last" onClick={() => handlePhotoClick(shownPhotos.length)}>
-          <h5>{gallery?.photos.length - shownPhotos.length}+</h5>
-          <h6>Photos</h6>
+          <div className="item-content">
+            <h5>{gallery?.photos.length - shownPhotos.length}+</h5>
+            <h6>Photos</h6>
+          </div>
         </MorePhotos>
       </Grid>
     </SbEditable>
