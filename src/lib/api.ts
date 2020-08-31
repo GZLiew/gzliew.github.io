@@ -3,7 +3,6 @@ import slugify from "@sindresorhus/slugify"
 
 import { getLocalizedSlugNode } from "./utils/getLocalizedSlug"
 import processHotelPhotos from "./utils/processHotelPhotos"
-import { removeTempSubdir } from "./utils/getImageDimensions"
 
 import { HotelInfoProps } from "./types/hotelInfo"
 import { HotelConfigProps } from "./types/hotelConfig"
@@ -95,7 +94,6 @@ export async function getHotelInformation(preview: boolean, language?: string): 
   }))
 
   const processedHotelPhotos = await processHotelPhotos(hotelPhotos)
-  removeTempSubdir()
 
   return {
     content: {

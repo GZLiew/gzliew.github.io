@@ -1,26 +1,39 @@
 import fetch, { Response } from "node-fetch"
 import { imageSize } from "image-size"
-import { createWriteStream, existsSync, unlink, mkdirSync, rmdirSync } from "fs"
-import { basename, extname } from "path"
+import { createWriteStream, existsSync, unlink, mkdirSync } from "fs"
+import { basename, extname, resolve } from "path"
 import { promisify } from "util"
+import { v4 as uuidv4 } from "uuid"
 
 const imageSizePromise = promisify(imageSize)
 
-const imageTempPath = (slug: string) => `/tmp/tap/${slug}.jpg`
+const imageTempPath = (slug: string) => resolve(`.tmp/tap/${slug}.jpg`)
 
 // extract basename of a path. Example: https://foobar.com/we/myfile.jpg => myfile
 const extractImageSlug = (imageURL: string): string => {
-  return basename(imageURL, extname(imageURL))
+  const prefix = uuidv4()
+  return `${prefix}${basename(imageURL, extname(imageURL))}`
 }
 
 // create tap folder inside /tmp
 const createTempSubdir = () => {
-  if (!existsSync("/tmp/tap")) {
-    mkdirSync("/tmp/tap")
+  if (!existsSync(resolve(".tmp/tap/"))) {
+    mkdirSync(resolve(".tmp/tap/"), { recursive: true })
   }
 }
 
-export const removeTempSubdir = () => rmdirSync("/tmp/tap", { recursive: true })
+const removeTemporaryImage = (slug) =>
+  new Promise((resolve, reject) => {
+    if (existsSync(imageTempPath(slug))) {
+      unlink(imageTempPath(slug), (err) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve()
+        }
+      })
+    }
+  })
 
 // create a temporary image file with the fetched data
 const temporaryStoreImage = (slug: string, response: Response) => {
@@ -52,6 +65,7 @@ const getImageDimensions = async (imageURL: string) => {
     await temporaryStoreImage(slug, res)
     // get temp image dimensions info
     const dimensions = await imageSizePromise(imageTempPath(slug))
+    await removeTemporaryImage(slug)
 
     return {
       image: imageURL,
