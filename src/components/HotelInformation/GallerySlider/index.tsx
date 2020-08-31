@@ -73,11 +73,25 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
   const dotsRef = useRef(null)
   useEffect(() => {
     // calculate spacing to take into account based on DotThumbnail border & margin dimensions
-    const offset = (dotStyles.border + dotStyles.innerMargin) * 2
-    const positionToScroll = Math.floor(
-      activePosition * ((dotsRef?.current?.scrollWidth - offset) / gallery?.photos.length)
-    )
-    dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
+    const scrollDots = () => {
+      const offset = (dotStyles.border + dotStyles.innerMargin) * 2
+      const positionToScroll = Math.floor(
+        activePosition * ((dotsRef?.current?.scrollWidth - offset) / gallery?.photos.length)
+      )
+      dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
+    }
+    scrollDots()
+
+    // scroll dots when orientation changes
+    const mql = global?.window?.matchMedia("(orientation: portrait)")
+    const handleOriention = () => {
+      scrollDots()
+    }
+
+    mql.addListener(handleOriention)
+    return () => {
+      mql.removeListener(handleOriention)
+    }
   }, [activePosition])
 
   useEffect(() => {
