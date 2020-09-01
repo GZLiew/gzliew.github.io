@@ -55,6 +55,8 @@ export const LogoWrapper = styled.header`
 `
 
 export const Logo = styled(animated.img)`
+  ${tw`absolute transform -translate-x-1/2`}
+  left: 50%;
   max-width: 45px;
 `
 
