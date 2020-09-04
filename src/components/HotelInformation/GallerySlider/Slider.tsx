@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react"
-import { OpaqueInterpolation, useSpring } from "react-spring"
+import { useSpring } from "react-spring"
 import { useDrag } from "react-use-gesture"
 
 import Slide from "./Slide"
@@ -20,7 +20,7 @@ const clamp = (value, min, max) => Math.min(Math.max(min, value), max)
 const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleSlideChange }) => {
   // Almost all of this is straight out of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/hooks/useSlider.js
   // If https://github.com/skozer/react-instagram-zoom-slider/issues/13 is resolved, we could use useSlider hook directly.
-  const [{ x, scale }, set] = useSpring(() => ({
+  const [{ x }, set] = useSpring(() => ({
     x: typeof window !== "undefined" ? -window.innerWidth * initialSlide : 0,
     scale: 1,
     config: {
