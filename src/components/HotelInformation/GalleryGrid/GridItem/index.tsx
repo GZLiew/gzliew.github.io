@@ -10,7 +10,7 @@ interface Props {
 const GridItem: FC<Props & HTMLAttributes<HTMLDivElement>> = ({ children, photo, ...props }) => {
   return (
     <SbEditable content={photo}>
-      <Item {...props}>{children || (photo?.image && <img src={photo?.image} alt="" />)}</Item>
+      <Item {...props}>{photo?.image && <img src={photo?.image} alt="" />}</Item>
     </SbEditable>
   )
 }
