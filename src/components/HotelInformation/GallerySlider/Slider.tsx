@@ -114,7 +114,6 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
       if (isiOSDevice()) {
         // wait a bit to read the innerWidth as older iOS devices have a delay updating its value
         setTimeout(() => {
-          console.log(global?.window?.innerWidth, "50")
           set({ x: -index.current * global?.window?.innerWidth, immediate: true })
         }, 50)
       } else {
