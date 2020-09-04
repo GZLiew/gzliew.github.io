@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState, useCallback } from "react"
+import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react"
 import { OpaqueInterpolation, useSpring } from "react-spring"
 import { useDrag } from "react-use-gesture"
 
 import Slide from "./Slide"
 
 import { StyledSlider } from "./gallerySlider.styles"
+
+import isiOSDevice from "@/lib/utils/isiOSDevice"
 
 interface Props {
   initialSlide: number
@@ -106,13 +108,22 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
   }, [currentSlide])
 
   // recalculate slider position value (x) when orientation changes
-  useEffect(() => {
+  useLayoutEffect(() => {
     const mql = global?.window?.matchMedia("(orientation: portrait)")
-    const handleOriention = () => {
-      set({ x: -index.current * window.innerWidth, immediate: true })
+    const handleOriention = (e: MediaQueryListEvent) => {
+      if (isiOSDevice()) {
+        // wait a bit to read the innerWidth as older iOS devices have a delay updating its value
+        setTimeout(() => {
+          console.log(global?.window?.innerWidth, "50")
+          set({ x: -index.current * global?.window?.innerWidth, immediate: true })
+        }, 50)
+      } else {
+        set({ x: -index.current * global?.window?.innerWidth, immediate: true })
+      }
     }
 
     mql.addListener(handleOriention)
+
     return () => {
       mql.removeListener(handleOriention)
     }
