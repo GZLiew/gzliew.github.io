@@ -52,7 +52,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
   // don't use lock-body-scroll on iOS devices...
-  useLockBodyScroll(!isiOSDevice() && isOpen, ref)
+  useLockBodyScroll(isOpen, ref)
 
   // ...instead, manually lock body scroll
   useLayoutEffect(() => {
