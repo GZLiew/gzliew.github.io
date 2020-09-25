@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/router"
 
-import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
+import {getLocalizedSlugNode} from "@/lib/utils/getLocalizedSlug"
 
 import Link from "next/link"
 
@@ -10,10 +10,13 @@ const FakeHomePage = () => {
   const realHomeRoute = useRef<string>("")
 
   useEffect(() => {
+    console.log(router.query)
     if (router.query?.language) {
-      realHomeRoute.current = getLocalizedSlug("/", router.query?.language as string)
-      router.replace(realHomeRoute.current)
+      realHomeRoute.current = getLocalizedSlugNode(router.query?.language as string, "/")
+    } else {
+      realHomeRoute.current = getLocalizedSlugNode("", "/")
     }
+    router.replace(realHomeRoute.current)
   }, [router.query])
 
   return (
