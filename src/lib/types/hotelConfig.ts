@@ -1,4 +1,5 @@
 import { SbEditableContent } from "storyblok-react"
+import { IStoryblok_IconAsset } from "./storyblok"
 
 export interface HotelConfigProps {
   id: number
@@ -6,14 +7,20 @@ export interface HotelConfigProps {
 }
 
 export interface HotelConfigContent extends SbEditableContent {
-  hotel_logo: HotelLogo
-  hotel_name: string
-  primary_color: string
-  secondary_color: string
+  hotelLogo: HotelLogo
+  hotelLogoDark: HotelLogo
+  hotelName: string
+  primaryColor?: PrimaryColor
   theme: string
+  seoDescription: string
+  seoBannerImage: {
+    filename: string
+  }
 }
 
 export interface HotelLogo {
   name: string
   filename: string
 }
+
+export type PrimaryColor = "red" | "black" | "green" | "blue" | "brown" | "pink" | "yellow" | "purple"

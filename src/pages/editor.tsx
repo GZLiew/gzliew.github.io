@@ -1,10 +1,14 @@
 import React from "react"
+
 import HotelInformation from "@/components/HotelInformation"
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
 
+import { getLocalizedSlugNode } from "@/lib/utils/getLocalizedSlug"
+
 declare global {
   interface Window {
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok: any
   }
 }
@@ -27,22 +31,30 @@ const getParam = (val: string) => {
   return pair ? pair[1] : ""
 }
 
+// retrofit getLocalizedSlugNode for this use case
+const getLocalizedStoryId = (lang: string, storyId: string) => {
+  if (lang === "default") return getLocalizedSlugNode("/", storyId)
+  return getLocalizedSlugNode(lang, storyId)
+}
+
 export interface StoryblokStory {
   id: string
   content: any
   slug: string
+  lang: string
 }
 
 export interface StoryblokEditorState {
   story: StoryblokStory | null
   configStory: any
   navStory: any
+  lang: string
 }
 
 class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   constructor(props: {}) {
     super(props)
-    this.state = { story: null, configStory: null, navStory: null }
+    this.state = { story: null, configStory: null, navStory: null, lang: "default" }
   }
 
   componentDidMount() {
@@ -50,6 +62,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadStory(payload: { storyId: string }) {
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
         slug: payload.storyId,
@@ -62,9 +75,12 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadConfigStory(payload: { storyId: string }) {
+    const localizedStoryId = getLocalizedStoryId(this.state.lang, payload.storyId)
+
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
-        slug: payload.storyId,
+        slug: localizedStoryId,
         version: "draft"
       },
       (data: { story: StoryblokStory }) => {
@@ -74,9 +90,12 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   }
 
   loadNavStory(payload: { storyId: string }) {
+    const localizedStoryId = getLocalizedStoryId(this.state.lang, payload.storyId)
+
+    // @ts-ignore: conflict with storyblok-client window type
     window.storyblok.get(
       {
-        slug: payload.storyId,
+        slug: localizedStoryId,
         version: "draft"
       },
       (data: { story: StoryblokStory }) => {
@@ -91,10 +110,14 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
       return
     }
 
-    this.loadStory({ storyId: getParam("_storyblok") })
+    // get language from Storyblok query parameters
+    this.setState({ lang: getParam("_storyblok_lang") })
+
+    this.loadStory({ storyId: getParam("path") })
     this.loadConfigStory({ storyId: "hotel-configuration" })
     this.loadNavStory({ storyId: "layout" })
 
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok.on(["change", "published"], (payload: { storyId: string; slug: string }) => {
       if (payload?.slug === "layout") {
         this.loadNavStory(payload)
@@ -103,6 +126,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
       }
     })
 
+    // @ts-ignore: conflict with storyblok-client window type
     storyblok.on("input", (payload: { story: StoryblokStory }) => {
       if (this.state.navStory && payload.story?.slug === this.state.navStory.slug) {
         this.setState({ navStory: payload.story })
@@ -114,6 +138,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     })
 
     storyblok.pingEditor(() => {
+      // @ts-ignore: conflict with storyblok-client window type
       if (storyblok.inEditor) {
         storyblok.enterEditmode()
       }

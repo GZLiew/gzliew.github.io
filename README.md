@@ -2,6 +2,9 @@
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app). We use Storyblok as a HeadlessCMS
 
+## Storyblok Documentation
+The documentation for using Storyblok is available [here](/docs.md). There's information about how to configure and manage the Hotel content.
+
 ## Getting Started
 
 First, install all the dependencies
@@ -41,6 +44,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - **Production** [branch: `master`] - https://tapendium.netlify.app/
 - **Dev** [branch: `dev`] - https://dev--tapendium.netlify.app/
+- **Staging** [branch: `staging`] - https://staging--tapendium.netlify.app/
 
 ## Storyblok API
 

@@ -4,8 +4,12 @@ import tw from "@tailwindcssinjs/macro"
 import { css } from "@emotion/react"
 import { transparentize } from "polished"
 
+import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
+
+const { sizeVar } = getButtonResponsiveSizes()
+
 type ButtonWrapperProps = {
-  maxWith?: string
+  maxWidth?: string
   height?: string
   bgColor?: string
   variant?: string
@@ -22,13 +26,13 @@ export const ButtonStyled = styled.span`
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${tw`
-   relative 
+   relative
    w-full
    transition duration-500 ease-in-out
    font-semibold
    `}
-  max-width: ${({ maxWith }) => maxWith};
-  height: ${({ height }) => height};
+  max-width: ${({ maxWidth }) => maxWidth || sizeVar};
+  height: ${({ height }) => height || sizeVar};
   padding: 2px;
   border-radius: 32px;
   background: ${({ theme }) => theme.button.borderBg};
@@ -38,7 +42,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${ButtonStyled} {
     background: ${({ theme, bgColor }) =>
       `linear-gradient(101deg, ${theme.colors[bgColor]?.secondary} 17%, ${theme.colors[bgColor]?.primary} 77%)`};
-  
+
   ${({ variant, theme, bgColor }) =>
     variant === "flat" &&
     css`
@@ -62,7 +66,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
     ${ButtonStyled} {
       background: ${({ theme, bgColor }) =>
-        `linear-gradient(101deg, ${theme.colors[bgColor]?.primary} 17%, ${theme.colors[bgColor]?.secondary} 77%)`}; 
+        `linear-gradient(101deg, ${theme.colors[bgColor]?.primary} 17%, ${theme.colors[bgColor]?.secondary} 77%)`};
     }
   }
 
@@ -81,4 +85,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
         }
       }
     `}
+
+    svg {
+      /* approx. 24px for 44px sizeVar & 32px for 60px sizeVar */
+      width: calc(${sizeVar} * 0.54);
+      height: calc(${sizeVar} * 0.54);
+    }
 `

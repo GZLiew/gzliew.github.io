@@ -15,4 +15,5 @@ export interface IStoryblok_Link {
   linktype?: string
   fieldtype?: string
   cached_url?: string
+  anchor?: string
 }

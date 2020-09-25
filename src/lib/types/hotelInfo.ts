@@ -1,18 +1,22 @@
 import { SbEditableContent } from "storyblok-react"
 import { IStoryblok_IconAsset } from "./storyblok"
+import { Richtext } from "storyblok-js-client"
 
 export interface HotelInfoProps {
-  id: number
+  id?: number
   content: HotelInfoContent
 }
 
 export interface HotelInfoContent extends SbEditableContent {
-  welcome_text: string
+  welcomeText: string
   location: IHotelLocation[]
-  hotel_rating: IHotelRating[]
-  scrolling_icons: IScrollingIcon[]
+  hotelRating: IHotelRating[]
+  scrollingIcons: IScrollingIcon[]
   categories: ICategory[]
-  hotel_photos: IHotelPhoto[]
+  hotelPhotos: IHotelPhoto[]
+  aboutSection: Richtext
+  review: Richtext
+  missingInformation: Richtext
 }
 
 export interface IHotelLocation extends SbEditableContent {
@@ -23,24 +27,25 @@ export interface IHotelLocation extends SbEditableContent {
 
 export interface IHotelRating extends SbEditableContent {
   of: string
-  star_number: string
+  starNumber: string
 }
 
 export interface IScrollingIcon extends SbEditableContent {
-  icon_name: string
+  iconName: string
   name: string
 }
 
 export interface ICategory extends SbEditableContent {
   title?: string
   description?: string
-  sub_sections?: ICategorySubsection[]
+  subsections?: ICategorySubsection[]
 }
 
 export interface ICategorySubsection extends SbEditableContent {
   title?: string
-  description?: string
-  icon?: IStoryblok_IconAsset
+  description?: Richtext
+  icon?: string
+  isDropdown?: boolean
 }
 
 export interface IHotelPhoto extends SbEditableContent {
@@ -49,4 +54,8 @@ export interface IHotelPhoto extends SbEditableContent {
 
 export interface IPhotoFile extends SbEditableContent {
   image?: string
+  dimensions: {
+    width?: number
+    height?: number
+  }
 }

@@ -1,6 +1,10 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
+import { animated } from "react-spring"
+
 import Container from "../Container"
+
+import HamburgerSVG from "../../assets/icons/wt-ic-hamburger-menu.svg"
 
 export const HeaderContainer = styled(Container)`
   ${tw`
@@ -16,6 +20,7 @@ export const HeaderContainer = styled(Container)`
     w-full
     sm:max-w-full
   `}
+  position: -webkit-sticky;
 `
 
 // Slide down HeaderBackground when hasScrolled is true
@@ -31,7 +36,8 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
   box-shadow: ${({ theme }) => theme.colors.header.boxShadow};
   transform: translateY(${({ hasScrolled }) => (hasScrolled ? 0 : `-100%`)});
   opacity: ${({ hasScrolled }) => (hasScrolled ? 1 : 0)};
-  transition: transform 0.2s ease-in, opacity 0.1s ease-in;
+  transition: transform 0.2s, opacity 0.1s;
+  transition-timing-function: ${({ hasScrolled }) => (!hasScrolled ? "ease-out" : "ease-in")};
   will-change: transform;
 `
 export const LogoWrapper = styled.header`
@@ -46,8 +52,16 @@ export const LogoWrapper = styled.header`
   `}
   grid-column: 1 / span 1;
   grid-row: 1 / span 1;
+`
 
-  & img {
-    max-width: 45px;
+export const Logo = styled(animated.img)`
+  ${tw`absolute transform -translate-x-1/2`}
+  left: 50%;
+  max-width: 45px;
+`
+
+export const HamburgerMenuIcon = styled(HamburgerSVG)`
+  .first-line {
+    fill: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
   }
 `
