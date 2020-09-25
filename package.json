@@ -17,9 +17,11 @@
     "@react-aria/interactions": "^3.2.0",
     "body-scroll-lock": "^3.0.3",
     "emotion": "^10.0.27",
+    "image-size": "^0.8.3",
     "iso-639-1": "^2.1.4",
     "next": "latest",
     "next-pwa": "^3.0.3",
+    "node-fetch": "^2.6.0",
     "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -33,7 +35,8 @@
     "smoothscroll-polyfill": "^0.4.4",
     "storyblok-js-client": "2.5.0",
     "storyblok-react": "^0.1.0",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
     "@babel/core": "7.9.6",

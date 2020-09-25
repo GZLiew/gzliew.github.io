@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState, useCallback } from "react"
-import { OpaqueInterpolation, useSpring } from "react-spring"
+import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react"
+import { useSpring } from "react-spring"
 import { useDrag } from "react-use-gesture"
 
 import Slide from "./Slide"
 
 import { StyledSlider } from "./gallerySlider.styles"
+
+import isiOSDevice from "@/lib/utils/isiOSDevice"
 
 interface Props {
   initialSlide: number
@@ -18,7 +20,7 @@ const clamp = (value, min, max) => Math.min(Math.max(min, value), max)
 const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleSlideChange }) => {
   // Almost all of this is straight out of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/hooks/useSlider.js
   // If https://github.com/skozer/react-instagram-zoom-slider/issues/13 is resolved, we could use useSlider hook directly.
-  const [{ x, scale }, set] = useSpring(() => ({
+  const [{ x }, set] = useSpring(() => ({
     x: typeof window !== "undefined" ? -window.innerWidth * initialSlide : 0,
     scale: 1,
     config: {
@@ -104,6 +106,27 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
   useEffect(() => {
     handleSlideChange(currentSlide)
   }, [currentSlide])
+
+  // recalculate slider position value (x) when orientation changes
+  useLayoutEffect(() => {
+    const mql = global?.window?.matchMedia("(orientation: portrait)")
+    const handleOriention = (e: MediaQueryListEvent) => {
+      if (isiOSDevice()) {
+        // wait a bit to read the innerWidth as older iOS devices have a delay updating its value
+        setTimeout(() => {
+          set({ x: -index.current * global?.window?.innerWidth, immediate: true })
+        }, 50)
+      } else {
+        set({ x: -index.current * global?.window?.innerWidth, immediate: true })
+      }
+    }
+
+    mql.addListener(handleOriention)
+
+    return () => {
+      mql.removeListener(handleOriention)
+    }
+  }, [])
 
   // <StyledSlider> is a direct copy from https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/components/Slider/Slider.js <AnimatedSlider>
   return (

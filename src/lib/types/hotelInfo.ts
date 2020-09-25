@@ -54,4 +54,8 @@ export interface IHotelPhoto extends SbEditableContent {
 
 export interface IPhotoFile extends SbEditableContent {
   image?: string
+  dimensions: {
+    width?: number
+    height?: number
+  }
 }

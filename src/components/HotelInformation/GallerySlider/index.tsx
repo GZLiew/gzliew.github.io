@@ -52,7 +52,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
   // lock body scroll when GallerySlider is mounted
   const ref = useRef(null)
   // don't use lock-body-scroll on iOS devices...
-  useLockBodyScroll(!isiOSDevice() && isOpen, ref)
+  useLockBodyScroll(isOpen, ref)
 
   // ...instead, manually lock body scroll
   useLayoutEffect(() => {
@@ -73,11 +73,25 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
   const dotsRef = useRef(null)
   useEffect(() => {
     // calculate spacing to take into account based on DotThumbnail border & margin dimensions
-    const offset = (dotStyles.border + dotStyles.innerMargin) * 2
-    const positionToScroll = Math.floor(
-      activePosition * ((dotsRef?.current?.scrollWidth - offset) / gallery?.photos.length)
-    )
-    dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
+    const scrollDots = () => {
+      const offset = (dotStyles.border + dotStyles.innerMargin) * 2
+      const positionToScroll = Math.floor(
+        activePosition * ((dotsRef?.current?.scrollWidth - offset) / gallery?.photos.length)
+      )
+      dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
+    }
+    scrollDots()
+
+    // scroll dots when orientation changes
+    const mql = global?.window?.matchMedia("(orientation: portrait)")
+    const handleOriention = () => {
+      scrollDots()
+    }
+
+    mql.addListener(handleOriention)
+    return () => {
+      mql.removeListener(handleOriention)
+    }
   }, [activePosition])
 
   useEffect(() => {
@@ -105,6 +119,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
                       src={photo.image}
                       alt={`Gallery Photo ${i + 1}`}
                       draggable={false}
+                      dimensions={photo.dimensions}
                       onClick={handlePhotoClick}
                     />
                   </SbEditable>

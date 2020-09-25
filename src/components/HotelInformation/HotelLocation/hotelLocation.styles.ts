@@ -16,6 +16,10 @@ export const LocationMarker = styled(LocationIcon)`
   ${tw`
     mr-2
   `}
+
+  path {
+    fill: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
+  }
 `
 
 export const LocationCity = styled.span`

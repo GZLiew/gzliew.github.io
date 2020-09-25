@@ -2,6 +2,7 @@ import { fetchAPI } from "@/lib/utils/fetchAPI"
 import slugify from "@sindresorhus/slugify"
 
 import { getLocalizedSlugNode } from "./utils/getLocalizedSlug"
+import processHotelPhotos from "./utils/processHotelPhotos"
 
 import { HotelInfoProps } from "./types/hotelInfo"
 import { HotelConfigProps } from "./types/hotelConfig"
@@ -23,7 +24,6 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
         }
         hotelName
         primaryColor
-        secondaryColor
         theme
         seoDescription
         seoBannerImage {
@@ -86,14 +86,22 @@ export async function getHotelInformation(preview: boolean, language?: string): 
     { preview, variables: { slug: getLocalizedSlugNode(language, "hotel-information") } }
   )
 
-  const { categories, ...content } = data?.HotelinformationItem?.content
+  const { categories, hotelPhotos, ...content } = data?.HotelinformationItem?.content
 
   const categoriesWithSlugs = categories.map((category) => ({
     slug: slugify(category.title),
     ...category
   }))
 
-  return { content: { categories: categoriesWithSlugs, ...content } }
+  const processedHotelPhotos = await processHotelPhotos(hotelPhotos)
+
+  return {
+    content: {
+      categories: categoriesWithSlugs,
+      hotelPhotos: processedHotelPhotos,
+      ...content
+    }
+  }
 }
 
 export async function getHotelGlobalNavigation(preview: boolean, language?: string) {

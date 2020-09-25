@@ -5,6 +5,8 @@ import { animated } from "react-spring"
 
 import { rgba } from "polished"
 
+import getAspectRatio from "@/lib/utils/getAspectRatio"
+
 export const dotStyles = {
   innerMargin: 6,
   border: 3
@@ -50,11 +52,22 @@ export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
 `)
 
 export const Slide = styled.div`
-  ${tw`block w-screen h-screen`}
+  ${tw`relative block w-screen h-screen`}
 `
 
-export const SlideImage = styled.img`
-  ${tw`w-full h-full object-contain`}
+export const SlideImage = styled.img<{ dimensions: { width?: number; height?: number } }>`
+  ${tw`block w-full h-full`}
+  @media screen and (max-width: 575.98px) {
+    ${tw`absolute top-0 left-0 object-cover`}
+    height: ${({ dimensions }) => getAspectRatio(dimensions?.width, dimensions?.height)};
+    object-fit: cover;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 576px) {
+    ${tw`object-contain`}
+  }
 `
 
 export const DotsWrapper = animated(styled.div`

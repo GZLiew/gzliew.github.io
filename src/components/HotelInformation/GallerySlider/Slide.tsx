@@ -1,7 +1,8 @@
 import { useZoom } from "react-instagram-zoom-slider"
-import { animated, interpolate, OpaqueInterpolation, useSpring } from "react-spring"
+import { animated, interpolate, OpaqueInterpolation } from "react-spring"
 
 import { Slide as StyledSlide } from "./gallerySlider.styles"
+
 import { MutableRefObject } from "react"
 
 interface Props {
