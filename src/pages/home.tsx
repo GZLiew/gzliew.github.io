@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react"
 import { useRouter } from "next/router"
 
-import {getLocalizedSlugNode} from "@/lib/utils/getLocalizedSlug"
+import { getLocalizedSlugNode } from "@/lib/utils/getLocalizedSlug"
 
 import Link from "next/link"
 
