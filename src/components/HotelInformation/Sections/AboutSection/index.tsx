@@ -54,6 +54,7 @@ const AboutSection = ({ content }: Props) => {
           <SectionContent data={content} />
         </div>
       </animated.div>
+
       {hasRequiredMinHeight && (
         <ToggleButton onClick={toggleCollapse}>{isReadMoreOpen ? `Less` : `More`}</ToggleButton>
       )}
