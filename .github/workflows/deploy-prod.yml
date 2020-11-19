@@ -1,0 +1,24 @@
+name: deploy website
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install
+        run: npm install
+      - name: build
+        run: npm run build
+        env:
+          STORYBLOK_API_KEY: ${{ secrets.STORYBLOK_API_KEY }}
+      - uses: amondnet/vercel-action@v19.0.1+4
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          vercel-args: --prod
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID}}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          scope: ${{ secrets.VERCEL_TEAM_ID }}

@@ -34,3 +34,4 @@ sw.*
 /public/*workbox-*
 
 .tmp/
+.vercel
