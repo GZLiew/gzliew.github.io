@@ -1,16 +1,18 @@
-## 📝 Description
+## Purpose
 
-<!-- Give a short explanation of the purpose and motivation of changes in this PR -->
+Write a sentence or two about the purpose of this PR.
 
-## 🛠️ Related Issues
+## Changes
 
-<!--
-  Link to the issue that is fixed by this PR (if there is one)
-  e.g. Fixes #1234
--->
+- Some dot points about what changed.
 
-## 🎉 Result
+## Jira Ticket
 
-<!--
-  You can add some of final results screenshot or left the URL preview
--->
+https://benieworldwide.atlassian.net/browse/TAIO-XXXX
+
+## Checks
+
+If any below not necessary, just tick the box
+
+- [ ] Written unit/integration tests
+- [ ] Tested changes in DEV environment
