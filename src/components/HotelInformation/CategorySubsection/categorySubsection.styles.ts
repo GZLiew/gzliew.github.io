@@ -5,6 +5,10 @@ interface DropdownProps {
   isDropdown?: boolean
 }
 
+export const DescriptionText = styled.div`
+  ${tw`text-xs`}
+`
+
 export const SubsectionWrapper = styled.div<DropdownProps>`
   ${tw`flex items-start text-xs`}
   padding-top: ${({ isDropdown }) => isDropdown && `1.25rem`};

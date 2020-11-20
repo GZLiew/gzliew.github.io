@@ -2,7 +2,7 @@ import { ReactChild, useState } from "react"
 import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { useSpring, animated } from "react-spring"
 import ChevronDownSvg from "../../assets/icons/chevron-down.svg"
-import { TitleWrapper, Title, SecondaryTitle } from "./Accordion.styles"
+import { TitleWrapper, Title, SecondaryTitle, AccordionContent } from "./Accordion.styles"
 
 interface Props {
   title: string
@@ -32,7 +32,11 @@ const Accordion = (props: Props) => {
       </TitleWrapper>
 
       <animated.div style={{ overflow: "hidden", ...contentProps }}>
-        <div ref={ref}>{children}</div>
+        <AccordionContent>
+          <div ref={ref} style={{ paddingTop: "10px" }}>
+            {children}
+          </div>
+        </AccordionContent>
       </animated.div>
     </>
   )

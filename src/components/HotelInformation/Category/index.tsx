@@ -14,6 +14,7 @@ import { ICategory } from "@/lib/types/hotelInfo"
 interface Props {
   category: ICategory
 }
+
 const Category = ({ category }: Props) => {
   const headerHeight = useContext(HeaderHeightContext)
   const tabsHeight = useContext(TabsHeightContext)
