@@ -4,6 +4,7 @@ import { GetStaticProps } from "next"
 import LanguagesContext from "@/lib/context/LanguagesContext"
 import Layout from "@/components/Layout"
 import Accordion from "@/components/Accordion"
+import QuantitySelector from "@/components/QuantitySelector"
 
 import { getHotelGlobalNavigation, getLanguageCodes } from "@/lib/api"
 import { HomeContent } from "@/lib/types/homeContent"
@@ -40,6 +41,19 @@ export default function Components({ allLangs, layoutNavigation, preview }: Prop
             { id: "3", label: "currey  Thai Style", secondaryLabel: "+$29" },
             { id: "4", label: "noodles Thai Style", secondaryLabel: "+$29" }
           ]}
+        />
+        <QuantitySelector
+          value={0}
+          onDecrement={(v) => console.log(v)}
+          onIncrement={(v) => console.log(v)}
+          size="small"
+          disabled
+        />
+        <QuantitySelector
+          value={0}
+          onDecrement={(v) => console.log(v)}
+          onIncrement={(v) => console.log(v)}
+          size="large"
         />
       </Layout>
     </LanguagesContext.Provider>
