@@ -1,6 +1,6 @@
+import { ReactChild, useState, useEffect } from "react"
 import usePrevious from "@/lib/hooks/usePrevious"
 import { useTheme } from "@emotion/react"
-import { ReactChild, useState, useEffect } from "react"
 
 import { ColumnWrapper, SelectorWrapper } from "./QuantitySelector.styles"
 
@@ -24,7 +24,7 @@ const QuantitySelector = ({
   size = "small",
   disabled
 }: Props) => {
-  const { colors } = useTheme()
+  const { colors, brandColors } = useTheme()
   const [value, setValue] = useState(initialValue)
 
   const prevValue = usePrevious(value)
@@ -62,7 +62,7 @@ const QuantitySelector = ({
       <ColumnWrapper hover onClick={decrement}>
         -
       </ColumnWrapper>
-      <ColumnWrapper bgColor={disabled ? colors.gray : colors.pink.primary}>{value}</ColumnWrapper>
+      <ColumnWrapper bgColor={disabled ? colors.gray : brandColors.primary}>{value}</ColumnWrapper>
       <ColumnWrapper hover onClick={increment}>
         +
       </ColumnWrapper>

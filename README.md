@@ -49,3 +49,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Storyblok API
 
 If you can play with the Storyblok Graphql playground. You should access here https://gapi-browser.storyblok.com/?token=<STORYBLOK_API_KEY>.
+
+## Style Guide for components
+Run `yarn document`
+and visit http://localhost:6060 to view all components

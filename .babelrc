@@ -1,4 +1,11 @@
 {
-  "presets": ["next/babel"],
-  "plugins": ["macros", "@emotion/babel-plugin", "inline-react-svg"]
+  "presets": [
+    "next/babel",
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "macros",
+    "@emotion/babel-plugin",
+    "inline-react-svg"
+  ]
 }

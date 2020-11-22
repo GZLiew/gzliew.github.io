@@ -16,7 +16,7 @@ export const SelectorWrapper = styled.div<SelectorWrapperProps>`
   ${tw`inline-flex font-medium rounded-full border overflow-hidden`}
   ${({ size }) => (size === "small" ? tw`text-md` : tw`text-1xl`)}
   color: ${({ theme }) => theme?.colors?.text?.primary};
-  border-color: ${({ theme, disabled }) => (disabled ? theme.colors.gray : theme.colors.pink.primary)};
+  border-color: ${({ theme, disabled }) => (disabled ? theme.colors.gray : theme.brandColors.primary)};
   -webkit-tap-highlight-color: transparent;
 `
 
