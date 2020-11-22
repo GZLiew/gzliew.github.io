@@ -76,10 +76,7 @@ const LanguageSwitcher: React.FC<Props> = ({ isNavbarOpen }) => {
   return (
     <React.Fragment>
       <SwitcherButton onClick={handleLangSwitcherClick}>
-        <SwitcherIcon
-          primaryColor={theme?.colors?.[theme?.primaryColor]?.primary}
-          altColor={theme?.colors?.[theme?.primaryColor]?.secondary}
-        />
+        <SwitcherIcon primaryColor={theme?.brandColors?.primary} altColor={theme?.brandColors?.secondary} />
       </SwitcherButton>
 
       {transitions.map(

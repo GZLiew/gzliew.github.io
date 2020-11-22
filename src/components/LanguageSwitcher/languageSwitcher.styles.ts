@@ -14,5 +14,5 @@ export const ItemsWrapper = animated(styled.div`
 
 export const Item = styled.a<{ isActive: boolean }>`
   ${tw`block px-4 py-3 cursor-pointer`}
-  color: ${({ isActive, theme }) => isActive && theme.colors.pink.primary};
+  color: ${({ isActive, theme }) => isActive && theme.brandColors.primary};
 `

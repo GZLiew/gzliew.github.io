@@ -31,9 +31,7 @@ export const MoreFacilities = styled.a`
       mr-0
     `}
     background: ${({ theme }) =>
-      `linear-gradient(134deg, ${theme?.colors?.[theme?.primaryColor]?.secondary} 17%, ${
-        theme?.colors?.[theme?.primaryColor]?.primary
-      } 77%)`};
+      `linear-gradient(134deg, ${theme?.brandColors?.secondary} 17%, ${theme?.brandColors?.primary} 77%)`};
     color: ${rgba("#fff", 0.72)};
   }
   h5 {

@@ -17,7 +17,7 @@ export const SubsectionWrapper = styled.div<DropdownProps>`
   border-bottom: ${({ isDropdown, theme }) =>
     isDropdown &&
     `1px solid
-    ${theme.mode === "light" ? theme?.colors?.white?.primary : theme?.colors?.white?.secondary}}`};
+    ${theme.mode === "light" ? theme?.colors?.primary : theme?.colors?.secondary}}`};
   margin-bottom: ${({ isDropdown }) => !isDropdown && `2rem`};
 
   & > p {

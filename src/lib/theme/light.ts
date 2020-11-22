@@ -1,13 +1,9 @@
-import commonColors from "./commonColors"
-
 export default {
   mode: "light",
   colors: {
-    ...commonColors,
-    white: {
-      primary: "#cfd4dc",
-      secondary: "#ffffff"
-    },
+    primary: "#cfd4dc",
+    secondary: "#ffffff",
+    gray: "#797979",
     bodyBackground: "#eaecee",
     text: {
       primary: "#101112",

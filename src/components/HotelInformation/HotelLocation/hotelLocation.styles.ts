@@ -18,7 +18,7 @@ export const LocationMarker = styled(LocationIcon)`
   `}
 
   path {
-    fill: ${({ theme }) => theme?.colors?.[theme?.primaryColor]?.primary};
+    fill: ${({ theme }) => theme?.brandColors?.primary};
   }
 `
 

@@ -1,13 +1,9 @@
-import commonColors from "./commonColors"
-
 export default {
   mode: "dark",
   colors: {
-    ...commonColors,
-    white: {
-      primary: "#1d2023",
-      secondary: "#2d3236"
-    },
+    primary: "#1d2023",
+    secondary: "#2d3236",
+    gray: "#797979",
     bodyBackground: "linear-gradient(to bottom, #363b41, #24282d 55%, #16181c)",
     text: {
       primary: "#BCBDBF",

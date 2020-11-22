@@ -41,13 +41,13 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
   ${ButtonStyled} {
     background: ${({ theme, bgColor }) =>
-      `linear-gradient(101deg, ${theme.colors[bgColor]?.secondary} 17%, ${theme.colors[bgColor]?.primary} 77%)`};
+      `linear-gradient(101deg, ${theme.colors.secondary} 17%, ${theme.colors.primary} 77%)`};
 
   ${({ variant, theme, bgColor }) =>
     variant === "flat" &&
     css`
-      background: ${transparentize(0.8, theme.colors[bgColor]?.primary)};
-      color: ${theme.colors[bgColor]?.primary};
+      background: ${transparentize(0.8, theme.colors.primary)};
+      color: ${theme.colors.primary};
       font-size: 12px;
     `}
 
@@ -66,7 +66,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
     ${ButtonStyled} {
       background: ${({ theme, bgColor }) =>
-        `linear-gradient(101deg, ${theme.colors[bgColor]?.primary} 17%, ${theme.colors[bgColor]?.secondary} 77%)`};
+        `linear-gradient(101deg, ${theme.colors.primary} 17%, ${theme.colors.secondary} 77%)`};
     }
   }
 
@@ -81,7 +81,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
       &:hover,
       &:focus {
         ${ButtonStyled} {
-          background: ${transparentize(0.7, theme.colors[bgColor]?.primary)};
+          background: ${transparentize(0.7, theme.colors.primary)};
         }
       }
     `}

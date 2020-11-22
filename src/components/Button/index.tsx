@@ -31,7 +31,7 @@ const Button = ({
     <ButtonWrapper
       onClick={onClick}
       variant={variant}
-      bgColor={bgColor || theme?.primaryColor}
+      bgColor={bgColor || theme?.brandColors.primary}
       maxWidth={maxWidth}
       height={height}
       withIcon={withIcon}>

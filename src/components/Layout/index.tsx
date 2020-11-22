@@ -8,6 +8,7 @@ import Header from "../Header"
 import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
 
 import { light, dark } from "@/lib/theme"
+import brandColors from "@/lib/theme/brandColors"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ILayoutNavigation } from "@/lib/types/commonLayout"
 
@@ -21,12 +22,16 @@ interface Props {
 const Layout = ({ preview, children, hotelConfig, navLinks }: Props) => {
   const [headerHeight, setHeaderHeight] = useState(0)
   const links = navLinks?.length >= 0 ? navLinks[0]?.links : []
+  const brandColor = hotelConfig?.content?.primaryColor
 
   return (
     <ThemeProvider
       theme={{
         ...(hotelConfig?.content?.theme === "light" ? light : dark),
-        primaryColor: hotelConfig?.content?.primaryColor
+        brandColors: {
+          primary: brandColors[brandColor].primary,
+          secondary: brandColors[brandColor].secondary
+        }
       }}>
       <HeaderHeightContext.Provider value={headerHeight}>
         <GlobalStyles />

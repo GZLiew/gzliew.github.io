@@ -6,7 +6,7 @@ import Layout from "@/components/Layout"
 import Accordion from "@/components/Accordion"
 import QuantitySelector from "@/components/QuantitySelector"
 
-import { getHotelGlobalNavigation, getLanguageCodes } from "@/lib/api"
+import { getHotelConfiguration, getHotelGlobalNavigation, getLanguageCodes } from "@/lib/api"
 import { HomeContent } from "@/lib/types/homeContent"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ICommonLayout } from "@/lib/types/commonLayout"
@@ -20,11 +20,11 @@ interface Props {
   preview?: boolean
 }
 
-export default function Components({ allLangs, layoutNavigation, preview }: Props) {
+export default function Components({ allLangs, layoutNavigation, preview, hotelConfig }: Props) {
   const [active, setActive] = useState("1")
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout navLinks={layoutNavigation?.navigation} preview={preview}>
+      <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
         <Accordion title="Choice of veg starter" secondaryTitle="Required">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia harum odit, rem dolorum culpa
           quibusdam. Deserunt porro voluptatibus natus asperiores eum libero magnam suscipit nobis doloremque,
@@ -61,10 +61,11 @@ export default function Components({ allLangs, layoutNavigation, preview }: Prop
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
+  const hotelConfig = (await getHotelConfiguration(preview)) || []
   const layoutNavigation = (await getHotelGlobalNavigation(preview)) || []
 
   const langCodes: string[] = await getLanguageCodes()
   const allLangs = ["en", ...langCodes]
 
-  return { props: { allLangs, layoutNavigation } }
+  return { props: { allLangs, layoutNavigation, hotelConfig } }
 }

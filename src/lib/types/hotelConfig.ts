@@ -1,5 +1,4 @@
 import { SbEditableContent } from "storyblok-react"
-import { IStoryblok_IconAsset } from "./storyblok"
 
 export interface HotelConfigProps {
   id: number

@@ -13,14 +13,14 @@ type FillProps = {
 
 export const Root = styled.label<RootProps>`
   ${tw`block m-5 pl-4 cursor-pointer relative font-normal text-md text-gray-600`}
-  color: ${({ active, theme }) => (active ? theme.colors.pink.primary : tw`text-gray-600`)}
+  color: ${({ active, theme }) => (active ? theme.brandColors.primary : tw`text-gray-600`)}
 `
 
 export const Fill = styled.div<FillProps>`
   ${tw`rounded-full absolute left-0`}
   top: 50%;
   background: ${({ fillColor, borderActive, theme }) =>
-    !borderActive ? "transparent" : fillColor || theme.colors.pink.primary};
+    !borderActive ? "transparent" : fillColor || theme.brandColors.primary};
   transform: translate(-50%, -50%);
   transition: width 0.2s ease-in, height 0.2s ease-in;
   z-index: 1;
@@ -36,7 +36,7 @@ export const Fill = styled.div<FillProps>`
     width: 18px;
     height: 18px;
     transform: translate(-50%, -50%);
-    border: 1px solid ${({ borderActive, theme }) => borderActive && theme.colors.pink.primary};
+    border: 1px solid ${({ borderActive, theme }) => borderActive && theme.brandColors.primary};
   }
 `
 
