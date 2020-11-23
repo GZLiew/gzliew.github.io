@@ -3,6 +3,7 @@ import usePrevious from "@/lib/hooks/usePrevious"
 import { useTheme } from "@emotion/react"
 
 import { ColumnWrapper, SelectorWrapper } from "./QuantitySelector.styles"
+import TouchableOpacity from "@/components/TouchableOpacity"
 
 interface Props {
   value: number
@@ -59,13 +60,13 @@ const QuantitySelector = ({
 
   return (
     <SelectorWrapper size={size} disabled={disabled}>
-      <ColumnWrapper hover onClick={decrement}>
-        -
-      </ColumnWrapper>
+      <TouchableOpacity onClick={decrement}>
+        <ColumnWrapper hover>-</ColumnWrapper>
+      </TouchableOpacity>
       <ColumnWrapper bgColor={disabled ? colors.gray : brandColors.primary}>{value}</ColumnWrapper>
-      <ColumnWrapper hover onClick={increment}>
-        +
-      </ColumnWrapper>
+      <TouchableOpacity onClick={increment}>
+        <ColumnWrapper hover>+</ColumnWrapper>
+      </TouchableOpacity>
     </SelectorWrapper>
   )
 }

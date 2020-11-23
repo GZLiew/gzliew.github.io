@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from "react"
+import TouchableOpacity from "@/components/TouchableOpacity"
 import { Fill, Input, Root, SecondaryText } from "./Radio.styles"
 
 type Props = {
@@ -12,19 +13,21 @@ type Props = {
 
 const Radio = ({ onChange, value, labelText, checked, name, secondaryText }: Props) => {
   return (
-    <Root active={checked}>
-      {labelText}
-      <SecondaryText>{secondaryText}</SecondaryText>
-      <Input
-        type="radio"
-        onChange={onChange}
-        name={name}
-        value={value}
-        checked={checked}
-        aria-checked={checked}
-      />
-      <Fill borderActive={checked} />
-    </Root>
+    <TouchableOpacity>
+      <Root active={checked}>
+        {labelText}
+        <SecondaryText>{secondaryText}</SecondaryText>
+        <Input
+          type="radio"
+          onChange={onChange}
+          name={name}
+          value={value}
+          checked={checked}
+          aria-checked={checked}
+        />
+        <Fill borderActive={checked} />
+      </Root>
+    </TouchableOpacity>
   )
 }
 
