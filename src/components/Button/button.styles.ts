@@ -46,7 +46,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${({ variant, theme, bgColor }) =>
     variant === "flat" &&
     css`
-      background: ${transparentize(0.8, theme.colors.primary)};
+      background: ${transparentize(0.8, bgColor || theme.colors.primary)};
       color: ${theme.colors.primary};
       font-size: 12px;
     `}
@@ -81,7 +81,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
       &:hover,
       &:focus {
         ${ButtonStyled} {
-          background: ${transparentize(0.7, theme.colors.primary)};
+          background: ${transparentize(0.7, bgColor || theme.colors.primary)};
         }
       }
     `}

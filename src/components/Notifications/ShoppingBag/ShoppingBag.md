@@ -1,0 +1,5 @@
+ShoppingBag:
+
+```tsx
+<ShoppingBag />
+```

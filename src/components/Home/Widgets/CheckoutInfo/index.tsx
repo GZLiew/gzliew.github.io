@@ -1,3 +1,4 @@
+import { ReactChild } from "react"
 import { RoomInfoWrapper, InfoWrapper, DateLabel, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
 import { WidgetContainer } from "../widget.styles"
 
@@ -5,7 +6,11 @@ import Button from "@/components/Button"
 
 import NextIcon from "../../../../assets/icons/ic-next.svg"
 
-const CheckOutInfo = () => {
+type Props = {
+  children?: ReactChild
+}
+
+const CheckOutInfo = ({}: Props) => {
   return (
     <WidgetContainer>
       <RoomInfoWrapper>

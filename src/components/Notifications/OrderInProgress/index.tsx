@@ -1,9 +1,13 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect, ReactChild } from "react"
 import { NotificationBg, NotificationWrapper, MessageWrapper, StyledButton } from "./order.styles"
 
 import useToggle from "@/lib/hooks/useToggle"
 
-const OrderInProgress = () => {
+type Props = {
+  children?: ReactChild
+}
+
+const OrderInProgress = ({}: Props) => {
   const ref = useRef(null)
   const [isActive, toggle] = useToggle(true)
 

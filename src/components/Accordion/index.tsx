@@ -42,4 +42,5 @@ const Accordion = (props: Props) => {
   )
 }
 
+/** @component */
 export default Accordion

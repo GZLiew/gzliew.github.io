@@ -32,6 +32,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   const validHomePaths = ["/", "/home", "/editor"]
   const isHome = validHomePaths.some((path) => {
     // check if route is "/"
+    if (!router) return false
     if (router.route === path) return router.route === path
     // check if route is "[language]/"
     if (path === "/") return router.route === `${path}[language]`
@@ -78,6 +79,7 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
   }, [])
 
   const backToHome = () => {
+    if (!router) return false
     router.push(localizedHomeRoute)
   }
 
