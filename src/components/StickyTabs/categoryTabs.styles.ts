@@ -23,7 +23,7 @@ export const Container = styled(animated.div)`
   }
 `
 
-export const Tab = styled.a`
+export const Tab = styled.a<{ height: number }>`
   ${tw`px-3 text-xs`}
   flex: 0 0 auto;
   color: ${({ theme }) => theme.colors.text.alternate};
@@ -41,6 +41,8 @@ export const Tab = styled.a`
   }
 
   span {
-    ${tw`block py-4 border-b-2 border-solid border-transparent`}
+    ${tw`flex border-b-2 items-center border-solid border-transparent`}
+
+    height: ${(props) => props.height}px;
   }
 `

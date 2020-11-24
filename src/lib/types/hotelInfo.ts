@@ -36,8 +36,9 @@ export interface IScrollingIcon extends SbEditableContent {
 }
 
 export interface ICategory extends SbEditableContent {
-  title?: string
+  title: string
   description?: string
+  slug: string
   subsections?: ICategorySubsection[]
 }
 

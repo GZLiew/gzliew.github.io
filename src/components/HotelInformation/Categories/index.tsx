@@ -1,26 +1,23 @@
-import { useState } from "react"
-
-import TabsHeightContext from "@/lib/context/TabsHeightContext"
-
 import Category from "../Category"
-import CategoryTabs from "../CategoryTabs"
-
+import StickyTabs from "@/components/StickyTabs"
+import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
 import { ICategory } from "@/lib/types/hotelInfo"
+import { useContext } from "react"
 
 interface Props {
   categories: ICategory[]
 }
 
 const Categories = ({ categories }: Props) => {
-  const [tabsHeight, setTabsHeight] = useState(0)
+  const headerHeight = useContext(HeaderHeightContext)
 
   return (
-    <TabsHeightContext.Provider value={tabsHeight}>
-      <CategoryTabs categories={categories} setTabsHeight={setTabsHeight} />
+    <>
+      {headerHeight && <StickyTabs items={categories} offset={headerHeight} />}
       {categories.map((category) => (
-        <Category key={category?._uid} category={category} />
+        <Category key={category.slug} category={category} />
       ))}
-    </TabsHeightContext.Provider>
+    </>
   )
 }
 
