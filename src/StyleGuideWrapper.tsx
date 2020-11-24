@@ -5,6 +5,9 @@ import brandColors from "@/lib/theme/brandColors"
 import { light } from "./lib/theme"
 import GlobalStyles from "./components/Layout/GlobalStyles"
 
+import "@/styles/base.css"
+import "@brainhubeu/react-carousel/lib/style.css"
+
 type Props = {
   children?: ReactChild
 }
