@@ -12,6 +12,7 @@ import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ICommonLayout } from "@/lib/types/commonLayout"
 import RadioButtons from "@/components/RadioButtons"
 import MenuItem from "@/components/MenuItem"
+import ButtonTab from "@/components/ButtonTab"
 
 interface Props {
   allLangs: string[]
@@ -20,6 +21,17 @@ interface Props {
   layoutNavigation?: ICommonLayout
   preview?: boolean
 }
+
+const fakeItems = [
+  {
+    id: "sometandom12132",
+    title: "Food"
+  },
+  {
+    id: "alkdnc212321312",
+    title: "Beverage"
+  }
+]
 
 export default function Components({ allLangs, layoutNavigation, preview, hotelConfig }: Props) {
   const [active, setActive] = useState("1")
@@ -47,19 +59,24 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
             { id: "4", label: "noodles Thai Style", secondaryLabel: "+$29" }
           ]}
         />
-        <QuantitySelector
-          value={0}
-          onDecrement={(v) => console.log(v)}
-          onIncrement={(v) => console.log(v)}
-          size="small"
-          disabled
-        />
-        <QuantitySelector
-          value={0}
-          onDecrement={(v) => console.log(v)}
-          onIncrement={(v) => console.log(v)}
-          size="large"
-        />
+        <div style={{ padding: 30 }}>
+          <ButtonTab items={fakeItems} initialIndex={1} onChange={(item) => console.log(item)} />
+        </div>
+        <div style={{ padding: 30 }}>
+          <QuantitySelector
+            value={0}
+            onDecrement={(v) => console.log(v)}
+            onIncrement={(v) => console.log(v)}
+            size="small"
+            disabled
+          />
+          <QuantitySelector
+            value={0}
+            onDecrement={(v) => console.log(v)}
+            onIncrement={(v) => console.log(v)}
+            size="large"
+          />
+        </div>
         <MenuItem
           image={image}
           title="Supreme Paneer Burger"

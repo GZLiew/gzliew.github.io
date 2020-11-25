@@ -21,6 +21,7 @@ const RadioButtons = (props: Props) => {
     <RadioButtonsWrapper>
       {items.map(({ id, label, secondaryLabel }) => (
         <Radio
+          key={id}
           value={label}
           onChange={() => onClickRadioButton({ id, label, secondaryLabel })}
           name={label}

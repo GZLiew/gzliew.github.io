@@ -13,7 +13,7 @@ type Props = {
 }
 
 const StyleGuideWrapper = ({ children }: Props) => {
-  const brandColor = "pink"
+  const brandColor = "blue"
 
   return (
     <ThemeProvider
