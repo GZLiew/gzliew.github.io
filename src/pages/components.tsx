@@ -11,6 +11,7 @@ import { HomeContent } from "@/lib/types/homeContent"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ICommonLayout } from "@/lib/types/commonLayout"
 import RadioButtons from "@/components/RadioButtons"
+import MenuItem from "@/components/MenuItem"
 
 interface Props {
   allLangs: string[]
@@ -22,6 +23,10 @@ interface Props {
 
 export default function Components({ allLangs, layoutNavigation, preview, hotelConfig }: Props) {
   const [active, setActive] = useState("1")
+  const image = {
+    name: "tapendium-logo",
+    filename: "https://a.storyblok.com/f/87760/450x600/2733ab6342/tapendium-logo-image.png"
+  }
   return (
     <LanguagesContext.Provider value={allLangs}>
       <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
@@ -54,6 +59,12 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
           onDecrement={(v) => console.log(v)}
           onIncrement={(v) => console.log(v)}
           size="large"
+        />
+        <MenuItem
+          image={image}
+          title="Supreme Paneer Burger"
+          description="Fresh grilled heavy paneer slice, dressed with island sauce, mayonnaise, green chilli sauce.."
+          price={25}
         />
       </Layout>
     </LanguagesContext.Provider>
