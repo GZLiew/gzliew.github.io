@@ -3,14 +3,16 @@ import { useGesture } from "react-use-gesture"
 import { AnimatedDiv } from "./TouchableOpacity.styles"
 
 type Props = React.ComponentProps<typeof AnimatedDiv>
+type ExtraAttrs = { repeatCall?: boolean }
 
-const TouchableOpacity = ({ children, ...props }: Props) => {
+const TouchableOpacity = ({ children, repeatCall, ...props }: Props & ExtraAttrs) => {
   const [down, setDown] = useState(false)
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
 
   const actionDown = useCallback(() => {
     setDown(true)
+    if (!repeatCall) return
     if (!props.onClick) return
     timerRef.current = setTimeout(() => {
       intervalRef.current = setInterval(props.onClick, 50)

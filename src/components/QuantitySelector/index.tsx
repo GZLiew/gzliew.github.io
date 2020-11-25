@@ -60,11 +60,11 @@ const QuantitySelector = ({
 
   return (
     <SelectorWrapper size={size} disabled={disabled}>
-      <TouchableOpacity onClick={decrement}>
+      <TouchableOpacity repeatCall onClick={decrement}>
         <ColumnWrapper hover>-</ColumnWrapper>
       </TouchableOpacity>
       <ColumnWrapper bgColor={disabled ? colors.gray : brandColors.primary}>{value}</ColumnWrapper>
-      <TouchableOpacity onClick={increment}>
+      <TouchableOpacity repeatCall onClick={increment}>
         <ColumnWrapper hover>+</ColumnWrapper>
       </TouchableOpacity>
     </SelectorWrapper>
