@@ -1,5 +1,5 @@
 import Category from "../Category"
-import StickyTabs from "@/components/StickyTabs"
+import StickyTabs from "@/components/_common/StickyTabs"
 import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
 import { ICategory } from "@/lib/types/hotelInfo"
 import { useContext } from "react"

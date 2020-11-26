@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 import { css } from "@emotion/react"
-import TouchableOpacity from "@/components/TouchableOpacity"
+import TouchableOpacity from "@/components/_common/TouchableOpacity"
 import { transparentize } from "polished"
 
 type BaseProps = {

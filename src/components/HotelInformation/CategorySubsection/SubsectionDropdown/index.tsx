@@ -5,7 +5,7 @@ import StyledContainer from "@/components/Container"
 import RichTextField from "@/components/RichTextField"
 
 import { ICategorySubsection } from "@/lib/types/hotelInfo"
-import Accordion from "@/components/Accordion"
+import Accordion from "@/components/_common/Accordion"
 
 interface Props {
   subsection: ICategorySubsection

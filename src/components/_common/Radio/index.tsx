@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from "react"
-import TouchableOpacity from "@/components/TouchableOpacity"
+import TouchableOpacity from "@/components/_common/TouchableOpacity"
 import { Fill, Input, Root, SecondaryText } from "./Radio.styles"
 
 type Props = {

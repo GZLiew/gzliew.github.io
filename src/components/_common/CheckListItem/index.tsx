@@ -1,6 +1,6 @@
 import React from "react"
 
-import CheckedIcon from "../../assets/icons/ic-checked.svg"
+import CheckedIcon from "../../../assets/icons/ic-checked.svg"
 
 import { Base, CheckMark, Label, CheckMarkHighlight, HighlightBackground } from "./CheckListItem.styles"
 

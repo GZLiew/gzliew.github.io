@@ -1,7 +1,7 @@
 import { ReactChild, useState } from "react"
 import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import { useSpring, animated } from "react-spring"
-import ChevronDownSvg from "../../assets/icons/chevron-down.svg"
+import ChevronDownSvg from "../../../assets/icons/chevron-down.svg"
 import { TitleWrapper, Title, SecondaryTitle, AccordionContent } from "./Accordion.styles"
 
 interface Props {

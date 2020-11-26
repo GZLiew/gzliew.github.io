@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useRef } from "react"
 import { useSpring, interpolate } from "react-spring"
 import { useDrag } from "react-use-gesture"
 import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
-import TouchableOpacity from "@/components/TouchableOpacity"
+import TouchableOpacity from "../TouchableOpacity"
 
 import { Base, Tab, TabOverlay } from "./ButtonTab.styles"
 

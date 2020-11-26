@@ -1,5 +1,5 @@
 import React from "react"
-import Radio from "@/components/Radio"
+import Radio from "@/components/_common/Radio"
 import { RadioButtonsWrapper } from "./RadioButtons.styles"
 
 type RadioItem = {

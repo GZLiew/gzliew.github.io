@@ -4,7 +4,7 @@ const aliases = require("./aliases")
 module.exports = {
   assetsDir: './src/assets/',
   moduleAliases: aliases,
-  components: "./src/components/**/*.tsx",
+  components: "./src/components/_common/**/*.tsx",
   styleguideComponents: {
     Wrapper: path.join(__dirname, "src/StyleGuideWrapper.tsx")
   },

@@ -3,7 +3,7 @@ import usePrevious from "@/lib/hooks/usePrevious"
 import { useTheme } from "@emotion/react"
 
 import { ColumnWrapper, SelectorWrapper } from "./QuantitySelector.styles"
-import TouchableOpacity from "@/components/TouchableOpacity"
+import TouchableOpacity from "../TouchableOpacity"
 
 interface Props {
   value: number

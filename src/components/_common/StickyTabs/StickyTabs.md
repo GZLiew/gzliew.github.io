@@ -3,7 +3,7 @@
 
 
 ```tsx
-import StickyTabs from '@/components/StickyTabs';
+import StickyTabs from '@/components/_common/StickyTabs';
 
 <>
   <StickyTabs items={[

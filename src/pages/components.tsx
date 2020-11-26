@@ -3,16 +3,16 @@ import { GetStaticProps } from "next"
 
 import LanguagesContext from "@/lib/context/LanguagesContext"
 import Layout from "@/components/Layout"
-import Accordion from "@/components/Accordion"
-import QuantitySelector from "@/components/QuantitySelector"
+import Accordion from "@/components/_common/Accordion"
+import QuantitySelector from "@/components/_common/QuantitySelector"
 
 import { getHotelConfiguration, getHotelGlobalNavigation, getLanguageCodes } from "@/lib/api"
 import { HomeContent } from "@/lib/types/homeContent"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ICommonLayout } from "@/lib/types/commonLayout"
-import RadioButtons from "@/components/RadioButtons"
-import MenuItem from "@/components/MenuItem"
-import ButtonTab from "@/components/ButtonTab"
+import RadioButtons from "@/components/_common/RadioButtons"
+import MenuItem from "@/components/_common/MenuItem"
+import ButtonTab from "@/components/_common/ButtonTab"
 
 interface Props {
   allLangs: string[]
