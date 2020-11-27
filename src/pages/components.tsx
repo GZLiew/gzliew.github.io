@@ -13,6 +13,7 @@ import { ICommonLayout } from "@/lib/types/commonLayout"
 import RadioButtons from "@/components/_common/RadioButtons"
 import MenuItem from "@/components/_common/MenuItem"
 import ButtonTab from "@/components/_common/ButtonTab"
+import Button from "@/components/_common/Button"
 
 interface Props {
   allLangs: string[]
@@ -49,6 +50,13 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
           laudantium ducimus consequatur aliquid esse, dolore ullam quas distinctio voluptas fugit quaerat.
           Laborum repudiandae iure dolore.
         </Accordion>
+        <div style={{ padding: 30 }}>
+          <Button size="small">small</Button>
+          <Button size="medium" withIcon disabled>
+            medium <span>&rarr;</span>
+          </Button>
+          <Button size="large">large</Button>
+        </div>
         <RadioButtons
           onClickRadioButton={(item) => setActive(item.id)}
           activeItem={active}
