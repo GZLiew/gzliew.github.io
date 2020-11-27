@@ -12,10 +12,12 @@ const data = [
   { id: "7", title: "Veg Starter" },
 ]
 ;
-<CheckList
-  items={data}
-  onChange={(changes) => console.log(changes)}
-  limit={2}
-  errorMsg="Limit of 2 items only"
-/>
+<div style={{ background: "linear-gradient(180deg, #EAEAEA 0%, #CED1D5 100%)", padding: "10px" }}>
+  <CheckList
+    items={data}
+    onChange={(changes) => console.log(changes)}
+    limit={4}
+    errorMsg="Limit of 4 items only"
+  />
+</div>
 ```

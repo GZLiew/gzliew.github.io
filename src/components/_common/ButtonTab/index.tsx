@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from "react"
 import { useSpring, interpolate } from "react-spring"
 import { useDrag } from "react-use-gesture"
+
 import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
 import TouchableOpacity from "../TouchableOpacity"
 
@@ -49,18 +50,18 @@ const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
     const treshold = eachTabWidthRef.current / 2
     const resolvedOffset = currOffsetX + mx
     if (resolvedOffset <= 0) {
-      setActiveTab(items[0])
+      if (!down) setTab(items[0])
       return setTranslate({ x: 0, immediate: down, size: down ? 1.1 : 1 })
     }
     if (resolvedOffset >= rightBound) {
-      setActiveTab(items[items.length - 1])
+      if (!down) setTab(items[items.length - 1])
       return setTranslate({ x: rightBound, immediate: down, size: down ? 1.1 : 1 })
     }
     setTranslate({ x: resolvedOffset, immediate: down, size: down ? 1.1 : 1 })
     if (!down) {
       const itemPos = Math.floor((resolvedOffset + treshold) / eachTabWidthRef.current)
       const offsetX = eachTabWidthRef.current * itemPos
-      setActiveTab(items[itemPos])
+      setTab(items[itemPos])
       return setTranslate({
         x: itemPos ? offsetX - BaseBorderWidth : offsetX,
         immediate: down,
@@ -69,18 +70,25 @@ const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
     }
   })
 
-  const setTab = useCallback(
-    (item: TabItem) => {
-      setActiveTab(item)
-    },
-    [setActiveTab]
-  )
+  const setTab = (item: TabItem) => {
+    if (item.id === activeTab.id) return
+    setActiveTab(item)
+    onChange(item)
+  }
+
+  const onTabClick = (item: TabItem) => {
+    if (eachTabWidthRef.current && !isXScrolling) {
+      const offsetX = getOffsetX(items, item, eachTabWidthRef.current)
+      setTranslate({ x: offsetX, immediate: false })
+      setTab(item)
+    }
+  }
 
   useEffect(() => {
     if (items.length > 0) {
       eachTabWidthRef.current = Math.round(baseWidth / items.length)
     }
-  }, [setActiveTab, baseWidth, initialIndex])
+  }, [baseWidth, initialIndex])
 
   useEffect(() => {
     if (eachTabWidthRef.current && !initialized) {
@@ -90,18 +98,13 @@ const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
     }
   }, [baseWidth, eachTabWidthRef.current, initialized, setTranslate, setInitialized])
 
-  useEffect(() => {
-    if (eachTabWidthRef.current) {
-      const offsetX = getOffsetX(items, activeTab, eachTabWidthRef.current)
-      setTranslate({ x: offsetX, immediate: false })
-      onChange(activeTab)
-    }
-  }, [activeTab, setTranslate, onChange])
-
   return (
     <Base ref={baseRef}>
       {items.map((item) => (
-        <Tab onClick={() => !isXScrolling && setTab(item)} key={item.id} isFocused={activeTab.id === item.id}>
+        <Tab
+          onClick={() => !isXScrolling && onTabClick(item)}
+          key={item.id}
+          isFocused={activeTab.id === item.id}>
           <TouchableOpacity>{item.title}</TouchableOpacity>
         </Tab>
       ))}

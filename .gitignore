@@ -35,3 +35,6 @@ sw.*
 
 .tmp/
 .vercel
+
+# styleguide
+styleguide

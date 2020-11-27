@@ -1793,6 +1793,11 @@
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.6.tgz#f4c7ec43e81b319a9815115031709f26987891f0"
   integrity sha512-3c+yGKvVP5Y9TYBEibGNR+kLtijnj7mYrXRg+WpFb2X9xm04g/DXYkfg4hmzJQosc9snFNUPkbYIhu+KAm6jJw==
 
+"@types/lodash@^4.14.165":
+  version "4.14.165"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.165.tgz#74d55d947452e2de0742bad65270433b63a8c30f"
+  integrity sha512-tjSSOTHhI5mCHTy/OOXYIhi2Wt1qcbHmuXD1Ha7q70CgI/I71afO4XtLb/cVexki1oVYchpul/TOuu3Arcdxrg==
+
 "@types/mdast@^3.0.0":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@types/mdast/-/mdast-3.0.3.tgz#2d7d671b1cd1ea3deb306ea75036c2a0407d2deb"
@@ -8374,10 +8379,10 @@ react-spring@^8.0.27:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"
 
-react-styleguidist@^11.1.3:
-  version "11.1.3"
-  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-11.1.3.tgz#d61270d25e849a71729853858839c1caada36685"
-  integrity sha512-hZvMl5lN9QyDGJ7+746JttFm0lSoRq68kNmpQWfMyzPf7RnTIwGqlWG75f3WbZdwY+Djv9K+gqpCRwRDfAy0tw==
+react-styleguidist@^11.1.4:
+  version "11.1.4"
+  resolved "https://registry.yarnpkg.com/react-styleguidist/-/react-styleguidist-11.1.4.tgz#afd7cded3e65103763dbbf374a155e661747f3a8"
+  integrity sha512-IgqG6R1EtVgX571Q5SKdOd/EBTwrzEFMTL/HKFeahTcEV8zYv1PfPRUwgyAQildLj8LOM3yJDx1NtrIJ55wB0Q==
   dependencies:
     "@tippyjs/react" "4.1.0"
     "@vxna/mini-html-webpack-template" "^2.0.0"
