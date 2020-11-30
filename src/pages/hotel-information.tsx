@@ -3,7 +3,7 @@ import { GetStaticProps } from "next"
 import LanguagesContext from "@/lib/context/LanguagesContext"
 
 import HotelInformation from "@/components/HotelInformation"
-import Layout from "@/components/Layout"
+import Layout from "@/components/DefaultLayout"
 import SEO from "@/components/SEO"
 
 import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from "@/lib/api"

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { GetStaticProps } from "next"
 
 import LanguagesContext from "@/lib/context/LanguagesContext"
-import Layout from "@/components/Layout"
+import Layout from "@/components/DefaultLayout"
 import Accordion from "@/components/_common/Accordion"
 import QuantitySelector from "@/components/_common/QuantitySelector"
 

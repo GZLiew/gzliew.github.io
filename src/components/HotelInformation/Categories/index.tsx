@@ -1,15 +1,15 @@
-import Category from "../Category"
 import StickyTabs from "@/components/_common/StickyTabs"
-import HeaderHeightContext from "@/lib/context/HeaderHeightContext"
+import { useHeaderHeight } from "@/components/Providers/HeaderHeightProvider"
 import { ICategory } from "@/lib/types/hotelInfo"
-import { useContext } from "react"
+
+import Category from "../Category"
 
 interface Props {
   categories: ICategory[]
 }
 
 const Categories = ({ categories }: Props) => {
-  const headerHeight = useContext(HeaderHeightContext)
+  const { headerHeight } = useHeaderHeight()
 
   return (
     <>

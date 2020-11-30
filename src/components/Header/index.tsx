@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react"
-import { throttle } from "lodash"
-import { useState, useEffect, useRef } from "react"
+import { isFunction, throttle } from "lodash"
+import { useState, useEffect, useRef, ReactNode } from "react"
 import { useSpring } from "react-spring"
 
 import { useRouter } from "next/router"
@@ -18,17 +18,24 @@ import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
 
 import useToggle from "@/lib/hooks/useToggle"
 import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
+import { useHeaderHeight } from "@/components/Providers/HeaderHeightProvider"
+
+type TitleProps = Omit<Props, "title"> & { hasScrolled?: boolean }
+export type Title = (props: TitleProps) => ReactNode | ReactNode
 
 interface Props {
   hotelLogo?: HotelLogo
   hotelLogoDark?: HotelLogo
   navLinks?: ILayoutNavigationLink[]
-  setHeaderHeight: (number) => void
+  title?: Title
 }
 
-const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) => {
+const Header = (props: Props) => {
+  const { title, ...titleProps } = props
+  const { hotelLogo, hotelLogoDark, navLinks } = titleProps
   const theme = useTheme()
   const router = useRouter()
+  const { setHeaderHeight } = useHeaderHeight()
   const validHomePaths = ["/", "/home", "/editor"]
   const isHome = validHomePaths.some((path) => {
     // check if route is "/"
@@ -97,12 +104,16 @@ const Header = ({ hotelLogo, hotelLogoDark, navLinks, setHeaderHeight }: Props) 
           <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white">
             {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
           </Button>
-          <Logo
-            src={themeHotelLogo?.filename}
-            alt={themeHotelLogo?.name}
-            title={themeHotelLogo?.name}
-            style={logoProps}
-          />
+          {isFunction(title) && title({ ...titleProps, hasScrolled })}
+          {!isFunction(title) ? title : null}
+          {!title && (
+            <Logo
+              src={themeHotelLogo?.filename}
+              alt={themeHotelLogo?.name}
+              title={themeHotelLogo?.name}
+              style={logoProps}
+            />
+          )}
           {isHome ? (
             <Button bgColor="white">
               <NotificationIcon />
