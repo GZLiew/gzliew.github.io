@@ -25,9 +25,14 @@ declare module "@emotion/react" {
         background: string
         boxShadow: string
       }
+      footer: {
+        background: string
+        boxShadow: string
+      }
       notificationBg: string
       shoppingBagBg: string
       navbarBackground: string
+      menuBackground: string
       guestDetailsBorder: string
       ratings: {
         empty: string

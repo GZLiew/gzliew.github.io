@@ -18,9 +18,14 @@ export default {
       background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%);",
       boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.14)"
     },
+    footer: {
+      background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%);",
+      boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.14)"
+    },
     notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)",
     shoppingBagBg: "#fff",
     navbarBackground: "linear-gradient(to bottom, #eaeaea, #eaecee)",
+    menuBackground: "linear-gradient(180deg, #EAEAEA 0%, #EAECEE 100%);",
     guestDetailsBorder: "#dde0e4",
     ratings: {
       full: "#f7b500",
