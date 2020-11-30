@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
-import { Section as BaseSection } from "../section.styles"
+import { Section as BaseSection } from "../"
 import RichTextField from "@/components/RichTextField"
 
 export const Section = styled(BaseSection)(tw`pb-8`)
