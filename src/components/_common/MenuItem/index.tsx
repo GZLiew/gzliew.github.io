@@ -1,6 +1,8 @@
 import { MenuItemWrapper, MenuDetail, MenuImage } from "./menuItem.styles"
 import { HotelLogo } from "@/lib/types/hotelConfig"
 
+type MenuItemWrapperProps = React.ComponentProps<typeof MenuItemWrapper>
+
 interface Props {
   image?: HotelLogo
   title: string
@@ -8,10 +10,10 @@ interface Props {
   price: number
 }
 
-const MenuItem = (props: Props) => {
-  const { title, description, price, image } = props
+const MenuItem = (props: MenuItemWrapperProps & Props) => {
+  const { title, description, price, image, ...menuWrapperProps } = props
   return (
-    <MenuItemWrapper>
+    <MenuItemWrapper {...menuWrapperProps}>
       <MenuImage className={props.image ? "show" : "hidden"}>
         <img src={image?.filename} alt={image?.name} title={image?.name} />
       </MenuImage>

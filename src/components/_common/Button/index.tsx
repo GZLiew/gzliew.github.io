@@ -1,13 +1,14 @@
 import { ReactNode } from "react"
 import { ButtonStyled, ButtonWrapper } from "./Button.styles"
-import { PrimaryColor } from "@/lib/types/hotelConfig"
+
+type ButtonWrapperProps = Omit<React.ComponentProps<typeof ButtonWrapper>, "variant">
 
 interface Props {
   children?: ReactNode
   className?: string
   onClick?: () => void
   props?: any
-  bgColor?: PrimaryColor | "white"
+  bgColor?: string
   variant?: "flat"
   withIcon?: boolean
   size: "small" | "medium" | "large"
@@ -26,7 +27,7 @@ const Button = ({
   size = "small",
   disabled,
   ...props
-}: Props) => {
+}: Props & ButtonWrapperProps) => {
   return (
     <ButtonWrapper
       onClick={onClick}
@@ -35,7 +36,8 @@ const Button = ({
       withIcon={withIcon}
       outline={outline}
       size={size}
-      disabled={disabled}>
+      disabled={disabled}
+      {...props}>
       <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>
     </ButtonWrapper>
   )

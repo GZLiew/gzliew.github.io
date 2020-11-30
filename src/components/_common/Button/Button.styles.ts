@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import tw from "@tailwindcssinjs/macro"
 
 import { css } from "@emotion/react"
-import { transparentize } from "polished"
+import { transparentize, lighten } from "polished"
 
 type ButtonWrapperProps = {
   bgColor?: string
@@ -35,7 +35,10 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
   ${ButtonStyled} {
     ${tw` p-3 uppercase`}
-    background: linear-gradient(135.3deg, #F95688 16.81%, #E1245E 76.81%);
+    background: ${({ theme, bgColor }) =>
+      `linear-gradient(135.3deg, ${bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary} 16.81%, ${
+        bgColor || theme.brandColors.primary
+      } 76.81%)`};
 
     ${({ variant, theme, bgColor }) =>
       variant === "flat" &&
@@ -69,14 +72,20 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
 
   &:hover{
     ${ButtonStyled} {
-      background: linear-gradient(135.3deg, #E1245E 16.81%, #F95688 76.81%);
+      background: ${({ theme, bgColor }) =>
+        `linear-gradient(135.3deg, ${bgColor || theme.brandColors.primary} 16.81%, ${
+          bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
+        } 76.81%)`};
     }
   },
   &:focus {
     outline: 0;
 
     ${ButtonStyled} {
-      background: linear-gradient(135.3deg, #E1245E 16.81%, #F95688 76.81%);
+      background: ${({ theme, bgColor }) =>
+        `linear-gradient(135.3deg, ${bgColor || theme.brandColors.primary} 16.81%, ${
+          bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
+        } 76.81%)`};
     }
   }
 
