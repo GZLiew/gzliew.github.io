@@ -1,15 +1,15 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 export const StyledLink = styled.a<{ showBg: boolean }>`
-  ${tw`
+  ${xw`
       flex-auto
       w-full
       flex
       px-4
       py-3
-      text-md
+      text-base
       font-medium
       rounded-full
       items-center
@@ -24,7 +24,7 @@ export const StyledLink = styled.a<{ showBg: boolean }>`
 `
 
 export const IconWrapper = styled.div`
-  ${tw`
+  ${xw`
     mr-8
   `}
   width: 24px;

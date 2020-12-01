@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { slideUp, slideDown } from "@/styles/animations"
 
 import Button from "@/components/Button"
@@ -26,7 +26,7 @@ export const NotificationWrapper = styled.div`
   border-radius: 21px;
   box-shadow: 0 27px 7px -15px rgba(0, 0, 0, 0.18);
 
-  ${tw`flex items-center justify-between`}
+  ${xw`flex items-center justify-between`}
 `
 
 export const MessageWrapper = styled.div`
@@ -39,7 +39,7 @@ export const MessageWrapper = styled.div`
   & h4 {
     color: ${({ theme }) => theme.colors.text.primary};
     font-size: 15px;
-    ${tw`font-medium`}
+    ${xw`font-medium`}
   }
 `
 

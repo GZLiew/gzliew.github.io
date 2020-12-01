@@ -1,8 +1,8 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const Card = styled.div`
-  ${tw`
+  ${xw`
     flex
     flex-col
     items-center
@@ -30,7 +30,7 @@ export const Card = styled.div`
 `
 
 export const IconWrapper = styled.div`
-  ${tw`
+  ${xw`
     block
     mx-auto
     mb-1

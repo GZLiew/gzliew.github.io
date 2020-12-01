@@ -25,5 +25,8 @@ module.exports = {
       }
     }
   },
-  variants: {}
+  variants: {},
+  xwind: {
+    mode: "objectstyles"
+  }
 }

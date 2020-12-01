@@ -1,11 +1,11 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const ModalBg = styled.div`
-  ${tw`
+  ${xw`
     fixed
     inset-0
-    z-50
+    z-40
   `}
   background: ${({ theme }) => theme.colors?.bodyBackground};
   width: 100%;
@@ -17,7 +17,7 @@ export const ModalBg = styled.div`
 `
 
 export const ModalHeader = styled.div`
-  ${tw`
+  ${xw`
     flex items-center
   `}
   margin-bottom: 46px;

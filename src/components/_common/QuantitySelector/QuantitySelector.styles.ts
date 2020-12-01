@@ -1,6 +1,6 @@
+import xw from "xwind"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 type SelectorWrapperProps = {
   size?: "small" | "large"
@@ -13,15 +13,15 @@ type ColumnWrapperProps = {
 }
 
 export const SelectorWrapper = styled.div<SelectorWrapperProps>`
-  ${tw`inline-flex font-medium rounded-full border overflow-hidden`}
-  ${({ size }) => (size === "small" ? tw`text-lg` : tw`text-1xl`)}
+  ${xw`inline-flex font-medium rounded-full border overflow-hidden`}
+  ${({ size }) => (size === "small" ? xw`text-lg` : xw`text-xl`)}
   color: ${({ theme }) => theme?.colors?.text?.primary};
   border-color: ${({ theme, disabled }) => (disabled ? theme.colors.gray : theme.brandColors.primary)};
   -webkit-tap-highlight-color: transparent;
 `
 
 export const ColumnWrapper = styled.div<ColumnWrapperProps>`
-  ${tw`px-3 py-2 text-center`}
+  ${xw`px-3 py-2 text-center`}
   background-color: ${({ bgColor, theme }) => bgColor || theme.colors.bodyBackground};
   min-width: 40px;
   ${({ hover }) =>

@@ -1,8 +1,8 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const DetailsWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex
     items-start
     p-6
@@ -10,7 +10,7 @@ export const DetailsWrapper = styled.div`
   border-bottom: 3px solid ${({ theme }) => theme.colors.guestDetailsBorder};
 
   & img {
-    ${tw`
+    ${xw`
       flex-none
       mr-5
     `}
@@ -22,7 +22,7 @@ export const GuestInfo = styled.div`
   color: ${({ theme }) => theme.colors.text.primary};
 
   h4 {
-    ${tw`
+    ${xw`
       font-bold
       mb-1
     `}
@@ -30,7 +30,7 @@ export const GuestInfo = styled.div`
   }
 
   p {
-    ${tw`
+    ${xw`
       text-xs
       mb-1
     `}

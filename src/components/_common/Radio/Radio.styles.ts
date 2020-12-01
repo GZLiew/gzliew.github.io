@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 type RootProps = {
   borderColor?: string
@@ -12,12 +12,12 @@ type FillProps = {
 }
 
 export const Root = styled.label<RootProps>`
-  ${tw`block m-5 pl-4 cursor-pointer relative font-normal text-md text-gray-600`}
-  color: ${({ active, theme }) => (active ? theme.brandColors.primary : tw`text-gray-600`)}
+  ${xw`block m-5 pl-4 cursor-pointer relative font-normal text-base text-gray-600`}
+  color: ${({ active, theme }) => (active ? theme.brandColors.primary : xw`text-gray-600`)}
 `
 
 export const Fill = styled.div<FillProps>`
-  ${tw`rounded-full absolute left-0`}
+  ${xw`rounded-full absolute left-0`}
   top: 50%;
   background: ${({ fillColor, borderActive, theme }) =>
     !borderActive ? "transparent" : fillColor || theme.brandColors.primary};
@@ -29,7 +29,7 @@ export const Fill = styled.div<FillProps>`
   height: 18px;
 
   &::before {
-    ${tw`opacity-0 absolute rounded-full`}
+    ${xw`opacity-0 absolute rounded-full`}
     top: 50%;
     left: 50%;
     content: "";
@@ -41,7 +41,7 @@ export const Fill = styled.div<FillProps>`
 `
 
 export const Input = styled.input`
-  ${tw`opacity-0 absolute top-0 left-0 w-full h-full m-0 cursor-pointer`}
+  ${xw`opacity-0 absolute top-0 left-0 w-full h-full m-0 cursor-pointer`}
   z-index: 2;
 
   &:focus {
@@ -62,5 +62,5 @@ export const Input = styled.input`
   }
 `
 export const SecondaryText = styled.div`
-  ${tw`absolute right-0 top-0 text-gray-600`}
+  ${xw`absolute right-0 top-0 text-gray-600`}
 `

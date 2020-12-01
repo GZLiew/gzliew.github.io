@@ -1,10 +1,10 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 import { LocationIcon } from "@/assets/icons/HotelLocation"
 
 export const LocationWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex
     items-center
     text-xs
@@ -13,7 +13,7 @@ export const LocationWrapper = styled.div`
 `
 
 export const LocationMarker = styled(LocationIcon)`
-  ${tw`
+  ${xw`
     mr-2
   `}
 
@@ -23,7 +23,7 @@ export const LocationMarker = styled(LocationIcon)`
 `
 
 export const LocationCity = styled.span`
-  ${tw`
+  ${xw`
     mr-1
   `}
   color: ${({ theme }) => theme?.colors?.text?.primary};

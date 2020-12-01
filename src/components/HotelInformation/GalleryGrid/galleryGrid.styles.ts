@@ -1,11 +1,11 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 import { Item } from "./GridItem/gridItem.styles"
 
 export const Grid = styled.div`
-  ${tw`
+  ${xw`
     grid
     my-10
   `}
@@ -51,7 +51,7 @@ export const MorePhotos = styled(Item)`
   color: ${rgba("#fff", 0.72)};
 
   .item-content {
-    ${tw`
+    ${xw`
       flex
       flex-col
       items-center
@@ -65,7 +65,7 @@ export const MorePhotos = styled(Item)`
   }
 
   h5 {
-    ${tw`
+    ${xw`
       text-base
       leading-none
     `}

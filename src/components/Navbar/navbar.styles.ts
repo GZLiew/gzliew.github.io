@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 interface Props {
@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const NavbarWrapper = styled.div<Props>`
-  ${tw`
-    z-100
+  ${xw`
+    z-50
     fixed
     inset-0
     w-full
@@ -24,8 +24,8 @@ export const NavbarWrapper = styled.div<Props>`
 `
 
 export const StyledNavbar = styled.div<Props>`
-  ${tw`
-    z-50
+  ${xw`
+    z-40
     relative
     top-0
     left-0
@@ -44,7 +44,7 @@ export const StyledNavbar = styled.div<Props>`
 `
 
 export const Nav = styled.nav`
-  ${tw`
+  ${xw`
     flex
     flex-wrap
     px-4

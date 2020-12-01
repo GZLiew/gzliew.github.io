@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 import { css } from "@emotion/react"
 import { transparentize } from "polished"
@@ -17,7 +17,7 @@ type ButtonWrapperProps = {
 }
 
 export const ButtonStyled = styled.span`
-  ${tw`
+  ${xw`
   flex justify-center items-center
   w-full h-full
   `}
@@ -25,7 +25,7 @@ export const ButtonStyled = styled.span`
 `
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
-  ${tw`
+  ${xw`
    relative
    w-full
    transition duration-500 ease-in-out

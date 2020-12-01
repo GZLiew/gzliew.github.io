@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { animated } from "react-spring"
 
 import Container from "../Container"
@@ -7,8 +7,8 @@ import Container from "../Container"
 import HamburgerSVG from "../../assets/icons/wt-ic-hamburger-menu.svg"
 
 export const HeaderContainer = styled(Container)`
-  ${tw`
-    z-50
+  ${xw`
+    z-40
     sticky
     top-0
     inset-x-0
@@ -25,7 +25,7 @@ export const HeaderContainer = styled(Container)`
 
 // Slide down HeaderBackground when hasScrolled is true
 export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
-  ${tw`
+  ${xw`
     relative
     z-0
   `}
@@ -41,7 +41,7 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
   will-change: transform;
 `
 export const LogoWrapper = styled.header`
-  ${tw`
+  ${xw`
     relative
     z-10
     flex
@@ -55,7 +55,7 @@ export const LogoWrapper = styled.header`
 `
 
 export const Logo = styled(animated.img)`
-  ${tw`absolute transform -translate-x-1/2`}
+  ${xw`absolute transform -translate-x-1/2`}
   left: 50%;
   max-width: 45px;
 `

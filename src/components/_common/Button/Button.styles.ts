@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 import { css } from "@emotion/react"
 import { transparentize, lighten } from "polished"
@@ -15,7 +15,7 @@ type ButtonWrapperProps = {
 }
 
 export const ButtonStyled = styled.span`
-  ${tw`
+  ${xw`
   flex justify-center items-center
   h-full
   `}
@@ -23,7 +23,7 @@ export const ButtonStyled = styled.span`
 `
 
 export const ButtonWrapper = styled.button<ButtonWrapperProps>`
-  ${tw`
+  ${xw`
    relative
    transition duration-500 ease-in-out
    font-medium
@@ -34,7 +34,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   color: #fff;
 
   ${ButtonStyled} {
-    ${tw` p-3 uppercase`}
+    ${xw` p-3 uppercase`}
     background: ${({ theme, bgColor }) =>
       `linear-gradient(135.3deg, ${bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary} 16.81%, ${
         bgColor || theme.brandColors.primary
@@ -57,14 +57,14 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     ${({ outline }) =>
       outline &&
       css`
-        ${tw` p-2 `}
+        ${xw` p-2 `}
         background: transparent;
       `}
 
     ${({ disabled, theme, bgColor }) =>
       disabled &&
       css`
-      ${tw` p-2 `}
+      ${xw` p-2 `}
         background: ${transparentize(0.8, bgColor || theme.colors.secondary)};
       `}
 
@@ -131,7 +131,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     css`
       height: 36px;
       ${ButtonStyled} {
-        ${tw`text-xs px-5`}
+        ${xw`text-xs px-5`}
       }
     `}
 
@@ -140,7 +140,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     css`
       height: 48px;
       ${ButtonStyled} {
-        ${tw`text-sm px-10`}
+        ${xw`text-sm px-10`}
       }
     `}
 
@@ -149,7 +149,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     css`
       height: 63px;
       ${ButtonStyled} {
-        ${tw`text-base px-32`}
+        ${xw`text-base px-32`}
       }
     `}
 `

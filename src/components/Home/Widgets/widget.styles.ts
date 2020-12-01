@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const WidgetContainer = styled.div`
   margin-bottom: 20px;
@@ -11,7 +11,7 @@ export const WidgetContainer = styled.div`
 
 export const Title = styled.h4`
   color: ${({ theme }) => theme.colors.text.primary};
-  ${tw`font-medium`}
+  ${xw`font-medium`}
   margin-bottom: 17px;
 `
 
@@ -21,7 +21,7 @@ export const CityLabel = styled.span`
 `
 
 export const InfoContainer = styled.div`
-  ${tw`flex items-center`}
+  ${xw`flex items-center`}
 `
 
 export const WeatherInfo = styled.div`
@@ -29,7 +29,7 @@ export const WeatherInfo = styled.div`
   margin-left: 22px;
   p {
     & span {
-      ${tw`font-light`}
+      ${xw`font-light`}
       font-size: 24px;
     }
     font-size: 14px;

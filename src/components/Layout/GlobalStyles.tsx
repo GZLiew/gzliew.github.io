@@ -1,12 +1,14 @@
+import xw from "xwind"
 /** @jsx jsx */
 import { jsx, css, Global, withTheme, Theme } from "@emotion/react"
-import { ThemeProps } from "@/lib/types/emotion"
 
+import { ThemeProps } from "@/lib/types/emotion"
 import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
 
 const { responsiveQueries } = getButtonResponsiveSizes()
 
 const makeGlobalStyles = (theme: Theme) => css`
+  ${xw`XWIND_BASE XWIND_GLOBAL`}
   :root {
     ${responsiveQueries}
   }

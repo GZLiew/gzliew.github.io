@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 interface Props {
@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const TopNavWrapper = styled.div<Props>`
-  ${tw`
-    z-50
+  ${xw`
+    z-40
     fixed
     inset-0
     w-full
@@ -24,8 +24,8 @@ export const TopNavWrapper = styled.div<Props>`
 `
 
 export const StyledTopNav = styled.div<Props>`
-  ${tw`
-    z-100
+  ${xw`
+    z-50
     fixed
     top-0
     left-0

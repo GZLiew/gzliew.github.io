@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { transparentize } from "polished"
 
 import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
@@ -11,12 +11,12 @@ interface QuickButtonItemProp {
 }
 
 export const QuickButtonWrapper = styled.div`
-  ${tw`text-center
+  ${xw`text-center
   flex items-center flex-col
   `}
 `
 export const QuickButtonItem = styled.div<QuickButtonItemProp>`
-  ${tw`
+  ${xw`
     relative
     flex justify-center items-center
     rounded-full

@@ -1,9 +1,9 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
 import { animated } from "react-spring"
-import tw from "@tailwindcssinjs/macro"
 
 export const Tabs = styled(animated.div)`
-  ${tw`z-40 sticky flex overflow-x-hidden border-b border-solid`}
+  ${xw`z-40 sticky flex overflow-x-hidden border-b border-solid`}
   position: -webkit-sticky;
   border-bottom-color: ${({ theme }) => theme.colors.categoryTabs.border};
 
@@ -16,7 +16,7 @@ export const Tabs = styled(animated.div)`
 `
 
 export const Container = styled(animated.div)`
-  ${tw`container flex px-3 mx-auto`}
+  ${xw`container flex px-3 mx-auto`}
 
   @media screen and (max-width: 576px) {
     cursor: grab;
@@ -24,7 +24,7 @@ export const Container = styled(animated.div)`
 `
 
 export const Tab = styled.a<{ height: number }>`
-  ${tw`px-3 text-xs`}
+  ${xw`px-3 text-xs`}
   flex: 0 0 auto;
   color: ${({ theme }) => theme.colors.text.alternate};
 
@@ -37,11 +37,11 @@ export const Tab = styled.a<{ height: number }>`
   }
 
   &:last-of-type {
-    ${tw`pr-6`}
+    ${xw`pr-6`}
   }
 
   span {
-    ${tw`flex border-b-2 items-center border-solid border-transparent`}
+    ${xw`flex border-b-2 items-center border-solid border-transparent`}
 
     height: ${(props) => props.height}px;
   }

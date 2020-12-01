@@ -1,8 +1,8 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const ShoppingBagWrapper = styled.div`
-  ${tw`
+  ${xw`
   rounded-full
   flex items-center justify-center
   `}
@@ -28,7 +28,7 @@ export const ShoppingBagWrapper = styled.div`
 `
 
 export const ItemCount = styled.div`
-  ${tw`
+  ${xw`
 rounded-full
 flex items-center justify-center
 absolute top-0

@@ -1,6 +1,6 @@
+import xw from "xwind"
 import { css } from "@emotion/react"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import HeaderTitle from "@/components/_common/HeaderTitle"
 
 type NavWrapperProps = {
@@ -8,7 +8,7 @@ type NavWrapperProps = {
 }
 
 export const NavWrapper = styled.div<NavWrapperProps>`
-  ${tw`p-4 flex flex-col items-center justify-around relative`}
+  ${xw`p-4 flex flex-col items-center justify-around relative`}
   ${({ theme, borderBottom }) =>
     borderBottom &&
     css`
@@ -18,5 +18,5 @@ export const NavWrapper = styled.div<NavWrapperProps>`
 `
 
 export const StyledHeaderTitle = styled(HeaderTitle)`
-  ${tw`static transform-none`}
+  ${xw`static transform-none`}
 `

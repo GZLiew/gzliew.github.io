@@ -1,11 +1,11 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const MenuItemWrapper = styled.div`
-  ${tw`flex items-start p-4 `}
+  ${xw`flex items-start p-4 `}
 `
 export const MenuImage = styled.div`
-  ${tw`
+  ${xw`
     w-1/3 
   `}
   img {
@@ -15,20 +15,20 @@ export const MenuImage = styled.div`
   max-width: 85px;
 `
 export const MenuDetail = styled.div`
-  ${tw`
+  ${xw`
     w-2/3
     pl-3
   `}
   color: ${({ theme }) => theme.colors.text.primary};
   h4 {
-    ${tw`
+    ${xw`
       font-bold
       mb-2
     `}
     color: ${({ theme }) => theme.colors.text.primary};
   }
   p {
-    ${tw`
+    ${xw`
       text-xs
       mb-1
     `}

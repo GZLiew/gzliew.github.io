@@ -50,14 +50,15 @@
     "@emotion/server": "^11.0.0-next.12",
     "@sindresorhus/slugify": "^1.1.0",
     "@svgr/webpack": "^5.5.0",
-    "@tailwindcssinjs/macro": "^0.7.2",
     "@types/node": "14.0.5",
     "@types/react": "16.9.35",
+    "autoprefixer": "^10.0.4",
     "babel-loader": "^8.2.1",
     "babel-plugin-inline-react-svg": "^1.1.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "lodash": "^4.17.19",
+    "postcss": "^8.1.10",
     "postcss-flexbugs-fixes": "4.2.1",
     "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
@@ -65,8 +66,10 @@
     "react-docgen-typescript": "^1.20.5",
     "react-styleguidist": "^11.1.4",
     "resize-observer-polyfill": "^1.5.1",
-    "tailwindcss": "1.6.0",
-    "typescript": "3.9.3"
+    "tailwindcss": "^2.0.1",
+    "typescript": "3.9.3",
+    "typescript-xwind-plugin": "^0.7.0",
+    "xwind": "^0.7.4"
   },
   "husky": {
     "hooks": {

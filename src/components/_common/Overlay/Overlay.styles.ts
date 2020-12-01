@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 interface Props {
@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const OverlayContainer = styled.div<Props>`
-  ${tw`
-    z-50
+  ${xw`
+    z-40
     fixed
     inset-0
     w-full

@@ -1,9 +1,9 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import { rgba } from "polished"
 
 export const AmenitiesWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex
     overflow-x-auto
     -mx-5
@@ -18,7 +18,7 @@ export const AmenitiesWrapper = styled.div`
 `
 
 export const InnerWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex
     px-5
  `}
@@ -26,7 +26,7 @@ export const InnerWrapper = styled.div`
 
 export const MoreFacilities = styled.a`
   & div {
-      ${tw`
+      ${xw`
       flex
       mr-0
     `}
@@ -35,7 +35,7 @@ export const MoreFacilities = styled.a`
     color: ${rgba("#fff", 0.72)};
   }
   h5 {
-    ${tw`
+    ${xw`
       text-base
       leading-none
     `}

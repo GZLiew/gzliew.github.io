@@ -1,12 +1,12 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 import Container from "./Container"
 
-const StyledBar = styled.div(tw`
+const StyledBar = styled.div(xw`
   border-b p-2 text-center bg-white
 `)
 
-const ExitLink = styled.a(tw`
+const ExitLink = styled.a(xw`
 underline hover:text-pink-100 duration-200 transition-colors
 `)
 

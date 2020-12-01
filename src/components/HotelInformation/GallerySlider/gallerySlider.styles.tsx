@@ -1,5 +1,5 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 import { animated } from "react-spring"
 
@@ -13,8 +13,8 @@ export const dotStyles = {
 }
 
 export const GalleryWrapper = animated(styled.div`
-  ${tw`
-  z-50
+  ${xw`
+  z-40
   fixed
   inset-0
   overflow-hidden
@@ -25,8 +25,8 @@ export const GalleryWrapper = animated(styled.div`
 `)
 
 export const CloseButton = styled.button`
-  ${tw`
-    z-50
+  ${xw`
+    z-40
     absolute
     top-0
     left-0
@@ -44,7 +44,7 @@ export const CloseButton = styled.button`
 `
 
 export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
-  ${tw`relative grid grid-flow-col w-full select-none`}
+  ${xw`relative grid grid-flow-col w-full select-none`}
   touch-action: pan-y;
   -webkit-user-drag: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -52,13 +52,13 @@ export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
 `)
 
 export const Slide = styled.div`
-  ${tw`relative block w-screen h-screen`}
+  ${xw`relative block w-screen h-screen`}
 `
 
 export const SlideImage = styled.img<{ dimensions: { width?: number; height?: number } }>`
-  ${tw`block w-full h-full`}
+  ${xw`block w-full h-full`}
   @media screen and (max-width: 575.98px) {
-    ${tw`absolute top-0 left-0 object-cover`}
+    ${xw`absolute top-0 left-0 object-cover`}
     height: ${({ dimensions }) => getAspectRatio(dimensions?.width, dimensions?.height)};
     object-fit: cover;
     top: 50%;
@@ -66,12 +66,12 @@ export const SlideImage = styled.img<{ dimensions: { width?: number; height?: nu
   }
 
   @media screen and (min-width: 576px) {
-    ${tw`object-contain`}
+    ${xw`object-contain`}
   }
 `
 
 export const DotsWrapper = animated(styled.div`
-  ${tw`
+  ${xw`
     absolute
     bottom-0
     left-0
@@ -89,7 +89,7 @@ export const DotsWrapper = animated(styled.div`
 `)
 
 export const Dots = styled.ul`
-  ${tw`
+  ${xw`
      flex
      p-5
   `}
@@ -108,7 +108,7 @@ export const DotItem = styled.li`
 `
 
 export const DotButton = styled.button`
-  ${tw`
+  ${xw`
     w-full
     h-full
     p-0
@@ -128,7 +128,7 @@ export const DotButton = styled.button`
 `
 
 export const DotThumbnail = styled.img`
-  ${tw`
+  ${xw`
     w-full
     h-full
     object-cover

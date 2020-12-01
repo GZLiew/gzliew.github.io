@@ -1,3 +1,3 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
-export const StyledDiv = styled.div(tw`w-full`)
+export const StyledDiv = styled.div(xw`w-full`)

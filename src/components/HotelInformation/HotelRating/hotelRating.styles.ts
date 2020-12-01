@@ -1,8 +1,8 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const RatingWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex
     flex-col
     items-end
@@ -11,14 +11,14 @@ export const RatingWrapper = styled.div`
 `
 
 export const RatingText = styled.h3`
-  ${tw`
+  ${xw`
     text-xl
     font-medium
   `}
   color: ${({ theme }) => theme?.colors?.text?.primary};
 
   span {
-    ${tw`
+    ${xw`
       text-xs
     `}
     color: ${({ theme }) => theme?.colors?.text?.alternate};

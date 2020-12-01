@@ -1,8 +1,8 @@
+import xw from "xwind"
 import styled from "@emotion/styled"
-import tw from "@tailwindcssinjs/macro"
 
 export const WidgetContainer = styled.div`
-  ${tw`
+  ${xw`
     mt-10
     mb-12
   `}
@@ -11,26 +11,26 @@ export const WidgetContainer = styled.div`
   border-radius: 21px;
 `
 export const RoomInfoWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex 
   `}
   margin-bottom: 20px;
   justify-content: space-evenly;
 `
 export const InfoWrapper = styled.div`
-  ${tw`
+  ${xw`
     flex flex-col
   `}
   padding-right: 37px;
 `
 export const DateLabel = styled.p`
   color: ${({ theme }) => theme.colors.text.primary};
-  ${tw`
+  ${xw`
     font-medium
   `}
 `
 export const NightWrapper = styled.div`
-  ${tw`
+  ${xw`
     relative
     flex flex-col justify-center items-center
   `}
