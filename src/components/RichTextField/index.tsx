@@ -1,6 +1,5 @@
-import StoryblokClient, { Richtext } from "storyblok-js-client"
-import { StyledComponent } from "@emotion/styled"
 import { FunctionComponent } from "react"
+import StoryblokClient, { Richtext } from "storyblok-js-client"
 
 const Storyblok = new StoryblokClient({ accessToken: process.env.STORYBLOK_API_KEY })
 
