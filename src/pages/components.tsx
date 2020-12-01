@@ -14,6 +14,7 @@ import RadioButtons from "@/components/_common/RadioButtons"
 import MenuItem from "@/components/_common/MenuItem"
 import ButtonTab from "@/components/_common/ButtonTab"
 import Button from "@/components/_common/Button"
+import ButtonToggle from "@/components/_common/ButtonToggle"
 
 interface Props {
   allLangs: string[]
@@ -36,6 +37,7 @@ const fakeItems = [
 
 export default function Components({ allLangs, layoutNavigation, preview, hotelConfig }: Props) {
   const [active, setActive] = useState("1")
+  const [activeButton, setActiveButton] = useState("1")
   const image = {
     name: "tapendium-logo",
     filename: "https://a.storyblok.com/f/87760/450x600/2733ab6342/tapendium-logo-image.png"
@@ -69,6 +71,16 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
         />
         <div style={{ padding: 30 }}>
           <ButtonTab items={fakeItems} initialIndex={1} onChange={(item) => console.log(item)} />
+        </div>
+        <div style={{ padding: 30 }}>
+          <ButtonToggle
+            onClick={(item) => setActiveButton(item.id)}
+            activeItem={activeButton}
+            items={[
+              { id: "1", label: "Yes" },
+              { id: "2", label: "No" }
+            ]}
+          />
         </div>
         <div style={{ padding: 30 }}>
           <QuantitySelector

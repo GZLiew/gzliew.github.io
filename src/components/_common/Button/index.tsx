@@ -5,7 +5,7 @@ type ButtonWrapperProps = Omit<React.ComponentProps<typeof ButtonWrapper>, "vari
 
 interface Props {
   children?: ReactNode
-  className?: string
+  buttonClassName?: string
   onClick?: () => void
   props?: any
   bgColor?: string
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Button = ({
-  className,
+  buttonClassName,
   onClick,
   children,
   bgColor,
@@ -38,7 +38,7 @@ const Button = ({
       size={size}
       disabled={disabled}
       {...props}>
-      <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>
+      <ButtonStyled className={["group", buttonClassName].join(" ")}>{children}</ButtonStyled>
     </ButtonWrapper>
   )
 }
