@@ -3,17 +3,18 @@ import { useSwipeable } from "react-swipeable"
 import { isFunction } from "lodash"
 
 import { StyledTopNav, TopNavWrapper } from "./TopNav.styles"
+import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 type handleNavbarClick = () => void
 
 type Props = {
   isOpen: boolean
   handleNavbarClick: handleNavbarClick
-  children: (callback: handleNavbarClick) => ReactNode | ReactNode
 }
 
-const TopNav = ({ isOpen, handleNavbarClick, children }: Props) => {
+const TopNav: React.FunctionComponent<Props> = ({ isOpen, handleNavbarClick, children }) => {
   const ref = useRef(null)
+  useLockBodyScroll(isOpen, ref)
 
   const handlers = useSwipeable({
     trackMouse: false,

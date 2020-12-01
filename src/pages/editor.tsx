@@ -1,6 +1,7 @@
 import React from "react"
 
 import HotelInformation from "@/components/HotelInformation"
+import RoomService from "@/components/RoomService"
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
 
@@ -160,6 +161,8 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return ""
         case "hotel-information":
           return <HotelInformation blok={story?.content} blokConfig={configStory?.content} />
+        case "room-services":
+          return <RoomService blok={story?.content} blokConfig={configStory?.content} />
         default:
           return `Component ${story?.content.component} not created yet`
       }

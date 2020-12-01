@@ -7,7 +7,7 @@ import TouchableOpacity from "../TouchableOpacity"
 
 import { Base, Tab, TabOverlay } from "./ButtonTab.styles"
 
-type TabItem = {
+export type TabItem = {
   id: string
   title: string
 }
@@ -18,14 +18,13 @@ type Props = {
   onChange: (item: TabItem) => void
 }
 
-const BaseBorderWidth = 8
+const BaseBorderWidth = 5
 const getInitialTabWidth = (items: TabItem[]) => (items.length === 2 ? 164 : 162)
 
 const getOffsetX = (items: TabItem[], item: TabItem, tabWidth: number) => {
   const itemPos = items.indexOf(item)
   const offsetX = tabWidth * itemPos
-  const resolvedBorderWidth = itemPos === items.length - 1 ? BaseBorderWidth : BaseBorderWidth - 3
-  const resolvedOffsetX = offsetX - resolvedBorderWidth
+  const resolvedOffsetX = offsetX - BaseBorderWidth
   return itemPos ? resolvedOffsetX : offsetX
 }
 
@@ -85,10 +84,17 @@ const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
   }
 
   useEffect(() => {
+    const itemPos = items.indexOf(activeTab)
+    if (initialIndex !== itemPos) {
+      onTabClick(items[initialIndex])
+    }
+  }, [initialIndex])
+
+  useEffect(() => {
     if (items.length > 0) {
       eachTabWidthRef.current = Math.round(baseWidth / items.length)
     }
-  }, [baseWidth, initialIndex])
+  }, [baseWidth])
 
   useEffect(() => {
     if (eachTabWidthRef.current && !initialized) {

@@ -25,7 +25,7 @@ export default {
     notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)",
     shoppingBagBg: "#fff",
     navbarBackground: "linear-gradient(to bottom, #eaeaea, #eaecee)",
-    menuBackground: "linear-gradient(180deg, #EAEAEA 0%, #EAECEE 100%);",
+    menuBackground: "linear-gradient(180deg, #E3E3E3 0%, #EAECEE 100%);",
     guestDetailsBorder: "#dde0e4",
     ratings: {
       full: "#f7b500",
