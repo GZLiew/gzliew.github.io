@@ -10,7 +10,7 @@ type Props = React.ComponentProps<typeof Layout> & {
   title?: Title
 }
 
-const RoomServiceLayout = ({ preview, blokConfig, children, navLinks, title }: Props) => {
+const PageLayout = ({ preview, blokConfig, children, navLinks, title }: Props) => {
   const links = navLinks?.length >= 0 ? navLinks[0]?.links : []
   return (
     <div className="min-h-screen">
@@ -26,4 +26,4 @@ const RoomServiceLayout = ({ preview, blokConfig, children, navLinks, title }: P
   )
 }
 
-export default RoomServiceLayout
+export default PageLayout

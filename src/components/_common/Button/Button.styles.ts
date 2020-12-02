@@ -147,9 +147,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   ${({ size }) =>
     size === "large" &&
     css`
+      ${xw`text-lg w-full`}
       height: 63px;
-      ${ButtonStyled} {
-        ${xw`text-base px-32`}
-      }
     `}
 `

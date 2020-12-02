@@ -13,7 +13,7 @@ import Overlay from "@/components/_common/Overlay"
 import ClientOnly from "@/components/ClientOnly"
 
 import Content from "./Content"
-import RoomServiceLayout from "./RoomServiceLayout"
+import PageLayout from "@/components/_common/PageLayout"
 import { NavWrapper, StyledHeaderTitle } from "./RoomServices.styles"
 import { getCategoriesMock } from "./mock"
 
@@ -71,7 +71,7 @@ const RoomService = ({ blok, blokConfig, preview }: Props) => {
   }, [selectedService])
 
   return (
-    <RoomServiceLayout
+    <PageLayout
       preview={preview}
       blokConfig={blokConfig}
       title={({ hasScrolled }) => (
@@ -107,7 +107,7 @@ const RoomService = ({ blok, blokConfig, preview }: Props) => {
         initialIndex={initialIndex}
         TabItems={TabItems}
       />
-    </RoomServiceLayout>
+    </PageLayout>
   )
 }
 
