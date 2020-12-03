@@ -9,6 +9,7 @@
     "test": "jest",
     "format": "prettier \"src/**/*.{ts,tsx}\" --write",
     "document": "npx styleguidist server",
+    "createDocs": "node scripts/createDocs.js",
     "document:build": "npx styleguidist build"
   },
   "dependencies": {
