@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react"
-import { useRouter } from "next/router"
-import querystring from "querystring"
+import React, { useEffect, useRef, useState } from "react"
 
 import TopNav from "@/components/_common/TopNav"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
@@ -11,6 +9,7 @@ import HeaderTitle from "@/components/_common/HeaderTitle"
 import LoadingIndicator from "@/components/_common/LoadingIndicator"
 import Overlay from "@/components/_common/Overlay"
 import ClientOnly from "@/components/ClientOnly"
+import { replaceUrl } from "@/lib/utils/replaceUrl"
 
 import Content from "./Content"
 import PageLayout from "@/components/_common/PageLayout"
@@ -21,10 +20,11 @@ interface Props {
   blok: HotelInfoContent
   blokConfig: HotelConfigContent
   preview?: boolean
+  category?: string
 }
 
 const DEFAULT_LABEL = "In-Room Dining"
-const SERVICES: Record<string, TabItem> = {
+export const SERVICES: Record<string, TabItem> = {
   food: {
     id: "food",
     title: "Food"
@@ -37,38 +37,30 @@ const SERVICES: Record<string, TabItem> = {
 
 const TabItems = Object.keys(SERVICES).map((k) => SERVICES[k])
 
-const getServiceType = () => {
-  const router = useRouter()
-  const urlPath = router.asPath.split("?")
-  if (urlPath.length < 2) {
-    return SERVICES.food.id
-  }
-  const queries = querystring.parse(urlPath[1])
-  if (!queries.type) {
-    return SERVICES.food.id
-  }
-  if (typeof queries.type === "string" && !!SERVICES[queries.type]) {
-    return queries.type
-  }
-  return SERVICES.food.id
-}
-
-const RoomService = ({ blok, blokConfig, preview }: Props) => {
-  const queryType = getServiceType()
+const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedService, setSelectedService] = useState(queryType)
+  const [selectedCategory, setSelectedCategory] = useState(category || SERVICES.food.id)
   const [isLoading, setIsLoading] = useState(false)
-  const [categories, setCategories] = useState([])
-  const initialIndex = TabItems.findIndex((x) => x.id === selectedService)
+  const [categories, setCategories] = useState(blok.categories)
+  const initialIndex = TabItems.findIndex((x) => x.id === selectedCategory)
+  const mounted = useRef(false)
 
   useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true
+      return
+    }
     setIsLoading(true)
     ;(async () => {
-      const categoriesResult = await getCategoriesMock(selectedService)
+      const pattern = Object.keys(SERVICES).join("|")
+      const regx = new RegExp(pattern, "i")
+      const newPath = window && window.location.pathname.replace(regx, selectedCategory)
+      replaceUrl(newPath)
+      const categoriesResult = await getCategoriesMock(selectedCategory)
       setCategories(categoriesResult)
       setIsLoading(false)
     })()
-  }, [selectedService])
+  }, [selectedCategory])
 
   return (
     <PageLayout
@@ -77,7 +69,7 @@ const RoomService = ({ blok, blokConfig, preview }: Props) => {
       title={({ hasScrolled }) => (
         <HeaderTitle
           clickable={hasScrolled}
-          label={selectedService && hasScrolled ? SERVICES[selectedService].title : DEFAULT_LABEL}
+          label={selectedCategory && hasScrolled ? SERVICES[selectedCategory].title : DEFAULT_LABEL}
           onClick={() => setIsOpen(true)}
         />
       )}>
@@ -91,7 +83,7 @@ const RoomService = ({ blok, blokConfig, preview }: Props) => {
             <ButtonTab
               initialIndex={initialIndex}
               items={TabItems}
-              onChange={(item) => setSelectedService(item.id)}
+              onChange={(item) => setSelectedCategory(item.id)}
             />
           </ClientOnly>
         </NavWrapper>
@@ -103,7 +95,7 @@ const RoomService = ({ blok, blokConfig, preview }: Props) => {
         categories={categories}
         blok={blok}
         blokConfig={blokConfig}
-        setSelectedService={setSelectedService}
+        setSelectedCategory={setSelectedCategory}
         initialIndex={initialIndex}
         TabItems={TabItems}
       />

@@ -26,13 +26,13 @@ interface Props {
   blok: HotelInfoContent
   blokConfig: HotelConfigContent
   preview?: boolean
-  setSelectedService: React.Dispatch<React.SetStateAction<string>>
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
   initialIndex: number
   TabItems: TabItem[]
   categories: ICategory[]
 }
 
-const Content = ({ blok, blokConfig, categories, setSelectedService, initialIndex, TabItems }: Props) => {
+const Content = ({ blok, blokConfig, categories, setSelectedCategory, initialIndex, TabItems }: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>
@@ -41,7 +41,7 @@ const Content = ({ blok, blokConfig, categories, setSelectedService, initialInde
             <ButtonTab
               items={TabItems}
               initialIndex={initialIndex}
-              onChange={(item) => setSelectedService(item.id)}
+              onChange={(item) => setSelectedCategory(item.id)}
             />
           </ClientOnly>
         </TabWrapper>
