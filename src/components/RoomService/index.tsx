@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react"
 
 import TopNav from "@/components/_common/TopNav"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/hotelInfo"
+import { HotelInfoContent } from "@/lib/types/roomService"
 import ButtonTab from "@/components/_common/ButtonTab"
 import { TabItem } from "@/components/_common/ButtonTab"
 import HeaderTitle from "@/components/_common/HeaderTitle"
@@ -41,7 +41,7 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(category || SERVICES.food.id)
   const [isLoading, setIsLoading] = useState(false)
-  const [categories, setCategories] = useState(blok.categories)
+  const [menus, setMenus] = useState(blok.menus)
   const initialIndex = TabItems.findIndex((x) => x.id === selectedCategory)
   const mounted = useRef(false)
 
@@ -56,8 +56,8 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
       const regx = new RegExp(pattern, "i")
       const newPath = window && window.location.pathname.replace(regx, selectedCategory)
       replaceUrl(newPath)
-      const categoriesResult = await getCategoriesMock(selectedCategory)
-      setCategories(categoriesResult)
+      const menusResult = await getCategoriesMock(selectedCategory)
+      setMenus(menusResult)
       setIsLoading(false)
     })()
   }, [selectedCategory])
@@ -92,9 +92,10 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
         <LoadingIndicator size="lg" />
       </Overlay>
       <Content
-        categories={categories}
+        menus={menus}
         blok={blok}
         blokConfig={blokConfig}
+        selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
         initialIndex={initialIndex}
         TabItems={TabItems}

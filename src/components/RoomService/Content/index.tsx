@@ -4,13 +4,13 @@ import SbEditable from "storyblok-react"
 import Container from "@/components/Container"
 import ButtonTab, { TabItem } from "@/components/_common/ButtonTab"
 import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/hotelInfo"
-import { ICategory } from "@/lib/types/roomService"
+import { HotelInfoContent } from "@/lib/types/roomService"
+import { IMenu } from "@/lib/types/roomService"
 import Button from "@/components/_common/Button"
 import ClientOnly from "@/components/ClientOnly"
 import brandColors from "@/lib/theme/brandColors"
 
-import Categories from "../Categories"
+import Menus from "../Menus"
 import {
   MenuWrapper,
   StickyFooterWrapper,
@@ -26,13 +26,22 @@ interface Props {
   blok: HotelInfoContent
   blokConfig: HotelConfigContent
   preview?: boolean
+  selectedCategory: string
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
   initialIndex: number
   TabItems: TabItem[]
-  categories: ICategory[]
+  menus: IMenu[]
 }
 
-const Content = ({ blok, blokConfig, categories, setSelectedCategory, initialIndex, TabItems }: Props) => {
+const Content = ({
+  blok,
+  blokConfig,
+  menus,
+  selectedCategory,
+  setSelectedCategory,
+  initialIndex,
+  TabItems
+}: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>
@@ -52,7 +61,7 @@ const Content = ({ blok, blokConfig, categories, setSelectedCategory, initialInd
       </Container>
 
       <MenuWrapper>
-        <Categories categories={categories} />
+        <Menus menus={menus} category={selectedCategory} />
       </MenuWrapper>
       <StickyFooterWrapper>
         <Summary>

@@ -1,6 +1,82 @@
-import { ICategory } from "@/lib/types/roomService"
+import { IMenu, IMenuSubsection } from "@/lib/types/roomService"
 
-export const dataFood: ICategory[] = [
+const options = [
+  {
+    _uid: "honey-chilli-potato",
+    label: "Honey Chilli Potato"
+  },
+  {
+    _uid: "exotic-veg-thai-style",
+    label: "Exotic Veg Thai Style",
+    secondaryLabel: "+ $ 29"
+  },
+  {
+    _uid: "mushroom-&-babycorn-schezwan",
+    label: "Mushroom & Babycorn Schezwan",
+    secondaryLabel: "+ $ 29"
+  }
+]
+
+const choices = [
+  {
+    _uid: "choice-of-veg-starter",
+    component: "",
+    type: "radio",
+    title: "Choice of Veg Starter",
+    secondaryTitle: "Required",
+    options
+  },
+  {
+    _uid: "steamed-or-grilled",
+    component: "",
+    type: "radio",
+    title: "Steamed or Grilled",
+    secondaryTitle: "Required",
+    options
+  },
+  {
+    _uid: "slice-of-lemon",
+    component: "",
+    type: "toggle",
+    title: "Would you like it with a slice of lemon?",
+    secondaryTitle: "Optional",
+    options: [
+      { id: "yes", label: "Yes" },
+      { id: "no", label: "No" }
+    ]
+  },
+  {
+    _uid: "bottle330",
+    component: "",
+    type: "quantity",
+    title: "Bottle (330ml)",
+    secondaryTitle: "$29",
+    options: []
+  }
+]
+
+const subSection = {
+  image: { name: "image", filename: "https://picsum.photos/200" },
+  title: "Supreme Paneer Burger",
+  description: {
+    content: [
+      {
+        type: "paragraph",
+        content: [
+          {
+            text:
+              "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia harum odit, rem dolorum culpan quibusdam.",
+            type: "text"
+          }
+        ]
+      }
+    ]
+  },
+  choices,
+  price: 25
+} as any
+
+export const dataFood: IMenu[] = [
   {
     _uid: "somerandomuid1",
     title: "Breakfast",
@@ -9,58 +85,34 @@ export const dataFood: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "0",
+        _uid: "food0",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "1",
+        _uid: "food1",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "2",
+        _uid: "food2",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "3",
+        _uid: "food3",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "4",
+        _uid: "food4",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "5",
+        _uid: "food5",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -72,76 +124,44 @@ export const dataFood: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "6",
+        _uid: "food6",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "7",
+        _uid: "food7",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "8",
+        _uid: "food8",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "9",
+        _uid: "food9",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "10",
+        _uid: "food10",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "11",
+        _uid: "food11",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "12",
+        _uid: "food12",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "13",
+        _uid: "food13",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -153,76 +173,44 @@ export const dataFood: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "14",
+        _uid: "food14",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "15",
+        _uid: "food15",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "16",
+        _uid: "food16",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "17",
+        _uid: "food17",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "18",
+        _uid: "food18",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "19",
+        _uid: "food19",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "20",
+        _uid: "food20",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "21",
+        _uid: "food21",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -234,82 +222,50 @@ export const dataFood: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "22",
+        _uid: "food22",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "23",
+        _uid: "food23",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "24",
+        _uid: "food24",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "25",
+        _uid: "food25",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "26",
+        _uid: "food26",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "27",
+        _uid: "food27",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "28",
+        _uid: "food28",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "29",
+        _uid: "food29",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   }
 ]
 
-export const dataBeverage: ICategory[] = [
+export const dataBeverage: IMenu[] = [
   {
     _uid: "somerandomuid1",
     title: "Beer",
@@ -318,58 +274,34 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "0",
+        _uid: "beverages0",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "1",
+        _uid: "beverages1",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "2",
+        _uid: "beverages2",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "3",
+        _uid: "beverages3",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "4",
+        _uid: "beverages4",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "5",
+        _uid: "beverages5",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -381,76 +313,44 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "6",
+        _uid: "beverages6",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "7",
+        _uid: "beverages7",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "8",
+        _uid: "beverages8",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "9",
+        _uid: "beverages9",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "10",
+        _uid: "beverages10",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "11",
+        _uid: "beverages11",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "12",
+        _uid: "beverages12",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "13",
+        _uid: "beverages13",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -462,76 +362,44 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "14",
+        _uid: "beverages14",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "15",
+        _uid: "beverages15",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "16",
+        _uid: "beverages16",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "17",
+        _uid: "beverages17",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "18",
+        _uid: "beverages18",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "19",
+        _uid: "beverages19",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "20",
+        _uid: "beverages20",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "21",
+        _uid: "beverages21",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -543,76 +411,44 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "22",
+        _uid: "beverages22",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "23",
+        _uid: "beverages23",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "24",
+        _uid: "beverages24",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "25",
+        _uid: "beverages25",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "26",
+        _uid: "beverages26",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "27",
+        _uid: "beverages27",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "28",
+        _uid: "beverages28",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "29",
+        _uid: "beverages29",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -624,76 +460,44 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "22",
+        _uid: "beverages33",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "23",
+        _uid: "beverages34",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "24",
+        _uid: "beverages35",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "25",
+        _uid: "beverages36",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "26",
+        _uid: "beverages37",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "27",
+        _uid: "beverages38",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "28",
+        _uid: "beverages39",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "29",
+        _uid: "beverages40",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   },
@@ -705,79 +509,70 @@ export const dataBeverage: ICategory[] = [
     component: "",
     subsections: [
       {
-        _uid: "22",
+        _uid: "beverages42",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "23",
+        _uid: "beverages43",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "24",
+        _uid: "beverages44",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "25",
+        _uid: "beverages45",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "26",
+        _uid: "beverages46",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "27",
+        _uid: "beverages47",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "28",
+        _uid: "beverages48",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       },
       {
-        _uid: "29",
+        _uid: "beverages49",
         component: "",
-        title: "Supreme Paneer Burger",
-        description: {
-          content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
-        },
-        price: 25
+        ...subSection
       }
     ]
   }
+]
+
+const notFoundSubcategory = {
+  _uid: "notfoundcategory123",
+  component: "",
+  image: { name: "image", filename: "https://picsum.photos/200" },
+  title: "This item is not found",
+  description: {
+    content: [{ type: "paragraph", content: [{ text: "Fresh grilled heavy paneer", type: "text" }] }]
+  },
+  choices,
+  price: 25
+}
+
+export const allItems = [
+  ...dataFood
+    .map((x) => x.subsections)
+    .map((x) => x)
+    .flat(),
+  ...dataBeverage
+    .map((x) => x.subsections)
+    .map((x) => x)
+    .flat()
 ]
 
 export const categories = {
@@ -791,7 +586,20 @@ export const getCategoriesMock = (serviceType: string): Promise<typeof dataFood 
       if (!serviceType) {
         resolve([])
       }
-      resolve(categories[serviceType])
+      resolve(categories[serviceType] || [])
     }, 1500)
+  })
+}
+
+export const getItemMock = (uid: string): Promise<IMenuSubsection> => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      if (uid === "123") {
+        res(notFoundSubcategory as any)
+        return
+      }
+      const result = allItems.find((x) => x._uid === uid)
+      res(result || null)
+    }, 800)
   })
 }

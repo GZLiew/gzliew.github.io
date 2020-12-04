@@ -7,7 +7,7 @@ import SEO from "@/components/SEO"
 
 import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from "@/lib/api"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { HotelInfoProps } from "@/lib/types/hotelInfo"
+import { HotelInfoProps } from "@/lib/types/roomService"
 import RoomService, { SERVICES } from "@/components/RoomService"
 import { getCategoriesMock } from "@/components/RoomService/mock"
 import getLocalizedPaths from "@/lib/utils/getLocalizedPaths"
@@ -54,10 +54,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ preview = null, params = {} }) => {
   const hotelConfig = (await getHotelConfiguration(preview)) || []
   const hotelInfo = (await getHotelInformation(preview)) || []
-  const categoriesResult = await getCategoriesMock((params.category as string) || "food")
+  const menusResult = await getCategoriesMock((params.category as string) || "food")
   const langCodes: string[] = await getLanguageCodes()
-  if (!Array.isArray(hotelInfo) && hotelInfo && hotelInfo.content && hotelInfo.content.categories) {
-    hotelInfo.content.categories = categoriesResult
+  if (!Array.isArray(hotelInfo) && hotelInfo && hotelInfo.content) {
+    hotelInfo.content.menus = menusResult
   }
   const allLangs = ["en", ...langCodes]
 
