@@ -1,21 +1,13 @@
 import { Richtext } from "storyblok-js-client"
-import ReadMore from "@/components/_common/ReadMore"
 
-import RichTextSection from "../RichTextSection"
-import { SectionContent } from "../RichTextSection/richTextSection.styles"
+import RichTextSection from "@/components/RichTextSection"
 
 interface Props {
   content: Richtext
 }
 
 const AboutSection = ({ content }: Props) => {
-  return (
-    <RichTextSection title="About">
-      <ReadMore>
-        <SectionContent data={content} />
-      </ReadMore>
-    </RichTextSection>
-  )
+  return <RichTextSection title="About" content={content} />
 }
 
 export default AboutSection
