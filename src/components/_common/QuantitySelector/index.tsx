@@ -5,6 +5,8 @@ import { useTheme } from "@emotion/react"
 import { ColumnWrapper, SelectorWrapper } from "./QuantitySelector.styles"
 import TouchableOpacity from "../TouchableOpacity"
 
+type SelectorWrapperProps = React.ComponentProps<typeof SelectorWrapper>
+
 interface Props {
   value: number
   maxValue?: number
@@ -23,8 +25,9 @@ const QuantitySelector = ({
   onIncrement,
   onDecrement,
   size = "small",
-  disabled
-}: Props) => {
+  disabled,
+  ...props
+}: SelectorWrapperProps & Props) => {
   const { colors, brandColors } = useTheme()
   const [value, setValue] = useState(initialValue)
 
@@ -59,7 +62,7 @@ const QuantitySelector = ({
   }
 
   return (
-    <SelectorWrapper size={size} disabled={disabled}>
+    <SelectorWrapper size={size} disabled={disabled} {...props}>
       <TouchableOpacity repeatCall onClick={decrement}>
         <ColumnWrapper hover>-</ColumnWrapper>
       </TouchableOpacity>

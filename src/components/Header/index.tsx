@@ -21,17 +21,18 @@ import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
 import { useHeaderHeight } from "@/components/Providers/HeaderHeightProvider"
 
 type TitleProps = Omit<Props, "title"> & { hasScrolled?: boolean }
-export type Title = (props: TitleProps) => ReactNode | ReactNode
+export type Title = ((props: TitleProps) => ReactNode) | ReactNode
 
 interface Props {
   hotelLogo?: HotelLogo
   hotelLogoDark?: HotelLogo
   navLinks?: ILayoutNavigationLink[]
   title?: Title
+  rightElement?: ReactNode
 }
 
 const Header = (props: Props) => {
-  const { title, ...titleProps } = props
+  const { title, rightElement, ...titleProps } = props
   const { hotelLogo, hotelLogoDark, navLinks } = titleProps
   const theme = useTheme()
   const router = useRouter()
@@ -119,6 +120,7 @@ const Header = (props: Props) => {
               <NotificationIcon />
             </Button>
           ) : null}
+          {rightElement}
         </LogoWrapper>
       </HeaderContainer>
     </>

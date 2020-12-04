@@ -2,32 +2,35 @@ import React from "react"
 import Radio from "@/components/_common/Radio"
 import { RadioButtonsWrapper } from "./RadioButtons.styles"
 
-type RadioItem = {
-  id: string
+export type RadioItem = {
+  _uid: string
   label: string
   secondaryLabel?: string
 }
+
+type RadioButtonsWrapperProps = React.ComponentProps<typeof RadioButtonsWrapper>
 
 type Props = {
   items: RadioItem[]
   activeItem: string
   onClickRadioButton: (value: RadioItem) => void
+  groupId: string
 }
 
-const RadioButtons = (props: Props) => {
-  const { items, activeItem, onClickRadioButton } = props
+const RadioButtons = (props: RadioButtonsWrapperProps & Props) => {
+  const { items, activeItem, onClickRadioButton, groupId, ...radioButonsWrapperProps } = props
 
   return (
-    <RadioButtonsWrapper>
-      {items.map(({ id, label, secondaryLabel }) => (
+    <RadioButtonsWrapper {...radioButonsWrapperProps}>
+      {items.map(({ _uid, label, secondaryLabel }) => (
         <Radio
-          key={id}
+          key={_uid}
           value={label}
-          onChange={() => onClickRadioButton({ id, label, secondaryLabel })}
-          name={label}
+          onChange={() => onClickRadioButton({ _uid, label, secondaryLabel })}
+          name={groupId}
           labelText={label}
           secondaryText={secondaryLabel}
-          checked={activeItem === id}
+          checked={activeItem === _uid}
         />
       ))}
     </RadioButtonsWrapper>

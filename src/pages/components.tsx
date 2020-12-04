@@ -60,13 +60,14 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
           <Button size="large">large</Button>
         </div>
         <RadioButtons
-          onClickRadioButton={(item) => setActive(item.id)}
+          onClickRadioButton={(item) => setActive(item._uid)}
+          groupId="1"
           activeItem={active}
           items={[
-            { id: "1", label: "Exotic Veg Thai Style" },
-            { id: "2", label: "nasi Veg Style", secondaryLabel: "+$29" },
-            { id: "3", label: "currey  Thai Style", secondaryLabel: "+$29" },
-            { id: "4", label: "noodles Thai Style", secondaryLabel: "+$29" }
+            { _uid: "1", label: "Exotic Veg Thai Style" },
+            { _uid: "2", label: "nasi Veg Style", secondaryLabel: "+$29" },
+            { _uid: "3", label: "currey  Thai Style", secondaryLabel: "+$29" },
+            { _uid: "4", label: "noodles Thai Style", secondaryLabel: "+$29" }
           ]}
         />
         <div style={{ padding: 30 }}>

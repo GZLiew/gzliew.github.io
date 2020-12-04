@@ -4,6 +4,8 @@ import { useSpring, animated } from "react-spring"
 import ChevronDownSvg from "../../../assets/icons/chevron-down.svg"
 import { TitleWrapper, Title, SecondaryTitle, AccordionContent } from "./Accordion.styles"
 
+type TitleWrapperProps = React.ComponentProps<typeof TitleWrapper>
+
 interface Props {
   title: string
   secondaryTitle?: string
@@ -12,8 +14,8 @@ interface Props {
 
 const ChevronDown = animated(ChevronDownSvg)
 
-const Accordion = (props: Props) => {
-  const { title, secondaryTitle, children } = props
+const Accordion = (props: TitleWrapperProps & Props) => {
+  const { title, secondaryTitle, children, ...titleWrapperProps } = props
   const [isOpen, setIsOpen] = useState(false)
   const [ref, { height }] = useMeasure()
   const contentProps = useSpring({ height: isOpen ? height : 0 })
@@ -23,7 +25,7 @@ const Accordion = (props: Props) => {
 
   return (
     <>
-      <TitleWrapper onClick={handleDropdownClick}>
+      <TitleWrapper onClick={handleDropdownClick} {...titleWrapperProps}>
         <div>
           <Title>{title}</Title>
           {secondaryTitle && <SecondaryTitle>{secondaryTitle}</SecondaryTitle>}

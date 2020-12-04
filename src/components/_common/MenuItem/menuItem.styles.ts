@@ -1,7 +1,8 @@
 import xw from "xwind"
 import styled from "@emotion/styled"
+import TouchableOpacity from "@/components/_common/TouchableOpacity"
 
-export const MenuItemWrapper = styled.div`
+export const MenuItemWrapper = styled(TouchableOpacity)`
   ${xw`flex items-start p-4 `}
 `
 export const MenuImage = styled.div`

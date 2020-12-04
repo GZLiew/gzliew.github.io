@@ -15,7 +15,7 @@ type SvgProps = {
 
 export const StyledSvg = styled.svg<SvgProps>`
   ${xw`animate-spin -ml-1 mr-3 text-white`}
-  color: ${({ theme }) => theme.brandColors.primary};
+  color: ${({ theme }) => theme?.brandColors?.primary};
   ${({ size }) => SIZES[size]}
 `
 
