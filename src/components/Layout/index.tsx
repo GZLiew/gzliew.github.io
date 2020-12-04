@@ -2,13 +2,14 @@ import React, { ReactNode } from "react"
 import { ThemeProvider } from "@emotion/react"
 import { isFunction } from "lodash"
 
-import GlobalStyles from "./GlobalStyles"
-
 import { light, dark } from "@/lib/theme"
 import brandColors from "@/lib/theme/brandColors"
 import { HotelConfigProps } from "@/lib/types/hotelConfig"
 import { ILayoutNavigation } from "@/lib/types/commonLayout"
 import HeaderHeightProvider from "@/components/Providers/HeaderHeightProvider"
+
+import GlobalStyles from "./GlobalStyles"
+import FallbackLoader from "../FallbackLoader"
 
 type ChildrenProps = Omit<Props, "children">
 
@@ -22,7 +23,7 @@ interface Props {
 const Layout = (props: Props) => {
   const { children, ...childrenProps } = props
   const { hotelConfig } = childrenProps
-  const brandColor = hotelConfig?.content?.primaryColor
+  const brandColor = hotelConfig?.content?.primaryColor || "blue"
 
   return (
     <ThemeProvider
@@ -34,8 +35,10 @@ const Layout = (props: Props) => {
         }
       }}>
       <HeaderHeightProvider>
-        <GlobalStyles />
-        {isFunction(children) ? children(childrenProps) : children}
+        <FallbackLoader>
+          <GlobalStyles />
+          {isFunction(children) ? children(childrenProps) : children}
+        </FallbackLoader>
       </HeaderHeightProvider>
     </ThemeProvider>
   )
