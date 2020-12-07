@@ -14,7 +14,7 @@ type ColumnWrapperProps = {
 
 export const SelectorWrapper = styled.div<SelectorWrapperProps>`
   ${xw`inline-flex font-medium rounded-full border overflow-hidden`}
-  ${({ size }) => (size === "small" ? xw`text-lg` : xw`text-xl`)}
+  ${({ size }) => (size === "small" ? xw`text-lg` : xw`text-2xl`)}
   color: ${({ theme }) => theme?.colors?.text?.primary};
   border-color: ${({ theme, disabled }) => (disabled ? theme.colors.gray : theme.brandColors.primary)};
   -webkit-tap-highlight-color: transparent;

@@ -73,6 +73,10 @@ const getImageDimensions = async (imageURL: string) => {
     }
   } catch (error) {
     console.error(error)
+    return {
+      image: imageURL,
+      dimensions: {}
+    }
   }
 }
 

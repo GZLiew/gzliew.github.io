@@ -1,6 +1,8 @@
 import React from "react"
 import { ButtonToggleWrapper, ButtonStyled } from "./ButtonToggle.styles"
 
+type ButtonToggleWrapperProps = React.ComponentProps<typeof ButtonToggleWrapper>
+
 export type ToggleItem = {
   id: string
   label: string
@@ -13,11 +15,11 @@ type Props = {
   round?: boolean
 }
 
-const ButtonToggle = (props: Props) => {
-  const { items, activeItem, onClick, round } = props
+const ButtonToggle = (props: ButtonToggleWrapperProps & Props) => {
+  const { items, activeItem, onClick, round, ...wrapperProps } = props
 
   return (
-    <ButtonToggleWrapper>
+    <ButtonToggleWrapper {...wrapperProps}>
       {items.map(({ id, label }) => (
         <ButtonStyled
           key={id}

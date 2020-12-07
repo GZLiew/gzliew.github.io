@@ -587,7 +587,7 @@ export const getCategoriesMock = (serviceType: string): Promise<typeof dataFood 
         resolve([])
       }
       resolve(categories[serviceType] || [])
-    }, 1500)
+    }, 500)
   })
 }
 
@@ -600,6 +600,6 @@ export const getItemMock = (uid: string): Promise<IMenuSubsection> => {
       }
       const result = allItems.find((x) => x._uid === uid)
       res(result || null)
-    }, 800)
+    }, 400)
   })
 }
