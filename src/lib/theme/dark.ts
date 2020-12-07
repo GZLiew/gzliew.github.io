@@ -31,6 +31,7 @@ export default {
       full: "#f7b500",
       empty: "#434a50"
     },
+    timeblock: "rgba(255, 255, 255, 0.1)",
     amenityBackground: "linear-gradient(to bottom, #474c53, #363941)",
     icon: "#999999",
     categoryTabs: {

@@ -7,7 +7,7 @@ const useLockBodyScroll = (isActive, ref) => {
     // Re-enable scrolling when component unmounts
     return () =>
       // clear all body scroll locks on unmounting
-      clearAllBodyScrollLocks(ref.current)
+      clearAllBodyScrollLocks()
   }, [isActive])
 }
 

@@ -4,7 +4,7 @@ import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
 
 type OverlayContainerProps = React.ComponentProps<typeof OverlayContainer>
 type Props = {
-  children: ReactNode
+  children?: ReactNode
   isOpen?: boolean
   onOverlayClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }

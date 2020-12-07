@@ -38,6 +38,7 @@ declare module "@emotion/react" {
         empty: string
         full: string
       }
+      timeblock: string
       amenityBackground: string
       icon: string
       categoryTabs: {

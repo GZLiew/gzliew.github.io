@@ -2,7 +2,7 @@ TopNav
 
 ```tsx
 import React from "react"
-import Button from "@/components/Button"
+import Button from "@/components/_common/Button"
 import ButtonTab from "@/components/_common/ButtonTab"
 
 const [isOpen, setIsOpen] = React.useState()
@@ -53,6 +53,6 @@ const fakeItems = [
       </>
     )}
   </TopNav>
-  <Button onClick={() => setIsOpen(true)}>Toggle Nav</Button>
+  <Button size="medium" onClick={() => setIsOpen(true)}>Toggle Nav</Button>
 </div>
 ```
