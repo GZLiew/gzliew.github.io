@@ -14,6 +14,7 @@ interface Props {
   size: "small" | "medium" | "large"
   outline?: boolean
   disabled?: boolean
+  round?: boolean
 }
 
 const Button = ({
@@ -26,6 +27,7 @@ const Button = ({
   outline,
   size = "small",
   disabled,
+  round,
   ...props
 }: Props & ButtonWrapperProps) => {
   return (
@@ -37,6 +39,7 @@ const Button = ({
       outline={outline}
       size={size}
       disabled={disabled}
+      round={round}
       {...props}>
       <ButtonStyled className={["group", buttonClassName].join(" ")}>{children}</ButtonStyled>
     </ButtonWrapper>

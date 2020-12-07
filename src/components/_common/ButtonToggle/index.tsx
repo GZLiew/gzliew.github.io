@@ -1,7 +1,7 @@
 import React from "react"
 import { ButtonToggleWrapper, ButtonStyled } from "./ButtonToggle.styles"
 
-type ToggleItem = {
+export type ToggleItem = {
   id: string
   label: string
 }
@@ -10,10 +10,11 @@ type Props = {
   items: ToggleItem[]
   activeItem: string
   onClick: (value: ToggleItem) => void
+  round?: boolean
 }
 
 const ButtonToggle = (props: Props) => {
-  const { items, activeItem, onClick } = props
+  const { items, activeItem, onClick, round } = props
 
   return (
     <ButtonToggleWrapper>
@@ -24,7 +25,8 @@ const ButtonToggle = (props: Props) => {
           onClick={() => onClick({ id, label })}
           size="small"
           variant={activeItem === id ? null : "flat"}
-          outline={activeItem === id ? false : true}>
+          outline={activeItem === id ? false : true}
+          round={round}>
           {label}
         </ButtonStyled>
       ))}

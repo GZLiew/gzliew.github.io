@@ -12,6 +12,7 @@ type ButtonWrapperProps = {
   disabled?: boolean
   hover?: boolean
   outline?: boolean
+  round?: boolean
 }
 
 export const ButtonStyled = styled.span`
@@ -44,7 +45,7 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
       variant === "flat" &&
       css`
         background: ${transparentize(0.38, bgColor || theme.colors.gray)};
-        color: ${theme.colors.gray};
+        color: ${xw`text-white`};
       `}
 
     ${({ withIcon }) =>
@@ -149,5 +150,12 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     css`
       ${xw`text-lg w-full`}
       height: 63px;
+    `}
+
+  ${({ round }) =>
+    round &&
+    css`
+      ${xw`p-0 h-11 w-11`}
+      box-shadow: none;
     `}
 `

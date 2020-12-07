@@ -4,6 +4,7 @@ import HotelInformation from "@/components/HotelInformation"
 import RoomService from "@/components/RoomService"
 import ContactDetail from "@/components/ContactDetail"
 import OrderSuccess from "@/components/OrderSuccess"
+import OrderConfirmation from "@/components/OrderConfirmation"
 import Home from "@/components/Home"
 import Layout from "@/components/Layout"
 
@@ -169,6 +170,8 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return <ContactDetail blok={story?.content} blokConfig={configStory?.content} />
         case "order-success":
           return <OrderSuccess blok={story?.content} blokConfig={configStory?.content} />
+        case "order-confirmation":
+          return <OrderConfirmation blok={story?.content} blokConfig={configStory?.content} />
         default:
           return `Component ${story?.content.component} not created yet`
       }
