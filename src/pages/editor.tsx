@@ -164,7 +164,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return ""
         case "hotel-information":
           return <HotelInformation blok={story?.content} blokConfig={configStory?.content} />
-        case "room-services":
+        case "room-service":
           return <RoomService blok={story?.content} blokConfig={configStory?.content} />
         case "contact-detail":
           return <ContactDetail blok={story?.content} blokConfig={configStory?.content} />

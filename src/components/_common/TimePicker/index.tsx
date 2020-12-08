@@ -88,14 +88,14 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
       <Overlay isOpen={!!focus} onOverlayClick={onOverlayClicked} />
       <TimeModal ref={hourModalRef} rect={boudingClientRect} isFocus={focus === "hour"}>
         {HOURS.map((h) => (
-          <TimeOption isFocus={h === hours} onClick={() => onHourClick(h)}>
+          <TimeOption key={h} isFocus={h === hours} onClick={() => onHourClick(h)}>
             {h}
           </TimeOption>
         ))}
       </TimeModal>
       <TimeModal ref={minuteModalRef} rect={boudingClientRect} isFocus={focus === "minute"}>
         {minutesRange.map((m) => (
-          <TimeOption isFocus={m === minutes} onClick={() => onMinuteClick(m)}>
+          <TimeOption key={m} isFocus={m === minutes} onClick={() => onMinuteClick(m)}>
             {m}
           </TimeOption>
         ))}
@@ -115,7 +115,7 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
           </TimeBlock>
           <AmPmBlock>
             {AMPM.map((a) => (
-              <AmPmButton isFocus={a === amOrPm} onClick={() => setAmOrPm(a)}>
+              <AmPmButton key={a} isFocus={a === amOrPm} onClick={() => setAmOrPm(a)}>
                 {a}
               </AmPmButton>
             ))}
