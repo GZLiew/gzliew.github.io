@@ -1,21 +1,21 @@
-import { useTheme } from "@emotion/react"
-import { useState } from "react"
+import { useTheme } from '@emotion/react'
+import { useState } from 'react'
 
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import Container from "@/components/Container"
-import HotelRating from "@/components/HotelInformation/HotelRating"
-import HotelLocation from "@/components/HotelInformation/HotelLocation"
-import HotelFacilities from "@/components/HotelInformation/HotelFacilities"
+import Container from '@/components/Container'
+import HotelRating from '@/components/HotelInformation/HotelRating'
+import HotelLocation from '@/components/HotelInformation/HotelLocation'
+import HotelFacilities from '@/components/HotelInformation/HotelFacilities'
 
-import { Wrapper, Logo, StyledTitle, SubHeading, Section } from "./information.styles"
-import GallerySlider from "./GallerySlider"
-import GalleryGrid from "./GalleryGrid"
-import { AboutSection, ReviewSection, MissingInfoSection } from "./Sections"
-import Categories from "./Categories"
+import { Wrapper, Logo, StyledTitle, SubHeading, Section } from './information.styles'
+import GallerySlider from './GallerySlider'
+import GalleryGrid from './GalleryGrid'
+import { AboutSection, ReviewSection, MissingInfoSection } from './Sections'
+import Categories from './Categories'
 
-import { HotelInfoContent } from "@/lib/types/hotelInfo"
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
+import { HotelInfoContent } from '@/lib/types/hotelInfo'
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
 
 interface Props {
   blok: HotelInfoContent
@@ -35,7 +35,7 @@ const HotelInformation = ({ blok, blokConfig }: Props) => {
 
   const subSectionsCount = blok?.categories.reduce((acc, category) => acc + category?.subsections.length, 0)
 
-  const hotelLogo = theme.mode === "light" ? blokConfig?.hotelLogo : blokConfig?.hotelLogoDark
+  const hotelLogo = theme.mode === 'light' ? blokConfig?.hotelLogo : blokConfig?.hotelLogoDark
 
   return (
     <SbEditable content={blok}>

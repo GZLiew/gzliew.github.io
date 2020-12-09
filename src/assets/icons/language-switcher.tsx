@@ -1,4 +1,4 @@
-import { ReactSVGElement, SVGAttributes } from "react"
+import { SVGAttributes } from 'react'
 
 interface Props {
   primaryColor: string

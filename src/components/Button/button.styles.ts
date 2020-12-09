@@ -1,10 +1,10 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
-import { css } from "@emotion/react"
-import { transparentize } from "polished"
+import { css } from '@emotion/react'
+import { transparentize } from 'polished'
 
-import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
+import getButtonResponsiveSizes from '@/lib/utils/getButtonResponsiveSizes'
 
 const { sizeVar } = getButtonResponsiveSizes()
 
@@ -40,16 +40,16 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
   color: #fff;
 
   ${ButtonStyled} {
-    background: ${({ theme, bgColor }) =>
+    background: ${({ theme }) =>
       `linear-gradient(101deg, ${theme.colors.secondary} 17%, ${theme.colors.primary} 77%)`};
 
-  ${({ variant, theme, bgColor }) =>
-    variant === "flat" &&
-    css`
-      background: ${transparentize(0.8, bgColor || theme.colors.primary)};
-      color: ${theme.colors.primary};
-      font-size: 12px;
-    `}
+    ${({ variant, theme, bgColor }) =>
+      variant === 'flat' &&
+      css`
+        background: ${transparentize(0.8, bgColor || theme.colors.primary)};
+        color: ${theme.colors.primary};
+        font-size: 12px;
+      `}
 
     ${({ withIcon }) =>
       withIcon &&
@@ -65,13 +65,13 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     outline: 0;
 
     ${ButtonStyled} {
-      background: ${({ theme, bgColor }) =>
+      background: ${({ theme }) =>
         `linear-gradient(101deg, ${theme.colors.primary} 17%, ${theme.colors.secondary} 77%)`};
     }
   }
 
   ${({ variant, theme, bgColor }) =>
-    variant === "flat" &&
+    variant === 'flat' &&
     css`
       box-shadow: none;
       background: transparent;
@@ -86,9 +86,9 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
       }
     `}
 
-    svg {
-      /* approx. 24px for 44px sizeVar & 32px for 60px sizeVar */
-      width: calc(${sizeVar} * 0.54);
-      height: calc(${sizeVar} * 0.54);
-    }
+  svg {
+    /* approx. 24px for 44px sizeVar & 32px for 60px sizeVar */
+    width: calc(${sizeVar} * 0.54);
+    height: calc(${sizeVar} * 0.54);
+  }
 `

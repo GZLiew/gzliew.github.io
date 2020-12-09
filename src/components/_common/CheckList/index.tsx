@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect, useState } from "react"
-import CheckListItem from "../CheckListItem"
-import { Base, ErrorLabel } from "./CheckList.styles"
+import React, { useCallback, useEffect, useState } from 'react'
+import CheckListItem from '../CheckListItem'
+import { Base, ErrorLabel } from './CheckList.styles'
 
 type ListItem = {
   id: string

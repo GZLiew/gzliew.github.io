@@ -1,16 +1,16 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import DatePicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
-import Left from "@/assets/icons/Left"
-import Right from "@/assets/icons/Right"
+import Left from '@/assets/icons/Left'
+import Right from '@/assets/icons/Right'
 
 export const DatePickerWrapper = styled.div`
   ${xw`flex justify-center`}
   .react-datepicker {
     ${xw`font-sans text-sm border-0 bg-transparent`}
-    color: ${({ theme }) => (theme.mode === "light" ? "black" : "white")};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
   }
 
   .react-datepicker__header {
@@ -34,13 +34,13 @@ export const DatePickerWrapper = styled.div`
   .react-datepicker-time__header,
   .react-datepicker-year-header {
     ${xw`py-3 font-normal`}
-    color: ${({ theme }) => (theme.mode === "light" ? "black" : "white")};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
   }
 
   .react-datepicker__day-name {
     ${xw`uppercase opacity-75`}
     width: 2.5rem;
-    color: ${({ theme }) => (theme.mode === "light" ? "black" : "white")};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
   }
 
   .react-datepicker__day--outside-month {
@@ -52,7 +52,7 @@ export const DatePickerWrapper = styled.div`
     line-height: 2.5rem;
     width: 2.5rem;
     height: 2.5rem;
-    color: ${({ theme }) => (theme.mode === "light" ? "black" : "white")};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
     &:hover {
       ${xw`rounded-full`}
       background-color: ${({ theme }) => theme.brandColors.secondary};
@@ -67,7 +67,7 @@ export const DatePickerWrapper = styled.div`
   .react-datepicker__day--selected {
     ${xw`rounded-full`}
     background-color: ${({ theme }) => theme.brandColors.primary};
-    color: ${({ theme }) => (theme.mode === "light" ? "white" : "black")};
+    color: ${({ theme }) => (theme.mode === 'light' ? 'white' : 'black')};
   }
 `
 
@@ -89,9 +89,9 @@ export const ButtonWrapper = styled.button`
 `
 
 export const LeftStyled = styled(Left)`
-  fill: ${({ theme }) => (theme.mode === "light" ? "black" : `white`)};
+  fill: ${({ theme }) => (theme.mode === 'light' ? 'black' : `white`)};
 `
 
 export const RightStyled = styled(Right)`
-  fill: ${({ theme }) => (theme.mode === "light" ? "black" : `white`)};
+  fill: ${({ theme }) => (theme.mode === 'light' ? 'black' : `white`)};
 `

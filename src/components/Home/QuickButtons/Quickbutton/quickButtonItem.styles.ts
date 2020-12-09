@@ -1,8 +1,8 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { transparentize } from "polished"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { transparentize } from 'polished'
 
-import getButtonResponsiveSizes from "@/lib/utils/getButtonResponsiveSizes"
+import getButtonResponsiveSizes from '@/lib/utils/getButtonResponsiveSizes'
 
 const { sizeVar } = getButtonResponsiveSizes()
 
@@ -26,13 +26,13 @@ export const QuickButtonItem = styled.div<QuickButtonItemProp>`
   width: ${sizeVar};
   height: ${sizeVar};
   background: ${({ bg, theme }) =>
-    bg ? (theme.mode === "dark" ? transparentize(0.7, bg) : bg) : theme?.colors?.gray};
+    bg ? (theme.mode === 'dark' ? transparentize(0.7, bg) : bg) : theme?.colors?.gray};
 
   &:hover,
   &:focus {
     background: ${({ bg, theme }) =>
       bg
-        ? theme.mode === "dark"
+        ? theme.mode === 'dark'
           ? transparentize(0.5, bg)
           : transparentize(0.2, bg)
         : transparentize(0.7, theme?.colors?.gray)};

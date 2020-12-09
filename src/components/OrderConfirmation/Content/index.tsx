@@ -1,12 +1,11 @@
-import React from "react"
-import SbEditable from "storyblok-react"
+import React from 'react'
+import SbEditable from 'storyblok-react'
 
-import Container from "@/components/Container"
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/hotelInfo"
-import Button from "@/components/_common/Button"
-import brandColors from "@/lib/theme/brandColors"
-import ButtonToggle, { ToggleItem } from "@/components/_common/ButtonToggle"
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import { HotelInfoContent } from '@/lib/types/hotelInfo'
+import Button from '@/components/_common/Button'
+import brandColors from '@/lib/theme/brandColors'
+import ButtonToggle, { ToggleItem } from '@/components/_common/ButtonToggle'
 
 import {
   StickyFooterWrapper,
@@ -21,9 +20,9 @@ import {
   MoreInfoWrapper,
   MoreInfo,
   OrderWrapper
-} from "./Content.styles"
-import NextIcon from "@/assets/icons/NextIcon"
-import Section from "@/components/_common/Section"
+} from './Content.styles'
+import NextIcon from '@/assets/icons/NextIcon'
+import Section from '@/components/_common/Section'
 
 type OrderItem = {
   id: string
@@ -40,12 +39,12 @@ interface Props {
   OrderItems: OrderItem[]
 }
 
-const Content = ({ blok, blokConfig, setActiveButton, activeButton, ToggleItems, OrderItems }: Props) => {
+const Content = ({ blok, setActiveButton, activeButton, ToggleItems, OrderItems }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Section style={{ padding: "0" }}>
+      <Section style={{ padding: '0' }}>
         {OrderItems.map(({ id, TitleLabel }) => (
-          <OrderWrapper>
+          <OrderWrapper key={id}>
             <Info>
               <Label>
                 <BoldText>{TitleLabel}</BoldText>

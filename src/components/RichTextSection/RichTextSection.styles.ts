@@ -1,8 +1,8 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
-import BaseSection from "@/components/_common/Section"
-import RichTextField from "@/components/RichTextField"
+import BaseSection from '@/components/_common/Section'
+import RichTextField from '@/components/RichTextField'
 
 export const Section = styled(BaseSection)(xw`pb-8`)
 

@@ -1,9 +1,9 @@
-import { useZoom } from "react-instagram-zoom-slider"
-import { animated, interpolate, OpaqueInterpolation } from "react-spring"
+import { useZoom } from 'react-instagram-zoom-slider'
+import { animated, interpolate, OpaqueInterpolation } from 'react-spring'
 
-import { Slide as StyledSlide } from "./gallerySlider.styles"
+import { Slide as StyledSlide } from './gallerySlider.styles'
 
-import { MutableRefObject } from "react"
+import { MutableRefObject } from 'react'
 
 interface Props {
   onScale: ({ scale: number }) => void

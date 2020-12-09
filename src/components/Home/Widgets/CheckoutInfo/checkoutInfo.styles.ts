@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const WidgetContainer = styled.div`
   ${xw`
@@ -37,7 +37,7 @@ export const NightWrapper = styled.div`
   padding-right: 30px;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 1px;
     height: 28px;

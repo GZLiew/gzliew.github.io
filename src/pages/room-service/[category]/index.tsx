@@ -1,17 +1,17 @@
-import { GetStaticProps, GetStaticPaths } from "next"
+import { GetStaticProps, GetStaticPaths } from 'next'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
+import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import Layout from "@/components/Layout"
-import SEO from "@/components/SEO"
+import Layout from '@/components/Layout'
+import SEO from '@/components/SEO'
 
-import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from "@/lib/api"
-import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { HotelInfoProps } from "@/lib/types/roomService"
-import RoomService, { SERVICES } from "@/components/RoomService"
-import { getCategoriesMock } from "@/components/RoomService/mock"
-import getLocalizedPaths from "@/lib/utils/getLocalizedPaths"
-import { mergePaths } from "@/lib/utils/mergePaths"
+import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from '@/lib/api'
+import { HotelConfigProps } from '@/lib/types/hotelConfig'
+import { HotelInfoProps } from '@/lib/types/roomService'
+import RoomService, { SERVICES } from '@/components/RoomService'
+import { getCategoriesMock } from '@/components/RoomService/mock'
+import getLocalizedPaths from '@/lib/utils/getLocalizedPaths'
+import { mergePaths } from '@/lib/utils/mergePaths'
 
 type Params = {
   language: string
@@ -54,12 +54,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ preview = null, params = {} }) => {
   const hotelConfig = (await getHotelConfiguration(preview)) || []
   const hotelInfo = (await getHotelInformation(preview)) || []
-  const menusResult = await getCategoriesMock((params.category as string) || "food")
+  const menusResult = await getCategoriesMock((params.category as string) || 'food')
   const langCodes: string[] = await getLanguageCodes()
   if (!Array.isArray(hotelInfo) && hotelInfo && hotelInfo.content) {
     hotelInfo.content.menus = menusResult
   }
-  const allLangs = ["en", ...langCodes]
+  const allLangs = ['en', ...langCodes]
 
   return { props: { allLangs, hotelInfo, hotelConfig, preview, params } }
 }

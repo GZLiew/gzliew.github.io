@@ -1,9 +1,9 @@
-import { ReactChild, useState, useEffect } from "react"
-import usePrevious from "@/lib/hooks/usePrevious"
-import { useTheme } from "@emotion/react"
+import { ReactChild, useState, useEffect } from 'react'
+import usePrevious from '@/lib/hooks/usePrevious'
+import { useTheme } from '@emotion/react'
 
-import { ColumnWrapper, SelectorWrapper } from "./QuantitySelector.styles"
-import TouchableOpacity from "../TouchableOpacity"
+import { ColumnWrapper, SelectorWrapper } from './QuantitySelector.styles'
+import TouchableOpacity from '../TouchableOpacity'
 
 type SelectorWrapperProps = React.ComponentProps<typeof SelectorWrapper>
 
@@ -13,7 +13,7 @@ interface Props {
   minValue?: number
   onIncrement: (val: number) => void
   onDecrement: (val: number) => void
-  size: "small" | "large"
+  size: 'small' | 'large'
   children?: ReactChild
   disabled?: boolean
 }
@@ -24,7 +24,7 @@ const QuantitySelector = ({
   minValue = 0,
   onIncrement,
   onDecrement,
-  size = "small",
+  size = 'small',
   disabled,
   ...props
 }: SelectorWrapperProps & Props) => {

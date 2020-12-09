@@ -1,8 +1,8 @@
-import xw from "xwind"
-import { ReactNode } from "react"
-import styled from "@emotion/styled"
-import QuantitySelector from "@/components/_common/QuantitySelector"
-import Container from "@/components/Container"
+import xw from 'xwind'
+import { ReactNode } from 'react'
+import styled from '@emotion/styled'
+import QuantitySelector from '@/components/_common/QuantitySelector'
+import Container from '@/components/Container'
 
 type ImageProps = {
   backgroundImage: string

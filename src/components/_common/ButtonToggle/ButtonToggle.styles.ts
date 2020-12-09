@@ -1,5 +1,5 @@
-import styled from "@emotion/styled"
-import Button from "@/components/_common/Button"
+import styled from '@emotion/styled'
+import Button from '@/components/_common/Button'
 
 export const ButtonToggleWrapper = styled.div``
 

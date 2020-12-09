@@ -1,20 +1,20 @@
-import { useState } from "react"
-import { GetStaticProps } from "next"
+import { useState } from 'react'
+import { GetStaticProps } from 'next'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
-import Layout from "@/components/DefaultLayout"
-import Accordion from "@/components/_common/Accordion"
-import QuantitySelector from "@/components/_common/QuantitySelector"
+import LanguagesContext from '@/lib/context/LanguagesContext'
+import Layout from '@/components/DefaultLayout'
+import Accordion from '@/components/_common/Accordion'
+import QuantitySelector from '@/components/_common/QuantitySelector'
 
-import { getHotelConfiguration, getHotelGlobalNavigation, getLanguageCodes } from "@/lib/api"
-import { HomeContent } from "@/lib/types/homeContent"
-import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { ICommonLayout } from "@/lib/types/commonLayout"
-import RadioButtons from "@/components/_common/RadioButtons"
-import MenuItem from "@/components/_common/MenuItem"
-import ButtonTab from "@/components/_common/ButtonTab"
-import Button from "@/components/_common/Button"
-import ButtonToggle from "@/components/_common/ButtonToggle"
+import { getHotelConfiguration, getHotelGlobalNavigation, getLanguageCodes } from '@/lib/api'
+import { HomeContent } from '@/lib/types/homeContent'
+import { HotelConfigProps } from '@/lib/types/hotelConfig'
+import { ICommonLayout } from '@/lib/types/commonLayout'
+import RadioButtons from '@/components/_common/RadioButtons'
+import MenuItem from '@/components/_common/MenuItem'
+import ButtonTab from '@/components/_common/ButtonTab'
+import Button from '@/components/_common/Button'
+import ButtonToggle from '@/components/_common/ButtonToggle'
 
 interface Props {
   allLangs: string[]
@@ -26,21 +26,21 @@ interface Props {
 
 const fakeItems = [
   {
-    id: "sometandom12132",
-    title: "Food"
+    id: 'sometandom12132',
+    title: 'Food'
   },
   {
-    id: "alkdnc212321312",
-    title: "Beverage"
+    id: 'alkdnc212321312',
+    title: 'Beverage'
   }
 ]
 
 export default function Components({ allLangs, layoutNavigation, preview, hotelConfig }: Props) {
-  const [active, setActive] = useState("1")
-  const [activeButton, setActiveButton] = useState("1")
+  const [active, setActive] = useState('1')
+  const [activeButton, setActiveButton] = useState('1')
   const image = {
-    name: "tapendium-logo",
-    filename: "https://a.storyblok.com/f/87760/450x600/2733ab6342/tapendium-logo-image.png"
+    name: 'tapendium-logo',
+    filename: 'https://a.storyblok.com/f/87760/450x600/2733ab6342/tapendium-logo-image.png'
   }
   return (
     <LanguagesContext.Provider value={allLangs}>
@@ -64,10 +64,10 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
           groupId="1"
           activeItem={active}
           items={[
-            { _uid: "1", label: "Exotic Veg Thai Style" },
-            { _uid: "2", label: "nasi Veg Style", secondaryLabel: "+$29" },
-            { _uid: "3", label: "currey  Thai Style", secondaryLabel: "+$29" },
-            { _uid: "4", label: "noodles Thai Style", secondaryLabel: "+$29" }
+            { _uid: '1', label: 'Exotic Veg Thai Style' },
+            { _uid: '2', label: 'nasi Veg Style', secondaryLabel: '+$29' },
+            { _uid: '3', label: 'currey  Thai Style', secondaryLabel: '+$29' },
+            { _uid: '4', label: 'noodles Thai Style', secondaryLabel: '+$29' }
           ]}
         />
         <div style={{ padding: 30 }}>
@@ -78,8 +78,8 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
             onClick={(item) => setActiveButton(item.id)}
             activeItem={activeButton}
             items={[
-              { id: "1", label: "Yes" },
-              { id: "2", label: "No" }
+              { id: '1', label: 'Yes' },
+              { id: '2', label: 'No' }
             ]}
           />
         </div>
@@ -114,7 +114,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const layoutNavigation = (await getHotelGlobalNavigation(preview)) || []
 
   const langCodes: string[] = await getLanguageCodes()
-  const allLangs = ["en", ...langCodes]
+  const allLangs = ['en', ...langCodes]
 
   return { props: { allLangs, layoutNavigation, hotelConfig } }
 }

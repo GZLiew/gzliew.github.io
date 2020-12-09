@@ -1,6 +1,6 @@
-import React, { ReactNode, useRef } from "react"
-import { OverlayContainer } from "./Overlay.styles"
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import React, { ReactNode, useRef } from 'react'
+import { OverlayContainer } from './Overlay.styles'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
 type OverlayContainerProps = React.ComponentProps<typeof OverlayContainer>
 type Props = {

@@ -1,5 +1,5 @@
-import { IHotelPhoto } from "../types/hotelInfo"
-import getImageDimensions from "./getImageDimensions"
+import { IHotelPhoto } from '../types/hotelInfo'
+import getImageDimensions from './getImageDimensions'
 
 // get hotel photos image dimensions and return a modified IHotelPhoto[]
 const processHotelPhotos = async (hotelPhotos: IHotelPhoto[]): Promise<IHotelPhoto[]> =>

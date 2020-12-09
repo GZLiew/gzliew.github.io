@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const SIZES = {
   sm: xw`h-5 w-5`,

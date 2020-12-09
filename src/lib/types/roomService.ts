@@ -1,7 +1,7 @@
-import { SbEditableContent } from "storyblok-react"
-import { Richtext } from "storyblok-js-client"
+import { SbEditableContent } from 'storyblok-react'
+import { Richtext } from 'storyblok-js-client'
 
-import { IHotelLocation, IHotelPhoto, IHotelRating, IScrollingIcon } from "./hotelInfo"
+import { IHotelLocation, IHotelPhoto, IHotelRating, IScrollingIcon } from './hotelInfo'
 
 export interface IMenu extends SbEditableContent {
   title: string
@@ -13,7 +13,7 @@ export interface IMenu extends SbEditableContent {
 export type Choice<T = any> = SbEditableContent & {
   title: string
   secondaryTitle?: string
-  type?: "radio" | "toggle" | "quantity"
+  type?: 'radio' | 'toggle' | 'quantity'
   options: T[]
 }
 

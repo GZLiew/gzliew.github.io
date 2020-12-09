@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const ShoppingBagWrapper = styled.div`
   ${xw`

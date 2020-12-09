@@ -1,11 +1,11 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
-import { animated } from "react-spring"
+import { animated } from 'react-spring'
 
-import { rgba } from "polished"
+import { rgba } from 'polished'
 
-import getAspectRatio from "@/lib/utils/getAspectRatio"
+import getAspectRatio from '@/lib/utils/getAspectRatio'
 
 export const dotStyles = {
   innerMargin: 6,
@@ -40,7 +40,7 @@ export const CloseButton = styled.button`
     ml-5
   `}
 
-  background: ${rgba("#122232", 0.45)};
+  background: ${rgba('#122232', 0.45)};
 `
 
 export const StyledSlider = animated(styled.div<{ isZooming: boolean }>`
@@ -122,8 +122,9 @@ export const DotButton = styled.button`
     border: ${dotStyles.border}px solid white;
   }
 
-  &:focus, &:active {
-    outline: none
+  &:focus,
+  &:active {
+    outline: none;
   }
 `
 

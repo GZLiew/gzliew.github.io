@@ -1,5 +1,5 @@
-import { MenuItemWrapper, MenuDetail, MenuImage } from "./menuItem.styles"
-import { HotelLogo } from "@/lib/types/hotelConfig"
+import { MenuItemWrapper, MenuDetail, MenuImage } from './menuItem.styles'
+import { HotelLogo } from '@/lib/types/hotelConfig'
 
 type MenuItemWrapperProps = React.ComponentProps<typeof MenuItemWrapper>
 
@@ -14,7 +14,7 @@ const MenuItem = (props: MenuItemWrapperProps & Props) => {
   const { title, description, price, image, ...menuWrapperProps } = props
   return (
     <MenuItemWrapper {...menuWrapperProps}>
-      <MenuImage className={props.image ? "show" : "hidden"}>
+      <MenuImage className={props.image ? 'show' : 'hidden'}>
         <img src={image?.filename} alt={image?.name} title={image?.name} />
       </MenuImage>
       <MenuDetail>

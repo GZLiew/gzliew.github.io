@@ -1,7 +1,7 @@
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import type { IHotelLocation } from "@/lib/types/hotelInfo"
-import { LocationWrapper, LocationCity, LocationLink, LocationMarker } from "./hotelLocation.styles"
+import type { IHotelLocation } from '@/lib/types/hotelInfo'
+import { LocationWrapper, LocationCity, LocationLink, LocationMarker } from './hotelLocation.styles'
 
 interface Props {
   location: IHotelLocation
@@ -17,7 +17,7 @@ const HotelLocation = ({ location }: Props) => {
           href={`http://google.com/maps/search/?api=1&query=${location?.lat},${location?.lng}`}
           target="_blank"
           rel="noopener noreferrer">
-          View on map {">"}
+          View on map {'>'}
         </LocationLink>
       </LocationWrapper>
     </SbEditable>

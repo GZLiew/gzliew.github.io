@@ -1,8 +1,8 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
-import TouchableOpacity from "@/components/_common/TouchableOpacity"
-import { transparentize } from "polished"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+import TouchableOpacity from '@/components/_common/TouchableOpacity'
+import { transparentize } from 'polished'
 
 type BaseProps = {
   selected: boolean
@@ -14,7 +14,7 @@ export const Base = styled(TouchableOpacity)<BaseProps>`
   ${xw`px-4 py-3 mb-2 w-full overflow-hidden border flex flex-row items-center relative`}
   border-radius: 1rem;
   background-color: ${({ theme }) =>
-    theme.mode === "light" ? theme.colors.secondary : theme.colors.secondary};
+    theme.mode === 'light' ? theme.colors.secondary : theme.colors.secondary};
 `
 
 export const CheckMark = styled.div<CheckMarkProps>`
@@ -40,7 +40,7 @@ export const CheckMarkHighlight = styled.div<CheckMarkProps>`
 export const Label = styled.div`
   ${xw`inline-block pl-6`}
   z-index: 1;
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 
 export const HighlightBackground = styled.div<BaseProps>`

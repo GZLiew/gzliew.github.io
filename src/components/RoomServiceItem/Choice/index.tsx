@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React from 'react'
 
-import { Choice as ChoiceProp } from "@/lib/types/roomService"
-import { ChoiceSection } from "./Choice.styles"
-import RadioChoice from "./RadioChoice"
-import ToggleChoice from "./ToggleChoice"
-import QuantityChoice from "./QuantityChoice"
+import { Choice as ChoiceProp } from '@/lib/types/roomService'
+import { ChoiceSection } from './Choice.styles'
+import RadioChoice from './RadioChoice'
+import ToggleChoice from './ToggleChoice'
+import QuantityChoice from './QuantityChoice'
 
 type Props = {
   choice: ChoiceProp
@@ -13,13 +13,13 @@ type Props = {
 const Choice = ({ choice }: Props) => {
   let ChoiceContent: any
   switch (choice.type) {
-    case "radio":
+    case 'radio':
       ChoiceContent = <RadioChoice choice={choice} />
       break
-    case "toggle":
+    case 'toggle':
       ChoiceContent = <ToggleChoice choice={choice} />
       break
-    case "quantity":
+    case 'quantity':
       ChoiceContent = <QuantityChoice choice={choice} />
       break
     default:

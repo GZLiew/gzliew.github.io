@@ -1,8 +1,8 @@
-import SbEditable from "storyblok-react"
-import { Grid, MorePhotos } from "./galleryGrid.styles"
+import SbEditable from 'storyblok-react'
+import { Grid, MorePhotos } from './galleryGrid.styles'
 
-import { IPhotoFile, IHotelPhoto } from "@/lib/types/hotelInfo"
-import GridItem from "./GridItem"
+import { IHotelPhoto } from '@/lib/types/hotelInfo'
+import GridItem from './GridItem'
 
 interface Props {
   gallery: IHotelPhoto

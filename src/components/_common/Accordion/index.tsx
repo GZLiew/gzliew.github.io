@@ -1,8 +1,8 @@
-import { ReactChild, useState } from "react"
-import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
-import { useSpring, animated } from "react-spring"
-import ChevronDownSvg from "../../../assets/icons/chevron-down.svg"
-import { TitleWrapper, Title, SecondaryTitle, AccordionContent } from "./Accordion.styles"
+import { ReactChild, useState } from 'react'
+import useMeasure from '@/lib/hooks/useMeasurePolyfilled'
+import { useSpring, animated } from 'react-spring'
+import ChevronDownSvg from '../../../assets/icons/chevron-down.svg'
+import { TitleWrapper, Title, SecondaryTitle, AccordionContent } from './Accordion.styles'
 
 type TitleWrapperProps = React.ComponentProps<typeof TitleWrapper>
 
@@ -33,9 +33,9 @@ const Accordion = (props: TitleWrapperProps & Props) => {
         <ChevronDown {...chevronStyles} />
       </TitleWrapper>
 
-      <animated.div style={{ overflow: "hidden", ...contentProps }}>
+      <animated.div style={{ overflow: 'hidden', ...contentProps }}>
         <AccordionContent>
-          <div ref={ref} style={{ paddingTop: "10px" }}>
+          <div ref={ref} style={{ paddingTop: '10px' }}>
             {children}
           </div>
         </AccordionContent>

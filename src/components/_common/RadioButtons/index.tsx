@@ -1,6 +1,6 @@
-import React from "react"
-import Radio from "@/components/_common/Radio"
-import { RadioButtonsWrapper } from "./RadioButtons.styles"
+import React from 'react'
+import Radio from '@/components/_common/Radio'
+import { RadioButtonsWrapper } from './RadioButtons.styles'
 
 export type RadioItem = {
   _uid: string

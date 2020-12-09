@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState, useCallback, useLayoutEffect } from "react"
-import { useSpring } from "react-spring"
-import { useDrag } from "react-use-gesture"
+import { useEffect, useRef, useState, useCallback, useLayoutEffect } from 'react'
+import { useSpring } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 
-import Slide from "./Slide"
+import Slide from './Slide'
 
-import { StyledSlider } from "./gallerySlider.styles"
+import { StyledSlider } from './gallerySlider.styles'
 
-import isiOSDevice from "@/lib/utils/isiOSDevice"
+import isiOSDevice from '@/lib/utils/isiOSDevice'
 
 interface Props {
   initialSlide: number
@@ -21,7 +21,7 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
   // Almost all of this is straight out of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/hooks/useSlider.js
   // If https://github.com/skozer/react-instagram-zoom-slider/issues/13 is resolved, we could use useSlider hook directly.
   const [{ x }, set] = useSpring(() => ({
-    x: typeof window !== "undefined" ? -window.innerWidth * initialSlide : 0,
+    x: typeof window !== 'undefined' ? -window.innerWidth * initialSlide : 0,
     scale: 1,
     config: {
       tension: 270,
@@ -89,7 +89,7 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
       updateSlide(index.current)
     },
     {
-      axis: "x",
+      axis: 'x',
       bounds: {
         left: currentSlide === slides.length - 1 ? 0 : -Infinity,
         right: index.current === 0 ? 0 : Infinity,
@@ -109,8 +109,8 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
 
   // recalculate slider position value (x) when orientation changes
   useLayoutEffect(() => {
-    const mql = global?.window?.matchMedia("(orientation: portrait)")
-    const handleOriention = (e: MediaQueryListEvent) => {
+    const mql = global?.window?.matchMedia('(orientation: portrait)')
+    const handleOriention = (_e: MediaQueryListEvent) => {
       if (isiOSDevice()) {
         // wait a bit to read the innerWidth as older iOS devices have a delay updating its value
         setTimeout(() => {

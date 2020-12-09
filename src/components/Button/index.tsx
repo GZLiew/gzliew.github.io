@@ -1,17 +1,16 @@
-import { ReactNode } from "react"
-import { ButtonStyled, ButtonWrapper } from "./button.styles"
-import { useTheme } from "@emotion/react"
-import { PrimaryColor } from "@/lib/types/hotelConfig"
+import { ReactNode } from 'react'
+import { ButtonStyled, ButtonWrapper } from './button.styles'
+import { useTheme } from '@emotion/react'
+import { PrimaryColor } from '@/lib/types/hotelConfig'
 
 interface Props {
   children?: ReactNode
   className?: string
   onClick?: () => void
-  props?: any
-  bgColor?: PrimaryColor | "white"
+  bgColor?: PrimaryColor | 'white'
   maxWidth?: string
   height?: string
-  variant?: "flat" | "withShadow"
+  variant?: 'flat' | 'withShadow'
   withIcon?: boolean
 }
 
@@ -22,9 +21,8 @@ const Button = ({
   bgColor,
   maxWidth,
   height,
-  variant = "withShadow",
-  withIcon = false,
-  ...props
+  variant = 'withShadow',
+  withIcon = false
 }: Props) => {
   const theme = useTheme()
   return (
@@ -35,7 +33,7 @@ const Button = ({
       maxWidth={maxWidth}
       height={height}
       withIcon={withIcon}>
-      <ButtonStyled className={["group", className].join(" ")}>{children}</ButtonStyled>
+      <ButtonStyled className={['group', className].join(' ')}>{children}</ButtonStyled>
     </ButtonWrapper>
   )
 }

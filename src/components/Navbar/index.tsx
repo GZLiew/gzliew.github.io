@@ -1,14 +1,14 @@
-import { useRef } from "react"
-import { useSwipeable } from "react-swipeable"
+import { useRef } from 'react'
+import { useSwipeable } from 'react-swipeable'
 
-import { NavbarWrapper, StyledNavbar, Nav } from "./navbar.styles"
-import NavLink from "../NavLink"
-import GuestDetails from "../GuestDetails"
+import { NavbarWrapper, StyledNavbar, Nav } from './navbar.styles'
+import NavLink from '../NavLink'
+import GuestDetails from '../GuestDetails'
 
-import { HotelLogo } from "@/lib/types/hotelConfig"
-import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
+import { HotelLogo } from '@/lib/types/hotelConfig'
+import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
 interface Props {
   isOpen: boolean

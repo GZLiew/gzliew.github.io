@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const TabWrapper = styled.div`
   ${xw`flex flex-row justify-center py-4`}
@@ -34,5 +34,5 @@ export const ThinText = styled.div`
 
 export const TotalText = styled.div`
   ${xw`font-bold text-xl`}
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `

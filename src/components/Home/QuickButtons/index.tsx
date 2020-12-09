@@ -1,17 +1,17 @@
-import { useRef } from "react"
-import QuickButton from "./Quickbutton"
-import QuickButtonModal from "./QuickButtonModal"
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./Quickbutton/quickButtonItem.styles"
+import { useRef } from 'react'
+import QuickButton from './Quickbutton'
+import QuickButtonModal from './QuickButtonModal'
+import { QuickButtonWrapper, QuickButtonItem, Title } from './Quickbutton/quickButtonItem.styles'
 
-import ShowMoreIcon from "../../../assets/icons/ic-my-orders.svg"
+import ShowMoreIcon from '../../../assets/icons/ic-my-orders.svg'
 
-import { QuickButtonsLayout } from "./quickButtons.styles"
+import { QuickButtonsLayout } from './quickButtons.styles'
 
-import useToggle from "@/lib/hooks/useToggle"
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import useToggle from '@/lib/hooks/useToggle'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
-import { IQuickButton } from "@/lib/types/homeContent"
-import getLocalizedSlug from "@/lib/utils/getLocalizedSlug"
+import { IQuickButton } from '@/lib/types/homeContent'
+import getLocalizedSlug from '@/lib/utils/getLocalizedSlug'
 
 interface Props {
   buttons?: IQuickButton[]

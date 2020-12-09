@@ -1,11 +1,11 @@
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import { SubsectionWrapper, DescriptionText } from "../categorySubsection.styles"
-import StyledContainer from "@/components/Container"
-import RichTextField from "@/components/RichTextField"
+import { SubsectionWrapper, DescriptionText } from '../categorySubsection.styles'
+import StyledContainer from '@/components/Container'
+import RichTextField from '@/components/RichTextField'
 
-import { ICategorySubsection } from "@/lib/types/hotelInfo"
-import Accordion from "@/components/_common/Accordion"
+import { ICategorySubsection } from '@/lib/types/hotelInfo'
+import Accordion from '@/components/_common/Accordion'
 
 interface Props {
   subsection: ICategorySubsection

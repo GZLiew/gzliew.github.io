@@ -1,5 +1,5 @@
-import { ReactNode } from "react"
-import { ButtonBackground, ButtonStyled, ButtonWrapper, ContentContainer } from "./Button.styles"
+import { ReactNode } from 'react'
+import { ButtonBackground, ButtonStyled, ButtonWrapper, ContentContainer } from './Button.styles'
 
 type ButtonWrapperProps = React.ComponentProps<typeof ButtonWrapper>
 
@@ -18,7 +18,7 @@ const Button = ({
   variant,
   withIcon = false,
   outline,
-  size = "small",
+  size = 'small',
   raised = true,
   disabled,
   round,
@@ -39,7 +39,7 @@ const Button = ({
       round={round}
       shouldAnimate={shouldAnimate}
       {...props}>
-      <ButtonStyled className={["group", buttonClassName].join(" ")}>
+      <ButtonStyled className={['group', buttonClassName].join(' ')}>
         <ContentContainer>{children}</ContentContainer>
       </ButtonStyled>
       <ButtonBackground />

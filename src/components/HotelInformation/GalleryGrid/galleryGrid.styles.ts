@@ -1,8 +1,8 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { rgba } from "polished"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { rgba } from 'polished'
 
-import { Item } from "./GridItem/gridItem.styles"
+import { Item } from './GridItem/gridItem.styles'
 
 export const Grid = styled.div`
   ${xw`
@@ -48,7 +48,7 @@ export const Grid = styled.div`
 export const MorePhotos = styled(Item)`
   background: ${({ theme }) =>
     `linear-gradient(134deg, ${theme?.brandColors?.secondary} 17%, ${theme?.brandColors?.primary} 77%)`};
-  color: ${rgba("#fff", 0.72)};
+  color: ${rgba('#fff', 0.72)};
 
   .item-content {
     ${xw`

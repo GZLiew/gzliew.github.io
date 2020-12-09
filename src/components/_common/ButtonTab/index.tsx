@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react"
-import { useSpring, interpolate } from "react-spring"
-import { useDrag } from "react-use-gesture"
+import React, { useState, useEffect, useRef } from 'react'
+import { useSpring, interpolate } from 'react-spring'
+import { useDrag } from 'react-use-gesture'
 
-import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
-import TouchableOpacity from "../TouchableOpacity"
+import useMeasure from '@/lib/hooks/useMeasurePolyfilled'
+import TouchableOpacity from '../TouchableOpacity'
 
-import { Base, Tab, TabOverlay } from "./ButtonTab.styles"
+import { Base, Tab, TabOverlay } from './ButtonTab.styles'
 
 export type TabItem = {
   id: string

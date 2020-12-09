@@ -1,6 +1,6 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { animated } from "react-spring"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { animated } from 'react-spring'
 
 export const SwitcherButton = styled.button`
   ${xw`self-center ml-auto`}

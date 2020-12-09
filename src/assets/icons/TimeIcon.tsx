@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 const TimeIcon = (props: React.SVGProps<SVGSVGElement>) => {
   return (

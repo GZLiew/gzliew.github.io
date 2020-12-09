@@ -1,9 +1,9 @@
-import fetch, { Response } from "node-fetch"
-import { imageSize } from "image-size"
-import { createWriteStream, existsSync, unlink, mkdirSync } from "fs"
-import { basename, extname, resolve } from "path"
-import { promisify } from "util"
-import { v4 as uuidv4 } from "uuid"
+import fetch, { Response } from 'node-fetch'
+import { imageSize } from 'image-size'
+import { createWriteStream, existsSync, unlink, mkdirSync } from 'fs'
+import { basename, extname, resolve } from 'path'
+import { promisify } from 'util'
+import { v4 as uuidv4 } from 'uuid'
 
 const imageSizePromise = promisify(imageSize)
 
@@ -17,8 +17,8 @@ const extractImageSlug = (imageURL: string): string => {
 
 // create tap folder inside /tmp
 const createTempSubdir = () => {
-  if (!existsSync(resolve(".tmp/tap/"))) {
-    mkdirSync(resolve(".tmp/tap/"), { recursive: true })
+  if (!existsSync(resolve('.tmp/tap/'))) {
+    mkdirSync(resolve('.tmp/tap/'), { recursive: true })
   }
 }
 
@@ -40,14 +40,14 @@ const temporaryStoreImage = (slug: string, response: Response) => {
   return new Promise((resolve, reject) => {
     const fileStream = createWriteStream(imageTempPath(slug))
     if (!response || !response.body) {
-      reject("No body on fetch response")
+      reject('No body on fetch response')
     } else {
       response.body.pipe(fileStream)
-      fileStream.on("finish", () => {
+      fileStream.on('finish', () => {
         resolve()
       })
-      fileStream.on("error", (err) => {
-        console.log("fs stream err")
+      fileStream.on('error', (err) => {
+        console.log('fs stream err')
         reject(err)
       })
     }

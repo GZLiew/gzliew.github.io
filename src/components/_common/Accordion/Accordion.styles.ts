@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const TitleWrapper = styled.div`
   ${xw`flex justify-between overflow-hidden text-base font-medium`}

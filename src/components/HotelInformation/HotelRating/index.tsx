@@ -1,10 +1,10 @@
-import { useTheme } from "@emotion/react"
-import SbEditable from "storyblok-react"
-import Ratings from "react-ratings-declarative"
+import { useTheme } from '@emotion/react'
+import SbEditable from 'storyblok-react'
+import Ratings from 'react-ratings-declarative'
 
-import { RatingWrapper, RatingText } from "./hotelRating.styles"
+import { RatingWrapper, RatingText } from './hotelRating.styles'
 
-import { IHotelRating } from "@/lib/types/hotelInfo"
+import { IHotelRating } from '@/lib/types/hotelInfo'
 
 interface Props {
   rating: IHotelRating

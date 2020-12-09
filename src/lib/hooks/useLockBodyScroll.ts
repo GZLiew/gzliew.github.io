@@ -1,5 +1,5 @@
-import { useLayoutEffect } from "react"
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock"
+import { useLayoutEffect } from 'react'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 const useLockBodyScroll = (isActive, ref) => {
   useLayoutEffect(() => {

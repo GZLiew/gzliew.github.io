@@ -1,6 +1,6 @@
-import BagIcon from "../../../assets/icons/ic-shopping-bag.svg"
+import BagIcon from '../../../assets/icons/ic-shopping-bag.svg'
 
-import { ShoppingBagWrapper, ItemCount } from "./bag.styles"
+import { ShoppingBagWrapper, ItemCount } from './bag.styles'
 
 interface Props {
   itemCount?: number

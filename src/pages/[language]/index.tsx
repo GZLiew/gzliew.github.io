@@ -1,17 +1,17 @@
-import { GetStaticPaths, GetStaticProps } from "next"
+import { GetStaticPaths, GetStaticProps } from 'next'
 
-import getLocalizedPaths from "@/lib/utils/getLocalizedPaths"
+import getLocalizedPaths from '@/lib/utils/getLocalizedPaths'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
+import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import Layout from "@/components/Layout"
-import SEO from "@/components/SEO"
-import Home from "@/components/Home"
+import Layout from '@/components/Layout'
+import SEO from '@/components/SEO'
+import Home from '@/components/Home'
 
-import { getHotelGlobalNavigation, getHomeData, getHotelConfiguration, getLanguageCodes } from "@/lib/api"
-import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { HomeContent } from "@/lib/types/homeContent"
-import { ICommonLayout } from "@/lib/types/commonLayout"
+import { getHotelGlobalNavigation, getHomeData, getHotelConfiguration, getLanguageCodes } from '@/lib/api'
+import { HotelConfigProps } from '@/lib/types/hotelConfig'
+import { HomeContent } from '@/lib/types/homeContent'
+import { ICommonLayout } from '@/lib/types/commonLayout'
 
 interface Props {
   allLangs: string[]
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = null, params })
   const homeContent = (await getHomeData(preview, params?.language as string)) || []
 
   const langCodes: string[] = await getLanguageCodes()
-  const allLangs = ["en", ...langCodes]
+  const allLangs = ['en', ...langCodes]
 
   return { props: { params, allLangs, layoutNavigation, homeContent, hotelConfig } }
 }

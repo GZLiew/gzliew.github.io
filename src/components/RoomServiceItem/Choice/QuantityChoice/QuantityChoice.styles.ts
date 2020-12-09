@@ -1,9 +1,9 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const RowWrapper = styled.div`
- ${xw`flex flex-row justify-between items-center text-base font-medium px-4`}
- color: ${({ theme }) => theme?.colors?.text?.primary};
+  ${xw`flex flex-row justify-between items-center text-base font-medium px-4`}
+  color: ${({ theme }) => theme?.colors?.text?.primary};
 `
 
 export const LabelWrapper = styled.div`

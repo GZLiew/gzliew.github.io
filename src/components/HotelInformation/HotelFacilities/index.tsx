@@ -1,8 +1,8 @@
-import { AmenitiesWrapper, InnerWrapper, MoreFacilities } from "./hotelFacilities.styles"
-import HotelFacilityCard from "../HotelFacilityCard"
-import { Card } from "../HotelFacilityCard/hotelFacilityCard.styles"
+import { AmenitiesWrapper, InnerWrapper, MoreFacilities } from './hotelFacilities.styles'
+import HotelFacilityCard from '../HotelFacilityCard'
+import { Card } from '../HotelFacilityCard/hotelFacilityCard.styles'
 
-import { IScrollingIcon } from "@/lib/types/hotelInfo"
+import { IScrollingIcon } from '@/lib/types/hotelInfo'
 
 interface Props {
   amenities: Array<IScrollingIcon>

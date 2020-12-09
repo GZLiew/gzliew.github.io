@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect, MouseEvent } from "react"
-import { useTheme } from "@emotion/react"
-import { useSpring } from "react-spring"
-import { useGesture } from "react-use-gesture"
-import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
-import { rgba } from "polished"
-import { throttle, debounce } from "lodash"
-import Scrollspy from "react-scrollspy"
+import React, { useState, useRef, useEffect, MouseEvent } from 'react'
+import { useTheme } from '@emotion/react'
+import { useSpring } from 'react-spring'
+import { useGesture } from 'react-use-gesture'
+import useMeasure from '@/lib/hooks/useMeasurePolyfilled'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
+import { rgba } from 'polished'
+import { throttle, debounce } from 'lodash'
+import Scrollspy from 'react-scrollspy'
 
-import { Tabs, Container, Tab } from "./categoryTabs.styles"
+import { Tabs, Container, Tab } from './categoryTabs.styles'
 
 export const TABS_HEIGHT = 50
 
@@ -73,7 +73,7 @@ const StickyTabs = ({ items, offset = 0 }: Props) => {
           left: dragLeftBound.current,
           right: 0
         },
-        axis: "x",
+        axis: 'x',
         initial: () => [x.getValue(), 0]
       }
     }
@@ -93,9 +93,9 @@ const StickyTabs = ({ items, offset = 0 }: Props) => {
       }
     }
 
-    global?.window?.addEventListener("scroll", throttle(scrollListener, 100))
+    global?.window?.addEventListener('scroll', throttle(scrollListener, 100))
     return () => {
-      global?.window?.removeEventListener("scroll", throttle(scrollListener, 100))
+      global?.window?.removeEventListener('scroll', throttle(scrollListener, 100))
     }
   }, [])
 
@@ -137,7 +137,7 @@ const StickyTabs = ({ items, offset = 0 }: Props) => {
       window.scrollTo({
         top: matchingSection.offsetTop - offset - TABS_HEIGHT,
         left: 0,
-        behavior: "smooth"
+        behavior: 'smooth'
       })
     }
   }
@@ -160,7 +160,7 @@ const StickyTabs = ({ items, offset = 0 }: Props) => {
               href={`#${slug}`}
               data-slug={slug}
               key={slug}
-              className={slug === currentId ? "active" : null}
+              className={slug === currentId ? 'active' : null}
               onClick={handleTabClick}
               height={TABS_HEIGHT}>
               <span>{title}</span>

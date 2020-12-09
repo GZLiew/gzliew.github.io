@@ -1,9 +1,9 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from 'react'
 
-import Alert from "@/components/Alert"
-import Header, { Title } from "@/components/Header"
-import Layout from "@/components/Layout"
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
+import Alert from '@/components/Alert'
+import Header, { Title } from '@/components/Header'
+import Layout from '@/components/Layout'
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
 
 type Props = React.ComponentProps<typeof Layout> & {
   blokConfig: HotelConfigContent

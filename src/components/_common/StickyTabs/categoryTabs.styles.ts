@@ -1,6 +1,6 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { animated } from "react-spring"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { animated } from 'react-spring'
 
 export const Tabs = styled(animated.div)`
   ${xw`z-40 sticky flex overflow-x-hidden border-b border-solid`}

@@ -1,4 +1,4 @@
-import { SbEditableContent } from "storyblok-react"
+import { SbEditableContent } from 'storyblok-react'
 
 export interface HotelConfigProps {
   id: number
@@ -22,4 +22,4 @@ export interface HotelLogo {
   filename: string
 }
 
-export type PrimaryColor = "red" | "black" | "green" | "blue" | "brown" | "pink" | "yellow" | "purple"
+export type PrimaryColor = 'red' | 'black' | 'green' | 'blue' | 'brown' | 'pink' | 'yellow' | 'purple'

@@ -1,4 +1,4 @@
-import CloseIcon from "./close-icon.svg"
+import CloseIcon from './close-icon.svg'
 
 const GalleryIcons = {
   close: <CloseIcon />

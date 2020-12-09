@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect, ReactNode } from "react"
-import { useSpring, animated } from "react-spring"
+import React, { useState, useRef, useEffect, ReactNode } from 'react'
+import { useSpring, animated } from 'react-spring'
 
-import useMeasure from "@/lib/hooks/useMeasurePolyfilled"
+import useMeasure from '@/lib/hooks/useMeasurePolyfilled'
 
-import { ToggleButton } from "./ReadMore.styles"
+import { ToggleButton } from './ReadMore.styles'
 
 type Props = {
   children: ReactNode

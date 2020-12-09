@@ -1,8 +1,8 @@
-import StickyTabs from "@/components/_common/StickyTabs"
-import { useHeaderHeight } from "@/components/Providers/HeaderHeightProvider"
-import { IMenu } from "@/lib/types/roomService"
+import StickyTabs from '@/components/_common/StickyTabs'
+import { useHeaderHeight } from '@/components/Providers/HeaderHeightProvider'
+import { IMenu } from '@/lib/types/roomService'
 
-import Menu from "../Menu"
+import Menu from '../Menu'
 
 interface Props {
   menus: IMenu[]

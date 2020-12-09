@@ -1,8 +1,8 @@
-import LanguageSwitcher from "../LanguageSwitcher"
+import LanguageSwitcher from '../LanguageSwitcher'
 
-import { DetailsWrapper, GuestInfo } from "./guestDetails.styles"
+import { DetailsWrapper, GuestInfo } from './guestDetails.styles'
 
-import { HotelLogo } from "@/lib/types/hotelConfig"
+import { HotelLogo } from '@/lib/types/hotelConfig'
 
 interface Props {
   isNavbarOpen: boolean
@@ -15,7 +15,7 @@ interface Props {
 const GuestDetails = ({
   isNavbarOpen,
   guestPhoto,
-  name = "Alex Keenan",
+  name = 'Alex Keenan',
   roomNumber = 206,
   guestNumber = 4
 }: Props) => {

@@ -1,6 +1,6 @@
-import React, { useCallback, useRef, useState } from "react"
-import { useGesture } from "react-use-gesture"
-import { AnimatedDiv } from "./TouchableOpacity.styles"
+import React, { useCallback, useRef, useState } from 'react'
+import { useGesture } from 'react-use-gesture'
+import { AnimatedDiv } from './TouchableOpacity.styles'
 
 type Props = React.ComponentProps<typeof AnimatedDiv>
 type ExtraAttrs = { repeatCall?: boolean; disabled?: boolean; [k: string]: any }

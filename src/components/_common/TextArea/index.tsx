@@ -1,5 +1,5 @@
-import React from "react"
-import { TextAreaStyled } from "./TextArea.styles"
+import React from 'react'
+import { TextAreaStyled } from './TextArea.styles'
 
 type Props = React.ComponentProps<typeof TextAreaStyled>
 

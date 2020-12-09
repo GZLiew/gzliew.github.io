@@ -1,11 +1,11 @@
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import { Section } from "../Sections"
-import { CategoryTitle } from "./category.styles"
-import { Subsection, SubsectionDropdown } from "../CategorySubsection"
-import Container from "@/components/Container"
+import { Section } from '../Sections'
+import { CategoryTitle } from './category.styles'
+import { Subsection, SubsectionDropdown } from '../CategorySubsection'
+import Container from '@/components/Container'
 
-import { ICategory } from "@/lib/types/hotelInfo"
+import { ICategory } from '@/lib/types/hotelInfo'
 
 interface Props {
   category: ICategory
@@ -13,7 +13,7 @@ interface Props {
 
 const Category = ({ category }: Props) => {
   // The category has at least one subsection with an icon
-  const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon !== "")
+  const hasSubsectionWithIcon = category?.subsections.some((sub) => sub?.icon !== '')
 
   return (
     <SbEditable content={category}>

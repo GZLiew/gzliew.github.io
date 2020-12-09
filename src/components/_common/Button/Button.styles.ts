@@ -1,18 +1,18 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { css, Theme } from "@emotion/react"
-import isPropValid from "@emotion/is-prop-valid"
-import { lighten } from "polished"
-import TouchableOpacity from "@/components/_common/TouchableOpacity"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { css, Theme } from '@emotion/react'
+import isPropValid from '@emotion/is-prop-valid'
+import { lighten } from 'polished'
+import TouchableOpacity from '@/components/_common/TouchableOpacity'
 
 export type ButtonWrapperProps = {
   /** The color of the button background */
   bgColor?: string
-  variant?: "flat"
+  variant?: 'flat'
   disabled?: boolean
   outline?: boolean
   withIcon?: boolean
-  size: "small" | "medium" | "large"
+  size: 'small' | 'medium' | 'large'
   raised?: boolean
   hover?: boolean
   round?: boolean
@@ -44,47 +44,39 @@ const BackgroundStyles = ({
   outline,
   disabled
 }: ButtonWrapperProps & { theme: Theme }) => css`
-  background: linear-gradient(135.3deg, ${
-    bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
-  } 16.81%, ${bgColor || theme.brandColors.primary} 76.81%);
+  background: linear-gradient(
+    135.3deg,
+    ${bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary} 16.81%,
+    ${bgColor || theme.brandColors.primary} 76.81%
+  );
 
-  ${
-    shouldAnimate &&
-    `
+  ${shouldAnimate &&
+  `
      transform: scale(1);
      transition: transform 0.2s ease-out;
-    `
-  }
+    `}
 
-  ${
-    variant === "flat" &&
-    `
+  ${variant === 'flat' &&
+  `
      background: ${bgColor || theme.button.flatBg};
-    `
-  }
+    `}
 
-  ${
-    variant &&
-    shouldAnimate &&
-    `
+  ${variant &&
+  shouldAnimate &&
+  `
      transform: scale(0);
      transition: transform 0.2s ease-in;
-    `
-  }
+    `}
 
-  ${
-    outline &&
-    `
-     background: ${bgColor || "transparent"};
-    `
-  }
+  ${outline &&
+  `
+     background: ${bgColor || 'transparent'};
+    `}
 
-  ${
-    disabled &&
-    `
+  ${disabled &&
+  `
      background: ${theme.button.disabled};
-    `
-  }
+    `}
 `
 
 const ContentStyles = ({
@@ -94,44 +86,34 @@ const ContentStyles = ({
   disabled,
   round
 }: ButtonWrapperProps & { theme: Theme }) => css`
-  ${
-    variant === "flat" &&
-    `
+  ${variant === 'flat' &&
+  `
      color: ${theme.colors.text.primary};
-    `
-  }
+    `}
 
-  ${
-    outline &&
-    `
+  ${outline &&
+  `
      padding-right: 1.375rem;
      padding-left: 1.375rem;
-    `
-  }
+    `}
 
-  ${
-    disabled &&
-    `
-     color: ${theme.mode === "light" ? theme.colors.gray : "white"};
-    `
-  }
+  ${disabled &&
+  `
+     color: ${theme.mode === 'light' ? theme.colors.gray : 'white'};
+    `}
 
-  ${
-    round &&
-    `
+  ${round &&
+  `
       width: 3rem;
       height: 3rem;
-    `
-  }
+    `}
 
-  ${
-    round &&
-    outline &&
-    `
+  ${round &&
+  outline &&
+  `
       width: 2.750rem;
       height: 2.750rem;
-    `
-  }
+    `}
 `
 
 export const ButtonWrapper = styled(TouchableOpacity, {
@@ -176,7 +158,7 @@ export const ButtonWrapper = styled(TouchableOpacity, {
     `}
 
   ${({ size }) =>
-    size === "small" &&
+    size === 'small' &&
     css`
       ${ButtonStyled} {
         ${xw`text-xs`}
@@ -184,7 +166,7 @@ export const ButtonWrapper = styled(TouchableOpacity, {
     `}
 
   ${({ size }) =>
-    size === "medium" &&
+    size === 'medium' &&
     css`
       min-width: 11rem;
       ${ButtonStyled} {
@@ -193,7 +175,7 @@ export const ButtonWrapper = styled(TouchableOpacity, {
     `}
 
   ${({ size }) =>
-    size === "large" &&
+    size === 'large' &&
     css`
       ${xw`text-lg w-full`}
     `}

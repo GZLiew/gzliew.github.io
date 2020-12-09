@@ -1,1 +1,1 @@
-export { default as StarIcon } from "./star-icon.svg"
+export { default as StarIcon } from './star-icon.svg'

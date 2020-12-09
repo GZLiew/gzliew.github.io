@@ -1,20 +1,20 @@
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from 'react'
 
-import TopNav from "@/components/_common/TopNav"
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/roomService"
-import ButtonTab from "@/components/_common/ButtonTab"
-import { TabItem } from "@/components/_common/ButtonTab"
-import HeaderTitle from "@/components/_common/HeaderTitle"
-import LoadingIndicator from "@/components/_common/LoadingIndicator"
-import Overlay from "@/components/_common/Overlay"
-import ClientOnly from "@/components/ClientOnly"
-import { replaceUrl } from "@/lib/utils/replaceUrl"
+import TopNav from '@/components/_common/TopNav'
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import { HotelInfoContent } from '@/lib/types/roomService'
+import ButtonTab from '@/components/_common/ButtonTab'
+import { TabItem } from '@/components/_common/ButtonTab'
+import HeaderTitle from '@/components/_common/HeaderTitle'
+import LoadingIndicator from '@/components/_common/LoadingIndicator'
+import Overlay from '@/components/_common/Overlay'
+import ClientOnly from '@/components/ClientOnly'
+import { replaceUrl } from '@/lib/utils/replaceUrl'
 
-import Content from "./Content"
-import PageLayout from "@/components/_common/PageLayout"
-import { NavWrapper, StyledHeaderTitle } from "./RoomServices.styles"
-import { getCategoriesMock } from "./mock"
+import Content from './Content'
+import PageLayout from '@/components/_common/PageLayout'
+import { NavWrapper, StyledHeaderTitle } from './RoomServices.styles'
+import { getCategoriesMock } from './mock'
 
 interface Props {
   blok: HotelInfoContent
@@ -23,15 +23,15 @@ interface Props {
   category?: string
 }
 
-const DEFAULT_LABEL = "In-Room Dining"
+const DEFAULT_LABEL = 'In-Room Dining'
 export const SERVICES: Record<string, TabItem> = {
   food: {
-    id: "food",
-    title: "Food"
+    id: 'food',
+    title: 'Food'
   },
   beverages: {
-    id: "beverages",
-    title: "Beverages"
+    id: 'beverages',
+    title: 'Beverages'
   }
 }
 
@@ -52,8 +52,8 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
     }
     setIsLoading(true)
     ;(async () => {
-      const pattern = Object.keys(SERVICES).join("|")
-      const regx = new RegExp(pattern, "i")
+      const pattern = Object.keys(SERVICES).join('|')
+      const regx = new RegExp(pattern, 'i')
       const newPath = window && window.location.pathname.replace(regx, selectedCategory)
       replaceUrl(newPath)
       const menusResult = await getCategoriesMock(selectedCategory)

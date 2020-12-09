@@ -1,6 +1,6 @@
-import React from "react"
+import React from 'react'
 
-import { SIZES, StyledCircle, StyledPath, StyledSvg } from "./LoadingIndicator.styles"
+import { SIZES, StyledCircle, StyledPath, StyledSvg } from './LoadingIndicator.styles'
 
 type SvgProps = React.SVGProps<SVGSVGElement>
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 }
 
 const LoadingIndicator = (props: SvgProps & Props) => {
-  const { size = "sm" } = props
+  const { size = 'sm' } = props
 
   return (
     <StyledSvg xmlns="http://www.w3.org/2000/svg" size={size} fill="none" viewBox="0 0 24 24" {...props}>

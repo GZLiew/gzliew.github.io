@@ -1,9 +1,9 @@
-import SbEditable from "storyblok-react"
-import { useTheme } from "@emotion/react"
+import SbEditable from 'storyblok-react'
+import { useTheme } from '@emotion/react'
 
-import { WidgetContainer, Title, CityLabel, InfoContainer, WeatherInfo } from "../widget.styles"
+import { WidgetContainer, Title, CityLabel, InfoContainer, WeatherInfo } from '../widget.styles'
 
-import WeatherIcon from "@/assets/icons/WeatherIcon"
+import WeatherIcon from '@/assets/icons/WeatherIcon'
 
 interface Props {
   blok: Blok

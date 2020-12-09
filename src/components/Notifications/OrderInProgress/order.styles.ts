@@ -1,8 +1,8 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { slideUp, slideDown } from "@/styles/animations"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { slideUp, slideDown } from '@/styles/animations'
 
-import Button from "@/components/Button"
+import Button from '@/components/Button'
 
 export const NotificationBg = styled.div`
   background: ${({ theme }) => theme.colors.notificationBg};

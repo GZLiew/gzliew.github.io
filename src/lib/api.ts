@@ -1,11 +1,11 @@
-import { fetchAPI } from "@/lib/utils/fetchAPI"
-import slugify from "@sindresorhus/slugify"
+import { fetchAPI } from '@/lib/utils/fetchAPI'
+import slugify from '@sindresorhus/slugify'
 
-import { getLocalizedSlugNode } from "./utils/getLocalizedSlug"
-import processHotelPhotos from "./utils/processHotelPhotos"
+import { getLocalizedSlugNode } from './utils/getLocalizedSlug'
+import processHotelPhotos from './utils/processHotelPhotos'
 
-import { HotelInfoProps } from "./types/hotelInfo"
-import { HotelConfigProps } from "./types/hotelConfig"
+import { HotelInfoProps } from './types/hotelInfo'
+import { HotelConfigProps } from './types/hotelConfig'
 
 export async function getHotelConfiguration(preview: boolean, language?: string): Promise<HotelConfigProps> {
   const data = await fetchAPI(
@@ -33,7 +33,7 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
     }
   }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, "hotel-configuration") } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'hotel-configuration') } }
   )
   return data?.HotelconfigurationItem
 }
@@ -56,7 +56,7 @@ export async function getHomeData(preview: boolean, language?: string) {
     }
   }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, "home") } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'home') } }
   )
   return data?.HomeItem?.content
 }
@@ -83,7 +83,7 @@ export async function getHotelInformation(preview: boolean, language?: string): 
     }
    }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, "hotel-information") } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'hotel-information') } }
   )
 
   const { categories, hotelPhotos, ...content } = data?.HotelinformationItem?.content
@@ -118,7 +118,7 @@ export async function getHotelGlobalNavigation(preview: boolean, language?: stri
       }
     }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, "layout") } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'layout') } }
   )
   return data?.CommonlayoutItem?.content
 }

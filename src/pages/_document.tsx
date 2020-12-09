@@ -1,7 +1,7 @@
-import Document, { Html, Head, Main, NextScript } from "next/document"
-import { extractCritical } from "@emotion/server"
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { extractCritical } from '@emotion/server'
 
-import { APP_DESCRIPTION, APP_NAME } from "@/lib/constants"
+import { APP_DESCRIPTION, APP_NAME } from '@/lib/constants'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -44,7 +44,7 @@ class MyDocument extends Document {
           />
           <style
             //@ts-ignore
-            data-emotion-css={this.props.ids.join(" ")}
+            data-emotion-css={this.props.ids.join(' ')}
             //@ts-ignore
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />

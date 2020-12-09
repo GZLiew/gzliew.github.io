@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react"
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 
-import { useTransition, config, useSpring } from "react-spring"
+import { useTransition, config, useSpring } from 'react-spring'
 
-import SbEditable from "storyblok-react"
-import Slider from "./Slider"
+import SbEditable from 'storyblok-react'
+import Slider from './Slider'
 
-import GalleryIcons from "@/assets/icons/GalleryIcons"
+import GalleryIcons from '@/assets/icons/GalleryIcons'
 
 import {
   GalleryWrapper,
@@ -17,12 +17,11 @@ import {
   SlideImage,
   DotItem,
   DotButton
-} from "./gallerySlider.styles"
+} from './gallerySlider.styles'
 
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
-import isiOSDevice from "@/lib/utils/isiOSDevice"
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
-import { IHotelPhoto } from "@/lib/types/hotelInfo"
+import { IHotelPhoto } from '@/lib/types/hotelInfo'
 
 interface Props {
   gallery: IHotelPhoto
@@ -56,7 +55,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
 
   // ...instead, manually lock body scroll
   useLayoutEffect(() => {
-    global?.document?.body.classList.toggle("lock", isOpen)
+    global?.document?.body.classList.toggle('lock', isOpen)
   }, [isOpen])
 
   // update active slide when activeSlide prop changes
@@ -78,12 +77,12 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
       const positionToScroll = Math.floor(
         activePosition * ((dotsRef?.current?.scrollWidth - offset) / gallery?.photos.length)
       )
-      dotsRef?.current?.scroll({ left: positionToScroll, behavior: "smooth" })
+      dotsRef?.current?.scroll({ left: positionToScroll, behavior: 'smooth' })
     }
     scrollDots()
 
     // scroll dots when orientation changes
-    const mql = global?.window?.matchMedia("(orientation: portrait)")
+    const mql = global?.window?.matchMedia('(orientation: portrait)')
     const handleOriention = () => {
       scrollDots()
     }
@@ -132,7 +131,7 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
                 <Dots>
                   {gallery?.photos.map((photo, idx) => (
                     <DotItem key={photo?._uid} onClick={() => handleDotClick(idx)}>
-                      <DotButton className={idx === activePosition ? "selected" : null}>
+                      <DotButton className={idx === activePosition ? 'selected' : null}>
                         <DotThumbnail src={photo?.image} />
                       </DotButton>
                     </DotItem>

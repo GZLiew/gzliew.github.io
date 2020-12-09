@@ -1,9 +1,9 @@
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import { Card, IconWrapper } from "./hotelFacilityCard.styles"
+import { Card, IconWrapper } from './hotelFacilityCard.styles'
 
-import HotelInfoIcons from "@/assets/icons/HotelInfoIcons"
-import { IScrollingIcon } from "@/lib/types/hotelInfo"
+import HotelInfoIcons from '@/assets/icons/HotelInfoIcons'
+import { IScrollingIcon } from '@/lib/types/hotelInfo'
 
 interface Props {
   blok?: IScrollingIcon

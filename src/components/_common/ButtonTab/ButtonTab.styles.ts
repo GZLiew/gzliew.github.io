@@ -1,6 +1,6 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { animated } from "react-spring"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { animated } from 'react-spring'
 
 type TapProps = {
   isFocused: boolean
@@ -8,8 +8,8 @@ type TapProps = {
 
 export const Base = styled.div`
   ${xw`relative border-4 rounded-full text-gray-600 text-base inline-flex flex-row`}
-  border-color: ${({ theme }) => (theme.mode === "light" ? theme.colors.primary : theme.colors.primary)};
-  background-color: ${({ theme }) => (theme.mode === "light" ? theme.colors.primary : theme.colors.primary)};
+  border-color: ${({ theme }) => (theme.mode === 'light' ? theme.colors.primary : theme.colors.primary)};
+  background-color: ${({ theme }) => (theme.mode === 'light' ? theme.colors.primary : theme.colors.primary)};
 `
 
 export const Tab = styled.div<TapProps>`

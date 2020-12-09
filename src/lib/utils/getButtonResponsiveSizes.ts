@@ -39,7 +39,7 @@ const getButtonResponsiveSizes = () => {
             --size: ${size}px;
           }`
       )
-      .join("")
+      .join('')
   }
 }
 

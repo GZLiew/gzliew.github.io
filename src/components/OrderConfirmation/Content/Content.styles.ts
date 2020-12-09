@@ -1,17 +1,17 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const OrderWrapper = styled.div`
   ${xw`px-6 pb-6`}
   &:not(:first-of-type) {
     border-top: 1px solid
-      ${({ theme }) => (theme.mode === "light" ? theme.colors.secondary : theme.colors.primary)};
+      ${({ theme }) => (theme.mode === 'light' ? theme.colors.secondary : theme.colors.primary)};
   }
 `
 export const MoreInfoWrapper = styled.div`
   ${xw` p-5 w-full text-center`}
   background-color: ${({ theme }) =>
-    theme.mode === "light" ? theme.colors.secondary : theme.colors.primary};
+    theme.mode === 'light' ? theme.colors.secondary : theme.colors.primary};
   color: ${({ theme }) => theme.colors.text.alternate};
 `
 export const MoreInfo = styled.div`
@@ -45,9 +45,9 @@ export const ThinText = styled.div`
 `
 export const BoldText = styled.div`
   ${xw`font-semibold text-sm`}
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 export const TotalText = styled.div`
   ${xw`font-bold text-lg`}
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `

@@ -1,7 +1,7 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import Container from "@/components/Container"
-import MenuItem from "@/components/_common/MenuItem"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import Container from '@/components/Container'
+import MenuItem from '@/components/_common/MenuItem'
 
 export const TitleContainer = styled.div(xw`container mx-auto px-5 py-8 pb-0`)
 

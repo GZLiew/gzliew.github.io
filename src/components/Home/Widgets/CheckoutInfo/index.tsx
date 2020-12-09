@@ -1,10 +1,10 @@
-import { ReactChild } from "react"
-import { RoomInfoWrapper, InfoWrapper, DateLabel, NightWrapper, InfoLabel } from "./checkoutInfo.styles"
-import { WidgetContainer } from "../widget.styles"
+import { ReactChild } from 'react'
+import { RoomInfoWrapper, InfoWrapper, DateLabel, NightWrapper, InfoLabel } from './checkoutInfo.styles'
+import { WidgetContainer } from '../widget.styles'
 
-import Button from "@/components/Button"
+import Button from '@/components/Button'
 
-import NextIcon from "@/assets/icons/NextIcon"
+import NextIcon from '@/assets/icons/NextIcon'
 
 type Props = {
   children?: ReactChild

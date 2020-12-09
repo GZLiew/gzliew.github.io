@@ -1,7 +1,7 @@
-import { useRef, useEffect, ReactChild } from "react"
-import { NotificationBg, NotificationWrapper, MessageWrapper, StyledButton } from "./order.styles"
+import { useRef, useEffect, ReactChild } from 'react'
+import { NotificationBg, NotificationWrapper, MessageWrapper, StyledButton } from './order.styles'
 
-import useToggle from "@/lib/hooks/useToggle"
+import useToggle from '@/lib/hooks/useToggle'
 
 type Props = {
   children?: ReactChild
@@ -14,13 +14,13 @@ const OrderInProgress = ({}: Props) => {
   useEffect(() => {
     if (!isActive) {
       setTimeout(() => {
-        ref.current.style.display = "none"
+        ref.current.style.display = 'none'
       }, 200)
     }
   }, [isActive])
 
   return (
-    <NotificationBg ref={ref} className={!isActive ? "out" : "in"}>
+    <NotificationBg ref={ref} className={!isActive ? 'out' : 'in'}>
       <NotificationWrapper>
         <MessageWrapper>
           <span>Delivery at your doorstep</span>

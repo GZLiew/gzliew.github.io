@@ -1,5 +1,5 @@
-import { IStoryblok_IconAsset, IStoryblok_Link } from "./storyblok"
-import { SbEditableContent } from "storyblok-react"
+import { IStoryblok_Link } from './storyblok'
+import { SbEditableContent } from 'storyblok-react'
 
 export interface HomeContent extends SbEditableContent {
   primaryWelcomeText?: string

@@ -1,10 +1,10 @@
-import React from "react"
-import SbEditable from "storyblok-react"
+import React from 'react'
+import SbEditable from 'storyblok-react'
 
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/hotelInfo"
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import { HotelInfoContent } from '@/lib/types/hotelInfo'
 
-import Section from "../_common/Section"
+import Section from '../_common/Section'
 import {
   StyledContainer,
   SuccessMessage,
@@ -14,10 +14,10 @@ import {
   BoldText,
   Wrapper,
   CheckWrapperInner
-} from "./OrderSuccess.styles"
+} from './OrderSuccess.styles'
 
-import CheckedIcon from "../../assets/icons/ic-checked.svg"
-import Button from "../_common/Button"
+import CheckedIcon from '../../assets/icons/ic-checked.svg'
+import Button from '../_common/Button'
 
 interface Props {
   blok: HotelInfoContent
@@ -25,12 +25,12 @@ interface Props {
   preview?: boolean
 }
 
-const DEFAULT_LABEL = "Order Success"
+const _DEFAULT_LABEL = 'Order Success'
 
-const OrderSuccess = ({ blok, blokConfig }: Props) => {
+const OrderSuccess = ({ blok }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Section className="min-h-screen" style={{ padding: "25px" }}>
+      <Section className="min-h-screen" style={{ padding: '25px' }}>
         <StyledContainer>
           <CheckWrapper>
             <CheckWrapperInner>

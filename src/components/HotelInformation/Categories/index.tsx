@@ -1,8 +1,8 @@
-import StickyTabs from "@/components/_common/StickyTabs"
-import { useHeaderHeight } from "@/components/Providers/HeaderHeightProvider"
-import { ICategory } from "@/lib/types/hotelInfo"
+import StickyTabs from '@/components/_common/StickyTabs'
+import { useHeaderHeight } from '@/components/Providers/HeaderHeightProvider'
+import { ICategory } from '@/lib/types/hotelInfo'
 
-import Category from "../Category"
+import Category from '../Category'
 
 interface Props {
   categories: ICategory[]

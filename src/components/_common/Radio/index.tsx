@@ -1,6 +1,6 @@
-import React, { ChangeEvent } from "react"
-import TouchableOpacity from "@/components/_common/TouchableOpacity"
-import { Fill, Input, Root, SecondaryText } from "./Radio.styles"
+import React, { ChangeEvent } from 'react'
+import TouchableOpacity from '@/components/_common/TouchableOpacity'
+import { Fill, Input, Root, SecondaryText } from './Radio.styles'
 
 type Props = {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void

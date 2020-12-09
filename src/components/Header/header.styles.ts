@@ -1,10 +1,10 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { animated } from "react-spring"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { animated } from 'react-spring'
 
-import Container from "../Container"
+import Container from '../Container'
 
-import HamburgerSVG from "../../assets/icons/wt-ic-hamburger-menu.svg"
+import HamburgerSVG from '../../assets/icons/wt-ic-hamburger-menu.svg'
 
 export const HeaderContainer = styled(Container)`
   ${xw`
@@ -37,7 +37,7 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
   transform: translateY(${({ hasScrolled }) => (hasScrolled ? 0 : `-100%`)});
   opacity: ${({ hasScrolled }) => (hasScrolled ? 1 : 0)};
   transition: transform 0.2s, opacity 0.1s;
-  transition-timing-function: ${({ hasScrolled }) => (!hasScrolled ? "ease-out" : "ease-in")};
+  transition-timing-function: ${({ hasScrolled }) => (!hasScrolled ? 'ease-out' : 'ease-in')};
   will-change: transform;
 `
 export const LogoWrapper = styled.header`

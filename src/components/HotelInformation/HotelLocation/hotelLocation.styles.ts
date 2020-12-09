@@ -1,7 +1,7 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
-import { LocationIcon } from "@/assets/icons/HotelLocation"
+import { LocationIcon } from '@/assets/icons/HotelLocation'
 
 export const LocationWrapper = styled.div`
   ${xw`

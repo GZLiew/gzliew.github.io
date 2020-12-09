@@ -1,10 +1,10 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { Choice as ChoiceProp } from "@/lib/types/roomService"
+import { Choice as ChoiceProp } from '@/lib/types/roomService'
 
-import { LabelWrapper, RowWrapper, SecondaryTitle } from "./QuantityChoice.styles"
-import Button from "@/components/_common/Button"
-import QuantitySelector from "@/components/_common/QuantitySelector"
+import { LabelWrapper, RowWrapper, SecondaryTitle } from './QuantityChoice.styles'
+import Button from '@/components/_common/Button'
+import QuantitySelector from '@/components/_common/QuantitySelector'
 
 type Props = {
   choice: ChoiceProp

@@ -1,4 +1,4 @@
-import { getLanguageCodes } from "../api"
+import { getLanguageCodes } from '../api'
 
 // fetch Storyblok content languages and map them alongside `url` to a path
 // Every path represents a localized version of the Storyblok content

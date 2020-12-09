@@ -1,19 +1,19 @@
-import { GetStaticProps, GetStaticPaths } from "next"
+import { GetStaticProps, GetStaticPaths } from 'next'
 
-import getLocalizedPaths from "@/lib/utils/getLocalizedPaths"
+import getLocalizedPaths from '@/lib/utils/getLocalizedPaths'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
+import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import Layout from "@/components/Layout"
-import SEO from "@/components/SEO"
-import RoomServiceItem from "@/components/RoomServiceItem"
+import Layout from '@/components/Layout'
+import SEO from '@/components/SEO'
+import RoomServiceItem from '@/components/RoomServiceItem'
 
-import { getHotelInformation, getHotelConfiguration, getLanguageCodes } from "@/lib/api"
-import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { HotelInfoProps } from "@/lib/types/roomService"
-import { allItems, getItemMock } from "@/components/RoomService/mock"
-import { SERVICES } from "@/components/RoomService"
-import { mergePaths } from "@/lib/utils/mergePaths"
+import { getHotelInformation, getHotelConfiguration, getLanguageCodes } from '@/lib/api'
+import { HotelConfigProps } from '@/lib/types/hotelConfig'
+import { HotelInfoProps } from '@/lib/types/roomService'
+import { allItems, getItemMock } from '@/components/RoomService/mock'
+import { SERVICES } from '@/components/RoomService'
+import { mergePaths } from '@/lib/utils/mergePaths'
 
 interface Props {
   allLangs: string[]
@@ -59,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = null, params })
     hotelInfo.content.roomServiceItem = item || null
   }
   const langCodes: string[] = await getLanguageCodes()
-  const allLangs = ["en", ...langCodes]
+  const allLangs = ['en', ...langCodes]
 
   return { props: { params, allLangs, hotelInfo, hotelConfig, preview }, revalidate: 2 }
 }

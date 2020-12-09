@@ -1,15 +1,15 @@
-import SbEditable from "storyblok-react"
-import { ICategorySubsection } from "@/lib/types/hotelInfo"
-import RichTextField from "@/components/RichTextField"
+import SbEditable from 'storyblok-react'
+import { ICategorySubsection } from '@/lib/types/hotelInfo'
+import RichTextField from '@/components/RichTextField'
 import {
   SubsectionTitle,
   SubsectionWrapper,
   SubsectionIcon,
   EmptyIconSpacer,
   InnerContent
-} from "../categorySubsection.styles"
+} from '../categorySubsection.styles'
 
-import HotelInfoIcons from "@/assets/icons/HotelInfoIcons"
+import HotelInfoIcons from '@/assets/icons/HotelInfoIcons'
 
 interface Props {
   subsection: ICategorySubsection
@@ -20,7 +20,7 @@ export const Subsection = ({ subsection, hasAtLeastOneIcon }: Props) => {
   return (
     <SbEditable content={subsection}>
       <SubsectionWrapper>
-        {subsection?.icon !== "" ? (
+        {subsection?.icon !== '' ? (
           <SubsectionIcon>{HotelInfoIcons[subsection?.icon]}</SubsectionIcon>
         ) : hasAtLeastOneIcon ? (
           <EmptyIconSpacer />

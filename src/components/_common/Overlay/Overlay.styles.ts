@@ -1,6 +1,6 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { rgba } from "polished"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { rgba } from 'polished'
 
 interface Props {
   isOpen: boolean
@@ -24,5 +24,5 @@ export const OverlayContainer = styled.div<Props>`
 
   opacity: ${({ isOpen }) => (isOpen ? `1` : `0`)};
   pointer-events: ${({ isOpen }) => !isOpen && `none`};
-  background-color: ${rgba("#000", 0.6)};
+  background-color: ${rgba('#000', 0.6)};
 `

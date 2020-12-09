@@ -1,13 +1,13 @@
-import SbEditable from "storyblok-react"
-import { usePress, useHover } from "@react-aria/interactions"
+import SbEditable from 'storyblok-react'
+import { usePress, useHover } from '@react-aria/interactions'
 
-import { StyledLink, IconWrapper } from "./navLink.styles"
+import { StyledLink, IconWrapper } from './navLink.styles'
 
-import BaseLink from "../BaseLink"
+import BaseLink from '../BaseLink'
 
-import { ILayoutNavigationLink } from "@/lib/types/commonLayout"
+import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 
-import NavIcons from "@/assets/icons/NavbarIcons"
+import NavIcons from '@/assets/icons/NavbarIcons'
 
 interface Props {
   blok: ILayoutNavigationLink

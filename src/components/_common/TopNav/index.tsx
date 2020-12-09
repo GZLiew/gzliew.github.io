@@ -1,9 +1,9 @@
-import React, { ReactNode, useRef } from "react"
-import { useSwipeable } from "react-swipeable"
-import { isFunction } from "lodash"
+import React, { useRef } from 'react'
+import { useSwipeable } from 'react-swipeable'
+import { isFunction } from 'lodash'
 
-import { StyledTopNav, TopNavWrapper } from "./TopNav.styles"
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import { StyledTopNav, TopNavWrapper } from './TopNav.styles'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
 type handleNavbarClick = () => void
 

@@ -1,5 +1,5 @@
-import { SbEditableContent } from "storyblok-react"
-import { IStoryblok_Link, IStoryblok_IconAsset } from "./storyblok"
+import { SbEditableContent } from 'storyblok-react'
+import { IStoryblok_Link } from './storyblok'
 
 export interface ICommonLayout extends SbEditableContent {
   navigation?: ILayoutNavigation[]

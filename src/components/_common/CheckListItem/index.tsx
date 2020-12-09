@@ -1,8 +1,8 @@
-import React from "react"
+import React from 'react'
 
-import CheckedIcon from "../../../assets/icons/ic-checked.svg"
+import CheckedIcon from '../../../assets/icons/ic-checked.svg'
 
-import { Base, CheckMark, Label, CheckMarkHighlight, HighlightBackground } from "./CheckListItem.styles"
+import { Base, CheckMark, Label, CheckMarkHighlight, HighlightBackground } from './CheckListItem.styles'
 
 type Props = {
   label: string

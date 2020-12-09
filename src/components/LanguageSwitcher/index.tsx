@@ -1,17 +1,17 @@
-import React, { useContext, useState, useEffect } from "react"
-import { useRouter } from "next/router"
-import { useTheme } from "@emotion/react"
-import { useTransition } from "react-spring"
+import React, { useContext, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useTheme } from '@emotion/react'
+import { useTransition } from 'react-spring'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
+import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import Link from "next/link"
+import Link from 'next/link'
 
-import { SwitcherButton, ItemsWrapper, Item } from "./languageSwitcher.styles"
+import { SwitcherButton, ItemsWrapper, Item } from './languageSwitcher.styles'
 
-import SwitcherIcon from "@/assets/icons/language-switcher"
+import SwitcherIcon from '@/assets/icons/language-switcher'
 
-import ISO6391 from "iso-639-1"
+import ISO6391 from 'iso-639-1'
 
 interface Props {
   isNavbarOpen: boolean
@@ -36,7 +36,7 @@ const LanguageSwitcher: React.FC<Props> = ({ isNavbarOpen }) => {
   useEffect(() => {
     setActiveLang(
       languages.find((lang) => {
-        if (!router?.query?.language) return "en"
+        if (!router?.query?.language) return 'en'
         return lang === router?.query?.language
       })
     )
@@ -50,20 +50,20 @@ const LanguageSwitcher: React.FC<Props> = ({ isNavbarOpen }) => {
   }, [isNavbarOpen])
 
   const getLinkProps = (lang: string): { href: string; as?: string } => {
-    let href = lang === "en" ? "/" : "/[language]"
-    let as = lang === "en" ? "/" : `/${lang}`
+    const href = lang === 'en' ? '/' : '/[language]'
+    const as = lang === 'en' ? '/' : `/${lang}`
 
     // if we're on the default language
     if (!router?.query?.language) {
-      const [, routerSlug] = router?.route?.split("/")
-      const slug = routerSlug ? `/${routerSlug}` : ""
-      if (router?.route === "/") return { href, as }
+      const [, routerSlug] = router?.route?.split('/')
+      const slug = routerSlug ? `/${routerSlug}` : ''
+      if (router?.route === '/') return { href, as }
       return { href: href + slug, as: as + slug }
     }
 
     // if we're in a [language] page
-    const [, routerSlug] = router?.route?.split("[language]/")
-    const slug = routerSlug ? `/${routerSlug}` : ""
+    const [, routerSlug] = router?.route?.split('[language]/')
+    const slug = routerSlug ? `/${routerSlug}` : ''
 
     return { href: href + slug, as: as + slug }
   }

@@ -1,12 +1,12 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { css } from "@emotion/react"
-import isPropValid from "@emotion/is-prop-valid"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { css } from '@emotion/react'
+import isPropValid from '@emotion/is-prop-valid'
 
-import TouchableOpacity from "@/components/_common/TouchableOpacity"
-import Ellipses from "@/assets/icons/Ellipses"
-import UpDownArrows from "@/assets/icons/UpDownArrows"
-import TimeIcon from "@/assets/icons/TimeIcon"
+import TouchableOpacity from '@/components/_common/TouchableOpacity'
+import Ellipses from '@/assets/icons/Ellipses'
+import UpDownArrows from '@/assets/icons/UpDownArrows'
+import TimeIcon from '@/assets/icons/TimeIcon'
 
 type Props = {
   isFocus?: boolean
@@ -23,7 +23,7 @@ export const TimeContainer = styled.div`
 
 export const TitleWrapper = styled.div`
   ${xw`flex flex-row text-sm items-center`}
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 
 export const TimeWrapper = styled.div`
@@ -33,27 +33,27 @@ export const TimeWrapper = styled.div`
 export const TimeBlock = styled(TouchableOpacity)`
   ${xw`p-6 rounded-2xl text-center flex flex-row text-xl items-center`}
   background: ${({ theme }) => theme.colors.timeblock};
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 
 export const TimeIconStyled = styled(TimeIcon)`
   ${xw`mr-2`}
-  fill: ${({ theme }) => (theme.mode === "light" ? "black" : `white`)}
+  fill: ${({ theme }) => (theme.mode === 'light' ? 'black' : `white`)}
 `
 
 export const EllipsesStyled = styled(Ellipses)`
   ${xw`mx-2`}
-  fill: ${({ theme }) => (theme.mode === "light" ? "black" : `white`)}
+  fill: ${({ theme }) => (theme.mode === 'light' ? 'black' : `white`)}
 `
 
 export const UpDownStyled = styled(UpDownArrows)`
   ${xw`ml-2`}
-  fill: ${({ theme }) => (theme.mode === "light" ? "black" : `white`)}
+  fill: ${({ theme }) => (theme.mode === 'light' ? 'black' : `white`)}
 `
 
 export const AmPmBlock = styled.div`
   ${xw`flex flex-col justify-between ml-4`}
-  ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
+  ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 
 export const AmPmButton = styled(TouchableOpacity, {

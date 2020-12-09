@@ -1,6 +1,6 @@
-import { Richtext } from "storyblok-js-client"
+import { Richtext } from 'storyblok-js-client'
 
-import RichTextSection from "@/components/RichTextSection"
+import RichTextSection from '@/components/RichTextSection'
 
 interface Props {
   content: Richtext

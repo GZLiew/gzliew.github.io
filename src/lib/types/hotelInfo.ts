@@ -1,6 +1,5 @@
-import { SbEditableContent } from "storyblok-react"
-import { IStoryblok_IconAsset } from "./storyblok"
-import { Richtext } from "storyblok-js-client"
+import { SbEditableContent } from 'storyblok-react'
+import { Richtext } from 'storyblok-js-client'
 
 export interface HotelInfoProps {
   id?: number

@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 export const TitleContainer = styled.div(xw`container mx-auto px-5 py-8 pb-0`)
 

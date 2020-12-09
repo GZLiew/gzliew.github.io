@@ -1,5 +1,5 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
+import xw from 'xwind'
+import styled from '@emotion/styled'
 
 type RootProps = {
   borderColor?: string
@@ -20,11 +20,11 @@ export const Fill = styled.div<FillProps>`
   ${xw`rounded-full absolute left-0`}
   top: 50%;
   background: ${({ fillColor, borderActive, theme }) =>
-    !borderActive ? "transparent" : fillColor || theme.brandColors.primary};
+    !borderActive ? 'transparent' : fillColor || theme.brandColors.primary};
   transform: translate(-50%, -50%);
   transition: width 0.2s ease-in, height 0.2s ease-in;
   z-index: 1;
-  border: 1px solid ${({ borderActive, theme }) => (borderActive ? "transparent" : theme.colors.gray)};
+  border: 1px solid ${({ borderActive, theme }) => (borderActive ? 'transparent' : theme.colors.gray)};
   width: 18px;
   height: 18px;
 
@@ -32,7 +32,7 @@ export const Fill = styled.div<FillProps>`
     ${xw`opacity-0 absolute rounded-full`}
     top: 50%;
     left: 50%;
-    content: "";
+    content: '';
     width: 18px;
     height: 18px;
     transform: translate(-50%, -50%);

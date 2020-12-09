@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import SbEditable from "storyblok-react"
+import React, { useState } from 'react'
+import SbEditable from 'storyblok-react'
 
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import Button from "@/components/_common/Button"
-import RichTextField from "@/components/RichTextField"
-import { RoomServiceItem, HotelInfoContent } from "@/lib/types/roomService"
-import ReadMore from "@/components/_common/ReadMore"
-import LoadingIndicator from "@/components/_common/LoadingIndicator"
-import Overlay from "@/components/_common/Overlay"
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import Button from '@/components/_common/Button'
+import RichTextField from '@/components/RichTextField'
+import { RoomServiceItem, HotelInfoContent } from '@/lib/types/roomService'
+import ReadMore from '@/components/_common/ReadMore'
+import LoadingIndicator from '@/components/_common/LoadingIndicator'
+import Overlay from '@/components/_common/Overlay'
 
 import {
   StickyFooterWrapper,
@@ -18,8 +18,8 @@ import {
   StyledTitle,
   AboutWrapper,
   ContainerStyled
-} from "./Content.styles"
-import Choice from "../Choice"
+} from './Content.styles'
+import Choice from '../Choice'
 
 interface Props {
   blok: HotelInfoContent

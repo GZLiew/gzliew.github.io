@@ -1,14 +1,14 @@
-import { GetStaticProps } from "next"
+import { GetStaticProps } from 'next'
 
-import LanguagesContext from "@/lib/context/LanguagesContext"
+import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import HotelInformation from "@/components/HotelInformation"
-import Layout from "@/components/DefaultLayout"
-import SEO from "@/components/SEO"
+import HotelInformation from '@/components/HotelInformation'
+import Layout from '@/components/DefaultLayout'
+import SEO from '@/components/SEO'
 
-import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from "@/lib/api"
-import { HotelConfigProps } from "@/lib/types/hotelConfig"
-import { HotelInfoProps } from "@/lib/types/hotelInfo"
+import { getHotelConfiguration, getHotelInformation, getLanguageCodes } from '@/lib/api'
+import { HotelConfigProps } from '@/lib/types/hotelConfig'
+import { HotelInfoProps } from '@/lib/types/hotelInfo'
 
 interface Props {
   allLangs: string[]
@@ -34,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const hotelInfo = (await getHotelInformation(preview)) || []
 
   const langCodes: string[] = await getLanguageCodes()
-  const allLangs = ["en", ...langCodes]
+  const allLangs = ['en', ...langCodes]
 
   return { props: { allLangs, hotelInfo, hotelConfig, preview } }
 }

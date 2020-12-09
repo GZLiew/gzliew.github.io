@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react"
-import Overlay from "@/components/_common/Overlay"
-import formatDate from "date-fns/format"
-import useLockBodyScroll from "@/lib/hooks/useLockBodyScroll"
+import React, { useEffect, useRef, useState } from 'react'
+import Overlay from '@/components/_common/Overlay'
+import formatDate from 'date-fns/format'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
 import {
   AmPmBlock,
@@ -15,7 +15,7 @@ import {
   TimeWrapper,
   TitleWrapper,
   UpDownStyled
-} from "./TimePicker.styles"
+} from './TimePicker.styles'
 
 type Props = {
   onOverlayClick?: (value: string) => void
@@ -23,13 +23,13 @@ type Props = {
   interval?: number
 }
 
-type RectState = DOMRect & { type: "hour" | "minute" }
+type RectState = DOMRect & { type: 'hour' | 'minute' }
 
 const HOURS = new Array(12).fill(0).map((_, index) => `${index + 1}`)
 const MINUTES = new Array(60)
   .fill(0)
   .map((_, index) => (index.toString().length === 1 ? `0${index}` : `${index}`))
-const AMPM = ["am", "pm"]
+const AMPM = ['am', 'pm']
 
 const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval = 1 }: Props) => {
   const hourRef = useRef<HTMLDivElement>(null)
@@ -40,12 +40,12 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
   const [hours, setHours] = useState(HOURS[0])
   const [minutes, setMinutes] = useState(MINUTES[0])
   const [amOrPm, setAmOrPm] = useState(AMPM[1])
-  const [focus, setFocus] = useState<"hour" | "minute" | null>(null)
+  const [focus, setFocus] = useState<'hour' | 'minute' | null>(null)
   const [boudingClientRect, setBoudingClientRect] = useState<RectState>(null)
   useLockBodyScroll(!!focus, hourModalRef)
   useLockBodyScroll(!!focus, minuteModalRef)
 
-  const updateBoundingClientRect = (type: "hour" | "minute", ref: React.MutableRefObject<HTMLDivElement>) => {
+  const updateBoundingClientRect = (type: 'hour' | 'minute', ref: React.MutableRefObject<HTMLDivElement>) => {
     const newRect = { ...ref.current.getBoundingClientRect().toJSON(), type }
     setBoudingClientRect(newRect)
   }
@@ -71,9 +71,9 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
   }, [boudingClientRect])
 
   useEffect(() => {
-    setAmOrPm(formatDate(value, "a").toLowerCase())
-    setHours(formatDate(value, "h"))
-    setMinutes(formatDate(value, "mm"))
+    setAmOrPm(formatDate(value, 'a').toLowerCase())
+    setHours(formatDate(value, 'h'))
+    setMinutes(formatDate(value, 'mm'))
     setMinutesRange(MINUTES.filter((x) => parseInt(x) % interval === 0))
   }, [])
 
@@ -86,14 +86,14 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
   return (
     <>
       <Overlay isOpen={!!focus} onOverlayClick={onOverlayClicked} />
-      <TimeModal ref={hourModalRef} rect={boudingClientRect} isFocus={focus === "hour"}>
+      <TimeModal ref={hourModalRef} rect={boudingClientRect} isFocus={focus === 'hour'}>
         {HOURS.map((h) => (
           <TimeOption key={h} isFocus={h === hours} onClick={() => onHourClick(h)}>
             {h}
           </TimeOption>
         ))}
       </TimeModal>
-      <TimeModal ref={minuteModalRef} rect={boudingClientRect} isFocus={focus === "minute"}>
+      <TimeModal ref={minuteModalRef} rect={boudingClientRect} isFocus={focus === 'minute'}>
         {minutesRange.map((m) => (
           <TimeOption key={m} isFocus={m === minutes} onClick={() => onMinuteClick(m)}>
             {m}
@@ -106,11 +106,11 @@ const TimePicker = ({ onOverlayClick = () => false, value = new Date(), interval
           Time
         </TitleWrapper>
         <TimeWrapper>
-          <TimeBlock ref={hourRef} onClick={() => updateBoundingClientRect("hour", hourRef)}>
+          <TimeBlock ref={hourRef} onClick={() => updateBoundingClientRect('hour', hourRef)}>
             {hours} <UpDownStyled />
           </TimeBlock>
           <EllipsesStyled />
-          <TimeBlock ref={minuteRef} onClick={() => updateBoundingClientRect("minute", minuteRef)}>
+          <TimeBlock ref={minuteRef} onClick={() => updateBoundingClientRect('minute', minuteRef)}>
             {minutes} <UpDownStyled />
           </TimeBlock>
           <AmPmBlock>

@@ -1,6 +1,6 @@
-import xw from "xwind"
-import styled from "@emotion/styled"
-import { rgba } from "polished"
+import xw from 'xwind'
+import styled from '@emotion/styled'
+import { rgba } from 'polished'
 
 export const AmenitiesWrapper = styled.div`
   ${xw`
@@ -26,13 +26,13 @@ export const InnerWrapper = styled.div`
 
 export const MoreFacilities = styled.a`
   & div {
-      ${xw`
+    ${xw`
       flex
       mr-0
     `}
     background: ${({ theme }) =>
       `linear-gradient(134deg, ${theme?.brandColors?.secondary} 17%, ${theme?.brandColors?.primary} 77%)`};
-    color: ${rgba("#fff", 0.72)};
+    color: ${rgba('#fff', 0.72)};
   }
   h5 {
     ${xw`

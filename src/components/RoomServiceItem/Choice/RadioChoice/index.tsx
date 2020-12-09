@@ -1,8 +1,8 @@
-import React, { useState } from "react"
-import { RadioItem } from "@/components/_common/RadioButtons"
-import { AccordionStyled, RadioButtonsStyled } from "../Choice.styles"
+import React, { useState } from 'react'
+import { RadioItem } from '@/components/_common/RadioButtons'
+import { AccordionStyled, RadioButtonsStyled } from '../Choice.styles'
 
-import { Choice as ChoiceProp } from "@/lib/types/roomService"
+import { Choice as ChoiceProp } from '@/lib/types/roomService'
 
 type Props = {
   choice: ChoiceProp<RadioItem>

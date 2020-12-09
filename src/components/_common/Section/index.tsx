@@ -1,3 +1,3 @@
-import { Section } from "./section.styles"
+import { Section } from './section.styles'
 
 export default Section

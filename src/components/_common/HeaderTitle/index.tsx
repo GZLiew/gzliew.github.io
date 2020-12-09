@@ -1,6 +1,6 @@
-import React from "react"
-import { Wrapper } from "./HeaderTitle.styles"
-import ChevronDownSvg from "../../../assets/icons/chevron-down.svg"
+import React from 'react'
+import { Wrapper } from './HeaderTitle.styles'
+import ChevronDownSvg from '../../../assets/icons/chevron-down.svg'
 
 type WrapperProps = React.ComponentProps<typeof Wrapper>
 

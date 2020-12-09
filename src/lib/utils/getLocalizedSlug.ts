@@ -1,9 +1,9 @@
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const baseGetLocalizedSlug = (language: string, url: string): string => {
   if (language) {
     const baseRoute = `/${language}`
-    if (url === "/") return baseRoute
+    if (url === '/') return baseRoute
     return baseRoute + `/${url}`
   }
   return url

@@ -1,5 +1,5 @@
-import React from "react"
-import dfnsFormat from "date-fns/format"
+import React from 'react'
+import dfnsFormat from 'date-fns/format'
 
 import {
   DatePickerHeaderTitle,
@@ -9,7 +9,7 @@ import {
   ButtonWrapper,
   LeftStyled,
   RightStyled
-} from "./DatePicker.styles"
+} from './DatePicker.styles'
 
 type Props = React.ComponentProps<typeof DatePickerWrapper> & {
   datePickerProps: React.ComponentProps<typeof DatePickerStyled>
@@ -35,7 +35,7 @@ const DatePicker = (props: Props) => {
               <LeftStyled />
             </ButtonWrapper>
             <DatePickerHeaderTitle>
-              {dfnsFormat(date, "MMMM")} {dfnsFormat(date, "yyyy")}
+              {dfnsFormat(date, 'MMMM')} {dfnsFormat(date, 'yyyy')}
             </DatePickerHeaderTitle>
             <ButtonWrapper onClick={increaseMonth} disabled={nextMonthButtonDisabled}>
               <RightStyled />

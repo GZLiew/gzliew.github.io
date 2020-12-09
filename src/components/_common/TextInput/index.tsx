@@ -1,5 +1,5 @@
-import React from "react"
-import { Input } from "./TextInput.styles"
+import React from 'react'
+import { Input } from './TextInput.styles'
 
 type Props = React.ComponentProps<typeof Input>
 

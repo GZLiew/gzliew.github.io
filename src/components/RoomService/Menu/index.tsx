@@ -1,10 +1,10 @@
-import SbEditable from "storyblok-react"
-import { useRouter } from "next/router"
+import SbEditable from 'storyblok-react'
+import { useRouter } from 'next/router'
 
-import { MenuTitle, MenuContainer, StyledMenuItem } from "./menu.styles"
+import { MenuTitle, MenuContainer, StyledMenuItem } from './menu.styles'
 
-import Section from "@/components/_common/Section"
-import { IMenu } from "@/lib/types/roomService"
+import Section from '@/components/_common/Section'
+import { IMenu } from '@/lib/types/roomService'
 
 interface Props {
   menu: IMenu

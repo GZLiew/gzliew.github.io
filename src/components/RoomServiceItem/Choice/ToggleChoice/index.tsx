@@ -1,8 +1,8 @@
-import React, { useState } from "react"
+import React, { useState } from 'react'
 
-import { Choice as ChoiceProp } from "@/lib/types/roomService"
-import { ToggleItem } from "@/components/_common/ButtonToggle"
-import { AccordionStyled, ButtonToggleStyled } from "../Choice.styles"
+import { Choice as ChoiceProp } from '@/lib/types/roomService'
+import { ToggleItem } from '@/components/_common/ButtonToggle'
+import { AccordionStyled, ButtonToggleStyled } from '../Choice.styles'
 
 type Props = {
   choice: ChoiceProp<ToggleItem>

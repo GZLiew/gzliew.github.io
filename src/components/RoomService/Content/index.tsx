@@ -1,16 +1,16 @@
-import React from "react"
-import SbEditable from "storyblok-react"
+import React from 'react'
+import SbEditable from 'storyblok-react'
 
-import Container from "@/components/Container"
-import ButtonTab, { TabItem } from "@/components/_common/ButtonTab"
-import { HotelConfigContent } from "@/lib/types/hotelConfig"
-import { HotelInfoContent } from "@/lib/types/roomService"
-import { IMenu } from "@/lib/types/roomService"
-import Button from "@/components/_common/Button"
-import ClientOnly from "@/components/ClientOnly"
-import brandColors from "@/lib/theme/brandColors"
+import Container from '@/components/Container'
+import ButtonTab, { TabItem } from '@/components/_common/ButtonTab'
+import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import { HotelInfoContent } from '@/lib/types/roomService'
+import { IMenu } from '@/lib/types/roomService'
+import Button from '@/components/_common/Button'
+import ClientOnly from '@/components/ClientOnly'
+import brandColors from '@/lib/theme/brandColors'
 
-import Menus from "../Menus"
+import Menus from '../Menus'
 import {
   MenuWrapper,
   StickyFooterWrapper,
@@ -19,8 +19,8 @@ import {
   ThinText,
   TncWrapper,
   TotalText
-} from "./Content.styles"
-import NextIcon from "@/assets/icons/NextIcon"
+} from './Content.styles'
+import NextIcon from '@/assets/icons/NextIcon'
 
 interface Props {
   blok: HotelInfoContent
@@ -33,15 +33,7 @@ interface Props {
   menus: IMenu[]
 }
 
-const Content = ({
-  blok,
-  blokConfig,
-  menus,
-  selectedCategory,
-  setSelectedCategory,
-  initialIndex,
-  TabItems
-}: Props) => {
+const Content = ({ blok, menus, selectedCategory, setSelectedCategory, initialIndex, TabItems }: Props) => {
   return (
     <SbEditable content={blok}>
       <Container>

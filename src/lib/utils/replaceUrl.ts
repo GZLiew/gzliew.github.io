@@ -1,1 +1,1 @@
-export const replaceUrl = (newUrl: string) => window.history.pushState({}, "", newUrl)
+export const replaceUrl = (newUrl: string) => window.history.pushState({}, '', newUrl)

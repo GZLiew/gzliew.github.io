@@ -1,5 +1,5 @@
-import React from "react"
-import { ButtonToggleWrapper, ButtonStyled } from "./ButtonToggle.styles"
+import React from 'react'
+import { ButtonToggleWrapper, ButtonStyled } from './ButtonToggle.styles'
 
 type ButtonToggleWrapperProps = React.ComponentProps<typeof ButtonToggleWrapper>
 
@@ -41,7 +41,7 @@ const ButtonToggle = (props: ButtonToggleWrapperProps & Props) => {
           size="small"
           shouldAnimate
           raised={false}
-          variant={activeItem === id ? null : "flat"}
+          variant={activeItem === id ? null : 'flat'}
           outline={activeItem === id ? false : true}
           bgColor={activeItem === id ? activeBgColor : inactiveBgColor}
           outlineColor={outlineColor}

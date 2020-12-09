@@ -1,12 +1,12 @@
-import SbEditable from "storyblok-react"
+import SbEditable from 'storyblok-react'
 
-import { QuickButtonWrapper, QuickButtonItem, Title } from "./quickButtonItem.styles"
+import { QuickButtonWrapper, QuickButtonItem, Title } from './quickButtonItem.styles'
 
-import BaseLink from "@/components/BaseLink"
+import BaseLink from '@/components/BaseLink'
 
-import QuickIcons from "@/assets/icons/QuickIcons"
+import QuickIcons from '@/assets/icons/QuickIcons'
 
-import { IQuickButton } from "@/lib/types/homeContent"
+import { IQuickButton } from '@/lib/types/homeContent'
 
 interface Props {
   item: IQuickButton

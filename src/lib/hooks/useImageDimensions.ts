@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react"
+import { useRef, useEffect } from 'react'
 
 interface Dimensions {
   width: number | undefined
@@ -16,7 +16,7 @@ const useImageDimensions = (parentRef: React.MutableRefObject<Element>): [number
   const imageDimensions = useRef<Dimensions>({ width: undefined, height: undefined })
 
   useEffect(() => {
-    const slideImgElement = parentRef?.current?.querySelector("img")
+    const slideImgElement = parentRef?.current?.querySelector('img')
 
     // get the image natural width & height
     const handleImgLoad = (e: Event & LoadEvent) => {
@@ -26,9 +26,9 @@ const useImageDimensions = (parentRef: React.MutableRefObject<Element>): [number
       }
     }
 
-    slideImgElement.addEventListener("load", handleImgLoad)
+    slideImgElement.addEventListener('load', handleImgLoad)
     return () => {
-      slideImgElement.removeEventListener("load", handleImgLoad)
+      slideImgElement.removeEventListener('load', handleImgLoad)
     }
   }, [])
 

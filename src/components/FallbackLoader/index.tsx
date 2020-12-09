@@ -1,8 +1,8 @@
-import React, { ReactNode } from "react"
-import { useRouter } from "next/router"
+import React from 'react'
+import { useRouter } from 'next/router'
 
-import LoadingIndicator from "@/components/_common/LoadingIndicator"
-import Overlay from "@/components/_common/Overlay"
+import LoadingIndicator from '@/components/_common/LoadingIndicator'
+import Overlay from '@/components/_common/Overlay'
 
 type Props = {
   children: any
