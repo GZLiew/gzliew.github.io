@@ -1,147 +1,194 @@
 import xw from "xwind"
 import styled from "@emotion/styled"
+import { css, Theme } from "@emotion/react"
+import isPropValid from "@emotion/is-prop-valid"
+import { lighten } from "polished"
+import TouchableOpacity from "@/components/_common/TouchableOpacity"
 
-import { css } from "@emotion/react"
-import { transparentize, lighten } from "polished"
-
-type ButtonWrapperProps = {
+export type ButtonWrapperProps = {
+  /** The color of the button background */
   bgColor?: string
-  variant: string
+  variant?: "flat"
+  disabled?: boolean
+  outline?: boolean
   withIcon?: boolean
   size: "small" | "medium" | "large"
-  disabled?: boolean
+  raised?: boolean
   hover?: boolean
-  outline?: boolean
   round?: boolean
-}
+  /** Whether a variant button should animate the background */
+  shouldAnimate?: boolean
+  /** The button wrapper background color  */
+  wrapperBgColor?: string
+  outlineColor?: string
+} & React.ComponentProps<typeof TouchableOpacity>
 
-export const ButtonStyled = styled.span`
-  ${xw`
-  flex justify-center items-center
-  h-full
-  `}
-  border-radius: 32px;
+export const ContentContainer = styled.div`
+  z-index: 1;
 `
 
-export const ButtonWrapper = styled.button<ButtonWrapperProps>`
-  ${xw`
-   relative
-   transition duration-500 ease-in-out
-   font-medium
-   `}
-  padding: 3px;
-  border-radius: 32px;
-  box-shadow: ${({ theme }) => theme.button.boxShadow};
-  color: #fff;
+export const ButtonStyled = styled.div`
+  ${xw`flex justify-center items-center h-full w-full py-2.5 px-6 uppercase`}
+  z-index: 1;
+`
 
-  ${ButtonStyled} {
-    ${xw` p-3 uppercase`}
-    background: ${({ theme, bgColor }) =>
-      `linear-gradient(135.3deg, ${bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary} 16.81%, ${
-        bgColor || theme.brandColors.primary
-      } 76.81%)`};
+export const ButtonBackground = styled.div`
+  ${xw`absolute top-0 left-0 h-full w-full z-0 rounded-full`}
+`
 
-    ${({ variant, theme, bgColor }) =>
-      variant === "flat" &&
-      css`
-        background: ${transparentize(0.38, bgColor || theme.colors.gray)};
-        color: ${xw`text-white`};
-      `}
+const BackgroundStyles = ({
+  bgColor,
+  theme,
+  shouldAnimate,
+  variant,
+  outline,
+  disabled
+}: ButtonWrapperProps & { theme: Theme }) => css`
+  background: linear-gradient(135.3deg, ${
+    bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
+  } 16.81%, ${bgColor || theme.brandColors.primary} 76.81%);
 
-    ${({ withIcon }) =>
-      withIcon &&
-      css`
-        display: flex;
-        justify-content: space-between;
-      `}
-
-    ${({ outline }) =>
-      outline &&
-      css`
-        ${xw` p-2 `}
-        background: transparent;
-      `}
-
-    ${({ disabled, theme, bgColor }) =>
-      disabled &&
-      css`
-      ${xw` p-2 `}
-        background: ${transparentize(0.8, bgColor || theme.colors.secondary)};
-      `}
-
+  ${
+    shouldAnimate &&
+    `
+     transform: scale(1);
+     transition: transform 0.2s ease-out;
+    `
   }
 
-  &:hover{
-    ${ButtonStyled} {
-      background: ${({ theme, bgColor }) =>
-        `linear-gradient(135.3deg, ${bgColor || theme.brandColors.primary} 16.81%, ${
-          bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
-        } 76.81%)`};
-    }
-  },
+  ${
+    variant === "flat" &&
+    `
+     background: ${bgColor || theme.button.flatBg};
+    `
+  }
+
+  ${
+    variant &&
+    shouldAnimate &&
+    `
+     transform: scale(0);
+     transition: transform 0.2s ease-in;
+    `
+  }
+
+  ${
+    outline &&
+    `
+     background: ${bgColor || "transparent"};
+    `
+  }
+
+  ${
+    disabled &&
+    `
+     background: ${theme.button.disabled};
+    `
+  }
+`
+
+const ContentStyles = ({
+  theme,
+  variant,
+  outline,
+  disabled,
+  round
+}: ButtonWrapperProps & { theme: Theme }) => css`
+  ${
+    variant === "flat" &&
+    `
+     color: ${theme.colors.text.primary};
+    `
+  }
+
+  ${
+    outline &&
+    `
+     padding-right: 1.375rem;
+     padding-left: 1.375rem;
+    `
+  }
+
+  ${
+    disabled &&
+    `
+     color: ${theme.mode === "light" ? theme.colors.gray : "white"};
+    `
+  }
+
+  ${
+    round &&
+    `
+      width: 3rem;
+      height: 3rem;
+    `
+  }
+
+  ${
+    round &&
+    outline &&
+    `
+      width: 2.750rem;
+      height: 2.750rem;
+    `
+  }
+`
+
+export const ButtonWrapper = styled(TouchableOpacity, {
+  shouldForwardProp: (prop: string) => isPropValid(prop)
+})<ButtonWrapperProps>`
+  ${xw`relative font-medium overflow-hidden rounded-full text-white inline-block`}
+  ${({ raised, theme }) =>
+    raised &&
+    css`
+      box-shadow: ${theme.button.boxShadow};
+      border: ${theme.button.border};
+    `}
+
   &:focus {
     outline: 0;
-
-    ${ButtonStyled} {
-      background: ${({ theme, bgColor }) =>
-        `linear-gradient(135.3deg, ${bgColor || theme.brandColors.primary} 16.81%, ${
-          bgColor ? lighten(0.25, bgColor) : theme.brandColors.secondary
-        } 76.81%)`};
-    }
   }
 
-  ${({ variant, theme, bgColor }) =>
-    variant === "flat" &&
-    css`
-      box-shadow: none;
-      background: transparent;
-      padding: 0;
+  ${ButtonBackground} {
+    ${(allProps) => BackgroundStyles(allProps)}
+  }
 
-      &:hover,
-      &:focus {
-        ${ButtonStyled} {
-          background: ${transparentize(0.7, bgColor || theme.colors.primary)};
-        }
-      }
+  ${ButtonStyled} {
+    ${({ outline }) => outline && xw`py-2`}
+    ${(allProps) => ContentStyles(allProps)}
+  }
+
+  ${ContentContainer} {
+    ${({ withIcon }) => withIcon && xw`flex w-full justify-between items-center`}
+  }
+
+  ${({ wrapperBgColor, shouldAnimate }) =>
+    wrapperBgColor &&
+    shouldAnimate &&
+    css`
+      background: ${wrapperBgColor};
     `}
 
-  ${({ outline, theme }) =>
+  ${({ outline, theme, outlineColor }) =>
     outline &&
     css`
-      border: 2px solid ${theme.colors.gray};
-      background: transparent;
+      border: 2px solid ${outlineColor || theme.colors.gray};
     `}
-
-  ${({ disabled, theme, bgColor }) =>
-    disabled &&
-    css`
-      border: 3px solid ${theme.colors.primary};
-      background: linear-gradient(135.3deg, #3c3d42 16.81%, #2c2f34 76.81%);
-      color: ${theme.colors.gray};
-
-      &:hover,
-      &:focus {
-        ${ButtonStyled} {
-          background: ${transparentize(0.7, bgColor || theme.colors.primary)};
-        }
-      }
-    `} 
 
   ${({ size }) =>
     size === "small" &&
     css`
-      height: 36px;
       ${ButtonStyled} {
-        ${xw`text-xs px-5`}
+        ${xw`text-xs`}
       }
     `}
 
   ${({ size }) =>
     size === "medium" &&
     css`
-      height: 48px;
+      min-width: 11rem;
       ${ButtonStyled} {
-        ${xw`text-sm px-10`}
+        ${xw`text-base`}
       }
     `}
 
@@ -149,13 +196,5 @@ export const ButtonWrapper = styled.button<ButtonWrapperProps>`
     size === "large" &&
     css`
       ${xw`text-lg w-full`}
-      height: 63px;
-    `}
-
-  ${({ round }) =>
-    round &&
-    css`
-      ${xw`p-0 h-11 w-11`}
-      box-shadow: none;
     `}
 `

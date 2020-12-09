@@ -26,7 +26,7 @@ const QuantityChoice = ({ choice }: Props) => {
           size="small"
         />
       ) : (
-        <Button outline size="small" variant="flat" onClick={() => setQuantity(1)}>
+        <Button raised={false} outline size="small" variant="flat" onClick={() => setQuantity(1)}>
           Add
         </Button>
       )}

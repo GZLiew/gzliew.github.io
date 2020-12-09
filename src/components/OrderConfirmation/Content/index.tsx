@@ -22,7 +22,7 @@ import {
   MoreInfo,
   OrderWrapper
 } from "./Content.styles"
-import NextIcon from "../../../assets/icons/ic-next.svg"
+import NextIcon from "@/assets/icons/NextIcon"
 import Section from "@/components/_common/Section"
 
 type OrderItem = {
@@ -58,7 +58,7 @@ const Content = ({ blok, blokConfig, setActiveButton, activeButton, ToggleItems,
                 <ThinText>Quantity: 2</ThinText>
               </Label>
             </Info>
-            <Button size="small" variant="flat" withIcon>
+            <Button raised={false} size="small" variant="flat" withIcon>
               Edit <span>&#9998;</span>
             </Button>
           </OrderWrapper>

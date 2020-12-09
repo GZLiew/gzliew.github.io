@@ -3,7 +3,7 @@ import { useGesture } from "react-use-gesture"
 import { AnimatedDiv } from "./TouchableOpacity.styles"
 
 type Props = React.ComponentProps<typeof AnimatedDiv>
-type ExtraAttrs = { repeatCall?: boolean; disabled?: boolean }
+type ExtraAttrs = { repeatCall?: boolean; disabled?: boolean; [k: string]: any }
 
 const TouchableOpacity = React.forwardRef<HTMLDivElement, Props & ExtraAttrs>(
   ({ children, repeatCall, disabled, ...props }, ref) => {

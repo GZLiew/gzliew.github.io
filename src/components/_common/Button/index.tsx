@@ -1,20 +1,13 @@
 import { ReactNode } from "react"
-import { ButtonStyled, ButtonWrapper } from "./Button.styles"
+import { ButtonBackground, ButtonStyled, ButtonWrapper, ContentContainer } from "./Button.styles"
 
-type ButtonWrapperProps = Omit<React.ComponentProps<typeof ButtonWrapper>, "variant">
+type ButtonWrapperProps = React.ComponentProps<typeof ButtonWrapper>
 
 interface Props {
   children?: ReactNode
   buttonClassName?: string
   onClick?: () => void
   props?: any
-  bgColor?: string
-  variant?: "flat"
-  withIcon?: boolean
-  size: "small" | "medium" | "large"
-  outline?: boolean
-  disabled?: boolean
-  round?: boolean
 }
 
 const Button = ({
@@ -26,22 +19,30 @@ const Button = ({
   withIcon = false,
   outline,
   size = "small",
+  raised = true,
   disabled,
   round,
+  shouldAnimate,
   ...props
 }: Props & ButtonWrapperProps) => {
   return (
     <ButtonWrapper
+      role="button"
       onClick={onClick}
       variant={variant}
       bgColor={bgColor}
       withIcon={withIcon}
       outline={outline}
       size={size}
+      raised={raised}
       disabled={disabled}
       round={round}
+      shouldAnimate={shouldAnimate}
       {...props}>
-      <ButtonStyled className={["group", buttonClassName].join(" ")}>{children}</ButtonStyled>
+      <ButtonStyled className={["group", buttonClassName].join(" ")}>
+        <ContentContainer>{children}</ContentContainer>
+      </ButtonStyled>
+      <ButtonBackground />
     </ButtonWrapper>
   )
 }

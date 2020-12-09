@@ -4,7 +4,7 @@ import { WidgetContainer } from "../widget.styles"
 
 import Button from "@/components/Button"
 
-import NextIcon from "../../../../assets/icons/ic-next.svg"
+import NextIcon from "@/assets/icons/NextIcon"
 
 type Props = {
   children?: ReactChild

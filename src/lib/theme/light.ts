@@ -15,17 +15,17 @@ export default {
     },
     separator: "#67758d",
     header: {
-      background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%);",
+      background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%)",
       boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.14)"
     },
     footer: {
-      background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%);",
+      background: "linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 98%)",
       boxShadow: "0 2px 4px 0 rgba(0, 0, 0, 0.14)"
     },
     notificationBg: "linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)",
     shoppingBagBg: "#fff",
     navbarBackground: "linear-gradient(to bottom, #eaeaea, #eaecee)",
-    menuBackground: "linear-gradient(180deg, #E3E3E3 0%, #EAECEE 100%);",
+    menuBackground: "linear-gradient(180deg, #E3E3E3 0%, #EAECEE 100%)",
     guestDetailsBorder: "#dde0e4",
     ratings: {
       full: "#f7b500",
@@ -40,7 +40,11 @@ export default {
     }
   },
   button: {
-    boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8;",
-    borderBg: "linear-gradient(108deg, #e4e8ed 22%, #e5e9ee 76%);"
+    boxShadow: "-7px -5px 9px 0 #ffffff, 7px 5px 9px 0 #c7ced8",
+    borderBg: "linear-gradient(108deg, #e4e8ed 22%, #e5e9ee 76%)",
+    border: "2px solid rgba(255, 255, 255, 0.4)",
+    flatBg: "rgba(54, 65, 77, 0.38)",
+    notAnimatedBg: "#C6C9CE",
+    disabled: "linear-gradient(148.02deg, #FFFFFF 13.4%, #CFD4DC 85.71%)"
   }
 }

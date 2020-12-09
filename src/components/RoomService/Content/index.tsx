@@ -20,7 +20,7 @@ import {
   TncWrapper,
   TotalText
 } from "./Content.styles"
-import NextIcon from "../../../assets/icons/ic-next.svg"
+import NextIcon from "@/assets/icons/NextIcon"
 
 interface Props {
   blok: HotelInfoContent

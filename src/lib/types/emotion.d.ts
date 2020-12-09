@@ -49,6 +49,10 @@ declare module "@emotion/react" {
     button: {
       boxShadow: string
       borderBg: string
+      border: string
+      flatBg: string
+      notAnimatedBg: string
+      disabled: string
     }
   }
 }

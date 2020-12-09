@@ -1,6 +1,7 @@
 import xw from "xwind"
 import styled from "@emotion/styled"
 import { css } from "@emotion/react"
+import isPropValid from "@emotion/is-prop-valid"
 
 import TouchableOpacity from "@/components/_common/TouchableOpacity"
 import Ellipses from "@/assets/icons/Ellipses"
@@ -55,7 +56,9 @@ export const AmPmBlock = styled.div`
   ${({ theme }) => (theme.mode === "light" ? xw`text-black` : xw`text-white`)}
 `
 
-export const AmPmButton = styled(TouchableOpacity)<Props>`
+export const AmPmButton = styled(TouchableOpacity, {
+  shouldForwardProp: (prop: string) => isPropValid(prop)
+})<Props>`
   ${xw`px-5 py-1 rounded-full text-base uppercase mb-2`}
   background: ${({ theme, isFocus }) => isFocus && theme.colors.timeblock};
   &:last-of-type {
@@ -100,7 +103,9 @@ export const TimeModal = styled.div<TimeModalProps>`
     `}
 `
 
-export const TimeOption = styled(TimeBlock)<Props>`
+export const TimeOption = styled(TimeBlock, {
+  shouldForwardProp: (prop: string) => isPropValid(prop)
+})<Props>`
   ${xw`rounded-none bg-none text-center justify-center px-8`}
   ${({ isFocus }) => isFocus && xw`bg-gray-400`}
 `

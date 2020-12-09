@@ -26,6 +26,10 @@ const makeGlobalStyles = (theme: Theme) => css`
       overflow: hidden;
     }
   }
+
+  svg {
+    display: inline-block;
+  }
 `
 const GlobalStyles = withTheme(({ theme }: ThemeProps) => <Global styles={makeGlobalStyles(theme)} />)
 
