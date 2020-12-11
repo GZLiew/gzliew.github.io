@@ -77,8 +77,6 @@ export async function getHotelInformation(preview: boolean, language?: string): 
         categories
         hotelPhotos
         aboutSection
-        review
-        missingInformation
       }
     }
    }
