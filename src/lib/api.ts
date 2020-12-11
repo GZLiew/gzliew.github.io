@@ -128,3 +128,24 @@ export async function getLanguageCodes() {
 
   return data?.Space?.languageCodes
 }
+
+export const getGuestService = async (preview: boolean, language?: string) => {
+  const data = await fetchAPI(
+    `
+  query ($slug: ID!) {
+    GuestserviceItem(id: $slug) {
+      content {
+        _editable
+        _uid
+        component
+        headerTitle
+        services
+      }
+    }
+  }
+  `,
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'guest-service') } }
+  )
+
+  return data?.GuestserviceItem
+}
