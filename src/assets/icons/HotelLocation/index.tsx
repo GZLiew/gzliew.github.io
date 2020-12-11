@@ -1,1 +1,3 @@
-export { default as LocationIcon } from './location-icon.svg'
+import LocationIcon from './LocationIcon'
+
+export { LocationIcon }

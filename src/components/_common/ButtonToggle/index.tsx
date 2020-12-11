@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { ButtonToggleWrapper, ButtonStyled } from './ButtonToggle.styles'
 
 type ButtonToggleWrapperProps = React.ComponentProps<typeof ButtonToggleWrapper>
 
 export type ToggleItem = {
   id: string
-  label: string
+  label: ReactNode
 }
 
 type Props = {

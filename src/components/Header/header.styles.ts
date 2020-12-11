@@ -4,7 +4,7 @@ import { animated } from 'react-spring'
 
 import Container from '../Container'
 
-import HamburgerSVG from '../../assets/icons/wt-ic-hamburger-menu.svg'
+import Hamburger from '@/assets/icons/HamburgerMenu'
 
 export const HeaderContainer = styled(Container)`
   ${xw`
@@ -60,7 +60,7 @@ export const Logo = styled(animated.img)`
   max-width: 45px;
 `
 
-export const HamburgerMenuIcon = styled(HamburgerSVG)`
+export const HamburgerMenuIcon = styled(Hamburger)`
   .first-line {
     fill: ${({ theme }) => theme?.brandColors?.primary};
   }

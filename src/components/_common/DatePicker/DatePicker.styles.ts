@@ -43,6 +43,7 @@ export const DatePickerWrapper = styled.div`
     color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
   }
 
+  .react-datepicker__day--disabled,
   .react-datepicker__day--outside-month {
     ${xw`opacity-50`}
   }
@@ -61,7 +62,7 @@ export const DatePickerWrapper = styled.div`
 
   .react-datepicker__day--keyboard-selected {
     ${xw`rounded-full`}
-    background-color: ${({ theme }) => theme.brandColors.secondary};
+    background-color: transparent;
   }
 
   .react-datepicker__day--selected {

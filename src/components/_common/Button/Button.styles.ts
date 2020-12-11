@@ -24,6 +24,7 @@ export type ButtonWrapperProps = {
 } & React.ComponentProps<typeof TouchableOpacity>
 
 export const ContentContainer = styled.div`
+  ${xw`flex w-full justify-center items-center`}
   z-index: 1;
 `
 
@@ -141,7 +142,7 @@ export const ButtonWrapper = styled(TouchableOpacity, {
   }
 
   ${ContentContainer} {
-    ${({ withIcon }) => withIcon && xw`flex w-full justify-between items-center`}
+    ${({ withIcon }) => withIcon && xw`justify-between`}
   }
 
   ${({ wrapperBgColor, shouldAnimate }) =>

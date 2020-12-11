@@ -20,8 +20,8 @@ const DatePicker = (props: Props) => {
   return (
     <DatePickerWrapper {...wrapperProps}>
       <DatePickerStyled
-        {...datePickerProps}
         inline
+        adjustDateOnChange
         formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 3)}
         renderCustomHeader={({
           date,
@@ -42,6 +42,7 @@ const DatePicker = (props: Props) => {
             </ButtonWrapper>
           </HeaderWrapper>
         )}
+        {...datePickerProps}
       />
     </DatePickerWrapper>
   )
