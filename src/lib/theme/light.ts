@@ -4,6 +4,7 @@ export default {
     primary: '#cfd4dc',
     secondary: '#ffffff',
     gray: '#797979',
+    welcomeBackground: 'linear-gradient(to bottom, transparent 20%, #EAEAEA, #eaecee 100%, #eaecee)',
     bodyBackground: '#eaecee',
     text: {
       primary: '#101112',

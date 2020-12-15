@@ -6,6 +6,7 @@ import GuestService from '@/components/GuestService'
 import ContactDetail from '@/components/ContactDetail'
 import OrderSuccess from '@/components/OrderSuccess'
 import OrderConfirmation from '@/components/OrderConfirmation'
+import SplashScreen from '@/components/SplashScreen'
 import Home from '@/components/Home'
 import Layout from '@/components/Layout'
 
@@ -176,6 +177,8 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return <OrderSuccess blok={story?.content} blokConfig={configStory?.content} />
         case 'order-confirmation':
           return <OrderConfirmation blok={story?.content} blokConfig={configStory?.content} />
+        case 'splash-screen':
+          return <SplashScreen blok={story?.content} blokConfig={configStory?.content} />
         default:
           return `Component ${story?.content.component} not created yet`
       }

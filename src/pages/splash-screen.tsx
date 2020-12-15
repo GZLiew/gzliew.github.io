@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 
 import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import OrderSuccess from '@/components/OrderSuccess'
+import SplashScreen from '@/components/SplashScreen'
 import Layout from '@/components/Layout'
 import SEO from '@/components/SEO'
 
@@ -17,13 +17,13 @@ interface Props {
   preview?: boolean
 }
 
-export default function OrderSuccessPage({ allLangs, hotelConfig, hotelInfo, preview }: Props) {
+export default function SplashScreenPage({ allLangs, hotelConfig, hotelInfo, preview }: Props) {
   return (
     <LanguagesContext.Provider value={allLangs}>
       <Layout hotelConfig={hotelConfig} preview={preview}>
-        <SEO title="Order Success" hotelConfig={hotelConfig} />
+        <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
-        <OrderSuccess blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
+        <SplashScreen blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
       </Layout>
     </LanguagesContext.Provider>
   )

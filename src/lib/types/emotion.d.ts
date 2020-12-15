@@ -11,6 +11,7 @@ declare module '@emotion/react' {
       gray: string
       primary: string
       secondary: string
+      welcomeBackground: string
       bodyBackground: string
       text: {
         primary: string
