@@ -1,7 +1,73 @@
 import CloseIcon from './close-icon.svg'
+import AirConditioner from './AirConditioner'
+import Bed from './Bed'
+import Bell from './Bell'
+import Beverage from './Beverage'
+import Butler from './Butler'
+import Clean from './Clean'
+import Clock from './Clock'
+import Cloudy from './Cloudy'
+import Cocktail from './Cocktail'
+import Cutlery from './Cutlery'
+import DryClean from './DryClean'
+import Ellipsis from './Ellipsis'
+import Hotel from './Hotel'
+import IceBucket from './IceBucket'
+import Info from './Info'
+import Key from './Key'
+import Laundry from './Laundry'
+import Luggage from './Luggage'
+import Netflix from './Netflix'
+import Phone from './Phone'
+import PhoneOutline from './PhoneOutline'
+import Pillow from './Pillow'
+import Question from './Question'
+import ReceptionBell from './ReceptionBell'
+import RoundClock from './RoundClock'
+import Taxi from './Taxi'
+import Toiletries from './Toiletries'
+import Towels from './Towels'
+import Trolley from './Trolley'
+import Valet from './Valet'
+import WakeUp from './WakeUp'
+import Weather from './Weather'
+import WhatsOn from './WhatsOn'
 
 const GalleryIcons = {
-  close: <CloseIcon />
+  close: <CloseIcon />,
+  airConditioner: <AirConditioner fill="currentColor" />,
+  bed: <Bed fill="currentColor" />,
+  bell: <Bell fill="currentColor" />,
+  beverage: <Beverage fill="currentColor" />,
+  butler: <Butler fill="currentColor" />,
+  clean: <Clean fill="currentColor" />,
+  clock: <Clock fill="currentColor" />,
+  cloudy: <Cloudy fill="currentColor" />,
+  cocktail: <Cocktail fill="currentColor" />,
+  cutlery: <Cutlery fill="currentColor" />,
+  dryClean: <DryClean fill="currentColor" />,
+  ellipsis: <Ellipsis fill="currentColor" />,
+  hotel: <Hotel fill="currentColor" />,
+  iceBucket: <IceBucket fill="currentColor" />,
+  info: <Info fill="currentColor" />,
+  key: <Key fill="currentColor" />,
+  laundry: <Laundry fill="currentColor" />,
+  luggage: <Luggage fill="currentColor" />,
+  netflix: <Netflix fill="currentColor" />,
+  phone: <Phone fill="currentColor" />,
+  phoneOutline: <PhoneOutline fill="currentColor" />,
+  pillow: <Pillow fill="currentColor" />,
+  question: <Question fill="currentColor" />,
+  receptionBell: <ReceptionBell fill="currentColor" />,
+  roundClock: <RoundClock fill="currentColor" />,
+  taxi: <Taxi fill="currentColor" />,
+  toiletries: <Toiletries fill="currentColor" />,
+  towels: <Towels fill="currentColor" />,
+  trolley: <Trolley fill="currentColor" />,
+  valet: <Valet fill="currentColor" />,
+  wakeUp: <WakeUp fill="currentColor" />,
+  weather: <Weather fill="currentColor" />,
+  whatsOn: <WhatsOn fill="currentColor" />
 }
 
 export default GalleryIcons

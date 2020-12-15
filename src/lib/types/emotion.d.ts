@@ -57,6 +57,7 @@ declare module '@emotion/react' {
       flatBg: string
       notAnimatedBg: string
       disabled: string
+      guestService: string
     }
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 
 import HotelInformation from '@/components/HotelInformation'
 import RoomService from '@/components/RoomService'
+import GuestService from '@/components/GuestService'
 import ContactDetail from '@/components/ContactDetail'
 import OrderSuccess from '@/components/OrderSuccess'
 import OrderConfirmation from '@/components/OrderConfirmation'
@@ -157,6 +158,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     const { story, configStory, navStory } = this.state
 
     const renderComponent = (name) => {
+      console.log({ name })
       switch (name) {
         case 'home':
           return <Home blok={story?.content} blokConfig={configStory?.content} />
@@ -166,6 +168,8 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return <HotelInformation blok={story?.content} blokConfig={configStory?.content} />
         case 'room-service':
           return <RoomService blok={story?.content} blokConfig={configStory?.content} />
+        case 'guestService':
+          return <GuestService blok={story?.content} blokConfig={configStory?.content} />
         case 'contact-detail':
           return <ContactDetail blok={story?.content} blokConfig={configStory?.content} />
         case 'order-success':

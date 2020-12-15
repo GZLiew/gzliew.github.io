@@ -6,7 +6,7 @@ const Right = (props: React.SVGProps<SVGSVGElement>) => {
       width="29"
       height="29"
       viewBox="0 0 32 32"
-      fill="white"
+      fill="currentColor"
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>

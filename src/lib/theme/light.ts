@@ -49,6 +49,7 @@ export default {
     border: '2px solid rgba(255, 255, 255, 0.4)',
     flatBg: 'rgba(54, 65, 77, 0.38)',
     notAnimatedBg: '#C6C9CE',
-    disabled: 'linear-gradient(148.02deg, #FFFFFF 13.4%, #CFD4DC 85.71%)'
+    disabled: 'linear-gradient(148.02deg, #FFFFFF 13.4%, #CFD4DC 85.71%)',
+    guestService: '#F5F5F5'
   }
 }
