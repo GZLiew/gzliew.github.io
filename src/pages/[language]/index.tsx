@@ -10,24 +10,24 @@ import Home from '@/components/Home'
 
 import { getHotelGlobalNavigation, getHomeData, getHotelConfiguration, getLanguageCodes } from '@/lib/api'
 import { HotelConfigProps } from '@/lib/types/hotelConfig'
-import { HomeContent } from '@/lib/types/homeContent'
+import { HomeBlok } from '@/lib/types/homeContent'
 import { ICommonLayout } from '@/lib/types/commonLayout'
 
 interface Props {
   allLangs: string[]
   hotelConfig?: HotelConfigProps
-  homeContent?: HomeContent
+  blok?: HomeBlok
   layoutNavigation?: ICommonLayout
   preview?: boolean
 }
 
-const HomePage = ({ allLangs, layoutNavigation, homeContent, hotelConfig }: Props) => {
+const HomePage = ({ allLangs, layoutNavigation, blok, hotelConfig }: Props) => {
   return (
     <LanguagesContext.Provider value={allLangs}>
       <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig}>
         <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
-        <Home blok={homeContent} blokConfig={hotelConfig?.content} />
+        <Home content={blok?.content} blokConfig={hotelConfig?.content} />
       </Layout>
     </LanguagesContext.Provider>
   )
@@ -40,10 +40,10 @@ export const getStaticPaths: GetStaticPaths = () => getLocalizedPaths()
 export const getStaticProps: GetStaticProps = async ({ preview = null, params }) => {
   const hotelConfig = (await getHotelConfiguration(preview, params?.language as string)) || []
   const layoutNavigation = (await getHotelGlobalNavigation(preview, params?.language as string)) || []
-  const homeContent = (await getHomeData(preview, params?.language as string)) || []
+  const blok = (await getHomeData(preview, params?.language as string)) || []
 
   const langCodes: string[] = await getLanguageCodes()
   const allLangs = ['en', ...langCodes]
 
-  return { props: { params, allLangs, layoutNavigation, homeContent, hotelConfig } }
+  return { props: { params, allLangs, layoutNavigation: layoutNavigation?.content, blok, hotelConfig } }
 }

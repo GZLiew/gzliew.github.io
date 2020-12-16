@@ -8,9 +8,9 @@ import OrderSuccess from '@/components/OrderSuccess'
 import OrderConfirmation from '@/components/OrderConfirmation'
 import SplashScreen from '@/components/SplashScreen'
 import Home from '@/components/Home'
-import Layout from '@/components/Layout'
+import Layout from '@/components/DefaultLayout'
 
-import { getLocalizedSlugNode } from '@/lib/utils/getLocalizedSlug'
+import { getHomeData, getHotelConfiguration, getHotelGlobalNavigation, getHotelInformation } from '@/lib/api'
 
 declare global {
   interface Window {
@@ -37,12 +37,6 @@ const getParam = (val: string) => {
   return pair ? pair[1] : ''
 }
 
-// retrofit getLocalizedSlugNode for this use case
-const getLocalizedStoryId = (lang: string, storyId: string) => {
-  if (lang === 'default') return getLocalizedSlugNode('/', storyId)
-  return getLocalizedSlugNode(lang, storyId)
-}
-
 export interface StoryblokStory {
   id: string
   content: any
@@ -57,6 +51,24 @@ export interface StoryblokEditorState {
   lang: string
 }
 
+const APIS = {
+  'hotel-configuration': getHotelConfiguration,
+  home: getHomeData,
+  'hotel-information': getHotelInformation,
+  layout: getHotelGlobalNavigation
+}
+
+const getApiCall = async (path: string, language?: string) => {
+  if (typeof path !== 'string') {
+    return
+  }
+  const key = path.replace('/', '')
+  if (!APIS[key]) {
+    return
+  }
+  return APIS[key](true, language === 'default' ? '' : language)
+}
+
 class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
   constructor(props: {}) {
     super(props)
@@ -67,47 +79,15 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     loadStoryblokBridge(() => this.initStoryblokEvents())
   }
 
-  loadStory(payload: { storyId: string }) {
-    // @ts-ignore: conflict with storyblok-client window type
-    window.storyblok.get(
-      {
-        slug: payload.storyId,
-        version: 'draft'
-      },
-      (data: { story: StoryblokStory }) => {
-        this.setState({ story: data.story })
+  loadStaticStory({ slug, key, language }: { slug: string; key: string; language?: string }) {
+    getApiCall(slug, language).then((data) => {
+      if (!data) return
+      if (data.content) {
+        this.setState({ [key]: data } as any)
+        return
       }
-    )
-  }
-
-  loadConfigStory(payload: { storyId: string }) {
-    const localizedStoryId = getLocalizedStoryId(this.state.lang, payload.storyId)
-
-    // @ts-ignore: conflict with storyblok-client window type
-    window.storyblok.get(
-      {
-        slug: localizedStoryId,
-        version: 'draft'
-      },
-      (data: { story: StoryblokStory }) => {
-        this.setState({ configStory: data.story })
-      }
-    )
-  }
-
-  loadNavStory(payload: { storyId: string }) {
-    const localizedStoryId = getLocalizedStoryId(this.state.lang, payload.storyId)
-
-    // @ts-ignore: conflict with storyblok-client window type
-    window.storyblok.get(
-      {
-        slug: localizedStoryId,
-        version: 'draft'
-      },
-      (data: { story: StoryblokStory }) => {
-        this.setState({ navStory: data.story })
-      }
-    )
+      this.setState({ [key]: { content: data } } as any)
+    })
   }
 
   initStoryblokEvents() {
@@ -119,21 +99,22 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     // get language from Storyblok query parameters
     this.setState({ lang: getParam('_storyblok_lang') })
 
-    this.loadStory({ storyId: getParam('path') })
-    this.loadConfigStory({ storyId: 'hotel-configuration' })
-    this.loadNavStory({ storyId: 'layout' })
+    this.loadStaticStory({ slug: getParam('path'), key: 'story', language: this.state.lang })
+    this.loadStaticStory({ slug: 'hotel-configuration', key: 'configStory', language: this.state.lang })
+    this.loadStaticStory({ slug: 'layout', key: 'navStory', language: this.state.lang })
 
     // @ts-ignore: conflict with storyblok-client window type
     storyblok.on(['change', 'published'], (payload: { storyId: string; slug: string }) => {
       if (payload?.slug === 'layout') {
-        this.loadNavStory(payload)
+        this.loadStaticStory({ slug: 'layout', key: 'navStory', language: this.state.lang })
       } else {
-        this.loadStory(payload)
+        this.loadStaticStory({ slug: getParam('path'), key: 'story', language: this.state.lang })
       }
     })
 
     // @ts-ignore: conflict with storyblok-client window type
     storyblok.on('input', (payload: { story: StoryblokStory }) => {
+      window.storyblok.addComments(payload.story.content, payload.story.id)
       if (this.state.navStory && payload.story?.slug === this.state.navStory.slug) {
         this.setState({ navStory: payload.story })
       }
@@ -144,8 +125,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     })
 
     storyblok.pingEditor(() => {
-      // @ts-ignore: conflict with storyblok-client window type
-      if (storyblok.inEditor) {
+      if (storyblok.isInEditor) {
         storyblok.enterEditmode()
       }
     })
@@ -162,7 +142,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
       console.log({ name })
       switch (name) {
         case 'home':
-          return <Home blok={story?.content} blokConfig={configStory?.content} />
+          return <Home content={story?.content} blokConfig={configStory?.content} />
         case 'common_layout':
           return ''
         case 'hotel-information':
@@ -180,13 +160,13 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
         case 'splash-screen':
           return <SplashScreen blok={story?.content} blokConfig={configStory?.content} />
         default:
-          return `Component ${story?.content.component} not created yet`
+          return `Component ${name} not created yet`
       }
     }
 
     return (
       <Layout navLinks={navStory?.content.navigation} hotelConfig={configStory}>
-        {renderComponent(story?.content.component)}
+        {renderComponent(story?.content?.component)}
       </Layout>
     )
   }

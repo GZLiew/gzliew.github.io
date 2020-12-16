@@ -15,7 +15,7 @@ const Categories = ({ categories }: Props) => {
     <>
       {headerHeight && <StickyTabs items={categories} offset={headerHeight} />}
       {categories.map((category) => (
-        <Category key={category.slug} category={category} />
+        <Category key={category._uid} category={category} />
       ))}
     </>
   )

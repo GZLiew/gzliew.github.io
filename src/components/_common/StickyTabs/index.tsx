@@ -159,7 +159,7 @@ const StickyTabs = ({ items, offset = 0 }: Props) => {
             <Tab
               href={`#${slug}`}
               data-slug={slug}
-              key={slug}
+              key={slug + title}
               className={slug === currentId ? 'active' : null}
               onClick={handleTabClick}
               height={TABS_HEIGHT}>

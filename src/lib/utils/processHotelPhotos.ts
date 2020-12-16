@@ -11,6 +11,9 @@ const processHotelPhotos = async (hotelPhotos: IHotelPhoto[]): Promise<IHotelPho
       const processedPhotos = await Promise.all(
         photos.map(async (photo) => {
           // get image dimensions and append them to photo object
+          if (typeof window !== undefined) {
+            return { ...photo }
+          }
           const { dimensions } = await getImageDimensions(`https:${photo.image}`)
           return { dimensions, ...photo }
         })

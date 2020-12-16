@@ -18,21 +18,21 @@ const modules = {
 }
 
 interface Props {
-  blok: HomeContent
+  content: HomeContent
   blokConfig: HotelConfigContent
 }
 
-const Home = ({ blok, blokConfig }: Props) => {
+const Home = ({ content, blokConfig }: Props) => {
   return (
-    <SbEditable content={blok}>
+    <SbEditable content={content}>
       <Container style={{ paddingBottom: '2rem' }}>
         <SubHeading>
-          {blok?.primaryWelcomeText} {blokConfig?.hotelName}
+          {content?.primaryWelcomeText} {blokConfig?.hotelName}
         </SubHeading>
-        <StyledTitle>{blok?.secondaryWelcomeText}</StyledTitle>
-        <QuickButtons buttons={blok?.quickButtons} />
+        <StyledTitle>{content?.secondaryWelcomeText}</StyledTitle>
+        <QuickButtons buttons={content?.quickButtons} />
         <CheckoutInfo />
-        {blok?.modules?.map((module) => (
+        {content?.modules?.map((module) => (
           <React.Fragment key={module._uid}>
             {React.createElement(modules[module.component], {
               blok: { ...module },

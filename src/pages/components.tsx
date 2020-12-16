@@ -116,5 +116,5 @@ export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
   const langCodes: string[] = await getLanguageCodes()
   const allLangs = ['en', ...langCodes]
 
-  return { props: { allLangs, layoutNavigation, hotelConfig } }
+  return { props: { allLangs, layoutNavigation: layoutNavigation?.content, hotelConfig } }
 }

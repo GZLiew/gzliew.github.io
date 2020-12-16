@@ -14,6 +14,9 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
       HotelconfigurationItem(id: $slug) {
       id
       content {
+        _editable
+        _uid
+        component
         hotelLogo {
           name
           filename
@@ -58,7 +61,7 @@ export async function getHomeData(preview: boolean, language?: string) {
   `,
     { preview, variables: { slug: getLocalizedSlugNode(language, 'home') } }
   )
-  return data?.HomeItem?.content
+  return data?.HomeItem
 }
 
 export async function getHotelInformation(preview: boolean, language?: string): Promise<HotelInfoProps> {
@@ -66,6 +69,7 @@ export async function getHotelInformation(preview: boolean, language?: string): 
     `
    query ($slug: ID!){
     HotelinformationItem(id: $slug) {
+      id
       content {
         welcomeText
         location
@@ -94,6 +98,7 @@ export async function getHotelInformation(preview: boolean, language?: string): 
   const processedHotelPhotos = await processHotelPhotos(hotelPhotos)
 
   return {
+    id: data?.HotelinformationItem?.id,
     content: {
       categories: categoriesWithSlugs,
       hotelPhotos: processedHotelPhotos,
@@ -107,6 +112,7 @@ export async function getHotelGlobalNavigation(preview: boolean, language?: stri
     `
     query ($slug: ID!){
       CommonlayoutItem(id: $slug) {
+        id
         content {
           navigation
           component
@@ -118,7 +124,7 @@ export async function getHotelGlobalNavigation(preview: boolean, language?: stri
   `,
     { preview, variables: { slug: getLocalizedSlugNode(language, 'layout') } }
   )
-  return data?.CommonlayoutItem?.content
+  return data?.CommonlayoutItem
 }
 
 export async function getLanguageCodes() {

@@ -29,7 +29,7 @@ const removeTemporaryImage = (slug) =>
         if (err) {
           reject(err)
         } else {
-          resolve()
+          resolve(true)
         }
       })
     }
@@ -44,7 +44,7 @@ const temporaryStoreImage = (slug: string, response: Response) => {
     } else {
       response.body.pipe(fileStream)
       fileStream.on('finish', () => {
-        resolve()
+        resolve(true)
       })
       fileStream.on('error', (err) => {
         console.log('fs stream err')
