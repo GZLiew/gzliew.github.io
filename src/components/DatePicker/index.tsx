@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react'
 import { useTheme } from '@emotion/react'
 import { format, isEqual, isToday, isTomorrow, startOfToday, startOfTomorrow } from 'date-fns'
 
-import ButtonToggle from '@/components/_common/ButtonToggle'
 import DatePickerModal from '@/components/_common/DatePickerModal'
 import { CalendarStyled, TitleWrapper } from '@/components/_common/DatePickerModal/DatePickerModal.styles'
+import { DatePickerStyled } from '@/components/_common/DatePicker/DatePicker.styles'
 
-import { ButtonsContainer, ChevronDownStyled } from './DatePicker.styles'
+import { ButtonsContainer, ButtonToggleStyled, ChevronDownStyled } from './DatePicker.styles'
 
 type Props = {
   value?: Date
   onChangeDate: (d: Date) => void
+  datePickerProps?: Partial<React.ComponentProps<typeof DatePickerStyled>>
 }
 
 const getActiveItem = (date: Date) => {
@@ -29,7 +30,7 @@ const getCustomDate = (date: Date) => {
   return format(date, 'dd MMM yyyy')
 }
 
-const DatePicker = ({ value = new Date(), onChangeDate }: Props) => {
+const DatePicker = ({ value = new Date(), onChangeDate, datePickerProps }: Props) => {
   const theme = useTheme()
   const [date, setDate] = useState(value)
   const [pickerDate, setPickerDate] = useState(new Date())
@@ -74,7 +75,7 @@ const DatePicker = ({ value = new Date(), onChangeDate }: Props) => {
           <CalendarStyled fill="currentColor" />
           Date
         </TitleWrapper>
-        <ButtonToggle
+        <ButtonToggleStyled
           items={[
             { id: 'today', label: 'Today' },
             { id: 'tomorrow', label: 'Tomorrow' },
@@ -89,6 +90,7 @@ const DatePicker = ({ value = new Date(), onChangeDate }: Props) => {
             }
           ]}
           outlineColor={theme.button.notAnimatedBg}
+          outlinePaddingX={1.2}
           wrapperBgColor={theme.button.notAnimatedBg}
           activeItem={getActiveItem(date)}
           onClick={onDateChanged}
@@ -98,7 +100,8 @@ const DatePicker = ({ value = new Date(), onChangeDate }: Props) => {
         datePickerProps={{
           selected: pickerDate,
           minDate: startOfToday(),
-          onChange: (date) => setPickerDate(date as Date)
+          onChange: (date) => setPickerDate(date as Date),
+          ...datePickerProps
         }}
         onOverlayClosed={onOverlayClosed}
         isPickerOpen={isPickerOpen}

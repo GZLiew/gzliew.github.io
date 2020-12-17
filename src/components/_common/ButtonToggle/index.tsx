@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
-import { ButtonToggleWrapper, ButtonStyled } from './ButtonToggle.styles'
+import Button from '../Button'
+import { ButtonToggleWrapper } from './ButtonToggle.styles'
 
 type ButtonToggleWrapperProps = React.ComponentProps<typeof ButtonToggleWrapper>
 
@@ -15,6 +16,7 @@ type Props = {
   inactiveBgColor?: string
   wrapperBgColor?: string
   outlineColor?: string
+  outlinePaddingX?: number
   onClick: (value: ToggleItem) => void
   round?: boolean
 }
@@ -28,6 +30,7 @@ const ButtonToggle = (props: ButtonToggleWrapperProps & Props) => {
     activeBgColor,
     inactiveBgColor,
     outlineColor,
+    outlinePaddingX,
     wrapperBgColor,
     ...wrapperProps
   } = props
@@ -35,7 +38,7 @@ const ButtonToggle = (props: ButtonToggleWrapperProps & Props) => {
   return (
     <ButtonToggleWrapper {...wrapperProps}>
       {items.map(({ id, label }) => (
-        <ButtonStyled
+        <Button
           key={id}
           onClick={() => onClick({ id, label })}
           size="small"
@@ -45,10 +48,11 @@ const ButtonToggle = (props: ButtonToggleWrapperProps & Props) => {
           outline={activeItem === id ? false : true}
           bgColor={activeItem === id ? activeBgColor : inactiveBgColor}
           outlineColor={outlineColor}
+          outlinePaddingX={outlinePaddingX}
           wrapperBgColor={wrapperBgColor}
           round={round}>
           {label}
-        </ButtonStyled>
+        </Button>
       ))}
     </ButtonToggleWrapper>
   )

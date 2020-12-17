@@ -22,7 +22,7 @@ export const TimeContainer = styled.div`
 `
 
 export const TitleWrapper = styled.div`
-  ${xw`flex flex-row text-sm items-center`}
+  ${xw`flex flex-row text-sm items-center pb-2`}
   ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 
@@ -31,7 +31,7 @@ export const TimeWrapper = styled.div`
 `
 
 export const TimeBlock = styled(TouchableOpacity)`
-  ${xw`p-6 rounded-2xl text-center flex flex-row text-xl items-center`}
+  ${xw`p-8 rounded-2xl text-center flex flex-row items-center text-3xl`}
   background: ${({ theme }) => theme.colors.timeblock};
   ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
@@ -59,7 +59,7 @@ export const AmPmBlock = styled.div`
 export const AmPmButton = styled(TouchableOpacity, {
   shouldForwardProp: (prop: string) => isPropValid(prop)
 })<Props>`
-  ${xw`px-5 py-1 rounded-full text-base uppercase mb-2`}
+  ${xw`px-5 py-1 rounded-full text-xl uppercase mb-2`}
   background: ${({ theme, isFocus }) => isFocus && theme.colors.timeblock};
   &:last-of-type {
     ${xw`mb-0`}

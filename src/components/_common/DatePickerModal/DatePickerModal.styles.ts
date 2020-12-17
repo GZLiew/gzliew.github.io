@@ -5,7 +5,7 @@ import Calendar from '@/assets/icons/Calendar'
 import CloseIcon from '@/assets/icons/CloseIcon'
 
 export const TitleWrapper = styled.div`
-  ${xw`flex flex-row text-sm items-center pb-2`}
+  ${xw`flex flex-row text-sm items-center pb-4`}
   ${({ theme }) => (theme.mode === 'light' ? xw`text-black` : xw`text-white`)}
 `
 

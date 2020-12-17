@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+
+import Down from '@/assets/icons/Down'
+
 import { Wrapper } from './HeaderTitle.styles'
-import ChevronDownSvg from '../../../assets/icons/chevron-down.svg'
 
 type WrapperProps = React.ComponentProps<typeof Wrapper>
 
 type Props = {
-  label: string
+  label: ReactNode
   clickable?: boolean
 }
 
@@ -13,7 +15,7 @@ const HeaderTitle = ({ label, clickable, onClick, ...wrapperProps }: Props & Wra
   return (
     <Wrapper disabled={!clickable} onClick={clickable ? onClick : undefined} {...wrapperProps}>
       {label}
-      {clickable && <ChevronDownSvg />}
+      {clickable && <Down fill="currentColor" />}
     </Wrapper>
   )
 }

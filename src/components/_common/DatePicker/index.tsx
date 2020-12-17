@@ -11,7 +11,7 @@ import {
   RightStyled
 } from './DatePicker.styles'
 
-type Props = React.ComponentProps<typeof DatePickerWrapper> & {
+export type Props = React.ComponentProps<typeof DatePickerWrapper> & {
   datePickerProps: React.ComponentProps<typeof DatePickerStyled>
 }
 

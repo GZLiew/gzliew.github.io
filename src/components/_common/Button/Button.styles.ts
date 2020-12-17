@@ -16,6 +16,8 @@ export type ButtonWrapperProps = {
   raised?: boolean
   hover?: boolean
   round?: boolean
+  /** The horizontal padding, defaults to 1.5rem */
+  outlinePaddingX?: number
   /** Whether a variant button should animate the background */
   shouldAnimate?: boolean
   /** The button wrapper background color  */
@@ -23,13 +25,15 @@ export type ButtonWrapperProps = {
   outlineColor?: string
 } & React.ComponentProps<typeof TouchableOpacity>
 
+const DEFAULT_OUTLINE_PADDING = 1.5
+
 export const ContentContainer = styled.div`
   ${xw`flex w-full justify-center items-center`}
   z-index: 1;
 `
 
 export const ButtonStyled = styled.div`
-  ${xw`flex justify-center items-center h-full w-full py-2.5 px-6 uppercase`}
+  ${xw`flex justify-center items-center h-full w-full py-2.5 uppercase`}
   z-index: 1;
 `
 
@@ -85,8 +89,11 @@ const ContentStyles = ({
   variant,
   outline,
   disabled,
-  round
+  round,
+  outlinePaddingX
 }: ButtonWrapperProps & { theme: Theme }) => css`
+  padding-left: ${outlinePaddingX || DEFAULT_OUTLINE_PADDING}rem;
+  padding-right: ${outlinePaddingX || DEFAULT_OUTLINE_PADDING}rem;
   ${variant === 'flat' &&
   `
      color: ${theme.colors.text.primary};
@@ -94,8 +101,8 @@ const ContentStyles = ({
 
   ${outline &&
   `
-     padding-right: 1.375rem;
-     padding-left: 1.375rem;
+     padding-right: ${(outlinePaddingX || DEFAULT_OUTLINE_PADDING) - 0.125}rem;
+     padding-left: ${(outlinePaddingX || DEFAULT_OUTLINE_PADDING) - 0.125}rem;
     `}
 
   ${disabled &&

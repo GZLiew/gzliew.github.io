@@ -24,7 +24,7 @@ interface Props {
   params?: Params
 }
 
-const RoomServicePage = ({ allLangs, hotelConfig, guestService, preview }: Props) => {
+const GuestServicePage = ({ allLangs, hotelConfig, guestService, preview }: Props) => {
   return (
     <LanguagesContext.Provider value={allLangs}>
       <Layout hotelConfig={hotelConfig} preview={preview}>
@@ -35,7 +35,7 @@ const RoomServicePage = ({ allLangs, hotelConfig, guestService, preview }: Props
   )
 }
 
-export default RoomServicePage
+export default GuestServicePage
 
 export const getStaticPaths: GetStaticPaths = async () => getLocalizedPaths()
 

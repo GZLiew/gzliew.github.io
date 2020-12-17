@@ -1,4 +1,5 @@
 import React from 'react'
+import { useRouter } from 'next/router'
 import { useTheme } from '@emotion/react'
 import SbEditable from 'storyblok-react'
 
@@ -21,6 +22,7 @@ interface Props {
 const DEFAULT_LABEL = 'Guest Services'
 
 const GuestService = ({ blok, blokConfig, preview }: Props) => {
+  const router = useRouter()
   const { button } = useTheme()
 
   return (
@@ -45,6 +47,7 @@ const GuestService = ({ blok, blokConfig, preview }: Props) => {
                   key={s._uid}
                   withIcon
                   size="large"
+                  onClick={() => router.push(`guest-service/${s._uid}`)}
                   bgColor={button.guestService}>
                   <IconContainer>{GalleryIcons[s.icon] || GalleryIcons.info}</IconContainer>
                   <StretchedContent>{s.label || 'Service'}</StretchedContent>

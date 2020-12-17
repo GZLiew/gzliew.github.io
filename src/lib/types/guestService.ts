@@ -7,7 +7,7 @@ export type GSCheckListItem = {
 
 export type CommonData = {
   _uid?: string
-  selected?: string
+  selected?: 'custom' | 'checklist' | 'now' | 'future' | 'feedback'
 }
 
 export type DateData = CommonData & {
@@ -19,10 +19,10 @@ export type CheckListData = CommonData & {
   maxChecklistItems?: number
 }
 
-export type GuestService = SbEditableContent & {
+export type GuestService<T = any> = SbEditableContent & {
   icon?: string
   label?: string
-  data?: DateData | CheckListData
+  data?: CommonData & T
 }
 
 export type GuestServiceContent = SbEditableContent & {

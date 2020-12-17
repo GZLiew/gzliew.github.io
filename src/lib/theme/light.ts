@@ -24,7 +24,7 @@ export default {
       boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.14)'
     },
     bottomSheet: {
-      background: 'linear-gradient(180deg, #EAEAEA 0%, #EAECEE 100%)',
+      background: '#ffffff',
       boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.157452)'
     },
     notificationBg: 'linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)',

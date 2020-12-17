@@ -6,6 +6,7 @@ import useMeasure from '@/lib/hooks/useMeasurePolyfilled'
 import TouchableOpacity from '../TouchableOpacity'
 
 import { Base, Tab, TabOverlay } from './ButtonTab.styles'
+import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
 
 export type TabItem = {
   id: string
@@ -30,14 +31,17 @@ const getOffsetX = (items: TabItem[], item: TabItem, tabWidth: number) => {
 
 const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
   const eachTabWidthRef = useRef(getInitialTabWidth(items))
+  const overlayRef = useRef(null)
   const [activeTab, setActiveTab] = useState<TabItem>(items[initialIndex])
   const [isXScrolling, setIsXScrolling] = useState(false)
   const [initialized, setInitialized] = useState(false)
   const [baseRef, { width: baseWidth }] = useMeasure()
-  const [props, setTranslate] = useSpring(() => ({
+  const [props, setTranslate] = useSpring<{ x: number; size: number }>(() => ({
     x: 0,
     size: 1
   }))
+  useLockBodyScroll(isXScrolling, overlayRef)
+
   const rightBound = baseWidth - eachTabWidthRef.current - BaseBorderWidth
   const bind = useDrag(({ down, movement: [mx], args: [currentTab] }) => {
     if (eachTabWidthRef.current === 0) {
@@ -117,6 +121,7 @@ const ButtonTab = ({ items, onChange, initialIndex = 0 }: Props) => {
       {initialized && (
         <TabOverlay
           {...bind(activeTab)}
+          ref={overlayRef}
           style={{
             transform: interpolate([props.x, props.size], (x, s) => `translate3d(${x}px,0,0) scale(${s})`)
           }}
