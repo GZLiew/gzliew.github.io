@@ -4,8 +4,8 @@ import SbEditable from 'storyblok-react'
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
 import { HotelInfoContent } from '@/lib/types/hotelInfo'
 
-import Section from '../_common/Section'
 import {
+  StyledSection,
   StyledContainer,
   SuccessMessage,
   CheckWrapper,
@@ -30,7 +30,7 @@ const _DEFAULT_LABEL = 'Order Success'
 const OrderSuccess = ({ blok }: Props) => {
   return (
     <SbEditable content={blok}>
-      <Section className="min-h-screen" style={{ padding: '25px' }}>
+      <StyledSection>
         <StyledContainer>
           <CheckWrapper>
             <CheckWrapperInner>
@@ -49,7 +49,7 @@ const OrderSuccess = ({ blok }: Props) => {
           </Note>
           <Button size="medium">Home</Button>
         </Wrapper>
-      </Section>
+      </StyledSection>
     </SbEditable>
   )
 }

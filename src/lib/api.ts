@@ -155,3 +155,32 @@ export const getGuestService = async (preview: boolean, language?: string) => {
 
   return data?.GuestserviceItem
 }
+
+export const getSplashScreen = async (preview: boolean, language?: string) => {
+  const data = await fetchAPI(
+    `
+    query ($slug: ID!) {
+      SplashscreenItem(id: $slug) {
+        id
+        content {
+          welcomeImage {
+            filename
+          }
+          welcomeLogo {
+            filename
+          }
+          welcomeName
+          welcomeMessage
+          welcomeButtonText
+          component
+          _uid
+          _editable
+        }
+      }
+    }
+  `,
+    { preview, variables: { slug: getLocalizedSlugNode(language, 'splash-screen') } }
+  )
+
+  return data?.SplashscreenItem
+}

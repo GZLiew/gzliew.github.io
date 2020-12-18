@@ -10,7 +10,13 @@ import SplashScreen from '@/components/SplashScreen'
 import Home from '@/components/Home'
 import Layout from '@/components/DefaultLayout'
 
-import { getHomeData, getHotelConfiguration, getHotelGlobalNavigation, getHotelInformation } from '@/lib/api'
+import {
+  getHomeData,
+  getHotelConfiguration,
+  getHotelGlobalNavigation,
+  getHotelInformation,
+  getSplashScreen
+} from '@/lib/api'
 
 declare global {
   interface Window {
@@ -55,7 +61,8 @@ const APIS = {
   'hotel-configuration': getHotelConfiguration,
   home: getHomeData,
   'hotel-information': getHotelInformation,
-  layout: getHotelGlobalNavigation
+  layout: getHotelGlobalNavigation,
+  'splash-screen': getSplashScreen
 }
 
 const getApiCall = async (path: string, language?: string) => {
@@ -157,7 +164,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
           return <OrderSuccess blok={story?.content} blokConfig={configStory?.content} />
         case 'order-confirmation':
           return <OrderConfirmation blok={story?.content} blokConfig={configStory?.content} />
-        case 'splash-screen':
+        case 'splashScreen':
           return <SplashScreen blok={story?.content} blokConfig={configStory?.content} />
         default:
           return `Component ${name} not created yet`

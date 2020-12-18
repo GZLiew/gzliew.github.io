@@ -1,6 +1,12 @@
 import xw from 'xwind'
 import styled from '@emotion/styled'
 import Container from '@/components/Container'
+import Section from '@/components/_common/Section'
+
+export const StyledSection = styled(Section)`
+  ${xw`p-6`}
+  height: 100vh;
+`
 
 export const StyledContainer = styled(Container)`
   ${xw`p-7 mb-16 text-center rounded-3xl flex block justify-center`}

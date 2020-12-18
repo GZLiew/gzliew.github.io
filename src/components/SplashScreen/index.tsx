@@ -2,7 +2,7 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
-import { HotelInfoContent } from '@/lib/types/hotelInfo'
+import { SplashScreenContent } from '@/lib/types/splashScreen'
 
 import {
   StyledSection,
@@ -10,24 +10,43 @@ import {
   HeroImage,
   TopContent,
   BottomContent,
-  HotelLogo
+  HotelLogo,
+  InfoDetail,
+  HotelLogoWrapper,
+  InfoWrapper,
+  InfoTitle,
+  ButtonWrapper
 } from './SplashScreen.styles'
+import Button from '../_common/Button'
+import NextIcon from '@/assets/icons/NextIcon'
 
 interface Props {
-  blok: HotelInfoContent
+  blok: SplashScreenContent
   blokConfig: HotelConfigContent
   preview?: boolean
 }
 
-const Welcome = ({ blok }: Props) => {
+const SplashScreen = ({ blok }: Props) => {
   return (
     <SbEditable content={blok}>
       <StyledSection>
-        <HeroImage src="https://upload.wikimedia.org/wikipedia/commons/6/62/Starsinthesky.jpg" />
+        <HeroImage src={blok?.welcomeImage.filename} />
         <ContentContainer>
           <TopContent />
           <BottomContent>
-            <HotelLogo src="https://a.storyblok.com/f/87760/450x600/2733ab6342/tapendium-logo-image.png" />
+            <HotelLogoWrapper>
+              <HotelLogo src={blok?.welcomeLogo.filename} />
+            </HotelLogoWrapper>
+            <InfoWrapper>
+              <InfoTitle>{blok?.welcomeName}</InfoTitle>
+              <InfoDetail>{blok?.welcomeMessage}</InfoDetail>
+            </InfoWrapper>
+            <ButtonWrapper>
+              <Button size="large" withIcon>
+                {blok?.welcomeButtonText}
+                <NextIcon fill="currentColor" />
+              </Button>
+            </ButtonWrapper>
           </BottomContent>
         </ContentContainer>
       </StyledSection>
@@ -35,4 +54,4 @@ const Welcome = ({ blok }: Props) => {
   )
 }
 
-export default Welcome
+export default SplashScreen
