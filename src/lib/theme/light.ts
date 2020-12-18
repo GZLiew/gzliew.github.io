@@ -11,6 +11,7 @@ export default {
       secondary: '#2C2F31',
       alternate: '#7A7D81'
     },
+    inputBackground: '#ffffff',
     widget: {
       background: '#fff'
     },

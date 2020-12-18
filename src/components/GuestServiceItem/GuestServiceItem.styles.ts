@@ -2,6 +2,7 @@ import xw from 'xwind'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 
+import NextIcon from '@/assets/icons/NextIcon'
 import Button from '@/components/_common/Button'
 import { BottomSheet } from '@/components/_common/BottomSheet/BottomSheet.styles'
 
@@ -63,3 +64,5 @@ export const Center = styled.div`
   ${xw`flex justify-center items-center text-1xl font-bold`}
   color: ${({ theme }) => theme?.colors?.text?.primary};
 `
+
+export const NextIconStyled = styled(NextIcon)``

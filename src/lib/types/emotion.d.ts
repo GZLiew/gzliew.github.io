@@ -18,6 +18,7 @@ declare module '@emotion/react' {
         secondary: string
         alternate: string
       }
+      inputBackground: string
       widget: {
         background: string
       }

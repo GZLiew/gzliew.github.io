@@ -10,6 +10,7 @@ import Now from './Now'
 import Later from './Later'
 import IconLabel from './IconLabel'
 import { Center, PageContainer } from './GuestServiceItem.styles'
+import Feedback from './Feedback'
 
 interface Props {
   blok: GuestService
@@ -32,6 +33,9 @@ const GuestServiceItem = ({ blok, blokConfig, preview }: Props) => {
       break
     case 'future':
       Content = <Later blok={blok} />
+      break
+    case 'feedback':
+      Content = <Feedback blok={blok} />
       break
     default:
       break

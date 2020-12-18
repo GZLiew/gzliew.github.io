@@ -14,6 +14,10 @@ export type DateData = CommonData & {
   maxDays?: number
 }
 
+export type InputData = CommonData & {
+  placeholder?: string
+}
+
 export type CheckListData = CommonData & {
   items?: GSCheckListItem[]
   maxChecklistItems?: number

@@ -11,6 +11,7 @@ export default {
       secondary: '#919396',
       alternate: '#686A6E'
     },
+    inputBackground: '#404448',
     widget: {
       background: 'linear-gradient(to bottom, #2f3339, #2b2e35)'
     },
