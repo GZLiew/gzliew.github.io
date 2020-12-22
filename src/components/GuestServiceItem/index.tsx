@@ -5,12 +5,13 @@ import { GuestService } from '@/lib/types/guestService'
 import HeaderTitle from '@/components/_common/HeaderTitle'
 import PageLayout from '@/components/_common/PageLayout'
 
-import CustomDates from './CustomDates'
 import Now from './Now'
 import Later from './Later'
 import IconLabel from './IconLabel'
-import { Center, PageContainer } from './GuestServiceItem.styles'
 import Feedback from './Feedback'
+import Checklist from './Checklist'
+import CustomDates from './CustomDates'
+import { Center, PageContainer } from './GuestServiceItem.styles'
 
 interface Props {
   blok: GuestService
@@ -36,6 +37,9 @@ const GuestServiceItem = ({ blok, blokConfig, preview }: Props) => {
       break
     case 'feedback':
       Content = <Feedback blok={blok} />
+      break
+    case 'checklist':
+      Content = <Checklist blok={blok} />
       break
     default:
       break

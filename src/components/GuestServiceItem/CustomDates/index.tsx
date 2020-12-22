@@ -28,7 +28,7 @@ const CustomDates = ({ blok }: Props) => {
   return (
     <>
       <TabsSection isNow={option === 'now'}>
-        Do you want to request now or later?
+        {blok?.data?.subtitle}
         <StyledButtonTabsContainer>
           <ButtonTab items={OPTIONS} onChange={(item) => setOption(item.id)} />
         </StyledButtonTabsContainer>

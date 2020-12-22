@@ -15,10 +15,12 @@ export const Base = styled(TouchableOpacity)<BaseProps>`
   border-radius: 1rem;
   background-color: ${({ theme }) =>
     theme.mode === 'light' ? theme.colors.secondary : theme.colors.secondary};
+  border-color: ${({ selected, theme }) => (selected ? theme.brandColors.primary : theme.colors.gray)};
 `
 
 export const CheckMark = styled.div<CheckMarkProps>`
   ${xw`inline-block border-2 rounded-full w-10 h-10 relative`}
+  border-color: ${({ theme }) => theme.colors.gray};
   ${({ selected, theme }) => (!selected ? theme.colors.gray : xw`border-transparent`)}
 `
 
@@ -52,7 +54,7 @@ export const HighlightBackground = styled.div<BaseProps>`
     selected &&
     css`
       background-color: ${transparentize(0.7, theme.brandColors.primary)};
-      border-width: 2px;
+      border-width: 1px;
       border-style: solid;
       opacity: 1;
       border-color: ${theme.brandColors.primary};

@@ -1,8 +1,8 @@
 import { SbEditableContent } from 'storyblok-react'
 
 export type GSCheckListItem = {
-  id?: string
-  label?: string
+  id: string
+  label: string
 }
 
 export type CommonData = {
@@ -12,6 +12,7 @@ export type CommonData = {
 
 export type DateData = CommonData & {
   maxDays?: number
+  subtitle?: string
 }
 
 export type InputData = CommonData & {
@@ -20,6 +21,7 @@ export type InputData = CommonData & {
 
 export type CheckListData = CommonData & {
   items?: GSCheckListItem[]
+  subtitle?: string
   maxChecklistItems?: number
 }
 

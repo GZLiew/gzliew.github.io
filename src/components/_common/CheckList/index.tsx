@@ -4,8 +4,10 @@ import { Base, ErrorLabel } from './CheckList.styles'
 
 type ListItem = {
   id: string
-  title: string
+  label: string
 }
+
+type CheckListBaseProps = React.ComponentProps<typeof Base>
 
 type Props = {
   items: ListItem[]
@@ -14,7 +16,13 @@ type Props = {
   errorMsg?: string
 }
 
-const CheckList = ({ items, errorMsg, onChange, limit = items.length }: Props) => {
+const CheckList = ({
+  items,
+  errorMsg,
+  onChange,
+  limit = items.length,
+  ...checkListBaseProps
+}: Props & CheckListBaseProps) => {
   const [selected, setSelected] = useState<ListItem[]>([])
   const [isError, setIsError] = useState(false)
 
@@ -41,13 +49,13 @@ const CheckList = ({ items, errorMsg, onChange, limit = items.length }: Props) =
   }, [selected, onChange])
 
   return (
-    <Base>
+    <Base {...checkListBaseProps}>
       {items.map((item) => (
         <CheckListItem
           onClick={() => onSelectItem(item)}
           selected={selected.includes(item)}
           key={item.id}
-          label={item.title}
+          label={item.label}
         />
       ))}
       {isError && errorMsg && <ErrorLabel>{errorMsg}</ErrorLabel>}
