@@ -7,6 +7,8 @@ import processHotelPhotos from './utils/processHotelPhotos'
 import { HotelInfoProps } from './types/hotelInfo'
 import { HotelConfigProps } from './types/hotelConfig'
 
+const BASE_PATH = 'pwa/'
+
 export async function getHotelConfiguration(preview: boolean, language?: string): Promise<HotelConfigProps> {
   const data = await fetchAPI(
     `
@@ -59,7 +61,7 @@ export async function getHomeData(preview: boolean, language?: string) {
     }
   }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, 'home') } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, `${BASE_PATH}home`) } }
   )
   return data?.HomeItem
 }
@@ -85,7 +87,7 @@ export async function getHotelInformation(preview: boolean, language?: string): 
     }
    }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, 'hotel-information') } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, `${BASE_PATH}hotel-information`) } }
   )
 
   const { categories, hotelPhotos, ...content } = data?.HotelinformationItem?.content
@@ -150,7 +152,7 @@ export const getGuestService = async (preview: boolean, language?: string) => {
     }
   }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, 'guest-service') } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, `${BASE_PATH}guest-service`) } }
   )
 
   return data?.GuestserviceItem
@@ -179,7 +181,7 @@ export const getSplashScreen = async (preview: boolean, language?: string) => {
       }
     }
   `,
-    { preview, variables: { slug: getLocalizedSlugNode(language, 'splash-screen') } }
+    { preview, variables: { slug: getLocalizedSlugNode(language, `${BASE_PATH}splash-screen`) } }
   )
 
   return data?.SplashscreenItem

@@ -11,6 +11,7 @@ import Home from '@/components/Home'
 import Layout from '@/components/DefaultLayout'
 
 import {
+  getGuestService,
   getHomeData,
   getHotelConfiguration,
   getHotelGlobalNavigation,
@@ -61,19 +62,21 @@ const APIS = {
   'hotel-configuration': getHotelConfiguration,
   home: getHomeData,
   'hotel-information': getHotelInformation,
+  'de/hotel-information': getHotelInformation,
   layout: getHotelGlobalNavigation,
+  'guest-service': getGuestService,
   'splash-screen': getSplashScreen
 }
 
 const getApiCall = async (path: string, language?: string) => {
+  console.log(path)
   if (typeof path !== 'string') {
     return
   }
-  const key = path.replace('/', '')
-  if (!APIS[key]) {
+  if (!APIS[path]) {
     return
   }
-  return APIS[key](true, language === 'default' ? '' : language)
+  return APIS[path](true, language === 'default' ? '' : language)
 }
 
 class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
@@ -88,6 +91,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
 
   loadStaticStory({ slug, key, language }: { slug: string; key: string; language?: string }) {
     getApiCall(slug, language).then((data) => {
+      console.log({ data })
       if (!data) return
       if (data.content) {
         this.setState({ [key]: data } as any)
@@ -140,7 +144,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
 
   render() {
     if (!this.state.story) {
-      return null
+      return 'Component not found'
     }
 
     const { story, configStory, navStory } = this.state
