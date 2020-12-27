@@ -3,8 +3,8 @@ import { TextAreaStyled } from './TextArea.styles'
 
 type Props = React.ComponentProps<typeof TextAreaStyled>
 
-const TextArea = (props: Props) => {
-  return <TextAreaStyled {...props} />
-}
+const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props, ref) => {
+  return <TextAreaStyled {...props} ref={ref} />
+})
 
 export default TextArea

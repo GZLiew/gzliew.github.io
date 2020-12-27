@@ -10,3 +10,7 @@ export const FeedbackContainer = styled(Container)`
 export const FeedbackSubmitButton = styled(SubmitButtonStyled)`
   margin-top: -1rem;
 `
+
+export const ErrorText = styled.p`
+  ${xw`text-red-500 text-center text-sm pt-2`}
+`

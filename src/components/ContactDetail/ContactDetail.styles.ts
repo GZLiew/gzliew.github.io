@@ -14,3 +14,7 @@ export const StyledTextInput = styled(TextInput)`
 export const StyledButton = styled(Button)`
   ${xw`mt-9 `}
 `
+
+export const ErrorText = styled.p`
+  ${xw`text-red-500 text-sm pl-6 pt-1`}
+`
