@@ -176,7 +176,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
     }
 
     return (
-      <Layout navLinks={navStory?.content.navigation} hotelConfig={configStory}>
+      <Layout navLinks={navStory?.content.links} hotelConfig={configStory}>
         {renderComponent(story?.content?.component)}
       </Layout>
     )

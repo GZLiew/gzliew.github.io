@@ -117,7 +117,9 @@ export async function getHotelGlobalNavigation(preview: boolean, language?: stri
       CommonlayoutItem(id: $slug) {
         id
         content {
-          navigation
+          primaryWelcomeText
+          secondaryWelcomeText
+          links
           component
           _uid
           _editable

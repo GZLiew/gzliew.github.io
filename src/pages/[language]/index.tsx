@@ -24,7 +24,7 @@ interface Props {
 const HomePage = ({ allLangs, layoutNavigation, blok, hotelConfig }: Props) => {
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig}>
+      <Layout navLinks={layoutNavigation?.links} hotelConfig={hotelConfig}>
         <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
         <Home content={blok?.content} blokConfig={hotelConfig?.content} />

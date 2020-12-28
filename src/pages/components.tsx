@@ -44,7 +44,7 @@ export default function Components({ allLangs, layoutNavigation, preview, hotelC
   }
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
+      <Layout navLinks={layoutNavigation?.links} hotelConfig={hotelConfig} preview={preview}>
         <Accordion title="Choice of veg starter" secondaryTitle="Required">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia harum odit, rem dolorum culpa
           quibusdam. Deserunt porro voluptatibus natus asperiores eum libero magnam suscipit nobis doloremque,

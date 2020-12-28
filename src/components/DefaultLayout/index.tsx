@@ -9,7 +9,7 @@ const DefaultLayout = ({ children, ...rest }: Props) => {
   return (
     <Layout {...rest}>
       {({ preview, navLinks, hotelConfig }) => {
-        const links = navLinks?.length >= 0 ? navLinks[0]?.links : []
+        const links = navLinks?.length >= 0 ? navLinks : []
         return (
           <div className="min-h-screen">
             <Alert preview={preview} />

@@ -7,7 +7,7 @@ import { light, dark } from '@/lib/theme'
 import AppTranslations from '@/lib/translations'
 import brandColors from '@/lib/theme/brandColors'
 import { HotelConfigProps } from '@/lib/types/hotelConfig'
-import { ILayoutNavigation } from '@/lib/types/commonLayout'
+import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 import HeaderHeightProvider from '@/components/Providers/HeaderHeightProvider'
 
 import GlobalStyles from './GlobalStyles'
@@ -19,7 +19,7 @@ interface Props {
   children?: JSX.Element | ((props: ChildrenProps) => ReactNode) | ReactNode
   preview?: boolean
   hotelConfig?: HotelConfigProps
-  navLinks?: ILayoutNavigation[]
+  navLinks?: ILayoutNavigationLink[]
 }
 
 const Layout = (props: Props) => {

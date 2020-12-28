@@ -22,7 +22,7 @@ interface Props {
 export default function HomePage({ allLangs, hotelConfig, blok, layoutNavigation, preview }: Props) {
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout navLinks={layoutNavigation?.navigation} hotelConfig={hotelConfig} preview={preview}>
+      <Layout navLinks={layoutNavigation?.links} hotelConfig={hotelConfig} preview={preview}>
         <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
         <Home content={blok?.content} blokConfig={hotelConfig?.content} />
