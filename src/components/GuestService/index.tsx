@@ -40,7 +40,7 @@ const GuestService = ({ blok, blokConfig, preview }: Props) => {
             blok.services &&
             Array.isArray(blok.services) &&
             blok.services.map((s) => {
-              const ListItemIcon = GalleryIcons[s.icon] || GalleryIcons.info
+              const ListItemIcon = GalleryIcons[s.icon] || GalleryIcons.question
               return (
                 <SbEditable key={s._uid} content={s}>
                   <GSButton

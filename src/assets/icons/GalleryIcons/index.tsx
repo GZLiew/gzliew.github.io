@@ -25,6 +25,8 @@ import Question from './Question'
 import ReceptionBell from './ReceptionBell'
 import RoundClock from './RoundClock'
 import Taxi from './Taxi'
+import Home from './Home'
+import Cart from './Cart'
 import Toiletries from './Toiletries'
 import Towels from './Towels'
 import Trolley from './Trolley'
@@ -32,6 +34,11 @@ import Valet from './Valet'
 import WakeUp from './WakeUp'
 import Weather from './Weather'
 import WhatsOn from './WhatsOn'
+import RoomControl from './RoomControl'
+import RoomService from './RoomService'
+import GuestService from './GuestService'
+import HamburgerMenu from './HamburgerMenu'
+import HotelInformation from './HotelInformation'
 
 const GalleryIcons = {
   close: CloseIcon,
@@ -67,7 +74,14 @@ const GalleryIcons = {
   valet: Valet,
   wakeUp: WakeUp,
   weather: Weather,
-  whatsOn: WhatsOn
+  whatsOn: WhatsOn,
+  home: Home,
+  hamburgerMenu: HamburgerMenu,
+  hotelInformation: HotelInformation,
+  roomControl: RoomControl,
+  roomService: RoomService,
+  guestService: GuestService,
+  cart: Cart
 }
 
 export default GalleryIcons
