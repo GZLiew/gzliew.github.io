@@ -1,6 +1,12 @@
 const Luggage = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="16" height="27" viewBox="0 0 16 27" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="16"
+      height="27"
+      viewBox="0 0 16 27"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      {...props}>
       <g opacity="0.6">
         <path
           fillRule="evenodd"

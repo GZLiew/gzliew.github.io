@@ -30,6 +30,8 @@ interface Props {
   handleCloseClick: () => void
 }
 
+const CloseIcon = GalleryIcons.close
+
 const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCloseClick }) => {
   const [activePosition, setActivePosition] = useState(activeSlide)
 
@@ -110,7 +112,9 @@ const GallerySlider: React.FC<Props> = ({ gallery, activeSlide, isOpen, handleCl
         ({ item, key, props }) =>
           item && (
             <GalleryWrapper key={key} style={props}>
-              <CloseButton onClick={handleCloseClick}>{GalleryIcons.close}</CloseButton>
+              <CloseButton onClick={handleCloseClick}>
+                <CloseIcon />
+              </CloseButton>
               <Slider
                 slides={gallery?.photos.map((photo, i) => (
                   <SbEditable key={photo._uid} content={photo}>

@@ -1,6 +1,6 @@
 const Hotel = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 59" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 59" fill="currentColor" {...props}>
       <defs>
         <linearGradient id="5pmmhbyhya" x1="50%" x2="50%" y1="0%" y2="100%">
           <stop offset="0%" stopColor="#605" />

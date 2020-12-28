@@ -10,9 +10,12 @@ type Props = {
 
 const IconLabel = (props: Props) => {
   const { icon, label } = props
+  const ListItemIcon = GalleryIcons[icon] || GalleryIcons.info
   return (
     <IconLabelContainer>
-      <IconContainer>{GalleryIcons[icon] || GalleryIcons.info}</IconContainer>
+      <IconContainer>
+        <ListItemIcon />
+      </IconContainer>
       {label}
     </IconLabelContainer>
   )

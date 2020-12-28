@@ -1,6 +1,6 @@
 const Butler = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 61" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 61" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H80V80H0z" transform="translate(-15 -5)" />
         <g fill="inherit" transform="translate(-15 -5) translate(15 5)">

@@ -1,6 +1,12 @@
 const Valet = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="33" height="30" viewBox="0 0 33 30" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      width="33"
+      height="30"
+      viewBox="0 0 33 30"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
+      {...props}>
       <g opacity="0.6">
         <mask
           id="path-1-outside-1"

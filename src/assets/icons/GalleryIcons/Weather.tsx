@@ -1,6 +1,6 @@
 const Weather = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 28" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 28" fill="currentColor" {...props}>
       <defs>
         <linearGradient id="2uk31ae5ya" x1="50%" x2="50%" y1="0%" y2="99.731%">
           <stop offset="0%" stopColor="inherit" />

@@ -1,6 +1,6 @@
 const Beverage = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 60" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 60" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H80V80H0z" transform="translate(-5 -7)" />
         <g fill="inherit" transform="translate(-5 -7) translate(5 8)">

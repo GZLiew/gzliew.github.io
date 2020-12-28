@@ -39,22 +39,27 @@ const GuestService = ({ blok, blokConfig, preview }: Props) => {
           {blok &&
             blok.services &&
             Array.isArray(blok.services) &&
-            blok.services.map((s) => (
-              <SbEditable key={s._uid} content={s}>
-                <GSButton
-                  raised={false}
-                  variant="flat"
-                  key={s._uid}
-                  withIcon
-                  size="large"
-                  onClick={() => router.push(`guest-service/${s._uid}`)}
-                  bgColor={button.guestService}>
-                  <IconContainer>{GalleryIcons[s.icon] || GalleryIcons.info}</IconContainer>
-                  <StretchedContent>{s.label || 'Service'}</StretchedContent>
-                  <Right />
-                </GSButton>
-              </SbEditable>
-            ))}
+            blok.services.map((s) => {
+              const ListItemIcon = GalleryIcons[s.icon] || GalleryIcons.info
+              return (
+                <SbEditable key={s._uid} content={s}>
+                  <GSButton
+                    raised={false}
+                    variant="flat"
+                    key={s._uid}
+                    withIcon
+                    size="large"
+                    onClick={() => router.push(`guest-service/${s._uid}`)}
+                    bgColor={button.guestService}>
+                    <IconContainer>
+                      <ListItemIcon />
+                    </IconContainer>
+                    <StretchedContent>{s.label || 'Service'}</StretchedContent>
+                    <Right />
+                  </GSButton>
+                </SbEditable>
+              )
+            })}
         </ListContainer>
       </PageLayout>
     </SbEditable>

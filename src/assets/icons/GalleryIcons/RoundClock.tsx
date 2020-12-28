@@ -1,6 +1,6 @@
 const RoundClock = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H48V48H0z" transform="translate(-8 -8)" />
         <g fill="inherit" fillRule="nonzero">

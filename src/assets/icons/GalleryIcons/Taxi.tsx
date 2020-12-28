@@ -4,8 +4,8 @@ const Taxi = (props: React.SVGProps<SVGSVGElement>) => {
       width="22"
       height="20"
       viewBox="0 0 22 20"
-      fill="inherit"
       xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
       {...props}>
       <g opacity="0.6">
         <path d="M14.3359 0H7.96631V1.81989H14.3359V0Z" fill="inherit" />

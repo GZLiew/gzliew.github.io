@@ -40,7 +40,12 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
   transition-timing-function: ${({ hasScrolled }) => (!hasScrolled ? 'ease-out' : 'ease-in')};
   will-change: transform;
 `
-export const LogoWrapper = styled.header`
+
+export const HeaderCenterContent = styled.div`
+  ${xw`flex flex-grow justify-center items-center`}
+`
+
+export const ContentContainer = styled.header`
   ${xw`
     relative
     z-10

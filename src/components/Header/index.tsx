@@ -1,14 +1,18 @@
+import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useTheme } from '@emotion/react'
 import { isFunction, throttle } from 'lodash'
-import { useState, useEffect, useRef, ReactNode } from 'react'
+import { useRouter } from 'next/router'
 import { useSpring } from 'react-spring'
 
-import { useRouter } from 'next/router'
-
-import Navbar from '../Navbar'
 import Button from '../Button'
 
-import { LogoWrapper, HeaderContainer, HeaderBackground, Logo, HamburgerMenuIcon } from './header.styles'
+import {
+  Logo,
+  ContentContainer,
+  HeaderContainer,
+  HeaderBackground,
+  HeaderCenterContent
+} from './header.styles'
 
 import BackIcon from '@/assets/icons/wt-ic-back'
 import NotificationIcon from '../../assets/icons/wt-ic-notification.svg'
@@ -16,8 +20,6 @@ import NotificationIcon from '../../assets/icons/wt-ic-notification.svg'
 import { HotelLogo } from '@/lib/types/hotelConfig'
 import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 
-import useToggle from '@/lib/hooks/useToggle'
-import getLocalizedSlug from '@/lib/utils/getLocalizedSlug'
 import { useHeaderHeight } from '@/components/Providers/HeaderHeightProvider'
 
 type TitleProps = Omit<Props, 'title'> & { hasScrolled?: boolean }
@@ -33,7 +35,7 @@ interface Props {
 
 const Header = (props: Props) => {
   const { title, rightElement, ...titleProps } = props
-  const { hotelLogo, hotelLogoDark, navLinks } = titleProps
+  const { hotelLogo, hotelLogoDark } = titleProps
   const theme = useTheme()
   const router = useRouter()
   const { setHeaderHeight } = useHeaderHeight()
@@ -48,14 +50,11 @@ const Header = (props: Props) => {
     return router.route === `/[language]${path}`
   })
   const [hasScrolled, setHasScrolled] = useState(false)
-  const [isNavbarOpen, toggleNavbar] = useToggle(false)
   const ref = useRef<HTMLDivElement>()
   const headerRef = useRef<boolean>()
   headerRef.current = hasScrolled
 
   const themeHotelLogo = theme.mode === 'light' ? hotelLogo : hotelLogoDark
-
-  const localizedHomeRoute = getLocalizedSlug('/')
 
   const [logoProps, setLogoProps] = useSpring(() => ({
     opacity: isHome ? 1 : 0
@@ -86,25 +85,21 @@ const Header = (props: Props) => {
     }
   }, [])
 
-  const backToHome = () => {
+  const goBack = () => {
     if (!router) return false
-    router.push(localizedHomeRoute)
+    router.back()
   }
 
   return (
-    <>
-      <Navbar
-        navLinks={navLinks}
-        isOpen={isNavbarOpen}
-        guestPhoto={themeHotelLogo}
-        handleNavbarClick={toggleNavbar}
-      />
-      <HeaderContainer ref={ref}>
-        <HeaderBackground hasScrolled={hasScrolled} />
-        <LogoWrapper>
-          <Button onClick={isHome ? toggleNavbar : backToHome} bgColor="white">
-            {isHome ? <HamburgerMenuIcon /> : <BackIcon />}
+    <HeaderContainer ref={ref}>
+      <HeaderBackground hasScrolled={hasScrolled} />
+      <ContentContainer>
+        {!isHome && (
+          <Button onClick={goBack} bgColor="white">
+            <BackIcon />
           </Button>
+        )}
+        <HeaderCenterContent>
           {isFunction(title) && title({ ...titleProps, hasScrolled })}
           {!isFunction(title) ? title : null}
           {!title && (
@@ -115,15 +110,15 @@ const Header = (props: Props) => {
               style={logoProps}
             />
           )}
-          {isHome ? (
-            <Button bgColor="white">
-              <NotificationIcon />
-            </Button>
-          ) : null}
-          {rightElement}
-        </LogoWrapper>
-      </HeaderContainer>
-    </>
+        </HeaderCenterContent>
+        {isHome ? (
+          <Button bgColor="white">
+            <NotificationIcon />
+          </Button>
+        ) : null}
+        {rightElement}
+      </ContentContainer>
+    </HeaderContainer>
   )
 }
 

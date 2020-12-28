@@ -1,6 +1,6 @@
 const AirConditioner = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 54" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 65 54" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H80V80H0z" transform="translate(-7 -12)" />
         <g fill="inherit" transform="translate(-7 -12) translate(7 12)">

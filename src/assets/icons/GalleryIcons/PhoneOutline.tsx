@@ -1,6 +1,6 @@
 const PhoneOutline = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 54" {...props}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 54" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H80V80H0z" transform="translate(-20 -9)" />
         <g fill="inherit" transform="translate(-20 -9) translate(21 9)">
