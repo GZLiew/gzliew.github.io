@@ -39,9 +39,9 @@ export default GuestServicePage
 
 export const getStaticPaths: GetStaticPaths = async () => getLocalizedPaths()
 
-export const getStaticProps: GetStaticProps = async ({ preview = null }) => {
-  const hotelConfig = (await getHotelConfiguration(preview)) || []
-  const guestService = (await getGuestService(preview)) || []
+export const getStaticProps: GetStaticProps = async ({ preview = null, params }) => {
+  const hotelConfig = (await getHotelConfiguration(preview, params?.language as string)) || []
+  const guestService = (await getGuestService(preview, params?.language as string)) || []
   const langCodes: string[] = await getLanguageCodes()
   const allLangs = ['en', ...langCodes]
 

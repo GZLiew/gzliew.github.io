@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from 'react-intl'
 import { useForm } from 'react-hook-form'
 
 import * as Validations from '@/lib/validations'
@@ -13,6 +14,7 @@ type Props = {
 }
 
 const Feedback = ({ blok }: Props) => {
+  const intl = useIntl()
   const { register, errors, handleSubmit } = useForm()
 
   const onSubmit = (data) => {
@@ -23,15 +25,24 @@ const Feedback = ({ blok }: Props) => {
     <FeedbackContainer>
       <TextArea
         ref={register({
-          ...Validations.required(),
-          ...Validations.maxLength(250)
+          ...Validations.required(
+            intl.formatMessage({
+              id: 'validations.required'
+            })
+          ),
+          ...Validations.maxLength(
+            250,
+            intl.formatMessage({
+              id: 'validations.maxlength'
+            })
+          )
         })}
         name="feedback"
         rows={10}
         placeholder={blok?.data?.placeholder}
       />
       <FeedbackSubmitButton onClick={handleSubmit(onSubmit)} withIcon size="medium">
-        Request <NextIconStyled />
+        {intl.formatMessage({ id: 'form.button.request' })} <NextIconStyled />
       </FeedbackSubmitButton>
       <ErrorText>{errors.feedback?.message}</ErrorText>
     </FeedbackContainer>

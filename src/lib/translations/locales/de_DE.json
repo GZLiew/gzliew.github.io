@@ -1,0 +1,8 @@
+{
+  "form.placeholder.name": "Name eingeben",
+  "form.placeholder.roomNumber": "Geben Sie die Zimmernummer ein",
+  "form.button.placeOrder": "Passer la commande",
+  "form.button.request": "Anfrage",
+  "validations.required": "Dieses Feld wird benötigt",
+  "validations.maxlength": "Zu viele Zeichen"
+}

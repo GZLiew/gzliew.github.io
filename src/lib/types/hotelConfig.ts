@@ -2,6 +2,7 @@ import { SbEditableContent } from 'storyblok-react'
 
 export interface HotelConfigProps {
   id: number
+  lang: 'en' | 'fr' | 'de' | 'jp' | 'cn' | 'default'
   content: HotelConfigContent
 }
 

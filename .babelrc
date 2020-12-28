@@ -6,6 +6,14 @@
   "plugins": [
     "xwind/babel",
     "@emotion/babel-plugin",
-    "inline-react-svg"
+    "inline-react-svg",
+    [
+      "react-intl",
+      {
+        "idInterpolationPattern": "[sha512:contenthash:base64:6]",
+        "extractFromFormatMessageCall": true,
+        "ast": true
+      }
+    ]
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "form.placeholder.name": "Entrez le nom",
+  "form.placeholder.roomNumber": "Entrez le numéro de la chambre",
+  "form.button.placeOrder": "Bestellung aufgeben",
+  "form.button.request": "Demande",
+  "validations.required": "Ce champ est requis",
+  "validations.maxlength": "Trop de caractères"
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { useIntl } from 'react-intl'
 import { useForm } from 'react-hook-form'
 
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
@@ -17,9 +18,10 @@ interface Props {
 const DEFAULT_LABEL = 'Contact Details'
 
 const ContactDetail = ({ blokConfig, preview }: Props) => {
+  const intl = useIntl()
   const { register, errors, handleSubmit } = useForm()
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data) => {
     console.log({ data })
   }
 
@@ -29,26 +31,26 @@ const ContactDetail = ({ blokConfig, preview }: Props) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <StyledTextInput
             ref={register({
-              ...Validations.required(),
-              ...Validations.maxLength(100)
+              ...Validations.required(intl.formatMessage({ id: 'validations.required' })),
+              ...Validations.maxLength(100, intl.formatMessage({ id: 'validations.maxlength' }))
             })}
             name="name"
             type="text"
-            placeholder="Enter Name"
+            placeholder={intl.formatMessage({ id: 'form.placeholder.name' })}
           />
           <ErrorText>{errors.name?.message}</ErrorText>
           <StyledTextInput
             ref={register({
-              ...Validations.required(),
-              ...Validations.maxLength(10, 'Room number has too many characters')
+              ...Validations.required(intl.formatMessage({ id: 'validations.required' })),
+              ...Validations.maxLength(10, intl.formatMessage({ id: 'validations.required' }))
             })}
             name="roomNumber"
             type="text"
-            placeholder="Enter Room Number"
+            placeholder={intl.formatMessage({ id: 'form.placeholder.roomNumber' })}
           />
           <ErrorText>{errors.roomNumber?.message}</ErrorText>
           <StyledButton onClick={handleSubmit(onSubmit)} type="submit" size="large">
-            Place Order
+            {intl.formatMessage({ id: 'form.button.placeOrder' })}
           </StyledButton>
         </form>
       </StyledSection>

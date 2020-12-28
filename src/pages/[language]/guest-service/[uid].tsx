@@ -45,8 +45,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = null, params }) => {
-  const hotelConfig = (await getHotelConfiguration(preview)) || []
-  const guestService: GuestServiceProps = (await getGuestService(preview)) || []
+  const hotelConfig = (await getHotelConfiguration(preview, params?.language as string)) || []
+  const guestService: GuestServiceProps = (await getGuestService(preview, params?.language as string)) || []
   const langCodes: string[] = await getLanguageCodes()
   let guestServiceItem = {}
   if (guestService?.content?.services && Array.isArray(guestService?.content?.services)) {

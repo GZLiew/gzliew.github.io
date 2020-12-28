@@ -1,0 +1,8 @@
+{
+  "form.placeholder.name": "Enter Name",
+  "form.placeholder.roomNumber": "Enter Room Number",
+  "form.button.placeOrder": "Place Order",
+  "form.button.request": "Request",
+  "validations.required": "This field is required",
+  "validations.maxlength": "Too many characters"
+}

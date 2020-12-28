@@ -15,6 +15,7 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
     query ($slug: ID!) {
       HotelconfigurationItem(id: $slug) {
       id
+      lang
       content {
         _editable
         _uid
