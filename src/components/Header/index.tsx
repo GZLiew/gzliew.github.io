@@ -11,11 +11,11 @@ import {
   ContentContainer,
   HeaderContainer,
   HeaderBackground,
-  HeaderCenterContent
+  HeaderCenterContent,
+  CartIconStyled
 } from './header.styles'
 
 import BackIcon from '@/assets/icons/wt-ic-back'
-import NotificationIcon from '../../assets/icons/wt-ic-notification.svg'
 
 import { HotelLogo } from '@/lib/types/hotelConfig'
 import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
@@ -39,7 +39,15 @@ const Header = (props: Props) => {
   const theme = useTheme()
   const router = useRouter()
   const { setHeaderHeight } = useHeaderHeight()
-  const validHomePaths = ['/', '/home', '/editor']
+  const validHomePaths = [
+    '/',
+    '/home',
+    '/editor',
+    '/guest-service',
+    '/room-service/food',
+    '/room-service/beverages',
+    '/navigation'
+  ]
   const isHome = validHomePaths.some((path) => {
     // check if route is "/"
     if (!router) return false
@@ -113,7 +121,7 @@ const Header = (props: Props) => {
         </HeaderCenterContent>
         {isHome ? (
           <Button bgColor="white">
-            <NotificationIcon />
+            <CartIconStyled />
           </Button>
         ) : null}
         {rightElement}

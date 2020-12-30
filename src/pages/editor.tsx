@@ -18,6 +18,7 @@ import {
   getHotelInformation,
   getSplashScreen
 } from '@/lib/api'
+import Navigation from '@/components/navigation'
 
 declare global {
   interface Window {
@@ -63,6 +64,9 @@ const APIS = {
   home: getHomeData,
   'hotel-information': getHotelInformation,
   'de/hotel-information': getHotelInformation,
+  'fr/hotel-information': getHotelInformation,
+  'de/layout': getHotelGlobalNavigation,
+  'fr/layout': getHotelGlobalNavigation,
   layout: getHotelGlobalNavigation,
   'guest-service': getGuestService,
   'splash-screen': getSplashScreen
@@ -155,7 +159,7 @@ class StoryblokEditor extends React.Component<{}, StoryblokEditorState> {
         case 'home':
           return <Home content={story?.content} blokConfig={configStory?.content} />
         case 'common_layout':
-          return ''
+          return <Navigation content={story?.content} blokConfig={configStory?.content} />
         case 'hotel-information':
           return <HotelInformation blok={story?.content} blokConfig={configStory?.content} />
         case 'room-service':

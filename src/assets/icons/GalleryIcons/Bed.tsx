@@ -1,11 +1,11 @@
 const Bed = (props: React.SVGProps<SVGSVGElement>) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 54" fill="currentColor" {...props}>
+    <svg width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 51 54" fill="currentColor" {...props}>
       <g fill="none" fillRule="evenodd">
         <path d="M0 0H80V80H0z" transform="translate(-16 -8)" />
         <g fill="inherit" transform="translate(-16 -8) translate(17 8)">
           <circle cx="38" cy="11" r="11" opacity=".207" />
-          <g fillRule="nonzero" stroke="#FFF">
+          <g fillRule="nonzero" stroke="currentColor">
             <path
               d="M22.816 22.275H7.964l-.984-1.253 1.065-4.354c.359-1.468 1.65-2.493 3.14-2.493h8.409c1.488 0 2.78 1.025 3.139 2.493l1.063 4.354-.98 1.253zM9.254 20.25h12.272l-.76-3.1c-.135-.56-.617-.95-1.17-.95h-8.412c-.553 0-1.035.39-1.172.95l-.758 3.1zM40.634 22.275h-14.85l-.984-1.253 1.063-4.354c.36-1.468 1.653-2.493 3.141-2.493h8.41c1.488 0 2.78 1.025 3.139 2.493l1.063 4.354-.982 1.253zm-13.56-2.025h12.272l-.758-3.1c-.137-.56-.62-.95-1.172-.95h-8.41c-.553 0-1.037.39-1.172.95l-.76 3.1z"
               transform="translate(0 13)"

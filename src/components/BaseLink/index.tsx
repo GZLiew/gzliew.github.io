@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { StyledDiv } from './baseLink.styles'
 
 import isExternalURL from '@/lib/utils/isExternalURL'
-
+import { resolveUrl } from '@/lib/utils/resolveUrl'
 import { IStoryblok_Link } from '@/lib/types/storyblok'
 
 interface Props {
@@ -22,7 +22,7 @@ const BaseLink: React.FC<Props> = ({ storyblokLink, passHref, children }) => {
   }
 
   return (
-    <Link href={storyblokLink?.cached_url} passHref={passHref}>
+    <Link href={resolveUrl(storyblokLink?.cached_url, storyblokLink?.anchor)} passHref={passHref}>
       {children}
     </Link>
   )

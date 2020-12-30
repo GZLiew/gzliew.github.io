@@ -5,6 +5,9 @@ import { animated } from 'react-spring'
 import Container from '../Container'
 
 import Hamburger from '@/assets/icons/HamburgerMenu'
+import GalleryIcons from '@/assets/icons/GalleryIcons'
+
+const CartIcon = GalleryIcons.cart
 
 export const HeaderContainer = styled(Container)`
   ${xw`
@@ -69,4 +72,9 @@ export const HamburgerMenuIcon = styled(Hamburger)`
   .first-line {
     fill: ${({ theme }) => theme?.brandColors?.primary};
   }
+`
+
+export const CartIconStyled = styled(CartIcon)`
+  transform: scale(0.7);
+  color: ${({ theme }) => theme?.colors.text.primary};
 `
