@@ -2,6 +2,7 @@ import React from 'react'
 import Layout from '@/components/Layout'
 import Alert from '@/components/Alert'
 import Header from '@/components/Header'
+import BottomTabs from '@/components/BottomTabs'
 
 type Props = React.ComponentProps<typeof Layout>
 
@@ -19,6 +20,7 @@ const DefaultLayout = ({ children, ...rest }: Props) => {
               hotelLogoDark={hotelConfig?.content?.hotelLogoDark}
             />
             <main>{children}</main>
+            {links.length > 0 && <BottomTabs tabs={links} />}
           </div>
         )
       }}

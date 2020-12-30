@@ -1,10 +1,10 @@
 const HamburgerMenu = (props: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="currenColor"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
       {...props}>
       <g opacity="0.6">

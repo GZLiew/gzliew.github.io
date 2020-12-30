@@ -28,6 +28,10 @@ export default {
       background: '#ffffff',
       boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.157452)'
     },
+    bottomTabs: {
+      background: '#dedede',
+      boxShadow: '0px -2px 4px rgba(0, 0, 0, 0.157452)'
+    },
     notificationBg: 'linear-gradient(to bottom, rgba(233, 233, 233, 0), #d7dce2 40%, #caced2 99%)',
     shoppingBagBg: '#fff',
     navbarBackground: 'linear-gradient(to bottom, #eaeaea, #eaecee)',

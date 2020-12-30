@@ -42,5 +42,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = null, params })
   const langCodes: string[] = await getLanguageCodes()
   const allLangs = ['en', ...langCodes]
 
-  return { props: { params, allLangs, hotelInfo, hotelConfig, preview } }
+  return {
+    props: { params, allLangs, hotelInfo, hotelConfig, preview }
+  }
 }

@@ -35,6 +35,10 @@ declare module '@emotion/react' {
         background: string
         boxShadow: string
       }
+      bottomTabs: {
+        background: string
+        boxShadow: string
+      }
       notificationBg: string
       shoppingBagBg: string
       navbarBackground: string
