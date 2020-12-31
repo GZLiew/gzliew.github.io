@@ -1,5 +1,10 @@
 import xw from 'xwind'
 import styled from '@emotion/styled'
+import Container from '@/components/Container'
+
+export const StyledHomeContainer = styled(Container)`
+  ${xw`pb-4 pt-4 mb-24`}
+`
 
 export const StyledTitle = styled.h2`
   ${xw`text-xl pb-4 font-semibold`}

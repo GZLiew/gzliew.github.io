@@ -1,58 +1,45 @@
-import { useRef } from 'react'
-import QuickButton from './Quickbutton'
-import QuickButtonModal from './QuickButtonModal'
-import { QuickButtonWrapper, QuickButtonItem, Title } from './Quickbutton/quickButtonItem.styles'
+import React from 'react'
+import { useTheme } from '@emotion/react'
+import { useRouter } from 'next/router'
 
-import ShowMoreIcon from '../../../assets/icons/ic-my-orders.svg'
+import { IStoryblok_Link } from '@/lib/types/storyblok'
+import GalleryIcons from '@/assets/icons/GalleryIcons'
+import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 
-import { QuickButtonsLayout } from './quickButtons.styles'
+import {
+  IconContainer,
+  QuickButtonContainer,
+  quickButtonIconBackgrounds,
+  QuickButtonLabel
+} from './QuickButton.styles'
+import { resolveUrl } from '@/lib/utils/resolveUrl'
 
-import useToggle from '@/lib/hooks/useToggle'
-import useLockBodyScroll from '@/lib/hooks/useLockBodyScroll'
-
-import { IQuickButton } from '@/lib/types/homeContent'
-import getLocalizedSlug from '@/lib/utils/getLocalizedSlug'
-
-interface Props {
-  buttons?: IQuickButton[]
+type Props = {
+  index: number
+  item: ILayoutNavigationLink
 }
 
-const QuickButtons = ({ buttons }: Props) => {
-  const localizedButtons = buttons.map(({ link, ...btn }) => ({
-    link: { ...link, cachedUrl: getLocalizedSlug(link.cached_url), url: getLocalizedSlug(link.url) },
-    ...btn
-  }))
-  if (buttons?.length === 0) return null
+const QuickButton = ({ item, index = 0 }: Props) => {
+  const theme = useTheme()
+  const router = useRouter()
+  const { title = '', iconName = 'question', url } = item
+  const QuickButtonIcon = GalleryIcons[iconName]
 
-  const [isActive, toggle] = useToggle(false)
-  const modalRef = useRef(null)
-
-  useLockBodyScroll(isActive, modalRef)
+  const onButtonPress = (url: IStoryblok_Link) => {
+    const resolvedLink = resolveUrl(url?.cached_url, url?.anchor)
+    return router.push(resolvedLink)
+  }
 
   return (
-    <>
-      <QuickButtonsLayout>
-        {!isActive &&
-          localizedButtons?.slice(0, 7)?.map((item) => <QuickButton item={item} key={item?._uid} />)}
-
-        <QuickButtonWrapper>
-          <QuickButtonItem onClick={toggle}>
-            <ShowMoreIcon />
-          </QuickButtonItem>
-          <Title>More</Title>
-        </QuickButtonWrapper>
-      </QuickButtonsLayout>
-      {isActive && (
-        <QuickButtonModal divRef={modalRef} closeModal={toggle}>
-          <QuickButtonsLayout>
-            {localizedButtons?.map((item) => (
-              <QuickButton item={item} key={item?._uid} />
-            ))}
-          </QuickButtonsLayout>
-        </QuickButtonModal>
-      )}
-    </>
+    <QuickButtonContainer onClick={() => onButtonPress(url)}>
+      <IconContainer background={quickButtonIconBackgrounds[index % 3]}>
+        <QuickButtonIcon
+          style={{ color: theme.mode === 'dark' ? 'white' : undefined, transform: 'scale(2)' }}
+        />
+      </IconContainer>
+      <QuickButtonLabel>{title}</QuickButtonLabel>
+    </QuickButtonContainer>
   )
 }
 
-export default QuickButtons
+export default QuickButton

@@ -27,7 +27,11 @@ const HomePage = ({ allLangs, layoutNavigation, blok, hotelConfig }: Props) => {
       <Layout navLinks={layoutNavigation?.links} hotelConfig={hotelConfig}>
         <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
-        <Home content={blok?.content} blokConfig={hotelConfig?.content} />
+        <Home
+          content={blok?.content}
+          blokConfig={hotelConfig?.content}
+          navigationContent={layoutNavigation}
+        />
       </Layout>
     </LanguagesContext.Provider>
   )
