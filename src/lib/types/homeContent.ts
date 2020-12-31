@@ -1,4 +1,4 @@
-import { IStoryblok_Link } from './storyblok'
+import { IStoryblok_IconAsset, IStoryblok_Link } from './storyblok'
 import { SbEditableContent } from 'storyblok-react'
 
 export type HomeBlok = {
@@ -6,10 +6,24 @@ export type HomeBlok = {
   content: HomeContent
 }
 
+export type BaseCarouselItem = SbEditableContent & {
+  image?: IStoryblok_IconAsset
+  bannerPrimaryTitle?: string
+  bannerSecondaryTitle?: string
+}
+
+export type CarouselBannerItem = BaseCarouselItem & {
+  component: 'homeBannerItem'
+}
+
+export type CarouselPromotionalBannerItem = BaseCarouselItem & {
+  component: 'homePromotionalBannerItem'
+  ctaTitle?: string
+  ctaLink?: IStoryblok_Link
+}
+
 export interface HomeContent extends SbEditableContent {
-  primaryWelcomeText?: string
-  secondaryWelcomeText?: string
-  quickButtons?: IQuickButton[]
+  carousel?: (CarouselBannerItem | CarouselPromotionalBannerItem)[]
 }
 
 export interface IQuickButton extends SbEditableContent {

@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from 'react'
 import { useTransition, config, useSpring } from 'react-spring'
 
 import SbEditable from 'storyblok-react'
-import Slider from './Slider'
+import Slider from '@/components/Slider'
 
 import GalleryIcons from '@/assets/icons/GalleryIcons'
 

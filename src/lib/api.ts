@@ -51,13 +51,10 @@ export async function getHomeData(preview: boolean, language?: string) {
       HomeItem(id: $slug) {
       id
       content {
+        carousel
         _editable
         _uid
         component
-        modules
-        primaryWelcomeText
-        quickButtons
-        secondaryWelcomeText
       }
     }
   }

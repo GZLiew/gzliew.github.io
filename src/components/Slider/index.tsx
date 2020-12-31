@@ -4,24 +4,34 @@ import { useDrag } from 'react-use-gesture'
 
 import Slide from './Slide'
 
-import { StyledSlider } from './gallerySlider.styles'
+import { StyledSlider } from './Slider.styles'
 
 import isiOSDevice from '@/lib/utils/isiOSDevice'
 
 interface Props {
   initialSlide: number
   activePosition: number
+  slideWidth?: number
   slides: JSX.Element[]
   handleSlideChange: (number) => void
 }
 
+type StyledSliderProps = React.ComponentProps<typeof StyledSlider>
+
 const clamp = (value, min, max) => Math.min(Math.max(min, value), max)
 
-const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleSlideChange }) => {
+const Slider: React.FC<Props & StyledSliderProps> = ({
+  initialSlide,
+  activePosition,
+  slideWidth = typeof window !== 'undefined' ? window?.innerWidth : 0,
+  slides,
+  handleSlideChange,
+  ...styledSliderProps
+}) => {
   // Almost all of this is straight out of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/hooks/useSlider.js
   // If https://github.com/skozer/react-instagram-zoom-slider/issues/13 is resolved, we could use useSlider hook directly.
   const [{ x }, set] = useSpring(() => ({
-    x: typeof window !== 'undefined' ? -window.innerWidth * initialSlide : 0,
+    x: typeof window !== 'undefined' ? -slideWidth * initialSlide : 0,
     scale: 1,
     config: {
       tension: 270,
@@ -35,7 +45,7 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
   useEffect(() => {
     index.current = activePosition
     set({
-      x: -index.current * window.innerWidth
+      x: -index.current * slideWidth
     })
   }, [activePosition])
 
@@ -65,13 +75,13 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
       }
 
       // We have swiped past halfway
-      if (!down && distance > window.innerWidth / 2) {
+      if (!down && distance > slideWidth / 2) {
         // Move to the next slide
         const slideDir = xDir > 0 ? -1 : 1
         index.current = clamp(index.current + slideDir, 0, slides.length - 1)
 
         set({
-          x: -index.current * window.innerWidth + (down ? xMovement : 0),
+          x: -index.current * slideWidth + (down ? xMovement : 0),
           immediate: false
         })
       } else if (swipeX !== 0) {
@@ -81,7 +91,7 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
 
       // Animate the transition
       set({
-        x: -index.current * window.innerWidth + (down ? xMovement : 0),
+        x: -index.current * slideWidth + (down ? xMovement : 0),
         immediate: down
       })
 
@@ -135,7 +145,8 @@ const Slider: React.FC<Props> = ({ initialSlide, activePosition, slides, handleS
       {...bind()}
       style={{
         transform: x.interpolate((slideX) => `translateX(${slideX}px)`)
-      }}>
+      }}
+      {...styledSliderProps}>
       {slides.map((slide, idx) => (
         <Slide onScale={onScale} key={idx}>
           {slide}

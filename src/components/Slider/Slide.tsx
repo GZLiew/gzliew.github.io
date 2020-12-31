@@ -1,7 +1,7 @@
 import { useZoom } from 'react-instagram-zoom-slider'
 import { animated, interpolate, OpaqueInterpolation } from 'react-spring'
 
-import { Slide as StyledSlide } from './gallerySlider.styles'
+import { Slide as StyledSlide } from './Slider.styles'
 
 import { MutableRefObject } from 'react'
 
@@ -10,6 +10,8 @@ interface Props {
   minScale?: number
   maxScale?: number
 }
+
+type AnimatedSlideProps = React.ComponentProps<typeof AnimatedSlide>
 
 type useZoomProps = [
   MutableRefObject<HTMLDivElement>,
@@ -22,7 +24,13 @@ type useZoomProps = [
 const AnimatedSlide = animated(StyledSlide)
 
 // blatant copy of https://github.com/skozer/react-instagram-zoom-slider/blob/master/src/components/Slide/Slide.js
-const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 }) => {
+const Slide: React.FC<Props & AnimatedSlideProps> = ({
+  onScale,
+  children,
+  minScale = 1,
+  maxScale = 4,
+  ...animatedSlideProps
+}) => {
   const [element, scale, translateX, translateY, middleTouchOnElement]: useZoomProps = useZoom({
     minScale,
     maxScale,
@@ -38,7 +46,8 @@ const Slide: React.FC<Props> = ({ onScale, children, minScale = 1, maxScale = 4 
           (sc, x, y) => `translate3d(${x}px, ${y}px, 0) scale3d(${sc}, ${sc}, 1)`
         ),
         transformOrigin: middleTouchOnElement.interpolate((x, y) => `${x}px ${y}px 0`)
-      }}>
+      }}
+      {...animatedSlideProps}>
       {children}
     </AnimatedSlide>
   )
