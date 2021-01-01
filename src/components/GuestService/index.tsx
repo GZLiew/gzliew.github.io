@@ -4,16 +4,23 @@ import { useTheme } from '@emotion/react'
 import SbEditable from 'storyblok-react'
 
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
-import HeaderTitle from '@/components/_common/HeaderTitle'
+import { ICommonLayout } from '@/lib/types/commonLayout'
 
 import PageLayout from '@/components/_common/PageLayout'
 import { GuestServiceContent } from '@/lib/types/guestService'
-import { GSButton, IconContainer, ListContainer, StretchedContent } from './GuestService.styles'
+import {
+  GSButton,
+  IconContainer,
+  ListContainer,
+  StretchedContent,
+  StyledHeaderTitle
+} from './GuestService.styles'
 import GalleryIcons from '@/assets/icons/GalleryIcons/index'
 import Right from '@/assets/icons/Right'
 
 interface Props {
   blok: GuestServiceContent
+  layoutNavigation?: ICommonLayout
   blokConfig: HotelConfigContent
   preview?: boolean
   category?: string
@@ -21,20 +28,14 @@ interface Props {
 
 const DEFAULT_LABEL = 'Guest Services'
 
-const GuestService = ({ blok, blokConfig, preview }: Props) => {
+const GuestService = ({ blok, blokConfig, preview, layoutNavigation }: Props) => {
   const router = useRouter()
   const { button } = useTheme()
 
   return (
     <SbEditable content={blok}>
-      <PageLayout
-        preview={preview}
-        blokConfig={blokConfig}
-        title={() => (
-          <SbEditable content={blok}>
-            <HeaderTitle label={blok?.headerTitle || DEFAULT_LABEL} />
-          </SbEditable>
-        )}>
+      <PageLayout navLinks={layoutNavigation?.links} preview={preview} blokConfig={blokConfig}>
+        <StyledHeaderTitle label={blok?.headerTitle || DEFAULT_LABEL} />
         <ListContainer>
           {blok &&
             blok.services &&

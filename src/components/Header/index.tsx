@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, ReactNode } from 'react'
 import { useTheme } from '@emotion/react'
 import { isFunction, throttle } from 'lodash'
 import { useRouter } from 'next/router'
-import { useSpring } from 'react-spring'
 
 import Button from '../Button'
 
@@ -51,7 +50,7 @@ const Header = (props: Props) => {
   const isHome = validHomePaths.some((path) => {
     // check if route is "/"
     if (!router) return false
-    if (router.route === path) return router.route === path
+    if (router.asPath === path) return router.asPath === path
     // check if route is "[language]/"
     if (path === '/') return router.route === `${path}[language]`
     // check if route is "[language]/any-other-path"
@@ -63,10 +62,6 @@ const Header = (props: Props) => {
   headerRef.current = hasScrolled
 
   const themeHotelLogo = theme.mode === 'light' ? hotelLogo : hotelLogoDark
-
-  const [logoProps, setLogoProps] = useSpring(() => ({
-    opacity: isHome ? 1 : 0
-  }))
 
   useEffect(() => {
     if (ref.current) {
@@ -80,9 +75,6 @@ const Header = (props: Props) => {
       const show = global.window.scrollY > 20
       if (headerRef.current !== show) {
         setHasScrolled(show)
-        if (!isHome) {
-          setLogoProps({ opacity: show ? 1 : 0, delay: show ? 250 : 0, immediate: !show })
-        }
       }
     }
     // Throttle the event listener callback for better performance
@@ -111,19 +103,14 @@ const Header = (props: Props) => {
           {isFunction(title) && title({ ...titleProps, hasScrolled })}
           {!isFunction(title) ? title : null}
           {!title && (
-            <Logo
-              src={themeHotelLogo?.filename}
-              alt={themeHotelLogo?.name}
-              title={themeHotelLogo?.name}
-              style={logoProps}
-            />
+            <Logo src={themeHotelLogo?.filename} alt={themeHotelLogo?.name} title={themeHotelLogo?.name} />
           )}
         </HeaderCenterContent>
-        {isHome ? (
+        {!rightElement && (
           <Button bgColor="white">
             <CartIconStyled />
           </Button>
-        ) : null}
+        )}
         {rightElement}
       </ContentContainer>
     </HeaderContainer>

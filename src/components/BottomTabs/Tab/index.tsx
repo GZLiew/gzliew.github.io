@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import GalleryIcons from '@/assets/icons/GalleryIcons'
 import { resolveUrl } from '@/lib/utils/resolveUrl'
+import { resolveRoute } from '@/lib/utils/resolveRoute'
 import { IStoryblok_Link } from '@/lib/types/storyblok'
 import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
 
@@ -17,7 +18,7 @@ const Tab = ({ item }: Props) => {
   const { title = 'Home', iconName = 'question', url } = item
   const TabIcon = GalleryIcons[iconName]
 
-  const isFocused = router?.route === resolveUrl(url?.cached_url)
+  const isFocused = resolveRoute(router?.asPath) === resolveUrl(url?.cached_url, '', false)
 
   const onTabClick = (url: IStoryblok_Link) => {
     const resolvedUrl = resolveUrl(url?.cached_url, url?.anchor)

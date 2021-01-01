@@ -4,6 +4,7 @@ import Alert from '@/components/Alert'
 import Header, { Title } from '@/components/Header'
 import Layout from '@/components/Layout'
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
+import BottomTabs from '@/components/BottomTabs'
 
 type Props = React.ComponentProps<typeof Layout> & {
   blokConfig: HotelConfigContent
@@ -12,7 +13,7 @@ type Props = React.ComponentProps<typeof Layout> & {
 }
 
 const PageLayout = ({ preview, blokConfig, children, navLinks, title, rightElement }: Props) => {
-  const links = navLinks?.length >= 0 ? navLinks[0]?.links : []
+  const links = navLinks?.length >= 0 ? navLinks : []
   return (
     <div className="min-h-screen">
       <Alert preview={preview} />
@@ -24,6 +25,7 @@ const PageLayout = ({ preview, blokConfig, children, navLinks, title, rightEleme
         rightElement={rightElement}
       />
       <main>{children}</main>
+      {links.length > 0 && <BottomTabs tabs={links} />}
     </div>
   )
 }

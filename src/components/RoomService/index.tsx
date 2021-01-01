@@ -10,15 +10,17 @@ import LoadingIndicator from '@/components/_common/LoadingIndicator'
 import Overlay from '@/components/_common/Overlay'
 import ClientOnly from '@/components/ClientOnly'
 import { replaceUrl } from '@/lib/utils/replaceUrl'
+import PageLayout from '@/components/_common/PageLayout'
+import { ICommonLayout } from '@/lib/types/commonLayout'
 
 import Content from './Content'
-import PageLayout from '@/components/_common/PageLayout'
-import { NavWrapper, StyledHeaderTitle } from './RoomServices.styles'
+import { NavWrapper, StyledHeaderTitle, Logo, StyledContentHeaderTitle } from './RoomServices.styles'
 import { getCategoriesMock } from './mock'
 
 interface Props {
   blok: HotelInfoContent
   blokConfig: HotelConfigContent
+  layoutNavigation?: ICommonLayout
   preview?: boolean
   category?: string
 }
@@ -37,7 +39,7 @@ export const SERVICES: Record<string, TabItem> = {
 
 const TabItems = Object.keys(SERVICES).map((k) => SERVICES[k])
 
-const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
+const RoomService = ({ blok, blokConfig, preview, category, layoutNavigation }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState(category || SERVICES.food.id)
   const [isLoading, setIsLoading] = useState(false)
@@ -64,12 +66,23 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
 
   return (
     <PageLayout
+      navLinks={layoutNavigation?.links}
       preview={preview}
       blokConfig={blokConfig}
       title={({ hasScrolled }) => (
         <HeaderTitle
           clickable={hasScrolled}
-          label={selectedCategory && hasScrolled ? SERVICES[selectedCategory].title : DEFAULT_LABEL}
+          label={
+            selectedCategory && hasScrolled ? (
+              SERVICES[selectedCategory].title
+            ) : (
+              <Logo
+                src={blokConfig?.hotelLogo?.filename}
+                alt={blokConfig?.hotelLogo?.name}
+                title={blokConfig?.hotelLogo?.name}
+              />
+            )
+          }
           onClick={() => setIsOpen(true)}
         />
       )}>
@@ -91,6 +104,7 @@ const RoomService = ({ blok, blokConfig, preview, category }: Props) => {
       <Overlay isOpen={isLoading}>
         <LoadingIndicator size="lg" />
       </Overlay>
+      <StyledContentHeaderTitle label="Room Service" />
       <Content
         menus={menus}
         blok={blok}

@@ -4,7 +4,7 @@ import getLocalizedPaths from '@/lib/utils/getLocalizedPaths'
 
 import LanguagesContext from '@/lib/context/LanguagesContext'
 
-import Layout from '@/components/Layout'
+import Layout from '@/components/DefaultLayout'
 import SEO from '@/components/SEO'
 import HotelInformation from '@/components/HotelInformation'
 
@@ -19,10 +19,12 @@ interface Props {
   preview?: boolean
 }
 
+const TITLE = 'Hotel Information'
+
 const HotelInformationPage = ({ allLangs, hotelInfo, hotelConfig, preview }: Props) => {
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout hotelConfig={hotelConfig} preview={preview}>
+      <Layout title={TITLE} hotelConfig={hotelConfig} preview={preview}>
         <SEO title={`Welcome to ${hotelConfig?.content?.hotelName}`} hotelConfig={hotelConfig} />
 
         <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />

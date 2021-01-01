@@ -20,17 +20,29 @@ type Params = {
 interface Props {
   allLangs: string[]
   hotelConfig?: HotelConfigProps
+  guestServiceProps?: GuestServiceProps
   guestServiceItem?: GuestService
   preview?: boolean
   params?: Params
 }
 
-const GuestServiceItemPage = ({ allLangs, guestServiceItem, hotelConfig, preview }: Props) => {
+const GuestServiceItemPage = ({
+  allLangs,
+  guestServiceItem,
+  hotelConfig,
+  preview,
+  guestServiceProps
+}: Props) => {
   return (
     <LanguagesContext.Provider value={allLangs}>
       <Layout hotelConfig={hotelConfig} preview={preview}>
         <SEO title="Room Services" hotelConfig={hotelConfig} />
-        <GuestServiceItem blok={guestServiceItem} blokConfig={hotelConfig?.content} preview={preview} />
+        <GuestServiceItem
+          blok={guestServiceItem}
+          guestServiceProps={guestServiceProps}
+          blokConfig={hotelConfig?.content}
+          preview={preview}
+        />
       </Layout>
     </LanguagesContext.Provider>
   )
@@ -54,5 +66,5 @@ export const getStaticProps: GetStaticProps = async ({ preview = null, params })
   }
   const allLangs = ['en', ...langCodes]
 
-  return { props: { allLangs, hotelConfig, guestServiceItem, preview } }
+  return { props: { allLangs, hotelConfig, guestServiceItem, guestServiceProps: guestService, preview } }
 }

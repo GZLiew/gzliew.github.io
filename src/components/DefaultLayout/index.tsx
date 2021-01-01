@@ -5,8 +5,11 @@ import Header from '@/components/Header'
 import BottomTabs from '@/components/BottomTabs'
 
 type Props = React.ComponentProps<typeof Layout>
+type ExtraProps = {
+  title?: string
+}
 
-const DefaultLayout = ({ children, ...rest }: Props) => {
+const DefaultLayout = ({ children, title, ...rest }: Props & ExtraProps) => {
   return (
     <Layout {...rest}>
       {({ preview, navLinks, hotelConfig }) => {
@@ -15,6 +18,7 @@ const DefaultLayout = ({ children, ...rest }: Props) => {
           <div className="min-h-screen">
             <Alert preview={preview} />
             <Header
+              title={title}
               navLinks={links}
               hotelLogo={hotelConfig?.content?.hotelLogo}
               hotelLogoDark={hotelConfig?.content?.hotelLogoDark}

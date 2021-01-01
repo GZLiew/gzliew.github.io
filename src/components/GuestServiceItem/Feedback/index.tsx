@@ -38,7 +38,7 @@ const Feedback = ({ blok }: Props) => {
           )
         })}
         name="feedback"
-        rows={10}
+        rows={14}
         placeholder={blok?.data?.placeholder}
       />
       <FeedbackSubmitButton onClick={handleSubmit(onSubmit)} withIcon size="medium">

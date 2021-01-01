@@ -17,11 +17,13 @@ interface Props {
   preview?: boolean
 }
 
+const TITLE = 'Hotel Information'
+
 export default function HotelInformationPage({ allLangs, hotelConfig, hotelInfo, preview }: Props) {
   return (
     <LanguagesContext.Provider value={allLangs}>
-      <Layout hotelConfig={hotelConfig} preview={preview}>
-        <SEO title="Hotel Information" hotelConfig={hotelConfig} />
+      <Layout title={TITLE} hotelConfig={hotelConfig} preview={preview}>
+        <SEO title={TITLE} hotelConfig={hotelConfig} />
 
         <HotelInformation blok={hotelInfo?.content} blokConfig={hotelConfig?.content} />
       </Layout>

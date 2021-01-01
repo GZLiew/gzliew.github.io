@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import { HotelConfigContent } from '@/lib/types/hotelConfig'
-import { GuestService } from '@/lib/types/guestService'
-import HeaderTitle from '@/components/_common/HeaderTitle'
+import { GuestService, GuestServiceProps } from '@/lib/types/guestService'
 import PageLayout from '@/components/_common/PageLayout'
 
 import Now from './Now'
@@ -16,13 +15,14 @@ import { Center, PageContainer } from './GuestServiceItem.styles'
 interface Props {
   blok: GuestService
   blokConfig: HotelConfigContent
+  guestServiceProps?: GuestServiceProps
   preview?: boolean
   category?: string
 }
 
 const DEFAULT_LABEL = 'Service Not Found'
 
-const GuestServiceItem = ({ blok, blokConfig, preview }: Props) => {
+const GuestServiceItem = ({ blok, blokConfig, preview, guestServiceProps }: Props) => {
   let Content: ReactNode = <Center>{DEFAULT_LABEL}</Center>
 
   switch (blok?.data?.selected) {
@@ -46,12 +46,8 @@ const GuestServiceItem = ({ blok, blokConfig, preview }: Props) => {
   }
 
   return (
-    <PageLayout
-      preview={preview}
-      blokConfig={blokConfig}
-      title={() => (
-        <HeaderTitle label={<IconLabel icon={blok?.icon} label={blok?.label || DEFAULT_LABEL} />} />
-      )}>
+    <PageLayout preview={preview} blokConfig={blokConfig} title={guestServiceProps?.content?.headerTitle}>
+      <IconLabel icon={blok?.icon} label={blok?.label || DEFAULT_LABEL} />
       <PageContainer>{Content}</PageContainer>
     </PageLayout>
   )

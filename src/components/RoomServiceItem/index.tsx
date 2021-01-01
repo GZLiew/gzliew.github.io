@@ -5,7 +5,7 @@ import { HotelInfoContent } from '@/lib/types/roomService'
 import PageLayout from '@/components/_common/PageLayout'
 
 import HeaderTitle from '@/components/_common/HeaderTitle'
-import { SmallText, NotFoundContainer } from './RoomServiceItem.styles'
+import { NotFoundContainer } from './RoomServiceItem.styles'
 import Content from './Content'
 
 interface Props {
@@ -22,8 +22,7 @@ const RoomServiceItem = ({ preview, blokConfig, blok }: Props) => {
     <PageLayout
       preview={preview}
       blokConfig={blokConfig}
-      title={({ hasScrolled }) => hasScrolled && <HeaderTitle label={label} />}
-      rightElement={<SmallText>customisable</SmallText>}>
+      title={({ hasScrolled }) => hasScrolled && <HeaderTitle label={label} />}>
       {!blok.roomServiceItem && <NotFoundContainer>{label}</NotFoundContainer>}
       {blok.roomServiceItem && (
         <Content blokConfig={blokConfig} blok={blok} roomServiceItem={blok.roomServiceItem} />

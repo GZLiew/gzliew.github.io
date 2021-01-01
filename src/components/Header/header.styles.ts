@@ -45,7 +45,8 @@ export const HeaderBackground = styled.div<{ hasScrolled: boolean }>`
 `
 
 export const HeaderCenterContent = styled.div`
-  ${xw`flex flex-grow justify-center items-center`}
+  ${xw`flex flex-grow justify-center items-center text-lg font-bold`}
+  color: ${({ theme }) => theme.colors.text.primary}
 `
 
 export const ContentContainer = styled.header`

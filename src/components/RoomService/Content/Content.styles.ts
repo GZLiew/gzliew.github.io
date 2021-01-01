@@ -11,14 +11,15 @@ export const TncWrapper = styled.div`
 `
 
 export const MenuWrapper = styled.div`
-  ${xw`pt-4 text-center text-sm`}
+  ${xw`pt-4 text-center text-sm pb-24`}
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
   background: ${({ theme }) => theme.colors.menuBackground};
 `
 
 export const StickyFooterWrapper = styled.div`
-  ${xw`sticky bottom-0 py-4 px-5 w-full flex flex-row justify-between items-center`}
+  ${xw`sticky py-4 px-5 w-full flex flex-row justify-between items-center`}
+  bottom: 6.5rem;
   background: ${({ theme }) => theme.colors.footer.background};
   box-shadow: ${({ theme }) => theme.colors.footer.boxShadow};
   color: ${({ theme }) => theme.colors.text.alternate};

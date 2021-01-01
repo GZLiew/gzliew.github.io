@@ -7,6 +7,11 @@ type NavWrapperProps = {
   borderBottom?: boolean
 }
 
+export const StyledContentHeaderTitle = styled(HeaderTitle)`
+  ${xw`text-2xl my-6 relative justify-center font-semibold`}
+  color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')}
+`
+
 export const NavWrapper = styled.div<NavWrapperProps>`
   ${xw`p-4 flex flex-col items-center justify-around relative`}
   ${({ theme, borderBottom }) =>
@@ -19,4 +24,8 @@ export const NavWrapper = styled.div<NavWrapperProps>`
 
 export const StyledHeaderTitle = styled(HeaderTitle)`
   ${xw`static transform-none`}
+`
+
+export const Logo = styled.img`
+  max-width: 45px;
 `
