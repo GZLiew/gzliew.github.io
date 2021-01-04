@@ -26,7 +26,7 @@ import {
 interface Props {
   content: HomeContent
   blokConfig: HotelConfigContent
-  navigationContent: ICommonLayout
+  navigationContent?: ICommonLayout
 }
 
 const Home = ({ content, navigationContent }: Props) => {
