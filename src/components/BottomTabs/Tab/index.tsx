@@ -25,6 +25,10 @@ const Tab = ({ item }: Props) => {
     return router.push(resolvedUrl)
   }
 
+  if (!item) {
+    return null
+  }
+
   return (
     <TabContainer isFocused={isFocused} onClick={() => onTabClick(url)}>
       <IconContainer>

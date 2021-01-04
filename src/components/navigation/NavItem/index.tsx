@@ -10,8 +10,13 @@ type Props = {
 }
 
 const NavItem = ({ item }: Props) => {
-  const { iconName = 'question' } = item
-  const NavIcon = GalleryIcons[iconName]
+  const { iconName } = item
+  const NavIcon = GalleryIcons[iconName || 'question']
+
+  if (!item) {
+    return null
+  }
+
   return (
     <BaseLink storyblokLink={item?.url}>
       <NavItemContainer>

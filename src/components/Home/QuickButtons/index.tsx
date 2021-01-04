@@ -30,6 +30,10 @@ const QuickButton = ({ item, index = 0 }: Props) => {
     return router.push(resolvedLink)
   }
 
+  if (!item) {
+    return null
+  }
+
   return (
     <QuickButtonContainer onClick={() => onButtonPress(url)}>
       <IconContainer background={quickButtonIconBackgrounds[index % 3]}>

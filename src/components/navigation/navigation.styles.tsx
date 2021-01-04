@@ -25,8 +25,12 @@ export const StyledBottomSheet = styled(BottomSheet)`
     flex-col 
     px-6
     pt-8
+    pb-8
     text-center 
     rounded-t-3xl
   `}
+  @media (min-width: 640px) {
+    padding-bottom: 8rem;
+  }
   color: ${({ theme }) => (theme.mode === 'light' ? 'black' : 'white')};
 `
