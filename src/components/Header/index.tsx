@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, ReactNode } from 'react'
+import { useState, useEffect, useRef, ReactNode, useCallback } from 'react'
 import { useTheme } from '@emotion/react'
 import { isFunction, throttle } from 'lodash'
 import { useRouter } from 'next/router'
@@ -18,8 +18,7 @@ import BackIcon from '@/assets/icons/wt-ic-back'
 
 import { HotelLogo } from '@/lib/types/hotelConfig'
 import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
-
-import { useHeaderHeight } from '@/components/Providers/HeaderHeightProvider'
+import { useHeaderHeight } from '@/lib/stores/useHeaderHeight'
 
 type TitleProps = Omit<Props, 'title'> & { hasScrolled?: boolean }
 export type Title = ((props: TitleProps) => ReactNode) | ReactNode
@@ -37,7 +36,7 @@ const Header = (props: Props) => {
   const { hotelLogo, hotelLogoDark } = titleProps
   const theme = useTheme()
   const router = useRouter()
-  const { setHeaderHeight } = useHeaderHeight()
+  const dispatch = useHeaderHeight(useCallback((state) => state.dispatch, []))
   const validHomePaths = [
     '/',
     '/home',
@@ -65,7 +64,7 @@ const Header = (props: Props) => {
 
   useEffect(() => {
     if (ref.current) {
-      setHeaderHeight(ref.current.offsetHeight)
+      dispatch({ type: 'SET_HEIGHT', height: ref.current.offsetHeight })
     }
   }, [])
 

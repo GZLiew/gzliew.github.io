@@ -8,7 +8,6 @@ import AppTranslations from '@/lib/translations'
 import brandColors from '@/lib/theme/brandColors'
 import { HotelConfigProps } from '@/lib/types/hotelConfig'
 import { ILayoutNavigationLink } from '@/lib/types/commonLayout'
-import HeaderHeightProvider from '@/components/Providers/HeaderHeightProvider'
 
 import GlobalStyles from './GlobalStyles'
 import FallbackLoader from '../FallbackLoader'
@@ -39,12 +38,10 @@ const Layout = (props: Props) => {
             secondary: brandColor.secondary
           }
         }}>
-        <HeaderHeightProvider>
-          <FallbackLoader>
-            <GlobalStyles />
-            {isFunction(children) ? children(childrenProps) : children}
-          </FallbackLoader>
-        </HeaderHeightProvider>
+        <FallbackLoader>
+          <GlobalStyles />
+          {isFunction(children) ? children(childrenProps) : children}
+        </FallbackLoader>
       </ThemeProvider>
     </IntlProvider>
   )

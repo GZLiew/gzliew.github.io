@@ -1,5 +1,5 @@
 import StickyTabs from '@/components/_common/StickyTabs'
-import { useHeaderHeight } from '@/components/Providers/HeaderHeightProvider'
+import { useHeaderHeight } from '@/lib/stores/useHeaderHeight'
 import { IMenu } from '@/lib/types/roomService'
 
 import Menu from '../Menu'
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Menus = ({ menus, category }: Props) => {
-  const { headerHeight } = useHeaderHeight()
+  const headerHeight = useHeaderHeight((state) => state.headerHeight)
 
   return (
     <>
