@@ -22,6 +22,7 @@ export interface IHotelLocation extends SbEditableContent {
   city: string
   lat: string
   lng: string
+  address: string
 }
 
 export interface IHotelRating extends SbEditableContent {

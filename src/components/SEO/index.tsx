@@ -30,8 +30,8 @@ const SEO = ({ title, hotelConfig }: Props) => {
       ) : (
         <meta property="og:image" content={HOME_OG_IMAGE_URL} key="ogImage" />
       )}
-      {hotelConfig?.content?.primaryColor && (
-        <meta name="theme-color" content={hotelConfig?.content?.primaryColor} />
+      {hotelConfig?.content?.brandColor?.primary && (
+        <meta name="theme-color" content={hotelConfig?.content?.brandColor?.primary} />
       )}
     </Head>
   )

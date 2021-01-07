@@ -29,7 +29,8 @@ export async function getHotelConfiguration(preview: boolean, language?: string)
           filename
         }
         hotelName
-        primaryColor
+        brandColor
+        timezone
         theme
         seoDescription
         seoBannerImage {

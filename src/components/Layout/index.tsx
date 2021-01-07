@@ -25,7 +25,7 @@ interface Props {
 const Layout = (props: Props) => {
   const { children, ...childrenProps } = props
   const { hotelConfig } = childrenProps
-  const brandColor = hotelConfig?.content?.primaryColor || 'blue'
+  const brandColor = hotelConfig?.content?.brandColor || brandColors.blue
   const languageChosen = hotelConfig?.lang === 'default' || !hotelConfig?.lang ? 'en' : hotelConfig.lang
   const currentAppLocale = AppTranslations[languageChosen]
 
@@ -35,8 +35,8 @@ const Layout = (props: Props) => {
         theme={{
           ...(hotelConfig?.content?.theme === 'light' ? light : dark),
           brandColors: {
-            primary: brandColors[brandColor].primary,
-            secondary: brandColors[brandColor].secondary
+            primary: brandColor.primary,
+            secondary: brandColor.secondary
           }
         }}>
         <HeaderHeightProvider>
