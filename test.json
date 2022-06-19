@@ -1,8 +1,8 @@
 [
   {
-    "id": "7CB6F7A3-0AEC-43C7-8951-522BDC201336",
-    "element": "Checkboxes",
-    "text": "Checkboxes",
+    "id": "90EEF3DD-9D32-4C85-AC47-CF12E302619A",
+    "element": "Dropdown",
+    "text": "Dropdown",
     "required": false,
     "canHaveAnswer": true,
     "canHavePageBreakBefore": true,
@@ -10,31 +10,31 @@
     "canHaveDisplayHorizontal": true,
     "canHaveOptionCorrect": true,
     "canHaveOptionValue": true,
-    "field_name": "checkboxes_C8A9ED71-5A86-4A59-99CD-16D24AAC7143",
+    "canPopulateFromApi": true,
+    "field_name": "dropdown_DA3EA756-3BD1-43E9-BDC7-E081547352C4",
     "label": "Placeholder Label",
     "options": [
       {
         "value": "place_holder_option_1",
         "text": "Place holder option 1",
-        "key": "checkboxes_option_5CEF543D-BCDB-41B2-8873-74C2C89A8D95"
+        "key": "dropdown_option_B452D4C2-29D7-4C42-918C-57A5143B1A35"
       },
       {
         "value": "place_holder_option_2",
         "text": "Place holder option 2",
-        "key": "checkboxes_option_F6220B45-6271-4C41-B48F-301E86C35CA9"
+        "key": "dropdown_option_FFF10CDD-ABD2-473A-B2FA-8AF45348805E"
       },
       {
         "value": "place_holder_option_3",
         "text": "Place holder option 3",
-        "key": "checkboxes_option_046C962E-AEFC-4E27-9E78-3D26347EBC13"
+        "key": "dropdown_option_026A72AB-7AC1-4A77-BAE7-26E9C290B769"
       }
     ]
   },
-  null,
   {
-    "id": "90A92F90-875C-48F7-9280-A06B1D437339",
-    "element": "TextInput",
-    "text": "Text Input",
+    "id": "DB1E44E3-7DD3-4D0E-A7B2-EDB4AB605D30",
+    "element": "RadioButtons",
+    "text": "Multiple Choice",
     "required": false,
     "canHaveAnswer": true,
     "canHavePageBreakBefore": true,
@@ -42,38 +42,41 @@
     "canHaveDisplayHorizontal": true,
     "canHaveOptionCorrect": true,
     "canHaveOptionValue": true,
-    "field_name": "text_input_C3F0D24C-B382-4ACF-B256-97F72D4A445D",
-    "label": "Placeholder Label"
-  },
-  {
-    "id": "27228E73-3A65-4F49-B715-3E4741EC49BD",
-    "element": "Checkboxes",
-    "text": "Checkboxes",
-    "required": false,
-    "canHaveAnswer": true,
-    "canHavePageBreakBefore": true,
-    "canHaveAlternateForm": true,
-    "canHaveDisplayHorizontal": true,
-    "canHaveOptionCorrect": true,
-    "canHaveOptionValue": true,
-    "field_name": "checkboxes_87B7557C-AB07-498A-89AA-FC209132595C",
+    "canPopulateFromApi": true,
+    "field_name": "radiobuttons_4FDEB68B-DA42-4A9B-8F03-216B12667913",
     "label": "Placeholder Label",
     "options": [
       {
         "value": "place_holder_option_1",
         "text": "Place holder option 1",
-        "key": "checkboxes_option_403C1F97-622B-4580-A5B1-7096479767BE"
+        "key": "radiobuttons_option_F5481994-6EB1-4D66-9E52-C613520EAA45"
       },
       {
         "value": "place_holder_option_2",
         "text": "Place holder option 2",
-        "key": "checkboxes_option_E8C0A25B-275C-4A30-8F1C-007C520E1F20"
+        "key": "radiobuttons_option_2978AC56-2B99-4168-9EB6-7C3F89167ACD"
       },
       {
         "value": "place_holder_option_3",
         "text": "Place holder option 3",
-        "key": "checkboxes_option_0889CAE1-556E-4E47-9978-5BAF60BAAED9"
+        "key": "radiobuttons_option_89FFBD5F-1966-4793-9AF6-1D00FDE94838"
       }
     ]
+  },
+  {
+    "id": "9E20B933-F571-476C-89DE-C275C547CB2D",
+    "element": "Label",
+    "text": "Label",
+    "static": true,
+    "required": false,
+    "bold": false,
+    "italic": false,
+    "content": "Placeholder Text...",
+    "canHavePageBreakBefore": true,
+    "canHaveAlternateForm": true,
+    "canHaveDisplayHorizontal": true,
+    "canHaveOptionCorrect": true,
+    "canHaveOptionValue": true,
+    "canPopulateFromApi": true
   }
 ]
