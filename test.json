@@ -1,0 +1,79 @@
+[
+  {
+    "id": "7CB6F7A3-0AEC-43C7-8951-522BDC201336",
+    "element": "Checkboxes",
+    "text": "Checkboxes",
+    "required": false,
+    "canHaveAnswer": true,
+    "canHavePageBreakBefore": true,
+    "canHaveAlternateForm": true,
+    "canHaveDisplayHorizontal": true,
+    "canHaveOptionCorrect": true,
+    "canHaveOptionValue": true,
+    "field_name": "checkboxes_C8A9ED71-5A86-4A59-99CD-16D24AAC7143",
+    "label": "Placeholder Label",
+    "options": [
+      {
+        "value": "place_holder_option_1",
+        "text": "Place holder option 1",
+        "key": "checkboxes_option_5CEF543D-BCDB-41B2-8873-74C2C89A8D95"
+      },
+      {
+        "value": "place_holder_option_2",
+        "text": "Place holder option 2",
+        "key": "checkboxes_option_F6220B45-6271-4C41-B48F-301E86C35CA9"
+      },
+      {
+        "value": "place_holder_option_3",
+        "text": "Place holder option 3",
+        "key": "checkboxes_option_046C962E-AEFC-4E27-9E78-3D26347EBC13"
+      }
+    ]
+  },
+  null,
+  {
+    "id": "90A92F90-875C-48F7-9280-A06B1D437339",
+    "element": "TextInput",
+    "text": "Text Input",
+    "required": false,
+    "canHaveAnswer": true,
+    "canHavePageBreakBefore": true,
+    "canHaveAlternateForm": true,
+    "canHaveDisplayHorizontal": true,
+    "canHaveOptionCorrect": true,
+    "canHaveOptionValue": true,
+    "field_name": "text_input_C3F0D24C-B382-4ACF-B256-97F72D4A445D",
+    "label": "Placeholder Label"
+  },
+  {
+    "id": "27228E73-3A65-4F49-B715-3E4741EC49BD",
+    "element": "Checkboxes",
+    "text": "Checkboxes",
+    "required": false,
+    "canHaveAnswer": true,
+    "canHavePageBreakBefore": true,
+    "canHaveAlternateForm": true,
+    "canHaveDisplayHorizontal": true,
+    "canHaveOptionCorrect": true,
+    "canHaveOptionValue": true,
+    "field_name": "checkboxes_87B7557C-AB07-498A-89AA-FC209132595C",
+    "label": "Placeholder Label",
+    "options": [
+      {
+        "value": "place_holder_option_1",
+        "text": "Place holder option 1",
+        "key": "checkboxes_option_403C1F97-622B-4580-A5B1-7096479767BE"
+      },
+      {
+        "value": "place_holder_option_2",
+        "text": "Place holder option 2",
+        "key": "checkboxes_option_E8C0A25B-275C-4A30-8F1C-007C520E1F20"
+      },
+      {
+        "value": "place_holder_option_3",
+        "text": "Place holder option 3",
+        "key": "checkboxes_option_0889CAE1-556E-4E47-9978-5BAF60BAAED9"
+      }
+    ]
+  }
+]
